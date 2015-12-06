@@ -1,14 +1,1112 @@
+<!DOCTYPE html>
 <html>
-<body>
-Introduction to Autonomous Robotics is currently being improved.  
+<head>
+    <meta charset="utf-8">
+    <title>UM EECS 398-002 - Introduction to Autonomous Robotics</title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+
+    <!-- Combo with CSSNormalize, CSSGrids-Responsive, CSSForm, CSSTable, CSSList (v3.9.1) -->
+<!--
+!!! download local copies
+    <link rel="stylesheet" href="http://yui.yahooapis.com/combo?3.9.1/build/cssnormalize/cssnormalize-min.css&amp;3.9.1/build/cssgrids-responsive/cssgrids-responsive-min.css&amp;3.9.1/build/cssbutton/cssbutton-min.css&amp;gallery-2013.03.27-22-06/build/gallerycss-csslist/gallerycss-csslist-min.css&amp;gallery-2013.03.27-22-06/build/gallerycss-csstable/gallerycss-csstable-min.css&amp;gallery-2013.03.27-22-06/build/gallerycss-cssform/gallerycss-cssform-min.css">
+-->
+    <link rel="stylesheet" href="resources/yahoo_cssbutton-min.css">
+    <link rel="stylesheet" href="resources/yahoo_gallerycss-cssform-min.css">
+    <link rel="stylesheet" href="resources/yahoo_cssgrids-responsive-min.css">
+    <link rel="stylesheet" href="resources/yahoo_gallerycss-csslist-min.css">
+    <link rel="stylesheet" href="resources/yahoo_cssnormalize-min.css">
+    <link rel="stylesheet" href="resources/yahoo_gallerycss-csstable-min.css">
+
+    <!-- Some custom styles to make things pretty. -->
+<!--
+!!! download local copies
+    <link rel="stylesheet" type="text/css" href="https://rawgithub.com/tilomitra/prettypages/gh-pages/ui.css">
+-->
+    <link rel="stylesheet" type="text/css" href="resources/ui.css">
+
+    <!-- RainbowJS Syntax Highlighting - Github Theme. 
+         For more themes, go to https://github.com/ccampbell/rainbow/tree/master/themes -->
+<!--
+!!! download local copies
+    <link rel="stylesheet" type="text/css" href="https://rawgithub.com/ccampbell/rainbow/master/themes/github.css">
+-->
+    <link rel="stylesheet" type="text/css" href="resources/rainbow_github.css">
+
+
+    <!-- Modify header colors here to customize the look and feel of the site-->
+    <style>
+        
+        .header {
+            background: rgb(0, 39, 76);
+         }
+            .header h1 {
+                color: white;
+            }
+             .header h2 {
+                 font-weight:300;
+                 margin:0;
+                 color: rgb(116, 130, 230);
+             }
+    </style>
+
+</head>
+
+<body class='yui3-skin-sam'>
+
+    <div id="headerMenu" class="yui3-menu yui3-menu-open yui3-menu-horizontal yui3-menu-fixed">
+        <span class="yui3-menu-heading">EECS398-002</span>
+        <ul>
+            <li class="yui3-menu-active"><a href="#schedule">schedule</a></li>
+            <li><a href="not_released_yet">kineval</a></li>
+            <!-- 
+            <li><a href="https://github.com/odestcj/kineval_stencil">kineval_stencil</a></li>
+            -->
+            Assignments:
+            <li><a href="#assignment1">1</a></li>
+            <li><a href="#assignment2">2</a></li>
+            <li><a href="#assignment3">3</a></li>
+            <li><a href="#assignment4">4</a></li>
+            <li><a href="#assignment5">5</a></li>
+            <li><a href="#assignment6">6</a></li>
+            <li><a href="#assignment7">7</a></li>
+<!--
+-->
+        </ul>
+    </div>
+    <div class="header yui3-u-1">
+
+        <h1 class="yui3-u-1">UM EECS 398-002</h1>
+        <h2 class="yui3-u">Introduction to Autonomous Robotics</h2>
+        <br>
+        <h2 class="yui3-u">Winter 2016</h2>
+
+     </div>
+    <div class="content">
+<p>
+<center>
+<img width=100% src="images/um_fetch.jpg">
+</center>
+
+
+<p>
+<h2> Under Construction </h1> 
+The AutoRob course site is still in preparation for Winter 2016.  AutoRob will be an improved version of <a href="http://browncs148.github.io/">CS 148</a> previously taught at Brown University, following a similar structure.  A complementary graduate version of AutoRob at the 500-level is also planned to be offered at the same meeting time and location.  While the course is being prepared, some preliminary materials and syllabus are available below... as well some recent pics from our Fetch robot grabbing some lunch (courtesy Michael DeVries @MikeTDeVries):
+</p>
+
+<a href="https://twitter.com/MikeTDeVries/status/671391942631153665">
+<img width=100% src="images/umdining_fetch.png">
+</a>
+ 
+
+
+        <h2>Introduction</h2>
+
+<p>
+Introduction to Autonomous Robotics (AutoRob) is an introduction to core topics in the modeling and control of autonomous robots. The AutoRob course can be thought of as the foundation to build “brains for robots”. That is, given a robot as a machine with sensing, actuation, and computation, how do we develop programs that allow the robot to function autonomously? Such programs involve functions for robots to perceive the world, make decisions towards achieving a given objective, and transforming decided actions into motor commands.  These functions are essential for modern robotics, especially for mobile manipulators such as the pictured <a href="http://fetchrobotics.com/research/">Fetch</a> and <a href="https://www.willowgarage.com/pages/pr2/overview">PR2</a> robots.
+</p>
+
+<p>
+The AutoRob course focuses on the issues of modeling and control for autonomous robots with an emphasis on manipulation and mobility.  Successful completion of AutoRob will result in code modules for "mobile pick-and-place".  That is, given a robot and perception of the robot's environment, resulting code modules can enable the robot to pick up an object at an arbitrary location and place the object in a new location.
+</p>
+
+<!--
+Caveats: robot will perform suboptimally based on rrt-planner, no self-collision checking, assume object is graspable and pickable, need grasp planner, no respect for joint motor and angle limits, translate between ROS
+-->
+
+
+<p>
+AutoRob projects ground course concepts through implementation in JavaScript/HTML5 supported by the KinEval code stencil (snapshot below from Mozilla Firefox).  These projects will cover basic physical simulation (Lagrangian dynamics, numerical integrators), proportional-integral-derivative control, forward kinematics (3D geometric matrix transforms, matrix stack composition of transforms, axis-angle rotation by quaternions), inverse kinematics, (gradient descent optimization, Jacobians for velocity kinematics), and motion planning (simple collision detection, sample-based motion planning).  Optional non-project topics will be covered for A* planning, potential field navigation, Bayesian filtering, Monte Carlo localization, and Newton-Euler dynamics.  
+</p>
+
+<img width=100% src="images/kineval_fetch.png">
+
+<p>
+AutoRob projects will roughly follow conventions and structures from the <a href="http://ros.org">Robot Operating System (ROS)<a> and <a href="https://github.com/RobotWebTools">Robot Web Tools (RWT)</a> software frameworks, as currently used on the Fetch and PR2 robots.  These conventions include the URDF kinematic modeling format, ROS topic structure, JSON-based messaging.
+
+Kineval uses <a href="http://threejs.org/">threejs</a> for in-browser 3D rendering and <a href="http://numericjs.com">Numeric Javascript</a> for select matrix routines.  Auxiliary code examples and stencils will often use the <a href="http://jsfiddle.net/">jsfiddle</a> development environment.    
+</p>
+
+<h3>Related Courses</h3>
+
+<p>
+AutoRob is a computing-friendly pathway into robotics, but does not cover the whole of robotics.  The scope of AutoRob is robot modeling and control, which is well-suited as preparation for a Major Design Experience in EECS 467 (Autonomous Robotics Laboratory).  ME 567 (Robot Kinematics and Dynamics) and AutoRob share coverage of many similar topics, with ME 567 providing more in-depth mathematical analysis and usage of Denavit-Hartenberg parameters.  
+</p>
+
+<p>
+AutoRob is also a complement to courses covering perception (EECS 598 Mobile Robotics, EECS 442 Computer Vision), robot building (EECS 498 Hands-on Robotics, ME 552 Mechatronics), robot simulation (ME 543 Analytical and Computational Dynamics), controls systems (EECS 460 Control Systems Analysis and Design, EECS 461 Embedded Control Systems), and artificial intelligence (EECS 492 Introduction to Artificial Intelligence), as well as general graduate courses in robotics (ROB 501 Math for Robotics, ROB 550 Robotic Systems Laboratory).  
+</p>
+
+<p>
+
+<h2>Instructor</h2>
+
+<p><a href="http://web.eecs.umich.edu/~ocj">Chad Jenkins</a> 
+<br>
+ocj addrsign umich
+<br>
+Office: Beyster 3644
+</p>
+
+<h3>Office Hours</h3> 
+<p>
+Monday 3:30-5pm
+<br>
+Thursday 1-3 (when not conflicting with travel)
+</p>
+
+<h2>Meeting time/place</h2>
+<p>
+Monday, Wednesday 1:30-3:00 
+<br>DOW 2166
+</p>
+
+<h2>Mailing list</h2>
+
+<p>
+<a href="TBD">In preparation</a>
+
+<h2>Prerequisites</h2> 
+
+<p>
+This course has recommended prerequisites for "Linear Algebra" and "Data Structures and Algorithms", or permission from the instructor.
+</p>
+
+<p>
+Programming proficiency: EECS 281 or proficiency in data structures and algorithms should provide an adequate programming background for the projects in this course.  Interested students should consult with the course instructor if they have not taken EECS 281 or its equivalent, but have some other strong programming experience.
+</p>
+
+<p>
+Mathematical proficiency: Math 214, 217, 417, 419 or proficiency in linear algebra should provide an adequate mathematical background for the projects in this course.  Interested students should consult with the course instructor if they have not taken one of the listed courses or their equivalent, but have some other strong background with linear algebra.
+</p>
+
+<p>
+Recommended optional proficiency: Differential equations, Computer graphics, Computer vision, Artificial Intelligence
+</p>
+
+<p>
+The instructor will do their best to cover the necessary material, but no guarantees.  Linear algebra will be used extensively in relation to 3D geometric transforms and systems of linear equations.  Computer graphics is helpful for under-the-hood understanding of threejs.  Computer vision and AI share common concepts with this course.  Differential equations are used to cover modeling of motion dynamics and inverse kinematics, but not explicitly required.
+</p>
+
+<h2>Textbook</h2>
+<p>
+<a href="http://bcs.wiley.com/he-bcs/Books?action=index&itemId=0471649902&bcsId=2888"><b>Robot Modeling and Control</b></a>
+<br>
+Mark W. Spong, Seth Hutchinson, and M. Vidyasagar
+<br>
+Wiley, 2005 
+<br>
+<a href="http://www.amazon.com/Robot-Modeling-Control-Mark-Spong/dp/0471649902">Available at Amazon</a>
+
+<p>
+<h3>Optional texts</h3>
+<p>
+
+<a href="http://shop.oreilly.com/product/9780596517748.do"><b>JavaScript: The Good Parts</b></a>
+<br>
+Douglas Crockford
+<br>
+O'Reilly Media / Yahoo Press, 2008
+
+<p>
+<a href="http://mitpress.mit.edu/books/principles-robot-motion"><b>Principles of Robot Motion</b></a>
+<br>
+Howie Choset, Kevin M. Lynch, Seth Hutchinson, George A. Kantor, Wolfram Burgard, Lydia E. Kavraki, and Sebastian Thrun
+<br>
+MIT Press, 2005
+
+<p>
+<a href="http://www.springer.com/us/book/9783642201431"><b>Robotics, Vision and Control: Fundamental Algorithms in MATLAB</b></a>
+<br>
+Peter Corke
+<br>
+Springer, 2011
+
+
+<h2>Projects and Grading</h2>
+
+<p>
+There will be 7 projects (6 programming, 1 oral) and 4 quizzes in AutoRob.  AutoRob projects are graded as “checked” (completed) or “due” (incomplete). Prior to being assigned, upcoming projects will have the status of "pending."  In terms of workload, each project is expected to take approximately 4 hours of work on average (as a rough estimate).  
+</p>
+
+<p>
+Each quiz will consist of 5 short questions that will be within the scope of previously graded projects.  In other words, each quiz question should be readily answerable given knowledge from correctly completing projects that have been assigned.
+</p>
+
+<!--???<a href="https://www.michigandaily.com/content/viewpoint-qwizdom-can-help">pop quiz</a>--> 
+
+<p>
+Individual grading of coursework is based on the sum of points earned such that each completed project is worth 13 points and each correctly answered quiz question is worth 1 point.  Based on this sum, an overall grade for the course is earned as follows: An "A" grade in the course is earned if graded coursework sums to 93 points or above; A "B" grade in the course is earned if graded coursework sums to 83 points or above; a "C" grade in the course is earned if graded coursework sums to 73 points or above.  The instructor reserves the option to assign appropriate course grades with plus or minus modifiers.
+</p>
+
+<p>
+The timing and due dates for course projects and quizzes will be announced on an ongoing basis.  All assignments checked by the end of classes.
+</p>
+
+<h3>Project Submission and Regrading</h3>
+
+<p>
+Git repositories will be used for project implementation, version control, and submission. Project implementations are submitted as branches in your assigned repository. These branches must be submitted prior to the due date for each assignment. Your implementation will be checked out and executed by the course staff. You will be notified by the course staff whether your implementation is sufficient for checking off the assignment. If your assignment is insufficient for receiving a check, you are allowed one regrade (per assignment) with 2 weeks of notification. If deemed necessary, the course staff may require an interactive demonstration of your implementation and/or a web-based written report.
+</p>
+
+<h3>Final Grading</h3>
+
+<p>
+All grading will be finalized on April 22, 2016.  Regrading of specific assignments will be done upon request during office hours.  No regrading will be done after grades are finalized.
+
+<h3>Repositories</h3>
+
+<p>
+You are expected to provide a <b>private</b> git repository for your work in this course with the course instructor added as a read/write collaborator.  If needed, the course staff can assist in the setup of an online git repository through providers such as <a href="https://github.com/">github</a> or <a href="https://bitbucket.org/">bitbucket</a>.  
+
+<!--
+Your repository is expected to have the following subdirectories, at a minimum, as well as the file "grading.txt" with your updated course grading status:
+</p>
+
+<p class="indented">
+<b>p_project</b>: containing implementation and build and execution instructions for the preparatory project<br>
+<b>reviews</b>: containing reviews of assigned papers in plain text format<br> 
+<b>presentation</b>: containing paper presentation slides in PDF format<br>
+<b>proposal</b>: containing final project proposal in plain text format<br>
+<b>f_project</b>: containing final project implementation and slides (in PDF format) <br>
+</p> 
+-->
+
+<p>
+Please refer to the <a href="http://www.git-scm.com/book/en/v2">Pro Git book</a> for an in-depth introduction to git and version control.  As different people often learn through different styles, the <a href="http://www-cs-students.stanford.edu/~blynn/gitmagic/">Git Magic tutorial</a> has also proved quite useful when a different perspective is needed.  <a href="http://rogerdudler.github.io/git-guide/">git: the simple guide</a> has often been a great and accessible quick start resource. 
+</p>
+
+<p>
+We expect students to use these repositories for collaborative development as well as project submission. It is the responsibility of each student group to ensure their repository adheres to the Collaboration Policy and submission standards for each assignment. Submission standards and examples will be described for each assignment as needed.
+</p>
+
+<h3>Late Policy</h3>
+<p>
+Do not submit assignments late.  The course staff reserves the right to not grade late submissions.  
+
+
+<h3>Collaboration Policy</h3>
+<p>
+ This policy covers all course material and assignments unless otherwise stated. Course material, concepts, and documentation may be discussed with anyone.  Assignments may be discussed with the other students at the conceptual level.  Discussions may make use of a whiteboard or paper.  Discussions with others (or people outside of your assigned group) cannot include writing or debugging code on a computer or collaborative analysis of source code that is not your own. You may take notes away from these discussions, provided these notes do not include any source code.
+</p>
+
+<p>
+The code for your implementation may not be shown to anyone outside of your group, including granting access to repositories or careless lack of protection. You do not need to hide the screen from anyone, but you should not attempt to show anyone your code. When you are done using any robot device such that another group may use it, you must remove all code you have put onto the device. You may not share your code with others outside of your group. At any time, you may show others the implemented program running on a device or simulator, but you may not discuss specific debugging details about your code while doing so.
+</p>
+
+<p>
+This policy applies not only applies to collaboration during the current semester, but also any past or future instantiations of this course.  Although course concepts are intended for general use, your implementation for this course must remain private after the completion of the course.  It is expressly prohibited to share any code previously written and graded for this course with students currently enrolled in this course.  Similarly, it is expressly prohibited for any students currently enrolled in this course to refer to any code previously written and graded for this course.
+</p>
+
+<p>
+Should you fail to abide by this policy, you will receive no credit for this course.  The University of Michigan reserves the right to pursue any means necessary to ensure compliance. This includes, but is not limited to prosecution through The College of Engineering’s Honor Council, which can result in your suspension or expulsion from the University of Michigan.  Please refer to the <a href ="http://ossa.engin.umich.edu/honor-council/">Engineering Honor Council</a> for additional information.
+</p>
+
+<h2 id="schedule">Course Schedule (tentative and subject to change)</h2>
+
+<table cellpadding=5 border=0  width="100%">
+<tr bgcolor="#dddddd">     
+        <th style="width:70px"><b><center>Date</center></b></th> 
+        <th style="width:600px"><b><center>Topic</center></b></th>
+        <th style="width:200px"><b><center>Project</center></b></th>
+</tr>
+
+<tr>
+    <td><b>Jan 6</b></td>
+    <td>
+         <a href="slides will go here">Initialization</a>: Introduction, Motors, Rigid Bodies, and Sensors, Kinematics and Dynamics <br>
+    </td>
+    <td>Out: <a href="#assignment1">Getting Started</a></td> 
+</tr>
+
+<tr>
+    <td><b>Jan 8</b></td>
+    <td>
+         <a href="slides will go here">JavaScript and git tutorial</a> <br>
+    </td>
+    <td></td> 
+</tr>
+
+<tr bgcolor="#dddddd">     
+<td></td><td>Week 2</td><td></td>
+</tr>
+
+<tr>
+    <td><b>Jan 13</b></td>
+    <td>
+         <a href="slides will go here">Simple Pendulum</a>: Cartesian vs. Generalized coordinates, Lagrangian equation(s) of motion<br>
+    </td>
+    <td></td> 
+</tr>
+
+<tr>
+    <td><b>Jan 15</b></td>
+    <td>
+         <a href="slides will go here">Numerical Integrators</a>: Initial value problem, Integrators: Euler, Verlet, Runge-Kutta 4<br>
+    </td>
+    <td>Due: Getting Started<br>Out: <a href="#assignment2">Pendularm</a></td> 
+</tr>
+
+<tr bgcolor="#dddddd">     
+<td></td><td>Week 3</td><td></td>
+</tr>
+
+<tr>
+    <td><b>Jan 18</b></td>
+    <td>
+         <a href="http://www.history.com/topics/black-history/martin-luther-king-jr">Martin Luther King Jr. Day</a>: Help broaden participation in computing and robotics <br>
+    </td>
+    <td></td> 
+</tr>
+
+
+<tr>
+    <td><b>Jan 20</b></td>
+    <td>
+         <a href="slides will go here">Motion Control</a>: Open-loop vs. Closed-loop control, PID control<br>
+    </td>
+    <td></td> 
+</tr>
+
+<tr bgcolor="#dddddd">     
+<td></td><td>Week 4</td><td></td>
+</tr>
+
+<tr>
+    <td><b>Jan 25</b></td>
+    <td>
+         <a href="slides will go here">Linear Algebra Refresher</a>: Systems of linear equations, Vector operations, Matrix operations<br>
+    </td>
+    <td></td> 
+</tr>
+
+<tr>
+    <td><b>Jan 27</b></td>
+    <td>
+         <a href="slides will go here">3D Coordinate Transforms</a>: 2D translation and rotation, 3D translation and rotation, Composition of matrix transforms
+    </td>
+    <td>Due: Pendularm<br>Out: <a href="#assignment3">Forward Kinematics</a></td> 
+</tr>
+
+<tr bgcolor="#dddddd">     
+<td></td><td>Week 5</td><td></td>
+</tr>
+
+<tr>
+    <td><b>Feb 1</b></td>
+    <td>
+         <a href="slides will go here">Forward Kinematics</a>: Kinematic chains, URDF kinematic specification, matrix stack traversal<br>
+    </td>
+    <td></td> 
+</tr>
+
+
+<tr>
+    <td><b>Feb 3</b></td>
+    <td>
+         <a href="slides will go here">Kineval Interactive Controls</a>: Kineval codebase tutorial, Interactive control with base forward and lateral coordinates<br>
+    </td>
+    <td></td> 
+</tr>
+
+<tr bgcolor="#dddddd">     
+<td></td><td>Week 6</td><td></td>
+</tr>
+
+<tr>
+    <td><b>Feb 8</b></td>
+    <td>
+         <a href="slides will go here">Quaternions</a>: Euler angles, Gimbal lock, Axis-angle rotation, Matrix stack with joint controls
+    </td>
+    <td></td> 
+</tr>
+
+
+<tr>
+    <td><b>Feb 10</b></td>
+    <td>
+         Quiz 1, <a href="pointer will go here">Fun robot game<br>
+    </td>
+    <td>Due: Forward Kinematics<br>Out: <a href="#assignment4">Dance Contest</a></td> 
+</tr>
+
+<tr bgcolor="#dddddd">     
+<td></td><td>Week 7</td><td></td>
+</tr>
+
+<tr>
+    <td><b>Feb 15</b></td>
+    <td>
+         <a href="slides will go here">Inverse Kinematics - Closed-form</a>: Joint vs. Endeffector control, Planar 2-link arm, Closed form solutions<br>
+    </td>
+<tr>
+
+
+<tr>
+    <td><b>Feb 17</b></td>
+    <td>
+         <a href="slides will go here">Inverse Kinematics - Manipulator Jacobian</a>: Velocity kinematics as linear systems, Manipulator Jacobian, Jacobian transpose, Jacobian pseudoinverse and singularities
+    </td>
+    <td></td> 
+</tr>
+
+<tr bgcolor="#dddddd">     
+<td></td><td>Week 8</td><td></td>
+</tr>
+
+<tr>
+    <td><b>Feb 22</b></td>
+    <td> 
+         <a href="slides will go here">Real robot display and control</a>: rosbridge protocol, Robot Operating System, subscribing/publishing joint state
+    </td> 
+<tr>
+
+<tr>
+    <td><b>Feb 24</b></td>
+    <td>In-class Robot Dance Contest</td>
+    <td>Due: Dance Contest<br>Out: <a href="#assignment5">Inverse Kinematics</a></td> 
+<tr>
+
+<tr bgcolor="#dddddd">     
+<td></td><td>Week 9: Spring Break</td><td></td>
+</tr>
+
+<tr>
+    <td> </td>
+    <td><b>Feb 29 - Mar 4</b></td>
+    <td> </td>
+</tr>
+
+<tr bgcolor="#dddddd">     
+<td></td><td>Week 10</td><td></td>
+</tr>
+
+<tr>
+    <td><b>Mar 7</b></td>
+    <td>Quiz 2, <a href="slides will go here">Robot Decision Making</a>: Reaction vs. Deliberation, Bug algorithms</a> </td>
+<tr>
+
+<tr>
+    <td><b>Mar 9</b></td>
+    <td>
+         <a href="slides will go here">Path Planning</a>: A-star grid search, Potential fields, Wavefront planning</a>
+    </td>
+    <td></td>
+<tr>
+
+<tr bgcolor="#dddddd">     
+<td></td><td>Week 11</td><td></td>
+</tr>
+
+<tr>
+    <td><b>Mar 14</b></td>
+    <td>
+         <a href="slides will go here">Configuration Spaces</a>: Workspaces vs. Configuration spaces, Minkowski sum</a>
+    </td>
+<tr>
+
+<tr>
+    <td><b>Mar 16</b></td>
+    <td>
+         <a href="slides will go here">Motion Planning</a>: Probabilistic roadmaps, Rapidly-exploring Random Trees, RRT-Connect motion planning (Kuffner/LaValle)
+    </td>
+    <td>Due: Inverse Kinematics<br>Out: <a href="#assignment6">Motion Planning</a></td> 
+<tr>
+
+<tr bgcolor="#dddddd">     
+<td></td><td>Week 12: No class - off-site meeting</td><td></td>
+</tr>
+<tr>
+    <td></td>
+    <td><b>Mar 21-23</b></td>
+<tr>
+
+<tr bgcolor="#dddddd">     
+<td></td><td>Week 13</td><td></td>
+</tr>
+
+<tr>
+    <td><b>Mar 28</b></td>
+    <td>
+         Quiz 3, <a href="slides will go here">Collision Detection</a>: Axis-Aligned Bounding Boxes, Separating Axis Theorem 
+    </td>
+<tr>
+
+<tr>
+    <td><b>Mar 30</b></td>
+    <td>
+         <a href="slides will go here">Simultaneous Localization and Mapping</a>: Robot odometry, Laser rangefinding, Loop closure, SGD-SLAM paper (Olson et al.)
+    </td>
+    <td></td>
+<tr>
+
+<tr bgcolor="#dddddd">     
+<td></td><td>Week 14: <a href="http://www.nationalroboticsweek.org/">National Robotics Week</a></td><td></td>
+</tr>
+
+<tr>
+    <td><b>Apr 4</b></td>
+    <td>
+         <a href="slides will go here">Robot Localization</a>: Bayes rule, Bayesian filtering, Monte Carlo Localization (Dellaert et al.)
+    </td>
+<tr>
+
+<tr>
+    <td><b>Apr 6 </b></td>
+    <td>
+         <a href="slides will go here">RGBD Mapping</a>: Depth cameras, 3D point cloud processing, Iterative Closest Point algorithm, 3D mapping (Fox et al.)
+    </td>
+    <td>Due: Motion Planning<br>Out: <a href="#assignment7">Best Use of Robotics</a></td> 
+<tr>
+
+<tr bgcolor="#dddddd">     
+<td></td><td>Week 15</td><td></td>
+</tr>
+
+<tr>
+    <td><b>Apr 11</b></td>
+    <td>
+         Quiz 4, <a href="slides will go here">Scene Estimation</a>: Symbolic task planning, Sequential mobile manipulation, Axiomatic Particle Filtering (Sui et al.)
+    </td>
+<tr>
+
+<tr>
+    <td><b>Apr 13</b></td>
+    <td>In-class presentations</td>
+    <td>Due: Best Use of Robotics</td> 
+<tr>
+
+<tr bgcolor="#dddddd">     
+<td></td><td>Week 16</td><td></td>
+</tr>
+
+<tr>
+    <td><b>Apr 18</b></td>
+    <td>Regrading session</td>
+<tr>
+
+<tr>
+    <td><b>Apr 22</b></td>
+    <td>Grading finalized</td> 
+<tr>
+
+
+
+
+
+
+</table>
+
+
+<p>
+Slides from this course borrow from and are indebted to many sources from around the web.  These source include a number of excellent robotics courses:
+
+<ul>
+<li><a href="http://www-clmc.usc.edu/teaching/introductiontorobotics">USC CS 545: Introduction to Robotics</a></li>
+<li><a href="https://cirl.lcsr.jhu.edu/SensorBasedRobotics/">JHU 600.336 - Algorithms for Sensor-Based Robotics</a></li>
+</ul>
+
+<h2 id="assignment1">Assignment 1: Getting Started (Warm up)</h2>  
+<p>
+<b>Due 9am, Wednesday, January 15, 2016</b>
+<p>
+In this assignment, you should clone the kineval_stencil repository as your working repository for the course.  kineval_stencil contains a code stencil for this assignment as well as all projects in the course.  If you open "home.html" in this repository, you should see the jittering disconnected pieces of a robot (described in "robots/mr2.js"), similar to the following snapshot:
+
+<p>
+<img width=100% src="images/kineval_welcome.png">
+
+<p>
+Your task is to make these objects responsive to keyboard commands, specifically to move upward and stop/start jittering (although more is encouraged).  To do this, you will modify "home.html" within the sections delimited by "// STUDENT: INITIAL GETTING FAMILIAR CODE".  These sections also include code examples meant to be a quick (and very rough) introduction to JavaScript, assuming programming competency in another language. 
+
+<p>
+To ensure proper submission of your assignments, please do the following:
+ 
+<ul>
+<li>email the course instructor (ocj addrsign umich) with your name, email address, and pointer to your repository, </li>
+<li>commit a picture of yourself (in PNG form) to the repository with filename "me.png", </li>
+<li>ensure the course instructor knows what repository you are using, and your branch is created and not modified past project deadlines</li>
+<li>ensure the instructor has read/commit access to your repository, which can be confirmed/addressed through email or office hours (or by seeing that the instructor has committed the file "grading.txt")</li>
+</ul>
+
+<p>
+For turning in your assignment, create a branch in your repository labeled "Assignment-1".  The "Assignment-1" branch is essentially a tag and should not be merged back into the master.  You should work from the master.
+<p>
+
+<h2 id="assignment2">Assignment 2: Pendularm </h2>  
+<p>
+<br><b>Due 9am, Wednesday, January 27, 2016</b>
+<p>
+
+To get a sense of physical dynamics and control, your task is to implement a physical simulator and servo controller for a frictionless <a href="http://en.wikipedia.org/wiki/Pendulum">simple pendulum</a> with a rigid massless rod, and then control this system as a 1 DOF robot with a single motor.  
+
+<!-- (uncomment)
+The <a href="in_preparation">code stencil</a> for this pendulum example has been placed in the kineval_stencil repository.
+-->
+
+<p>
+<a href="pendulum_threejs_2.png"><img width=100% src="images/pendulum_threejs_2_small.png"></a>
+
+<p>
+For physical simulation, you will implement two numerical integrators (<a href="http://en.wikipedia.org/wiki/Euler%27s_method">Euler's Method</a> and <a href="http://en.wikipedia.org/wiki/Verlet_integration#Velocity_Verlet">Velocity Verlet</a>) for a pendulum with parameters specified in the code stencil.  The numerical integrator will advance the state (angle and velocity) of the pendulum in time given the current acceleration (generated from the pendulum equation of motion).  If implemented successfully, this ideal pendulum should oscillate about the vertical (where the angle is zero) proportional to the pendulum's initial angle.
+
+<p>
+For motion control, you will implement a <a href="http://en.wikipedia.org/wiki/PID_controller">proportional-integral-derivative controller</a> to control the system's motor to a desired angle.  This PID controller should output control forces integrated into the system's dynamics.  You will need to tune the gains of the PID controller for stable and timely motion to the desired angle for pendulum with parameters: length=2.0, mass=2.0, gravity=9.81.  
+
+<p>
+For user input, you should be able to use the 'q' and 'e' keys to decrement and increment the desired angle of the 1 DOF servoed robot arm, and hold down the 's' key zero the robot's controls and allow it to swing uncontrolled.
+
+<p>
+For turning in your assignment, create a branch in your repository labeled "Assignment-2".  
+<p>
+
+
+<h2 id="assignment3">Assignment 3: Forward Kinematics</h2>  
+<br><b>Due 9am, Wednesday, February 10, 2016</b>
+<p>
+In this assignment, you will render the forward kinematics of a robot, given its kinematic specification (in the "robots" subdirectory).  To render the robot properly, you will compute matrix transforms for each link and joint of the robot based their hierarchical configuration.  We will assume the joints will remain in their zero position, saving joint motion for the next assignment.  
+
+<!-- (uncomment)
+Each file in the robots subdirectory contains code to create a robot data object and initializes this object with the kinematic description of a robot (as well as some meta information and rendering geometries).  This kinematic description defines a hierarchical configuration of the robot's links and joints.  This description is a subset of the <a href="http://wiki.ros.org/urdf">Unified Robot Description Format (URDF)</a>, as described in <a href="http://wiki.ros.org/urdf/Tutorials/Create%20your%20own%20urdf%20file">this tutorial</a>.  From this initialization, you should extend the robot object to:
+
+<p>
+<ul>
+<li> complete the kinematic hierarchy to specify the parent and children of each link, by modifying the init_robot_joints() function in home.html.</li>
+<li> include "kineval_forward_kinematics.js" and "kineval_matrix.js" in home.html </li>
+<li> invoke traversal of forward kinematics, by calling kineval.forwardKinematics() within my_animate() in home.html </li>
+<li> implement matrix support routines in kineval_matrix.js </li>
+<li> implement recursive traversal of joints and links kineval_forward_kinematics.js, starting from kineval.forwardKinematics(), to compute transformation matrices for: </li>
+<ul>
+<li> robot.origin.xform: global position and orientation of robot </li>
+<li> robot.links[xx].xform: transform of link 'xx' in global coordinates </li>
+<li> robot.joints[yy].xform: transform of joint 'yy' rotation in global coordinates.</li> 
+</ul>
+<li> for each link and joint, set its transformation for rendering by coverting the transform to the threejs format and applying it to the associated threejs geometry (.geom), such as:
+<pre><code data-language="javascript">
+    var tempmat = matrix_2Darray_to_threejs(robot.joints[xx].xform);
+    simpleApplyMatrix(robot.joints[xx].geom,tempmat);
+</code></pre>
+</ul>
+
+(uncomment end) -->
+<p>
+
+If implemented properly, the robot_urdf_example.js example should produce the following rendering:
+<p>
+<img  width=70% src="images/asgn2_urdf_example.png">
+<p>
+
+The robot_mr2_example.js should produce the following:
+<p>
+<img  width=100% src="images/asgn2_mr2_example.png">
+
+<!-- (uncomment)
+<p>
+Additionally, a correct implementation will be able to interactively highlight joints by uncommenting the following in kineval.js:
+
+<pre><code data-language="javascript">
+/*
+    // initialize the active link/joint for control
+    active_link = robot.base;
+    active_joint = robot.links[active_link].children[0];
+    //robot.links[active_link].geom.material.wireframe = false;
+    //robot.links[active_link].geom.material.opacity = 0.5;
+    robot.joints[active_joint].display_geom.material.wireframe = false;
+    robot.joints[active_joint].display_geom.material.opacity = 0.5;
+*/
+</code></pre>
+
+<p>
+
+This will allow you to move up and down the kinematic hierarchy with the "k" and "j" keys, respectively.  You can also move between the children of a link using the "h" and "l" keys.
+
+<p>
+For turning in your assignment, create a branch in your repository labeled "Assignment-3".  
+<p>
+
+(uncomment end) -->
+
+<p>
+
+<h2 id="assignment4">Assignment 4: Robot Dance Contest </h2>  
+<b>Due 9am, Wednesday, February 24, 2016</b>
+<p>
+
+For this assignment, you will now enable your robot to dance by adding motor rotation to its joints, along with an simple P controller based on the Pendularm assignment.  You will implement angular rotation about each joint axis using quaternions for axis-angle rotation.  
+
+<!-- (uncomment)
+You should create an "angle" property for each joint that is initialized as zero for rotation about the normal vector specified in the "axis" field.  The rotation due to joint angles should be accounted for in the robot's forward kinematics and implemented as quaternions in "kineval_quaterion.js".  Remember to uncomment the include of "kineval_quaterion.js" in "home.html" and the joint rendering cylinder rotation in "kineval.js".
+(comment end) -->
+
+This is a poor attempt at <a href="https://www.youtube.com/watch?v=roBWj9YPKPo">robot Saturday Night Fever</a> (please do better):
+
+<a href="asgn4_joint_rotation.png"><img width=100% src="images/asgn4_joint_rotation_small.png"></a>
+
+<!-- (uncomment)
+<p>
+Once joint axis rotation is implemented, you will implement movement controls and P control for the robot.  You should create an "control" property for each joint and global DOF that is initialized as zero, and a "servo" property with PD gains and desireds.  In "home.html", you should uncomment the function call to robot_apply_controls() and code segment around robot_pd_control(), and implement these functions respectively in "kineval_controls.js" and "kineval_pd_control.js".  
+<p>
+<b>robot_apply_controls():</b> Assuming simple non-Newtonian physics, robot_apply_controls() should simply add the controls to the joint angle state (contained in the robot.joints[x].angle fields) and global pose (contained in the robot.origin field) of the robot.  Assume the base of the robot will be restricted to the ground plane.  The following patch can be used in your main FK routine (such as through the compute_and_draw_heading() function) to create the rendering geoms for the robot's forward and lateral directions in the ground plane:
+<p>
+<pre><code data-language="javascript">
+        if (typeof heading_geom === 'undefined') {
+            var temp_geom = new THREE.CubeGeometry(0.3, 0.3, 0.3);
+            var temp_material = new THREE.MeshBasicMaterial( {color: 0x00ffff} )
+            heading_geom = new THREE.Mesh(temp_geom, temp_material);
+            scene.add(heading_geom);
+        }
+        if (typeof lateral_geom === 'undefined') {
+            var temp_geom = new THREE.CubeGeometry(0.3, 0.3, 0.3);
+            var temp_material = new THREE.MeshBasicMaterial( {color: 0x008888} )
+            lateral_geom = new THREE.Mesh(temp_geom, temp_material);
+            scene.add(lateral_geom);
+        }
+</code></pre>
+<p>
+The placement of these geoms can then be set using simpleApplyMatrix():
+<pre><code data-language="javascript">
+        simpleApplyMatrix(heading_geom,heading_mat);
+        simpleApplyMatrix(lateral_geom,lateral_mat);
+</code></pre>
+Note: this is not the most elegant way to show the robot's heading and lateral, but does give a reasonable visual indication.
+<p>
+<b>robot_pd_control():</b> For controlling the joint angles, robot_pd_control() should implement a simple proportional controller that updates to the desired angle of all joints to the setpoints of an dance routine.  Setpoints can be assigned interactively by pressing Shift+number_key (e.g., "Shift+1") and then executed by pressing the corresponding number key.  
+
+
+<p>
+For user input, you should be able to use the 'u' and 'i' keys to decrement and increment the rotation angle the selected joint, 'wasd' keys to move the robot on the ground plane, 'q' and 'e' keys for lateral base movement, and hold down the 'o' key to servo based on the system seconds. 
+<p>
+For turning in your assignment, create a branch in your repository labeled "Assignment-4".  
+<p>
+(comment end) -->
+
+<!-- (delete)
+There is also a baseline controller available based on the seconds of the system clock.  Invoked by the 'o' key, this controller provides a simple means to test that controls for all joints are working.  The following code snippet shows how to get the current system time and seconds, and scale this value to span the range (0..2*Math.PI).
+<p>
+<pre><code data-language="javascript">
+    var curdate = new Date();
+    curdate.getSeconds()/60*2*Math.PI;
+</code></pre>
+-->
+
+
+
+<!--
+<p>
+<h3>Update</h3>
+<p>
+<a href="">Addendum slides</a> with more details about user input and controls for base motion.
+-->
+<p>
+
+
+<h2 id="assignment5">Assignment 5: Inverse Kinematics </h2>  
+<p>
+<b>Due 9am, Wednesday, March 16, 2016</b>
+<p>
+
+
+For this assignment, you will now control your robot to reach to a given point through inverse kinematics for position control of the robot endeffector.  Inverse kinematics will be implemented through both the Jacobian Transpose and Jacobian Pseudoinverse methods, although only one will be invoked at run-time.  
+<p>
+
+<img src="images/kineval_snapshot_2.png" width=100%>
+
+<!-- (uncomment)
+The core of this assignment is to complete the kineval.inverseKinematics() function invoked from home.html.  This function will be called with three arguements: the variable ik_target (used by kineval_userinput.js) to specify the IK target location in the world frame, the name of the joint directly connected to the endeffector, and the location of the endeffector in the local joint frame.  The following is an example of invoking kineval.inverseKinematics():
+
+<pre><code data-language="javascript">
+    kineval.inverseKinematics(ik_target, "forearm_right_yaw", [[0],[0],[0.5],[1]]);
+</code></pre>
+
+<p>
+The top level of kineval.inverseKinematics() is provided below, and is the beginning of your implementation in the file kineval_inverse_kinematics.js:  
+
+
+<p>
+<pre><code data-language="javascript">
+function robot_inverse_kinematics(target_pos, endeffector_joint, endeffector_local_pos) {
+    // compute joint angle controls to move location on specified link to Cartesian location
+    if (update_ik) {
+        iterate_inverse_kinematics(target_pos, endeffector_joint, endeffector_local_pos);
+        endeffector_geom.visible = true;
+        target_geom.visible = true;
+    }
+    else {
+        endeffector_geom.visible = false;
+        target_geom.visible = false;
+    }
+    update_ik = false;
+
+}
+</code></pre>
+<p>
+
+This code stub contains clauses to handle rendering of the endeffector (endeffector_geom) and target (target_geom) geometries and when to perform IK iterations (which occurs while holding down the 'p' key through kineval_userinput.js).  Both endeffector_geom and target_geom have been previously created by kineval, so your code only needs to set the transform using simpleApplyMatrix() for proper rendering.  Further, the 'r'/'f' keys will move the target location up/down, respectively.
+
+<p>
+In implementing this IK routine, please remember the following:
+<p>
+<ul>
+<li>Computation of the Jacobian should only occur with respect to the joints along the chain from the endeffector joint to the robot base</li>
+<li>The location of the endeffector needs to be computed using transforms resulting from the robot's forward kinematics  </li>
+<li>Matrix inversion can be invoked by using the provided routine numeric.inv(mat), available through <a href="http://www.numericjs.com/">numericjs</a> </li>
+<li>The computed velocity in configuration should be applied to the robot through the joint.controls field of each joint </li>
+<li>This assignment is only for positional control of the robot endeffector with respect to computing IK error</li>
+</ul>
+
+<p>
+For turning in your assignment, create a branch in your repository labeled "Assignment-5".  
+<p>
+(comment end) -->
+
+<h2 id="assignment6">Assignment 6: Motion Planning  </h2>  
+<p>
+<b>Due 9am, Wednesday, April 6, 2016</b>
+<p>
+
+
+For this assignment, you will now implement a collision-free motion planner to enable your robot to navigate from a random configuration in the world to its home configuration (marked by the "X" on the world floor).  Motion planning will be implemented through the <a href="https://personalrobotics.ri.cmu.edu/files/courses/papers/Kuffner00-rrtconnect.pdf">RRT-Connect algorithm</a> (described by Kuffner and LaValle).  
+
+<img src="images/asgn6_motionplan.png"  width=100%>
+<p>
+
+<!-- (uncomment)
+The core of this assignment is to complete the robot_rrt_planner_init() and robot_rrt_planner_iterate() in the provided kineval_rrt_connect.js stencil.  For successful execution, your implementation of RRT-Connect, the provided collision detection system, and a single specification of world geometry will need to be included in home.html:
+
+
+<pre><code data-language="javascript">
+<script src="kineval_rrt_connect.js"></script> 
+<script src="kineval_collision.js"></script> 
+<script src="worlds/world_basic.js"></script>
+<-
+<script src="worlds/world_empty.js"></script>
+<script src="worlds/world_random.js"></script>
+<script src="worlds/world_local_minima.js"></script>
+<script src="worlds/world_s.js"></script>
+->
+</code></pre>
+
+<p>
+To ensure these worlds are rendered in the display, the geometries of the world are added to the threejs scene by calling kineval.setPlanningScene() in home.html at the end of the init_robot() function:
+
+<pre><code data-language="javascript">
+function init_robot() {
+    ...
+    // set scene for planner
+    kineval.setPlanningScene();
+}
+</code></pre>
+
+<p>
+
+Note: your planner should be constrained such that the search does not consider configurations where the base is outside the X-Z plane.  Specifically, the base should not translate along the Y axis, and should not rotate about the X and Z axes.
+
+<h3>First step: add collision detection</h3> 
+<p>
+Your RRT-Connect implementation will depend on detection of collisions (provided by the function kineval.isCollision() in kineval_collision.js) with respect to a specified world geometry.  Worlds are specified as a rectangular boundary and sphere obstacles.  A collection of worlds are provided in the "worlds/" subdirectory of kineval_stencil.  The collision detection system performs two forms of tests: 1) testing of the base position of the robot against the rectangular extents of the world, and 2) testing of the robot configuration against spherical objects.  Configuration collision testing is performed by AABB/Sphere tests that require the bounding box of each link's geometry in the coordinates of that link.  This bounding box is computed by adding the following within the loop inside init_robot_links_geoms() in kineval.js:
+
+<pre><code data-language="javascript">
+        // bounding box of robot link in local link coordinates
+        robot.links[x].bbox = new THREE.Box3;
+        robot.links[x].bbox = robot.links[x].bbox.setFromPoints(robot.links[x].geom.geometry.vertices);
+</code></pre>
+
+(end comment) --> 
+
+<p>
+Even before your planner is implemented, you can use the collision system interactively with your robot.  The provided kineval.isCollision() function will test the current configuration of the robot.  If a collision occurs, the base of the robot will be displayed as a solid red.  The call to kineval.isCollision() should be placed within my_animate() in home.html:
+
+<pre><code data-language="javascript">
+    // show if robot is currently in collision
+    kineval.isCollision();
+</code></pre>
+
+<p>
+<img src="images/asgn6_collision.png" width=70%>
+<p>
+
+<!-- (uncomment)
+
+<h3>Updating kineval_collision for your implementation</h3>
+<p>
+You will need to modify the forward kinematics calls in kineval_collision.js.  kineval_collision.js uses matrix and quaternion calls based on the reference implementation (i.e., my code).  Your matrix and quaternion calls likely have a different structure to the function arguments and returned data structures.  You should either:
+
+ <ul> 
+  <li>1) modify calls to matrix/quaternion routines to fit your functions, or
+
+  <li>2) use a modified version of your own FK with the collision test added to the link traversal function (remember: you need the inverse of the matrix stack for collision testing in a link frame)
+</ul>
+<p>
+
+Also, you can feel free to use numeric.inv() instead of matrix_invert_affine().  Affine transforms can be inverted (in constant time) through a much simpler process than the generic matrix inversion, which is O(n^3) for Gaussian elimination. 
+<p>
+If successful to this point, you should be able to see the collision world of the robot, move around this world, and see the base display solid red when a collision occurs.
+<p>
+
+
+<h3>Invoking the planner</h3> 
+
+<p>
+Your planner will be invoked interactively by first moving the robot to an arbitrary non-colliding configuration in the world and then pressing the "m" key.  The "m" key will request the generation of a motion plan.  While the planner is working, it will not accept new planning requests.  Thus, you can move the robot around while the planner is executing.
+
+<p>
+Invokation of the planner is implemented by adding the following code segments to: 
+
+<p>
+<ul>
+<li> init_robot() in home.html:
+
+<p>
+<pre><code data-language="javascript">
+    // initialize flags for executing planner
+    generating_motion_plan = false;
+    generate_motion_plan = false;
+</code></pre>
+
+<p>
+<li> my_animate() in home.html:
+
+<p>
+<pre><code data-language="javascript">
+    // configuration space motion planning
+    if ((generate_motion_plan) && (!generating_motion_plan)) {
+        robot_rrt_planner_init();
+        generating_motion_plan = true;
+        generate_motion_plan = false;
+    }
+    if (generating_motion_plan) {
+        //robot_rrt_connect(q_desired);
+        rrt_result = robot_rrt_planner_iterate();
+        if (rrt_result === "reached") {
+            //alert("home: reached");
+            generating_motion_plan = false;
+        }
+    }
+</code></pre>
+
+<p>
+<li> user_input() in kineval_userinput.js:
+
+<p>
+<pre><code data-language="javascript">
+    // generate motion plan
+    if ( keyboard.pressed("m") )
+        generate_motion_plan = true;
+    else
+        generate_motion_plan = false;
+</code></pre>
+</ul>
+
+<h3>Planner output</h3> 
+<p>
+The output of your planner will be a sequentially ordered array (named robot_path[]) of RRT vertices, where each RRT vertex contains a robot configuration (.vertex), an array of edges (.edges), and a threejs indicator geometry (.geom).  The kineval_rrt_connect.js stencil has provide routines that describe how new vertices can be added to the RRT.  One a viable motion plan is found, this path can be highlighted by changing the color of the RRT vertex geom indicators, similar to the following:
+
+<pre><code data-language="javascript">
+        robot_path[i].geom.material.color = {r:1,g:0,b:0};
+</code></pre>
+<p>
+
+The user should should be able to interactively move the robot through the found plan.  After adding the following code below to user_input() in kineval_userinput.js, the "n" and "b" keys to move the robot to the next and previous configuration in the found path, respectively.
+
+<pre><code data-language="javascript">
+    // traverse generated motion plan
+    if ( keyboard.pressed("n") |  keyboard.pressed("b")) {
+        if (typeof robot_path !== 'undefined') {
+
+            // increment index
+            if ((keyboard.pressed("n"))&&(robot_path_traverse_idx &lt robot_path.length-1))
+                robot_path_traverse_idx++;
+
+            if ((keyboard.pressed("b"))&&(robot_path_traverse_idx &gt 0))
+                robot_path_traverse_idx--;
+
+             // set angle
+            robot.origin.xyz = [
+                robot_path[robot_path_traverse_idx].vertex[0],
+                robot_path[robot_path_traverse_idx].vertex[1],
+                robot_path[robot_path_traverse_idx].vertex[2]
+            ];
+
+            robot.origin.rpy = [
+                robot_path[robot_path_traverse_idx].vertex[3],
+                robot_path[robot_path_traverse_idx].vertex[4],
+                robot_path[robot_path_traverse_idx].vertex[5]
+            ];
+
+            for (x in robot.joints) {
+                //q_names[x] = q_start_config.length;
+                robot.joints[x].angle = robot_path[robot_path_traverse_idx].vertex[q_names[x]];
+            }
+        }
+    }
+</code></pre>
+
+Note: we are <b>NOT</b> using robot.controls to execute the found path of the robot.  Although this can be done, the collision system does not currently test for configurations that occur due to the motion between configurations.
+
+<h3>Testing</h3>
+
+<p>
+<img src="images/asgn6_scurve_small.png" width=100%>
+
+<p>
+Make sure to test from a reasonable set of robots and initial configurations within all of the provided worlds, ensuring that:
+
+<p>
+<ul>
+<li> a valid non-colliding path is found and can be traversed
+<li> the robot does not to take steps longer than 1 unit
+<li> the robot base does not move outside the X-Z plane.  Specifically, the base should not translate along the Y axis, and should not rotate about the X and Z axes.
+</ul>
+
+<p>
+The "mr2" robot should be able to navigate all of the provided worlds.
+
+<h3>Optional: HTML5 Canvas Stencil </h3>
+
+<img width=100% src="images/asgn6_rrt_canvas_stencil_small.png">
+
+<p>
+Using the browser for as a development environment has many benefits.  However, when coding mistakes occur, it will make the browser lock up and be completely unusable.  This becomes even worse when the overhead of rendering with threejs is involved.  
+
+<p>
+To help you get started, the code stencil also has a "rrt_canvas" directory where you can implement your RRT in 2D worlds with provided routines for visualization and collision.  Because the RRT is invariant across configuration spaces, an RRT developed for the 2D Canvas world should easily port to the N-D threejs world, with minor changes for invoking drawing routines.
+
+<p>
+
+<p>
+For turning in your assignment, create a branch in your repository labeled "Assignment-6".  
+<p>
+(comment end) -->
+
+<h2 id="assignment7">Assignment 7: The best use of robotics? </h2>  
+<p>
+<b>Due 1:30pm, Wednesday, April 13, 2016</b>
+<p>
+
+Scenario: An investor is considering giving you 3 million dollars (cold hard USD cash, figuratively).  This investor has been impressed by work with kineval and other accomplishments while at the University of Michigan.  They are convinced you have the technical ability to make a compelling robot technology... but, they are unsure how this technology could produce something useful.  Your task is to make a convincing pitch for a  robotics project that would yield a high return on investment. 
+<!-- (uncomment)
+<p>
+You will get 2 minutes to make a pitch to develop something useful with robots.  Consider the instructor and your classmates as the people that need to be convinced.  As a guideline, your pitch should address an opportunity (presented by a need or a problem), your planned result (as a system, technology, product, and/or service), and how you will measure successful return on investment.  Return on investment can be viewed as financial profit (wrt. venture capital), good for society (wrt. a government program), creation of new knowledge or capabilities (wrt. a grant for scientific research).  Remember, the purpose is to convince and inspire about what is possible, rather than dive into specifics.
+<p>
+The last scheduled class period and a little more (Wednesday April 13th, 1:30-4:30pm) will be dedicated to student presentations to pitch ideas on the best use of robotics.  Please email your slides to the instructor before 9am on Monday April 11th with the subject line ("AutoRob asgn7 pitch slides").  OS X Keynote will be used as the sole means of slide presentation, and will be timed and controlled by the instructor.  As such, slide materials can be accepted as Keynote, Powerpoint (no guarantees on conversion), PDF, and common image and video formats (JPG, PNG, MP4, FLV, etc.).
+<p>
+(end comment) -->
+The pitch judged to be the most convincing will get first dibs.
+<p>
+
+<p>
 <br>
 <br>
-For now, you can check out the <a href="http://browncs148.github.io/">previous version of the course</a>.
-<br>
-<br>
-See you Winter 2016
-<br>
-<br>
-<img src="um_fetch.jpg">
-<body>
-</html>
+
+<img width=100% src="images/um_fetch.jpg">
+
+
+        <!-- TYPEKIT -->
+        <script type="text/javascript" src="resources/ajf8ggy.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        <script type="text/javascript" src="resources/rainbow_github.min.js"></script>
+        <script type="text/javascript" src="resources/rainbow_github_generic.js"></script>
+<!--
+        <script type="text/javascript" src="//use.typekit.net/ajf8ggy.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        <script src="https://rawgithub.com/ccampbell/rainbow/master/js/rainbow.min.js"></script>
+        <script src="https://rawgithub.com/ccampbell/rainbow/master/js/language/generic.js"></script>
+-->
