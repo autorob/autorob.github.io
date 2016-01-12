@@ -685,29 +685,40 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <h2 id="assignment1">Assignment 1: Getting Started (Warm up)</h2>  
 <p>
-<b>Due 9am, Wednesday, January 15, 2016</b>
+<b>Due 9am, Wednesday, January 20, 2016</b>
+</p>
 <p>
-In this assignment, you should clone the kineval_stencil repository as your working repository for the course.  kineval_stencil contains a code stencil for this assignment as well as all projects in the course.  If you open "home.html" in this repository, you should see the jittering disconnected pieces of a robot (described in "robots/mr2.js"), similar to the following snapshot:
-
-<p>
+In this assignment, you should clone the <a href="https://github.com/ohseejay/kineval-stencil">kineval_stencil</a> repository into your working repository for the course.  kineval_stencil contains a code template for this assignment as well as all projects in the course.  If you open "home.html" in this repository, you should see the jittering disconnected pieces of a robot (described in "robots/mr2.js"), similar to the snapshot below.  This initial mode is the "starting point" state of the stencil to help build familiarity with JavaScript/HTML5 and KinEval.
+</p>
 <img width=100% src="images/kineval_welcome.png">
 
 <p>
-Your task is to make these objects responsive to keyboard commands, specifically to move upward and stop/start jittering (although more is encouraged).  To do this, you will modify "home.html" within the sections delimited by "// STUDENT: INITIAL GETTING FAMILIAR CODE".  These sections also include code examples meant to be a quick (and very rough) introduction to JavaScript, assuming programming competency in another language. 
+Your task is to make these objects in starting point mode responsive to keyboard commands.  Specifically, these objects will move upward, stop/start jittering, move closer together, and further apart (although more is encouraged).  To do this, you will modify "kineval/kineval_startingpoint.js" at the sections marked with "STENCIL".  These sections also include code examples meant to be a quick (and very rough) introduction to JavaScript, assuming programming competency in another language. 
+</p>
 
+<h3>Brief Code Overview</h3>
+<p>
+Within the KinEval stencil, the functions my_animate() and my_init() in "home.html" are the principal access points into animation system.  my_animate() is particularly important as it will direct the invocation of functions we develop throughout the AutoRob course.  my_animate() and my_init() are called by the primary process that maintains the animation loop: kineval.animate() and kineval.init() within "kineval/kineval.js".  <b>IMPORTANT</b>: "kineval/kineval.js", kineval.animate(), and kineval.init() should not be modified.  For starting point mode, my_animate() will call startingPlaceholderAnimate() and startingPlaceholderInit().  startingPlaceholderInit() contains JavaScript tutorial-by-example code that initializes variables for this project. startingPlaceholderAnimate() contains keyboard handlers and code to update the positioning of each body of the robot.  By modifying the proper variables at the locations labed "STENCIL", this code will update the transformation matrix for each geometry of the robot (stored in the ".xform" attribute) as a translation in the robot's world.  The ".xform" transform for each robot geometry is then used by kineval.robotDraw() to have the browser render the robot parts in the appropriate locations.
+</p>
+
+</p>
+
+<h3>Project Submission</h3>
 <p>
 To ensure proper submission of your assignments, please do the following:
+</p>
  
+<p>
 <ul>
 <li>email the course instructor (ocj addrsign umich) with your name, email address, and pointer to your repository, </li>
-<li>commit a picture of yourself (in PNG form) to the repository with filename "me.png", </li>
 <li>ensure the course instructor knows what repository you are using, and your branch is created and not modified past project deadlines</li>
-<li>ensure the instructor has read/commit access to your repository, which can be confirmed/addressed through email or office hours (or by seeing that the instructor has committed the file "grading.txt")</li>
+<li>ensure the instructor has push/admin access to your repository, which can be confirmed/addressed through email or office hours (or by seeing that the instructor has committed the file "grading.txt")</li>
 </ul>
+</p>
 
 <p>
-For turning in your assignment, create a branch in your repository labeled "Assignment-1".  The "Assignment-1" branch is essentially a tag and should not be merged back into the master.  You should work from the master.
-<p>
+For turning in your assignment, create a branch in your repository labeled "Assignment-1".  <b>NOTE: spelling matters!</b>  The "Assignment-1" branch is essentially a tag and should not be merged back into the master.  You should continue work from the master branch.
+</p>
 
 <h2 id="assignment2">Assignment 2: Pendularm </h2>  
 <p>
