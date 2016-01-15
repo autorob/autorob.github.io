@@ -723,31 +723,67 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 
 <h2 id="assignment2">Assignment 2: Pendularm </h2>  
 <p>
-<br><b>Due 9am, Wednesday, January 27, 2016</b>
-<p>
+<b>Due 11:59pm, Thursday, January 28, 2016</b>
+</p>
 
+<p>
 To get a sense of physical dynamics and control, your task is to implement a physical simulator and servo controller for a frictionless <a href="http://en.wikipedia.org/wiki/Pendulum">simple pendulum</a> with a rigid massless rod, and then control this system as a 1 DOF robot with a single motor.  
+</p>
 
 <!-- (uncomment)
-The <a href="in_preparation">code stencil</a> for this pendulum example has been placed in the kineval_stencil repository.
+The code stencil for the Pendularm assignment is available within the "pendularm" subdirectory of KinEval in the file <a href="https://github.com/ohseejay/kineval-stencil/blob/master/pendularm/pendularm1.html">pendularm1.html</a>.
 -->
 
 <p>
-<a href="pendulum_threejs_2.png"><img width=100% src="images/pendulum_threejs_2_small.png"></a>
+<center>
+<a href="https://github.com/ohseejay/kineval-stencil/blob/master/pendularm/pendularm1.html"><img width=80% src="images/pendularm.png"></a>
+</center>
+</p>
 
 <p>
-For physical simulation, you will implement two numerical integrators (<a href="http://en.wikipedia.org/wiki/Euler%27s_method">Euler's Method</a> and <a href="http://en.wikipedia.org/wiki/Verlet_integration#Velocity_Verlet">Velocity Verlet</a>) for a pendulum with parameters specified in the code stencil.  The numerical integrator will advance the state (angle and velocity) of the pendulum in time given the current acceleration (generated from the pendulum equation of motion).  If implemented successfully, this ideal pendulum should oscillate about the vertical (where the angle is zero) proportional to the pendulum's initial angle.
+For physical simulation, you will implement several numerical integrators for a pendulum with parameters specified in the code stencil.  The numerical integrator will advance the state (angle and velocity) of the pendulum in time given the current acceleration (generated from the pendulum equation of motion).  If implemented successfully, this ideal pendulum should oscillate about the vertical (where the angle is zero) proportional to the pendulum's initial angle.
+</p>
 
 <p>
-For motion control, you will implement a <a href="http://en.wikipedia.org/wiki/PID_controller">proportional-integral-derivative controller</a> to control the system's motor to a desired angle.  This PID controller should output control forces integrated into the system's dynamics.  You will need to tune the gains of the PID controller for stable and timely motion to the desired angle for pendulum with parameters: length=2.0, mass=2.0, gravity=9.81.  
+Students enrolled in EECS 398-002 will implement numerical integrators for:
+</p>
+
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Euler%27s_method">Euler's Method</a> 
+<li><a href="http://en.wikipedia.org/wiki/Verlet_integration#Velocity_Verlet">Velocity Verlet</a> 
+</ul>
 
 <p>
-For user input, you should be able to use the 'q' and 'e' keys to decrement and increment the desired angle of the 1 DOF servoed robot arm, and hold down the 's' key zero the robot's controls and allow it to swing uncontrolled.
+Students enrolled in EECS 598-010 will implement numerical integrators for:
+</p>
+
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Euler%27s_method">Euler's Method</a> 
+<li><a href="https://en.wikipedia.org/wiki/Verlet_integration#Verlet_integration_.28without_velocities.29">Verlet integration</a>
+<li><a href="http://en.wikipedia.org/wiki/Verlet_integration#Velocity_Verlet">Velocity Verlet</a>
+<li><a href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods#The_Runge.E2.80.93Kutta_method">Runge-Kutta 4</a>
+</ul>
+
+<p>
+For motion control, students in both EECS 398-002 and EECS 598-010 will implement a <a href="http://en.wikipedia.org/wiki/PID_controller">proportional-integral-derivative controller</a> to control the system's motor to a desired angle.  This PID controller should output control forces integrated into the system's dynamics.  You will need to tune the gains of the PID controller for stable and timely motion to the desired angle for pendulum with parameters: length=2.0, mass=2.0, gravity=9.81.  
+</p>
+
+<p>
+For user input, you should be able to select the choice of integrator using the [0-4] keys (with no integration as a default), toggle the invocation of the servo controller with the 'c' key (which is off by default), decrement and increment the desired angle of the 1 DOF servoed robot arm use the 'q' and 'e' keys, and momentarily disable the servo controller with 's' key (and allowing the arm to swing uncontrolled).
+</p>
 
 <p>
 For turning in your assignment, create a branch in your repository labeled "Assignment-2".  
-<p>
+</p>
 
+<p>
+Students in EECS 598-010 are strongly encouraged to extend their pendularm to a double pendulum.
+</p>
+
+
+<hr>
+<h1> Assignments beyond this point have not been assigned.  The descriptions below are unofficial and tentative.</h1>
+<hr>
 
 <h2 id="assignment3">Assignment 3: Forward Kinematics</h2>  
 <br><b>Due 9am, Wednesday, February 10, 2016</b>
