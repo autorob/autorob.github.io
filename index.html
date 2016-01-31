@@ -426,9 +426,9 @@ Should you fail to abide by this policy, you will receive no credit for this cou
 <tr>
     <td><b>Jan 27</b></td>
     <td>
-         <a href="slides will go here">3D Coordinate Transforms</a>: 2D translation and rotation, 3D translation and rotation, Composition of matrix transforms
+         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_06_fk_matrixstack.pdf">Forward Kinematics</a>: Kinematic chains, URDF kinematic specification, matrix stack traversal, DH parameters<br>
     </td>
-    <td>Spong Ch. 2<hr>Corke Ch.2</td> 
+    <td>Spong 3.1-2<hr>Corke 7.1-2</td> 
     <td>Due: Pendularm<br>Out: <a href="#assignment3">Forward Kinematics</a></td> 
 </tr>
 
@@ -438,30 +438,6 @@ Should you fail to abide by this policy, you will receive no credit for this cou
 
 <tr>
     <td><b>Feb 1</b></td>
-    <td>
-         <a href="slides will go here">Forward Kinematics</a>: Kinematic chains, URDF kinematic specification, matrix stack traversal, DH parameters<br>
-    </td>
-    <td>Spong 3.1-2<hr>Corke 7.1-2</td> 
-    <td></td> 
-</tr>
-
-
-<tr>
-    <td><b>Feb 3</b></td>
-    <td>
-         <a href="slides will go here">KinEval Interactive Controls</a>: Kineval codebase tutorial, Interactive control with base forward and lateral coordinates<br>
-    </td>
-    <td></td> 
-    <td></td> 
-</tr>
-
-<tr bgcolor="#dddddd">     
-<td></td><td>Week 6</td><td></td><td></td>
-
-</tr>
-
-<tr>
-    <td><b>Feb 8</b></td>
     <td>
          <a href="slides will go here">Quaternions</a>: Euler angles, Gimbal lock, Axis-angle rotation, Matrix stack with joint controls
     </td>
@@ -476,9 +452,34 @@ Should you fail to abide by this policy, you will receive no credit for this cou
 
 
 <tr>
+    <td><b>Feb 3</b></td>
+    <td>
+         <a href="slides will go here">Reactive Controllers</a>: Reactive and Deliberative Decision Making, Finite State Machines, Subsumption Architecture<br>
+    </td>
+    <td></td> 
+    <td></td> 
+</tr>
+
+<tr bgcolor="#dddddd">     
+<td></td><td>Week 6</td><td></td><td></td>
+
+</tr>
+
+<tr>
+    <td><b>Feb 8</b></td>
+    <td>
+         <a href="slides will go here">Robot Middleware</a>: Hardware Abstraction, Client/Server Architectures, Publish/Subscribe, ROS, <i>rosbridge</i>
+    </td>
+    <td>
+    </td> 
+    <td></td> 
+</tr>
+
+
+<tr>
     <td><b>Feb 10</b></td>
     <td>
-         Quiz 1, <a href="pointer will go here">Fun robot game<br>
+         Quiz 1, <a href="pointer will go here">Fun robot game<br>, Fetch Robot Simulation Session
     </td>
     <td></td> 
     <td>Due: Forward Kinematics<br>Out: <a href="#assignment4">Dance Contest</a></td> 
@@ -815,7 +816,7 @@ The selection of file with a robot description can occur directly in the URL for
 </p>
 
 <p>
-In addition to the given initialization, you should extend the robot object to complete the kinematic hierarchy to specify the parent and children of each link.  This modification should be made in the kineval.initRobotJoints() function in "kineval/kineval_robot_init.js".  
+In addition to the given initialization, you should extend the robot object to complete the kinematic hierarchy to specify the parent and children of each link.  This modification should be made in the kineval.initRobotJoints() function in "kineval/kineval_robot_init.js".  The children array of a link should always be defined, which would result in an empty array for leaf nodes in the kinematic tree.
 </p>
 
 <p>
