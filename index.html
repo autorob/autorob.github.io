@@ -50,9 +50,9 @@
             assignments:
             <li><a href="#assignment1">1</a></li>
             <li><a href="#assignment2">2</a></li>
-<!-- unassigned
             <li><a href="#assignment3">3</a></li>
             <li><a href="#assignment4">4</a></li>
+<!-- unassigned
             <li><a href="#assignment5">5</a></li>
             <li><a href="#assignment6">6</a></li>
             <li><a href="#assignment7">7</a></li>
@@ -773,156 +773,245 @@ For motion control, students in both EECS 398-002 and EECS 598-010 will implemen
 For user input, you should be able to select the choice of integrator using the [0-4] keys (with no integration as a default), toggle the invocation of the servo controller with the 'c' key (which is off by default), decrement and increment the desired angle of the 1 DOF servoed robot arm use the 'q' and 'e' keys, and momentarily disable the servo controller with 's' key (and allowing the arm to swing uncontrolled).
 </p>
 
+<h3> Project Submission</h3>
 <p>
 For turning in your assignment, create a branch in your repository labeled "Assignment-2".  
 </p>
 
+<h3> Additional Notes</h3>
 <p>
 Students in EECS 598-010 are strongly encouraged to extend their pendularm to a double pendulum.
 </p>
 
+<h2 id="assignment3">Assignment 3: Forward Kinematics</h2>  
+<b>Due 11:59pm, Friday, February 12, 2016</b>
+<p>
+In this assignment, you will render the forward kinematics (FK) of a robot, given its kinematic specification (in the "robots" subdirectory).  To render the robot properly, you will compute matrix transforms for each link and joint of the robot based on the parameters of its hierarchy configuration.  The computation of the matrix transform for each joint and link will allow KinEval's rendering support routines to properly display the full robot.  We will assume the joints will remain in their zero position, saving joint motion for the next assignment.  
+</p>
+
+<p>
+Assuming proper completion of Assignment 1, ensure the following files are included (within script tags) in your "home.html".  You will modify these files for implementing FK:
+
+<ul>
+<li>"kineval/kineval_robot_init.js" for initializing your robot object based on a given description object; modification is require to add parent and child references to each link</li>
+<li>"kineval/kineval_forward_kinematics.js" for implementing (a recursive) traversal over joints and links to compute transforms; traversal of forward kinematics is invoked from kineval.robotForwardKinematics() within my_animate() in home.html </li>
+ <li>"kineval/kineval_matrix.js" for the implementation of your vector and matrix routines, such as for matrix multiplication, matrix generation, etc. in kineval_matrix.js </li>
+</ul>
+</p>
+
+
+<!-- (uncomment) -->
+<h3> Robot Examples and Initialization</h3>
+<p>
+Each file in the "robots" subdirectory contains code to create a robot data object .  This data object is initialized the kinematic description of a robot (as well as some meta information and rendering geometries).  The kinematic description defines a hierarchical configuration of the robot's links and joints.  This description is a subset of the <a href="http://wiki.ros.org/urdf">Unified Robot Description Format (URDF)</a> converted into JSON format.  The basic features of URDF are described in <a href="http://wiki.ros.org/urdf/Tutorials/Create%20your%20own%20urdf%20file">this tutorial</a>.  
+</p>
+
+<p>
+<b>IMPORTANT:</b> The given robot description files should <b>NOT</b> be modified.  Code that requires modified robot description files will fail tests used for grading.  You are welcomed and encouraged to create new robot description files for additional testing.
+</p>
+
+<p>
+The selection of file with a robot description can occur directly in the URL for  "home.html".  As a default, the "home.html" in the KinEval stencil assumes the "mr2" robot description in "robots/robot_mr2.js".  Another robot description file can be selected directly in the URL by adding a robot parameter.  This parameter is segmented by a question mark and sets the robot file pointer to a given file local location, relative to "home.html".  For example, a URL with "home.html?robot=robots/robot_urdf_example.js" will use the URDF example description.
+</p>
+
+<p>
+In addition to the given initialization, you should extend the robot object to complete the kinematic hierarchy to specify the parent and children of each link.  This modification should be made in the kineval.initRobotJoints() function in "kineval/kineval_robot_init.js".  
+</p>
+
+<p>
+<b>Note</b>: KinEval refers to links and joints as strings, not pointers, within the robot object.  robot.joints (as well as robot.links) is an array of data objects that are indexed by strings.  Each of these objects stores relevant fields of information about the joint, such as its transform (".xform"), parent (".parent") and child (".child") in the kinematic hierarchy, local transform information (".origin"), etc.  As such, robot.joints['JointX'] refers to an object for a joint.  In contrast, robot.joints['JointX'].child refers to a string ('LinkX'), that can then be used to reference a link object (as robot.links['LinkX']).   Similarly, robot.links['LinkX'].parent refers to a joint as a string 'JointX' that can then then be used to reference a joint object in the robot.joints array.
+</p>
+
+<h3> Invoking Forward Kinematics</h3>
+
+<p>
+The function kineval.robotForwardKinematics() in "kineval/kineval_forward_kinematics.js" will be the main point of invocation for your FK implementation.  This function is responsible for updating matrix transforms for the frame of each link and joint with respect to the global world coordinates.  The computed transform for each frame of the robot needs to be stored in the ".xform" field.  For a given link named 'LinkX', this xform field can be accessed as robot.links['LinkX'].xform.  For a given joint named 'JointX', this xform field can be accessed as robot.joints['JointX'].xform.  Once kineval.robotForwardKinematics() completes, the updated transforms for each frame are used by the function kineval.robotDraw() in the support code to render the robot.
+</p>
+
+
+<p>
+A matrix stack recursion can be used to compute these global frames, starting from the base of the robot (specified as a string in robot.base).  This recursion should use local translation and rotation parameters of each joint in relation to its parent link in its traversal of the hierarchy.  For a given joint 'JointX', these translation and rotation parameters are stored in the robot object as robot.joints['JointX'].origin.xyz and robot.joints['JointX'].origin.rpy, respectively.  The current global translation and rotation for the base of the robot (robot.base) in the world coordinate frame is stored in robot.origin.xyz and robot.origin.rpy, respectively.
+</p>
+
+
+<p>
+To run your FK routine, you must toggle out of starting point mode.  This toggle can be done interactively within the GUI menu or by setting kineval.params.just_starting to false.  The code below in "home.html" controls starting point mode invocation, where single line can be uncommented to use FK mode by default:
+</p>
+
+<pre><code data-language="javascript">
+// set to starting point mode is true as default 
+//   set to false once starting forward kinematics project
+//kineval.params.just_starting = true;
+
+if (kineval.params.just_starting == true) {
+    startingPlaceholderAnimate();
+    kineval.robotDraw();
+    return;
+}
+</code></pre>
+
+
+
+<!-- (uncomment end) -->
+<p>
+If implemented properly, the "robots/robot_urdf_example.js" example should produce the following rendering:
+</p>
+<p> <center>
+<img  width=50% src="images/fk_urdf_example.png">
+</center> <p>
+
+<p>
+The "robots/robot_mr2.js" example should produce the following:
+</p>
+<p> <center>
+<img  width=90% src="images/fk_mr2_example.png">
+</center> <p>
+
+<p>
+The "robots/robot_crawler.js" example should produce the following:
+</p>
+<p> <center>
+<img  width=90% src="images/fk_crawler_example.png">
+</center> <p>
+
+
+<!-- (uncomment) -->
+<h3> Interactive Hierarchy Traversal</h3>
+<p>
+Additionally, a correct implementation will be able to interactively traverse the kinematic hierarchically by changing the active joint.  The active joint has focus for user control, which will be used in the next assignment.  For now, we are using the active joint to ensure your kinematic hierarchy is correct.  You should be able to move up and down the kinematic hierarchy with the "k" and "j" keys, respectively.  You can also move between the children of a link using the "h" and "l" keys.
+</p>
+
+<h3> Orienting Joint Rendering Cylinders</h3>
+<p>
+The cylinders used as rendering geometries for joints are not aligned with joint axes by default.  The support code in Kineval will properly orient joint rendering cylinders.  To use this functionality, simply implement a vector cross product function named vector_cross() in your matrix routines.  vector_cross() will be automatically detected and used to properly orient each joint rendering cylinder.
+</p>
+
+<h3> EECS 598-010 Requirement</h3>
+<p>
+Students in EECS 598-010 must implement the assignment as described above to work with given examples as well as the Fetch robot description.  The file "robots/fetch/fetch.urdf/js" contains the robot data object for the Fetch kinematic description.  This JavaScript file converted from the <a href="https://github.com/fetchrobotics/fetch_ros/blob/indigo-devel/fetch_description/robots/fetch.urdf">Fetch URDF description</a> for ROS.  ROS uses a different default coordinate system than threejs, which needs to be taken into account in the FK computation.  Coordinate frames in ROS assumes that the Z, X, and Y axes correspond to the up, forward, and side directions, respectively.  In contrast, threejs coordinate frames assume the Y, Z, and X correspond to the up, forward, and side directions.  The variable robot.links_geom_imported will be set to true when geometries have been imported from ROS and set to false when geometries are defined completely within the robot description file.
+</p>
+
+<p>
+A proper implementation for fetch.urdf.js example should produce the following:
+</p>
+<p> <center>
+<img  width=90% src="images/fk_fetch_example.png">
+</center> <p>
+</p>
+
+
+<h3> Project Submission</h3>
+<p>
+For turning in your assignment, create a branch in your repository labeled "Assignment-3".  
+<p>
+<!-- (uncomment end) -->
+
+<p>
+
+<h2 id="assignment4">Assignment 4: Robot FSM Dance Contest </h2>  
+<b>Due 11:59, Friday, February 26, 2016</b>
+<p>
+
+<p>
+For this assignment, you will now enable your robot to execute a dance routine by adding motor rotation to its joints and creating a Finite State Machine (FSM) controller over pose setpoints.  Your FK implementation will now be extended to consider angular rotation about each joint axis using quaternions for axis-angle rotation.  The positioning of each joint with respect to a given pose setpoint will be controlled by an simple P servo implementation (based on the Pendularm assignment).  You will implement an FSM controller to update the current pose setpoint based on the robot's current state and predetermined sequence of setpoints.  For a single robot, you will choreograph a dance for the robot by creating an FSM with your design of pose setpoints and an execution sequence. 
+</p>
+
+<p>
+This controller for the "mr2" was a poor attempt at <a href="https://www.youtube.com/watch?v=roBWj9YPKPo">robot Saturday Night Fever</a> (please do better):
+</p>
+
+<a href="asgn4_joint_rotation.png"><img width=100% src="images/asgn4_joint_rotation_small.png"></a>
+
+<p>
+This <a href="https://www.youtube.com/embed/WyQ9aoB3bpI">updated dance</a> controller for the Fetch robot is a bit better, but still very far from optimal:
+</p>
+
+<center>
+<iframe width="420" height="315" src="https://www.youtube.com/embed/WyQ9aoB3bpI" frameborder="0" allowfullscreen></iframe>
+</center>
+
+<p>
+Assuming proper completion of Assignment 3, ensure the following files are included (within script tags) in your "home.html".  You will modify these files for implementing axis-angle rotation, the pose setpoint controller, and the FSM controller:
+
+<ul>
+<li>"kineval/kineval_quaternion.js" for your implementation of quaternions for axis-angle rotation in 3D</li>
+<li>"kineval/kineval_controls.js" includes function kineval.applyControls() to apply a control update to the robot's base and angle of each joint, as well as updating the camera position; this update just does an addition and does not consider a physical model of dynamics</li>
+ <li>"kineval/kineval_servo_control.js" for your implementation of a P servo controller and an FSM pose sequencer</li>
+</ul>
+</p>
+
+
+<!-- (uncomment) -->
+<h3>Joint Axis Rotation and Interactive Control</h3>
+
+<p>
+Each joint of the robot needs several additional properties for joint rotation and control.  These joint properties for the current angle rotation (".angle"), applied control (".control"), and servo parameters (".servo") have already been created within the function kineval.initRobotJoints().  The joint's angle will be used to calculate a rotation about the joints (normal) axis of rotation vector, specified in the ".axis" field.  The 3D rotation due to joint movement should be accounted for in the robot's forward kinematics and implemented as quaternions in "kineval/kineval_quaternion.js".
+</p>
+
+<p>
+If joint axis rotation is implemented correctly, you should be able to use the 'u' and 'i' keys to move the currently active joint.  These keys respectively decrement and increment the ".control" field of the active joint.  Through the function kineval.applyControls(), this control value effectively adds an angular displacement to the joint angle.
+</p>
+
+<h3>Interactive Base Movement Controls</h3>
+
+<p>
+The user interfaces also enables controlling the global position and orientation of the robot base.  In addition to joint updates, the system update function kineval.applyControls() also updates the base state (in robot.origin) with respect to its controls (specified in robot.controls).  With the support function kineval.handleUserInput(), the 'wasd' keys are purposed to move the robot on the ground plane with 'q' and 'e' keys for lateral base movement.  In order for these keys to behave properly, the heading and lateral directions of the robot base are needed such that they are expressed as unit vectors in the global frame.  These vectors need to be computed within your FK implementation and stored within two global variables: robot_heading and robot_lateral.  Each of these variables should be a homogeneous 3D vectors stored as a 2D array.
+</p>
+
+<p>
+If robot_heading and robot_lateral are implemented properly, the robot should now be interactively controllable in the ground plane.
+</p>
+
+<h3>Pose Setpoint Controller</h3>
+
+<p>
+Once joint axis rotation is implemented, you will implement proportional setpoint controller for the robot joints in function kineval.robotArmSetpointController() within "kineval/kineval_setpoint_controller.js".  This setpoint controller uses the current angle (".angle"), desired angle, and servo gains (specified in the ".servo" object) of each joint to output a control (".control") for the joint.  The desired angle for a joint 'JointX' is stored in kineval.params.setpoint_target['JointX'] as a scalar. All of these joint object properties are initialized in the function kineval.initRobotJoints() in "kineval/kineval_robot_init.js".
+</p>
+
+<p>
+For testing, a "clock movement" controller has been provided as the function setpointClockMovement() in "kineval/kineval_setpoint_controller.js".  This function can be invoked by holding down the 'c' key or from the UI.  This controller goes well with <a href="https://www.youtube.com/watch?v=_JPa3BNi6l4"> this song</a>.
+</p>
+
+<p>
+The robot can servo to the current pose setpoint by holding down the 'o' key or selecting 'persist_pd' from the UI.  Pressing the '0' key sets the current setpoint to the zero pose, where all joint angles are zero.  Stored in kineval.setpoints, up to 9 other arbitrary pose setpoints can be stored by KinEval for pose control.  The current robot pose can be interactively stored by pressing "Shift+number_key" (e.g., "Shift+1").  The current setpoint can be assigned a stored pose by pressing one of the non-zero number keys [1-9].
+</p>
+
+<h3>FSM Controller</h3>
+
+<p>
+Once your pose setpoint controller is work, a FSM controller should be implemented in the function kineval.setpointDanceSequence() in "kineval/kineval_setpoint_control.js".  The reference implementation uses pose setpoints initialized and stored in kineval.setpoints with a sequence of indices stored in kineval.params.dance_sequence_index and playback index stored in kineval.params.dance_pose_index.  If this convention is not used, the following line in "kineval/kineval_userinput.js" will require modification:
+<p>
+
+<pre><code data-language="javascript">
+if (kineval.params.update_pd_dance)
+    textbar.innerHTML += "executing dance routine, pose " + kineval.params.dance_pose_index + " of " + kineval.params.dance_sequence_index.length;
+</code></pre>
+
+<h3> EECS 598-010 Requirements</h3>
+<p>
+Students in EECS 598-010 must implement the assignment as described above for the Fetch robot with two additional requirements: 1) proper enforcement of joint limits for Fetch robot description, and 2) integration of their code with a <a href="http://docs.fetchrobotics.com/gazebo.html">Gazebo simulation of the Fetch</a> using <a href="http://wiki.ros.org/rosbridge_suite">rosbridge</a>.  Your code can interface with a robot (or simulated robot) running rosbridge/ROS using the function kineval.rosbridge() in "kineval/kineval_rosbridge.js".  This code requires that the rosbridge_server package is running in a ROS run-time environment and listening on a websocket port, such as for ws://fetch7:9090.  If your FK implementation is working properly, the model of your robot in the browser will update along with the motion of the robot based on the topic subscription and callback.  This functionality works seamlessly between real and simulated robots.  To control the robot, a rosbridge publisher must be written to update the ROS topic "/arm_controller/follow_joint_trajectory/goal" with a message of type "control_msgs/FollowJointTrajectoryActionGoal".
+</p>
+
+<p>
+Machines running rosbridge, ROS, and Gazebo for the Fetch will be available during special sessions of the class.  Students are encouraged to install and run the Fetch simulator on their own machines based on <a href="http://docs.fetchrobotics.com/gazebo.html">this tutorial</a>.
+</p>
+
+
+<h3>Project Submission</h3>
+<p>
+For turning in your assignment, create a branch in your repository labeled "Assignment-4" and post a video of your dance controller in action to the course discussion channel.
+</p>
+
+<p>
+<!-- (comment end) -->
+
+
+<p>
 
 <hr>
 <h1> Assignments beyond this point have not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr>
 
-<h2 id="assignment3">Assignment 3: Forward Kinematics</h2>  
-<br><b>Due 9am, Wednesday, February 10, 2016</b>
-<p>
-In this assignment, you will render the forward kinematics of a robot, given its kinematic specification (in the "robots" subdirectory).  To render the robot properly, you will compute matrix transforms for each link and joint of the robot based their hierarchical configuration.  We will assume the joints will remain in their zero position, saving joint motion for the next assignment.  
-
-<!-- (uncomment)
-Each file in the robots subdirectory contains code to create a robot data object and initializes this object with the kinematic description of a robot (as well as some meta information and rendering geometries).  This kinematic description defines a hierarchical configuration of the robot's links and joints.  This description is a subset of the <a href="http://wiki.ros.org/urdf">Unified Robot Description Format (URDF)</a>, as described in <a href="http://wiki.ros.org/urdf/Tutorials/Create%20your%20own%20urdf%20file">this tutorial</a>.  From this initialization, you should extend the robot object to:
-
-<p>
-<ul>
-<li> complete the kinematic hierarchy to specify the parent and children of each link, by modifying the init_robot_joints() function in home.html.</li>
-<li> include "kineval_forward_kinematics.js" and "kineval_matrix.js" in home.html </li>
-<li> invoke traversal of forward kinematics, by calling kineval.forwardKinematics() within my_animate() in home.html </li>
-<li> implement matrix support routines in kineval_matrix.js </li>
-<li> implement recursive traversal of joints and links kineval_forward_kinematics.js, starting from kineval.forwardKinematics(), to compute transformation matrices for: </li>
-<ul>
-<li> robot.origin.xform: global position and orientation of robot </li>
-<li> robot.links[xx].xform: transform of link 'xx' in global coordinates </li>
-<li> robot.joints[yy].xform: transform of joint 'yy' rotation in global coordinates.</li> 
-</ul>
-<li> for each link and joint, set its transformation for rendering by coverting the transform to the threejs format and applying it to the associated threejs geometry (.geom), such as:
-<pre><code data-language="javascript">
-    var tempmat = matrix_2Darray_to_threejs(robot.joints[xx].xform);
-    simpleApplyMatrix(robot.joints[xx].geom,tempmat);
-</code></pre>
-</ul>
-
-(uncomment end) -->
-<p>
-
-If implemented properly, the robot_urdf_example.js example should produce the following rendering:
-<p>
-<img  width=70% src="images/asgn2_urdf_example.png">
-<p>
-
-The robot_mr2_example.js should produce the following:
-<p>
-<img  width=100% src="images/asgn2_mr2_example.png">
-
-<!-- (uncomment)
-<p>
-Additionally, a correct implementation will be able to interactively highlight joints by uncommenting the following in kineval.js:
-
-<pre><code data-language="javascript">
-/*
-    // initialize the active link/joint for control
-    active_link = robot.base;
-    active_joint = robot.links[active_link].children[0];
-    //robot.links[active_link].geom.material.wireframe = false;
-    //robot.links[active_link].geom.material.opacity = 0.5;
-    robot.joints[active_joint].display_geom.material.wireframe = false;
-    robot.joints[active_joint].display_geom.material.opacity = 0.5;
-*/
-</code></pre>
-
-<p>
-
-This will allow you to move up and down the kinematic hierarchy with the "k" and "j" keys, respectively.  You can also move between the children of a link using the "h" and "l" keys.
-
-<p>
-For turning in your assignment, create a branch in your repository labeled "Assignment-3".  
-<p>
-
-(uncomment end) -->
-
-<p>
-
-<h2 id="assignment4">Assignment 4: Robot Dance Contest </h2>  
-<b>Due 9am, Wednesday, February 24, 2016</b>
-<p>
-
-For this assignment, you will now enable your robot to dance by adding motor rotation to its joints, along with an simple P controller based on the Pendularm assignment.  You will implement angular rotation about each joint axis using quaternions for axis-angle rotation.  
-
-<!-- (uncomment)
-You should create an "angle" property for each joint that is initialized as zero for rotation about the normal vector specified in the "axis" field.  The rotation due to joint angles should be accounted for in the robot's forward kinematics and implemented as quaternions in "kineval_quaterion.js".  Remember to uncomment the include of "kineval_quaterion.js" in "home.html" and the joint rendering cylinder rotation in "kineval.js".
-(comment end) -->
-
-This is a poor attempt at <a href="https://www.youtube.com/watch?v=roBWj9YPKPo">robot Saturday Night Fever</a> (please do better):
-
-<a href="asgn4_joint_rotation.png"><img width=100% src="images/asgn4_joint_rotation_small.png"></a>
-
-<!-- (uncomment)
-<p>
-Once joint axis rotation is implemented, you will implement movement controls and P control for the robot.  You should create an "control" property for each joint and global DOF that is initialized as zero, and a "servo" property with PD gains and desireds.  In "home.html", you should uncomment the function call to robot_apply_controls() and code segment around robot_pd_control(), and implement these functions respectively in "kineval_controls.js" and "kineval_pd_control.js".  
-<p>
-<b>robot_apply_controls():</b> Assuming simple non-Newtonian physics, robot_apply_controls() should simply add the controls to the joint angle state (contained in the robot.joints[x].angle fields) and global pose (contained in the robot.origin field) of the robot.  Assume the base of the robot will be restricted to the ground plane.  The following patch can be used in your main FK routine (such as through the compute_and_draw_heading() function) to create the rendering geoms for the robot's forward and lateral directions in the ground plane:
-<p>
-<pre><code data-language="javascript">
-        if (typeof heading_geom === 'undefined') {
-            var temp_geom = new THREE.CubeGeometry(0.3, 0.3, 0.3);
-            var temp_material = new THREE.MeshBasicMaterial( {color: 0x00ffff} )
-            heading_geom = new THREE.Mesh(temp_geom, temp_material);
-            scene.add(heading_geom);
-        }
-        if (typeof lateral_geom === 'undefined') {
-            var temp_geom = new THREE.CubeGeometry(0.3, 0.3, 0.3);
-            var temp_material = new THREE.MeshBasicMaterial( {color: 0x008888} )
-            lateral_geom = new THREE.Mesh(temp_geom, temp_material);
-            scene.add(lateral_geom);
-        }
-</code></pre>
-<p>
-The placement of these geoms can then be set using simpleApplyMatrix():
-<pre><code data-language="javascript">
-        simpleApplyMatrix(heading_geom,heading_mat);
-        simpleApplyMatrix(lateral_geom,lateral_mat);
-</code></pre>
-Note: this is not the most elegant way to show the robot's heading and lateral, but does give a reasonable visual indication.
-<p>
-<b>robot_pd_control():</b> For controlling the joint angles, robot_pd_control() should implement a simple proportional controller that updates to the desired angle of all joints to the setpoints of an dance routine.  Setpoints can be assigned interactively by pressing Shift+number_key (e.g., "Shift+1") and then executed by pressing the corresponding number key.  
-
-
-<p>
-For user input, you should be able to use the 'u' and 'i' keys to decrement and increment the rotation angle the selected joint, 'wasd' keys to move the robot on the ground plane, 'q' and 'e' keys for lateral base movement, and hold down the 'o' key to servo based on the system seconds. 
-<p>
-For turning in your assignment, create a branch in your repository labeled "Assignment-4".  
-<p>
-(comment end) -->
-
-<!-- (delete)
-There is also a baseline controller available based on the seconds of the system clock.  Invoked by the 'o' key, this controller provides a simple means to test that controls for all joints are working.  The following code snippet shows how to get the current system time and seconds, and scale this value to span the range (0..2*Math.PI).
-<p>
-<pre><code data-language="javascript">
-    var curdate = new Date();
-    curdate.getSeconds()/60*2*Math.PI;
-</code></pre>
--->
-
-
-
-<!--
-<p>
-<h3>Update</h3>
-<p>
-<a href="">Addendum slides</a> with more details about user input and controls for base motion.
--->
-<p>
 
 
 <h2 id="assignment5">Assignment 5: Inverse Kinematics </h2>  
