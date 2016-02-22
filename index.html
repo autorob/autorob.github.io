@@ -980,7 +980,7 @@ If robot_heading and robot_lateral are implemented properly, the robot should no
 <h3>Pose Setpoint Controller</h3>
 
 <p>
-Once joint axis rotation is implemented, you will implement proportional setpoint controller for the robot joints in function kineval.robotArmSetpointController() within "kineval/kineval_setpoint_controller.js".  This setpoint controller uses the current angle (".angle"), desired angle, and servo gains (specified in the ".servo" object) of each joint to output a control (".control") for the joint.  The desired angle for a joint 'JointX' is stored in kineval.params.setpoint_target['JointX'] as a scalar. All of these joint object properties are initialized in the function kineval.initRobotJoints() in "kineval/kineval_robot_init.js".
+Once joint axis rotation is implemented, you will implement proportional setpoint controller for the robot joints in function kineval.robotArmControllerSetpoint() within "kineval/kineval_servo_controller.js".  This setpoint controller uses the current angle (".angle"), desired angle, and servo gains (specified in the ".servo" object) of each joint to output a control (".control") for the joint.  The desired angle for a joint 'JointX' is stored in kineval.params.setpoint_target['JointX'] as a scalar. All of these joint object properties are initialized in the function kineval.initRobotJoints() in "kineval/kineval_robot_init.js".
 </p>
 
 <p>
