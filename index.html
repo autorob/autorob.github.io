@@ -1001,7 +1001,7 @@ For testing, a "clock movement" controller has been provided as the function set
 </p>
 
 <p>
-The robot can servo to the current pose setpoint by holding down the 'o' key or selecting 'persist_pd' from the UI.  Pressing the '0' key sets the current setpoint to the zero pose, where all joint angles are zero.  Stored in kineval.setpoints, up to 9 other arbitrary pose setpoints can be stored by KinEval for pose control.  The current robot pose can be interactively stored by pressing "Shift+number_key" (e.g., "Shift+1").  The current setpoint can be assigned a stored pose by pressing one of the non-zero number keys [1-9].
+The robot can servo to the current pose setpoint by holding down the 'o' key or selecting 'persist_pd' from the UI.  Pressing the '0' key sets the current setpoint to the zero pose, where all joint angles are zero.  Stored in kineval.setpoints, up to 9 other arbitrary pose setpoints can be stored by KinEval for pose control.  The current robot pose can be interactively stored by pressing "Shift+number_key" (e.g., "Shift+1").  The current setpoint can be assigned a stored pose by pressing one of the non-zero number keys [1-9].  At any time, the currently stored setpoints can be output to the console as JavaScript code using the JSON.stringify function for the setpoint object, as the statement "JSON.stringify(kineval.setpoints);".  This setpoint array can be included in your code as part of your dance controller.
 </p>
 
 <h3>FSM Controller</h3>
@@ -1017,7 +1017,27 @@ if (kineval.params.update_pd_dance)
 
 <h3> EECS 598-010 Requirements</h3>
 <p>
-Students in EECS 598-010 must implement the assignment as described above for the Fetch robot with two additional requirements: 1) proper enforcement of joint limits for Fetch robot description, and 2) integration of their code with a <a href="http://docs.fetchrobotics.com/gazebo.html">Gazebo simulation of the Fetch</a> using <a href="http://wiki.ros.org/rosbridge_suite">rosbridge</a>.  Your code can interface with a robot (or simulated robot) running rosbridge/ROS using the function kineval.rosbridge() in "kineval/kineval_rosbridge.js".  This code requires that the rosbridge_server package is running in a ROS run-time environment and listening on a websocket port, such as for ws://fetch7:9090.  If your FK implementation is working properly, the model of your robot in the browser will update along with the motion of the robot based on the topic subscription and callback.  This functionality works seamlessly between real and simulated robots.  To control the robot, a rosbridge publisher must be written to update the ROS topic "/arm_controller/follow_joint_trajectory/goal" with a message of type "control_msgs/FollowJointTrajectoryActionGoal".
+Students in EECS 598-010 must implement the assignment as described above for the Fetch robot with two additional requirements: 1) proper enforcement of joint types and limits for Fetch robot description, and 2) integration of their code with ROS or a <a href="http://docs.fetchrobotics.com/gazebo.html">Gazebo simulation of the Fetch</a> using <a href="http://wiki.ros.org/rosbridge_suite">rosbridge</a>.  
+
+<p>
+The Fetch URDF JS file, included in the provided code stencil, contains joints with with various types that correspond to different types of motion:
+</p>
+
+<p>
+<ul>
+<li>continuous: rotation about the joint axis with no joint limits</li>
+<li>revolute: rotation about the joint axis with joint limits</li>
+<li>prismatic: translation along the joint axis with joint limits</li>
+<li>fixed: no motion of the joint</li>
+</ul>
+</p>
+
+<p>
+Joints are considered to be continuous as the default.  Joints with undefined motion types must be treated as continuous joints.
+</p>
+
+<p>
+Your code can interface with a robot (or simulated robot) running rosbridge/ROS using the function kineval.rosbridge() in "kineval/kineval_rosbridge.js".  This code requires that the rosbridge_server package is running in a ROS run-time environment and listening on a websocket port, such as for ws://fetch7:9090.  If your FK implementation is working properly, the model of your robot in the browser will update along with the motion of the robot based on the topic subscription and callback.  This functionality works seamlessly between real and simulated robots.  To control the robot, a rosbridge publisher must be written to update the ROS topic "/arm_controller/follow_joint_trajectory/goal" with a message of type "control_msgs/FollowJointTrajectoryActionGoal".
 </p>
 
 <p>
