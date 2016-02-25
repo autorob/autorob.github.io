@@ -1007,7 +1007,7 @@ The robot can servo to the current pose setpoint by holding down the 'o' key or 
 <h3>FSM Controller</h3>
 
 <p>
-Once your pose setpoint controller is work, a FSM controller should be implemented in the function kineval.setpointDanceSequence() in "kineval/kineval_setpoint_control.js".  The reference implementation uses pose setpoints initialized and stored in kineval.setpoints with a sequence of indices stored in kineval.params.dance_sequence_index and playback index stored in kineval.params.dance_pose_index.  If this convention is not used, the following line in "kineval/kineval_userinput.js" will require modification:
+Once your pose setpoint controller is working, a FSM controller should be implemented in the function kineval.setpointDanceSequence() in "kineval/kineval_setpoint_control.js".  The reference implementation uses pose setpoints initialized and stored in kineval.setpoints with a sequence of indices stored in kineval.params.dance_sequence_index and playback index stored in kineval.params.dance_pose_index.  If this convention is not used, the following line in "kineval/kineval_userinput.js" will require modification:
 <p>
 
 <pre><code data-language="javascript">
