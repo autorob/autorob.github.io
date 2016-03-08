@@ -52,8 +52,8 @@
             <li><a href="#assignment2">2</a></li>
             <li><a href="#assignment3">3</a></li>
             <li><a href="#assignment4">4</a></li>
-<!-- unassigned
             <li><a href="#assignment5">5</a></li>
+<!-- unassigned
             <li><a href="#assignment6">6</a></li>
             <li><a href="#assignment7">7</a></li>
 -->
@@ -1056,30 +1056,52 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 
 <p>
 
-<hr>
-<h1> Assignments beyond this point have not been assigned.  The descriptions below are unofficial and tentative.</h1>
-<hr>
-
 
 
 <h2 id="assignment5">Assignment 5: Inverse Kinematics </h2>  
 <p>
-<b>Due 9am, Wednesday, March 16, 2016</b>
+<b>Due 11:59pm, Monday, March 21, 2016</b>
 <p>
 
 For this assignment, you will now control your robot to reach to a given point through inverse kinematics for position control of the robot endeffector.  Inverse kinematics will be implemented through both the Jacobian Transpose and Jacobian Pseudoinverse methods, although only one will be invoked at run-time.  
 <p>
 
+<img width=100% src="images/kineval_fetch.png">
+<!--
 <img src="images/kineval_snapshot_2.png" width=100%>
+-->
 
-<iframe width="420" height="315" src="https://www.youtube.com/embed/ag0j8HzFRzc" frameborder="0" allowfullscreen></iframe>
 
 <!-- (uncomment)
-The core of this assignment is to complete the kineval.inverseKinematics() function invoked from home.html.  This function will be called with three arguements: the variable ik_target (used by kineval_userinput.js) to specify the IK target location in the world frame, the name of the joint directly connected to the endeffector, and the location of the endeffector in the local joint frame.  The following is an example of invoking kineval.inverseKinematics():
+     -->
+<p>
+The core of this assignment is to complete the kineval.iterateIK() function in the file kineval/kineval_inverse_kinematics.js.  This function is invoked within the function kineval.inverseKinematics()  with three arguments: 
+</p>
+
+<ul>
+<li>endeffector_target_world: an object with two fields with the target endeffector position (as a 3D homogeneous vector) and orientation (as Euler angles) in the world frame</li>
+<li>endeffector_joint: the name of the joint directly connected to the endeffector</li>
+<li>endeffector_position_local: the location of the endeffector in the local joint frame</li>
+</ul>
+
+<p>
+From these arguments and the current robot configuration, the kineval.iterateIK() function will compute controls for each joint.  Upon update of the joints, these controls will move the configuration and endeffector of the robot closer to the target.
+</p>
+
+<p>
+kineval.iterateIK() should also respect global parameters for using the Jacobian pseudoinverse (through boolean parameter kineval.params.ik_pseudoinverse) and step length of the IK iteration (through real-valued parameter kineval.params.ik_steplength).  Kineval also maintains the current endeffector target information in the kineval.params.ik_target parameter.
+</p>
+
+
+
+<!--
+function invoked from home.html
+The following is an example of invoking kineval.inverseKinematics():
 
 <pre><code data-language="javascript">
     kineval.inverseKinematics(ik_target, "forearm_right_yaw", [[0],[0],[0.5],[1]]);
 </code></pre>
+
 
 <p>
 The top level of kineval.inverseKinematics() is provided below, and is the beginning of your implementation in the file kineval_inverse_kinematics.js:  
@@ -1103,8 +1125,13 @@ function robot_inverse_kinematics(target_pos, endeffector_joint, endeffector_loc
 }
 </code></pre>
 <p>
+Both endeffector_geom and target_geom have been previously created by kineval, so your code only needs to set the transform using simpleApplyMatrix() for proper rendering.  
+-->
 
-This code stub contains clauses to handle rendering of the endeffector (endeffector_geom) and target (target_geom) geometries and when to perform IK iterations (which occurs while holding down the 'p' key through kineval_userinput.js).  Both endeffector_geom and target_geom have been previously created by kineval, so your code only needs to set the transform using simpleApplyMatrix() for proper rendering.  Further, the 'r'/'f' keys will move the target location up/down, respectively.
+
+<p>
+IK iterations can be invoked through the user interface by holding down the 'p' key.  Further, the 'r'/'f' keys will move the target location up/down.  When performing IK iterations, the endeffector and its target pose will be rendered as cube geometries in blue and green, respectively.  
+</p>
 
 <p>
 In implementing this IK routine, please remember the following:
@@ -1113,14 +1140,32 @@ In implementing this IK routine, please remember the following:
 <li>Computation of the Jacobian should only occur with respect to the joints along the chain from the endeffector joint to the robot base</li>
 <li>The location of the endeffector needs to be computed using transforms resulting from the robot's forward kinematics  </li>
 <li>Matrix inversion can be invoked by using the provided routine numeric.inv(mat), available through <a href="http://www.numericjs.com/">numericjs</a> </li>
-<li>The computed velocity in configuration should be applied to the robot through the joint.controls field of each joint </li>
-<li>This assignment is only for positional control of the robot endeffector with respect to computing IK error</li>
+<li>The computed velocity in configuration space should be applied to the robot through the joint.controls field of each joint </li>
 </ul>
+
+<p>
+Students enrolled in EECS 398-002 will implement inverse kinematics for only the position of the endeffector.
+</p>
+
+
+<p>
+Students enrolled in EECS 598-010 will implement inverse kinematics for both the position and orientation of the endeffector, especially for the Fetch robot.  The default IK behavior will be for endeffector position control.  Both endeffector position and orientation are controlled when the boolean parameter kineval.params.ik_orientation_included is set to true.  Below is an example of the reference IK implementation working with the Fetch robot example:
+</p>
+
+<center>
+<iframe width="420" height="315" src="https://www.youtube.com/embed/ag0j8HzFRzc" frameborder="0" allowfullscreen></iframe>
+</center>
 
 <p>
 For turning in your assignment, create a branch in your repository labeled "Assignment-5".  
 <p>
+
+<!--
 (comment end) -->
+
+<hr>
+<h1> Assignments beyond this point have not been assigned.  The descriptions below are unofficial and tentative.</h1>
+<hr>
 
 <h2 id="assignment6">Assignment 6: Motion Planning  </h2>  
 <p>
