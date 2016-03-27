@@ -53,9 +53,9 @@
             <li><a href="#assignment3">3</a></li>
             <li><a href="#assignment4">4</a></li>
             <li><a href="#assignment5">5</a></li>
-<!-- unassigned
             <li><a href="#assignment6">6</a></li>
             <li><a href="#assignment7">7</a></li>
+<!-- unassigned
 -->
         </ul>
     </div>
@@ -1163,81 +1163,170 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 <!--
 (comment end) -->
 
-<hr>
-<h1> Assignments beyond this point have not been assigned.  The descriptions below are unofficial and tentative.</h1>
-<hr>
-
 <h2 id="assignment6">Assignment 6: Motion Planning  </h2>  
 <p>
-<b>Due 9am, Wednesday, April 6, 2016</b>
+<b>Due 11:59pm, Friday, April 15, 2016</b>
 <p>
 
 
-For this assignment, you will now implement a collision-free motion planner to enable your robot to navigate from a random configuration in the world to its home configuration (marked by the "X" on the world floor).  Motion planning will be implemented through the <a href="https://personalrobotics.ri.cmu.edu/files/courses/papers/Kuffner00-rrtconnect.pdf">RRT-Connect algorithm</a> (described by Kuffner and LaValle).  
+For this assignment, you will now implement a collision-free motion planner to enable your robot to navigate from a random configuration in the world to its home configuration (or "zero configuration").  This home configuration is where every robot DOF has a zero value.  For planning, configuration space includes the state of each joint and the global orientation and position of the robot base.  Thus, the robot must move to its original state at the origin of the world.  Motion planning will be implemented through the <a href="https://personalrobotics.ri.cmu.edu/files/courses/papers/Kuffner00-rrtconnect.pdf">RRT-Connect algorithm</a> (described by Kuffner and LaValle).  
 
 <img src="images/asgn6_motionplan.png"  width=100%>
 <p>
 
 <!-- (uncomment)
-The core of this assignment is to complete the robot_rrt_planner_init() and robot_rrt_planner_iterate() in the provided kineval_rrt_connect.js stencil.  For successful execution, your implementation of RRT-Connect, the provided collision detection system, and a single specification of world geometry will need to be included in home.html:
+-->
+The core of this assignment is to complete the robot_rrt_planner_init() and robot_rrt_planner_iterate() in the provided kineval_rrt_connect.js stencil.  For successful execution, your implementation of RRT-Connect, the provided collision detection system, and a single specification of world geometry has been included in home.html:
 
 
 <pre><code data-language="javascript">
 <script src="kineval_rrt_connect.js"></script> 
 <script src="kineval_collision.js"></script> 
 <script src="worlds/world_basic.js"></script>
-<-
-<script src="worlds/world_empty.js"></script>
-<script src="worlds/world_random.js"></script>
-<script src="worlds/world_local_minima.js"></script>
-<script src="worlds/world_s.js"></script>
-->
 </code></pre>
 
 <p>
-To ensure these worlds are rendered in the display, the geometries of the world are added to the threejs scene by calling kineval.setPlanningScene() in home.html at the end of the init_robot() function:
-
-<pre><code data-language="javascript">
-function init_robot() {
-    ...
-    // set scene for planner
-    kineval.setPlanningScene();
-}
-</code></pre>
-
+The code stencil will automatically load a default world.  A world can also be specified as an appended parameter within the URL, in the form of "?world=worlds/world_name.js".
+The result of including a world file are the global objects "robot_boundary" descrbing the min and max values of the world boundaries along the X, Y, and Z axes and "robot_obstacles" as the locations and radii of sphere obstacles.  To ensure these worlds rendered in the display and available for collision detection, the geometries of the world are included through the provided call to kineval.initWorldPlanningScene() in kineval/kineval.js.
 <p>
 
 Note: your planner should be constrained such that the search does not consider configurations where the base is outside the X-Z plane.  Specifically, the base should not translate along the Y axis, and should not rotate about the X and Z axes.
 
 <h3>First step: add collision detection</h3> 
 <p>
-Your RRT-Connect implementation will depend on detection of collisions (provided by the function kineval.isCollision() in kineval_collision.js) with respect to a specified world geometry.  Worlds are specified as a rectangular boundary and sphere obstacles.  A collection of worlds are provided in the "worlds/" subdirectory of kineval_stencil.  The collision detection system performs two forms of tests: 1) testing of the base position of the robot against the rectangular extents of the world, and 2) testing of the robot configuration against spherical objects.  Configuration collision testing is performed by AABB/Sphere tests that require the bounding box of each link's geometry in the coordinates of that link.  This bounding box is computed by adding the following within the loop inside init_robot_links_geoms() in kineval.js:
+Your RRT-Connect implementation will depend on detection of collisions (provided by the function kineval.isCollision() in kineval_collision.js) with respect to a specified world geometry.  Worlds are specified as a rectangular boundary and sphere obstacles.  A collection of worlds are provided in the "worlds/" subdirectory of kineval_stencil.  The collision detection system performs two forms of tests: 1) testing of the base position of the robot against the rectangular extents of the world, which is provided by default, and 2) testing of link geometries for a robot configuration against spherical objects, which depends on code you will write.  
+
+Collision testing for links in a configuration is performed by AABB/Sphere tests that require the bounding box of each link's geometry in the coordinates of that link.  This bounding box is computed by adding the following within the loop inside kineval.initRobotLinksGeoms() in kineval.js:
 
 <pre><code data-language="javascript">
-        // bounding box of robot link in local link coordinates
-        robot.links[x].bbox = new THREE.Box3;
-        robot.links[x].bbox = robot.links[x].bbox.setFromPoints(robot.links[x].geom.geometry.vertices);
+  // bounding box of robot link in local link coordinates
+  robot.links[x].bbox = new THREE.Box3;
+  robot.links[x].bbox = 
+    robot.links[x].bbox.setFromObject(robot.links[x].geom);
 </code></pre>
 
+<!--
 (end comment) --> 
 
 <p>
-Even before your planner is implemented, you can use the collision system interactively with your robot.  The provided kineval.isCollision() function will test the current configuration of the robot.  If a collision occurs, the base of the robot will be displayed as a solid red.  The call to kineval.isCollision() should be placed within my_animate() in home.html:
+Even before your planner is implemented, you can use the collision system interactively with your robot.  The provided kineval.isCollision() function will test the current configuration of the robot.  When the robot is detected to be in collision, one of the colliding links will be highlighted with a red wireframe.  There could be many links in collision, but only one will be highlighted.  
+
+<p>
+<center>
+<img src="images/rrt_collision_boundary.png" width=48%>
+<img src="images/rrt_collision_link.png" width=48%>
+</center>
+<p>
+
+The call to kineval.isCollision() has been placed within my_animate() in home.html:
 
 <pre><code data-language="javascript">
     // show if robot is currently in collision
     kineval.isCollision();
 </code></pre>
 
-<p>
-<img src="images/asgn6_collision.png" width=70%>
-<p>
-
 <!-- (uncomment)
+-->
 
 <h3>Updating kineval_collision for your implementation</h3>
 <p>
-You will need to modify the forward kinematics calls in kineval_collision.js.  kineval_collision.js uses matrix and quaternion calls based on the reference implementation (i.e., my code).  Your matrix and quaternion calls likely have a different structure to the function arguments and returned data structures.  You should either:
+
+To complete the collision system, you will need to modify the forward kinematics calls in kineval/kineval_collision.js.  Specifically, you will need to perform a traversal of the forward kinematics of the robot for an arbitrary robot configuration within the function kineval.poseIsCollision().  kineval.poseIsCollision() takes in a vector in the robot's configuration space and returns either a boolean false for no detected collision or a string with the name of a link that is in collision.  As a default, this function performs base collision detection against the extents of the world.  For collision detection of each link, this function will make a call to function that you create called robot_collision_forward_kinematics() to recursively test for collisions along each link.  Your collision FK recursion should use the link collision function, collision_FK_link(), provided below along with a joint traversal function properly positions the link and joint frames for the given configuration.
+</p>
+
+
+<pre><code data-language="javascript">
+function collision_FK_link(link,mstack,q) {
+
+  // this function is part of an FK recursion to test each link 
+  //   for collisions, along with a joint traversal function for
+  //   the input robot configuration q
+  //
+  // this function returns the name of a robot link in collision
+  //   or false if all its kinematic descendants are not in collision
+
+  // test collision by transforming obstacles in world to link space
+  mstack_inv = numeric.inv(mstack);
+  // (alternatively) mstack_inv = matrix_invert_affine(mstack);
+
+  var i; var j;
+
+  // test each obstacle against link bbox geometry 
+  //   by transforming obstacle into link frame and 
+  //   testing against axis aligned bounding box
+  for (j in robot_obstacles) {
+
+    var obstacle_local = 
+      matrix_multiply(mstack_inv,robot_obstacles[j].location);
+
+    // assume link is in collision as default
+    var in_collision = true;
+
+    // return false if no collision is detected such that
+    //   obstacle lies outside the link extents 
+    //   along any dimension of its bounding box
+    if (
+      (obstacle_local[0][0]<
+       (link.bbox.min.x-robot_obstacles[j].radius)
+      )
+      ||
+      (obstacle_local[0][0]>
+       (link.bbox.max.x+robot_obstacles[j].radius)
+      )
+    )
+      in_collision = false;
+
+    if (
+      (obstacle_local[1][0]<
+       (link.bbox.min.y-robot_obstacles[j].radius)
+      )
+      ||
+      (obstacle_local[1][0]>
+       (link.bbox.max.y+robot_obstacles[j].radius)
+      )
+    )
+      in_collision = false;
+
+    if (
+      (obstacle_local[2][0]<
+       (link.bbox.min.z-robot_obstacles[j].radius)
+      )
+      ||
+      (obstacle_local[2][0]>
+       (link.bbox.max.z+robot_obstacles[j].radius)
+      )
+    )
+      in_collision = false;
+
+    // return name of link for detected collision if
+    //   obstacle lies within the link extents 
+    //   along all dimensions of its bounding box
+    if (in_collision)
+      return link.name;
+  }
+
+  // recurse child joints for collisions, 
+  //   returning name of descendant link in collision
+  //   or false if all descendants are not in collision
+  if (typeof link.children !== 'undefined') { 
+    var local_collision;
+    for (i in link.children) {
+       // STUDENT: create this joint FK traversal function 
+       local_collision = 
+         collision_FK_joint(robot.joints[link.children[i]],mstack,q)
+       if (local_collision)
+         return local_collision;
+     }
+  }
+
+  // return false, when no collision detected for this link and children
+  return false;
+}
+</code></pre>
+
+
+<!--
+kineval_collision.js uses matrix and quaternion calls based on the reference implementation (i.e., my code).  Your matrix and quaternion calls likely have a different structure to the function arguments and returned data structures.  You should either:
 
  <ul> 
   <li>1) modify calls to matrix/quaternion routines to fit your functions, or
@@ -1245,111 +1334,47 @@ You will need to modify the forward kinematics calls in kineval_collision.js.  k
   <li>2) use a modified version of your own FK with the collision test added to the link traversal function (remember: you need the inverse of the matrix stack for collision testing in a link frame)
 </ul>
 <p>
-
-Also, you can feel free to use numeric.inv() instead of matrix_invert_affine().  Affine transforms can be inverted (in constant time) through a much simpler process than the generic matrix inversion, which is O(n^3) for Gaussian elimination. 
-<p>
-If successful to this point, you should be able to see the collision world of the robot, move around this world, and see the base display solid red when a collision occurs.
-<p>
-
-
-<h3>Invoking the planner</h3> 
+-->
 
 <p>
-Your planner will be invoked interactively by first moving the robot to an arbitrary non-colliding configuration in the world and then pressing the "m" key.  The "m" key will request the generation of a motion plan.  While the planner is working, it will not accept new planning requests.  Thus, you can move the robot around while the planner is executing.
+You can feel free to implement matrix_invert_affine() instead of using numeric.inv().  Affine transforms can be inverted (in constant time, Quiz 2!) through a much simpler process than the generic matrix inversion, which is O(n^3) for Gaussian elimination. 
+</p>
+<p>
+If successful to this point, you should be able to see the collision world of the robot, move around this world, and see the colliding link display a red wireframe when a collision occurs.
+<p>
+
+
+<h3>Implementing and invoking the planner</h3> 
 
 <p>
-Invokation of the planner is implemented by adding the following code segments to: 
+Your motion planner will be implemented in the file kineval/kineval_rrt_connect.js through the functions kineval.robotRRTPlannerInit() and robot_rrt_planner_iterate().  The kineval.robotRRTPlannerInit() function should be modified to initialize the RRT trees and other necessary variables. The robot_rrt_planner_iterate() function should be modified to perform a <b>single</b> RRT-Connect iteration based on the current RRT trees.  Basic RRT tree support functions are provided for initialization, adding configuration vertices (which renders "breadcrumb" indicators of base positions explored), and adding graph edges between configuration vertices.  This function should <b>not</b> use a for loop to perform multiple planning iterations, as this will cause the browser to block and become unresponsive.  Instead, the planner will be continually called asynchronously by the code stencil until a motion plan solution is found.
+</p>
 
 <p>
-<ul>
-<li> init_robot() in home.html:
+Once implemented, your planner will be invoked interactively by first moving the robot to an arbitrary non-colliding configuration in the world and then pressing the "m" key.  The "m" key will request the generation of a motion plan.  While the planner is working, it will not accept new planning requests.  Thus, you can move the robot around while the planner is executing.
+</p>
 
-<p>
-<pre><code data-language="javascript">
-    // initialize flags for executing planner
-    generating_motion_plan = false;
-    generate_motion_plan = false;
-</code></pre>
-
-<p>
-<li> my_animate() in home.html:
-
-<p>
-<pre><code data-language="javascript">
-    // configuration space motion planning
-    if ((generate_motion_plan) && (!generating_motion_plan)) {
-        robot_rrt_planner_init();
-        generating_motion_plan = true;
-        generate_motion_plan = false;
-    }
-    if (generating_motion_plan) {
-        //robot_rrt_connect(q_desired);
-        rrt_result = robot_rrt_planner_iterate();
-        if (rrt_result === "reached") {
-            //alert("home: reached");
-            generating_motion_plan = false;
-        }
-    }
-</code></pre>
-
-<p>
-<li> user_input() in kineval_userinput.js:
-
-<p>
-<pre><code data-language="javascript">
-    // generate motion plan
-    if ( keyboard.pressed("m") )
-        generate_motion_plan = true;
-    else
-        generate_motion_plan = false;
-</code></pre>
-</ul>
 
 <h3>Planner output</h3> 
 <p>
-The output of your planner will be a sequentially ordered array (named robot_path[]) of RRT vertices, where each RRT vertex contains a robot configuration (.vertex), an array of edges (.edges), and a threejs indicator geometry (.geom).  The kineval_rrt_connect.js stencil has provide routines that describe how new vertices can be added to the RRT.  One a viable motion plan is found, this path can be highlighted by changing the color of the RRT vertex geom indicators, similar to the following:
+The output of your planner will be a motion path in a sequentially ordered array (named kineval.motion_plan[]) of RRT vertices.  Each element of this array contains a reference to an RRT vertex with a robot configuration (.vertex), an array of edges (.edges), and a threejs indicator geometry (.geom).  Once a viable motion plan is found, this path can be highlighted by changing the color of the RRT vertex "breadcrumb" geom indicators.  The color of any configuration breadcrumb indicator in a tree can be modified, such as in the following example for red:
+</p>
 
 <pre><code data-language="javascript">
-        robot_path[i].geom.material.color = {r:1,g:0,b:0};
+  tree.vertices[i].geom.material.color = {r:1,g:0,b:0};
 </code></pre>
+
 <p>
-
-The user should should be able to interactively move the robot through the found plan.  After adding the following code below to user_input() in kineval_userinput.js, the "n" and "b" keys to move the robot to the next and previous configuration in the found path, respectively.
+The user should should be able to interactively move the robot through the found plan.  After adding the following code below to user_input() in kineval_userinput.js, the "n" and "b" keys to move the robot to the next and previous configuration in the found path, respectively.  These user key presses will respectively increment and decrement the parameter kineval.motion_plan_traversal_index such that the robot's current configuration will become:
+</p>
 
 <pre><code data-language="javascript">
-    // traverse generated motion plan
-    if ( keyboard.pressed("n") |  keyboard.pressed("b")) {
-        if (typeof robot_path !== 'undefined') {
-
-            // increment index
-            if ((keyboard.pressed("n"))&&(robot_path_traverse_idx &lt robot_path.length-1))
-                robot_path_traverse_idx++;
-
-            if ((keyboard.pressed("b"))&&(robot_path_traverse_idx &gt 0))
-                robot_path_traverse_idx--;
-
-             // set angle
-            robot.origin.xyz = [
-                robot_path[robot_path_traverse_idx].vertex[0],
-                robot_path[robot_path_traverse_idx].vertex[1],
-                robot_path[robot_path_traverse_idx].vertex[2]
-            ];
-
-            robot.origin.rpy = [
-                robot_path[robot_path_traverse_idx].vertex[3],
-                robot_path[robot_path_traverse_idx].vertex[4],
-                robot_path[robot_path_traverse_idx].vertex[5]
-            ];
-
-            for (x in robot.joints) {
-                //q_names[x] = q_start_config.length;
-                robot.joints[x].angle = robot_path[robot_path_traverse_idx].vertex[q_names[x]];
-            }
-        }
-    }
+  kineval.motion_plan[kineval.motion_plan_traversal_index]
 </code></pre>
 
+<p>
 Note: we are <b>NOT</b> using robot.controls to execute the found path of the robot.  Although this can be done, the collision system does not currently test for configurations that occur due to the motion between configurations.
+</p>
 
 <h3>Testing</h3>
 
@@ -1364,12 +1389,24 @@ Make sure to test from a reasonable set of robots and initial configurations wit
 <li> a valid non-colliding path is found and can be traversed
 <li> the robot does not to take steps longer than 1 unit
 <li> the robot base does not move outside the X-Z plane.  Specifically, the base should not translate along the Y axis, and should not rotate about the X and Z axes.
+<li> (EECS 598-010) joint limits for the different joint types are respected.
 </ul>
 
 <p>
-The "mr2" robot should be able to navigate all of the provided worlds.
+EECS 398-002: The "mr2" robot should be able to navigate all of the provided worlds. 
+</p>
 
-<h3>Optional: HTML5 Canvas Stencil </h3>
+<p>
+EECS 598-010: The "fetch" robot should be able to navigate all of the provided worlds. 
+</p>
+
+<h3>Warning: Respect configuration space</h3> 
+
+<p>
+The planner should produce a collision-free path in configuration space (over all robot DOFs) and not just the movement of the base on the ground plane.  If your planner does not work in configuration space, it is sure to fail tests used for grading.
+</p>
+
+<h3>Highly recommended: start with HTML5 Canvas Stencil </h3>
 
 <img width=100% src="images/asgn6_rrt_canvas_stencil_small.png">
 
@@ -1384,6 +1421,7 @@ To help you get started, the code stencil also has a "rrt_canvas" directory wher
 <p>
 For turning in your assignment, create a branch in your repository labeled "Assignment-6".  
 <p>
+<!--
 (comment end) -->
 
 <h2 id="assignment7">Assignment 7: The best use of robotics? </h2>  
@@ -1393,14 +1431,26 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 
 Scenario: An investor is considering giving you 3 million dollars (cold hard USD cash, figuratively).  This investor has been impressed by work with kineval and other accomplishments while at the University of Michigan.  They are convinced you have the technical ability to make a compelling robot technology... but, they are unsure how this technology could produce something useful.  Your task is to make a convincing pitch for a  robotics project that would yield a high return on investment. 
 <!-- (uncomment)
+-->
 <p>
 You will get 2 minutes to make a pitch to develop something useful with robots.  Consider the instructor and your classmates as the people that need to be convinced.  As a guideline, your pitch should address an opportunity (presented by a need or a problem), your planned result (as a system, technology, product, and/or service), and how you will measure successful return on investment.  Return on investment can be viewed as financial profit (wrt. venture capital), good for society (wrt. a government program), creation of new knowledge or capabilities (wrt. a grant for scientific research).  Remember, the purpose is to convince and inspire about what is possible, rather than dive into specifics.
 <p>
 The last scheduled class period and a little more (Wednesday April 13th, 1:30-4:30pm) will be dedicated to student presentations to pitch ideas on the best use of robotics.  Please email your slides to the instructor before 9am on Monday April 11th with the subject line ("AutoRob asgn7 pitch slides").  OS X Keynote will be used as the sole means of slide presentation, and will be timed and controlled by the instructor.  As such, slide materials can be accepted as Keynote, Powerpoint (no guarantees on conversion), PDF, and common image and video formats (JPG, PNG, MP4, FLV, etc.).
 <p>
+<!--
 (end comment) -->
 The pitch judged to be the most convincing will get first dibs.
 <p>
+
+<!--
+<hr>
+<h1> Assignments beyond this point have not been assigned.  The descriptions below are unofficial and tentative.</h1>
+<hr>
+-->
+<hr>
+<h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
+<hr>
+
 
 <p>
 <br>
