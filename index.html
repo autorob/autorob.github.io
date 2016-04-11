@@ -1240,7 +1240,7 @@ Note: your planner should be constrained such that the search does not consider 
 <p>
 Your RRT-Connect implementation will depend on detection of collisions (provided by the function kineval.isCollision() in kineval_collision.js) with respect to a specified world geometry.  Worlds are specified as a rectangular boundary and sphere obstacles.  A collection of worlds are provided in the "worlds/" subdirectory of kineval_stencil.  The collision detection system performs two forms of tests: 1) testing of the base position of the robot against the rectangular extents of the world, which is provided by default, and 2) testing of link geometries for a robot configuration against spherical objects, which depends on code you will write.  
 
-Collision testing for links in a configuration is performed by AABB/Sphere tests that require the bounding box of each link's geometry in the coordinates of that link.  This bounding box is computed by adding the following within the loop inside kineval.initRobotLinksGeoms() in kineval.js:
+Collision testing for links in a configuration is performed by AABB/Sphere tests that require the bounding box of each link's geometry in the coordinates of that link.  This bounding box is computed by the following within the loop inside kineval.initRobotLinksGeoms() in kineval.js:
 
 <pre><code data-language="javascript">
   // bounding box of robot link in local link coordinates
