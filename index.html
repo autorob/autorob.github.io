@@ -1014,11 +1014,109 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <h2 id="assignment1">Assignment 1: Path Planning</h2>  
 <p>
-<b>Due 1pm, Wednesday, September 21, 2016</b>
+<b>Due 11:59pm, Friday, September 23, 2016</b>
 </p>
-<p>
 
+
+<!--
 The project description for this assignment will be posted shortly.
+-->
+
+
+<p>
+The objective of the first assignment is to implement a collision-free path planner in JavaScript/HTML5.  Path planning is used to allow robots to autonomously navigate in environments from previously constructed maps, which can be estimated through <a href="https://en.wikipedia.org/wiki/Simultaneous_localization_and_mapping">simultaneous localization and mapping</a>.  For this assignment, you will implement the A-star graph search algorithm for generating the shortest path from a start to a goal location in an arbitrary 2D world.  This A-star implementation will consider locations in a uniformly space grid.  You will implement a heap data structure as a priority queue for visiting these locations.
+</p>
+
+<p>
+If properly implemented, the A-star algorithm should produce the following path (or path of similar length) using the provided code stencil:
+</p>
+
+<center>
+<img width=600 src="images/pathplan_narrow2_complete.png">
+</center>
+
+<h3>Cloning the Stencil Repository</h3>
+
+<p>
+The first step for completing this project (and all projects for AutoRob) is to clone the <a href="">KinEval stencil repository</a>.  The appended git quick start below is provided those unfamiliar with git to perform this clone operation, as well as commiting and pushing updates for project submission.  <b>IMPORTANT</b>: the stencil repository should be cloned and <b>not forked</b>.
+</p>
+
+<p>
+Throughout the KinEval code stencil, there are markers with the string "STENCIL" for code that needs to be completed for course projects.
+</p>
+
+<h3>Heap Sort Tutorial</h3>
+
+<p>
+For those new to JavaScript/HTML5, the recommended starting point is to complete the heap sort implementation in the "tutorial_heapsort" subdirectory of the stencil repository.  In this directory, a code stencil in JavaScript/HTML5 is provided in two files: "heapsort.html" and "heap.js".  Comments are provided throughout these files to describe the structure of JavaScript/HTML5 and its programmatic features.  In addition, there are other tutorial-by-example files in the "tutorial_js" directory.  Any of these files can be run by simply opening them in a web browser.
+</p>
+
+<p>
+Opening "heapsort.html" will show the result of running the incomplete heap sort implementation provided by the code stencil:
+
+</p>
+
+<center>
+<img width=600 src="images/heapsort_initial.png">
+</center>
+
+<p>
+To complete the heap sort implementation, complete the heap implementation in heap.js at the locations marked "STENCIL".  In addition, the inclusion of heap.js in the execution of the heap sort will require modification of heapsort.html.
+</p>
+
+<p>
+A successful heap sort implementation will show the following result for a randomly generated set of numbers:
+</p>
+
+<center>
+<img width=600 src="images/heapsort_complete.png">
+</center>
+
+<h3>Graph Search Stencil</h3>
+
+<p>
+For the path planning implementation, a JavaScript/HTML5 code stencil has been provided in the file "search_canvas.html" within the "project_pathplan" subdirectory.  Opening this file in a browser should display an empty 2D world displayed in an <a href="http://www.w3schools.com/html/html5_canvas.asp">HTML5 canvas</a> element.   
+</p>
+
+<center>
+<img width=600 src="images/pathplan_narrow2_initial.png">
+</center>
+
+<p>
+There are five planning scenes that have been provided within this code stencil: "empty", "misc", "narrow1", "narrow2", and "three_sections".  The choice of planning_scene can be specified from the URL given to the browser, described in the usage in the file.  For example, the URL "search_canvas.html?planning_scene=narrow2" will bring up the "narrow2" planning world.  Other execution parameters, such as start and goal location, can also be specified through the document URL.
+</p>
+
+<p>
+This code stencil is implemented to perform graph search iterations interactively in the browser.  The core of the search implementation is performed by the function iterateGraphSearch().  This function performs a graph search iteration for a single location in the A-star execution.  The browser implementation cannot use a while loop over search iterations, as in the common A-star implementation.  Such a while loop would keep control within the search function, and cause the browser to become non-responsive.    Instead, the iterateGraphSearch() gives control back to the main animate() function, which is responsible for updating the display and user interaction. 
+</p>
+
+<p>
+Within the code stencil, you will complete the functions initSearchGraph() and iterateGraphSearch() as well as add functions for heap operations.  Locations in "search_canvas.html" where code should be added are labeled with the "STENCIL" string.  In initSearchGraph() creates a 2D array over locations to be searched.  Each element of this array contains various information computed by the search algorithm for a particular location.  iterateGraphSearch() should use three of the provided functions to perform a search iteration.  testCollision() returns a boolean of whether a given 2D location, as a two-element vector, is in collision with the planning scene.  draw_2D_configuration() draws a square at a given location in the planning world to indicate that location has been explored.  Once the search is complete, drawHighlightedPathGraph() will render the path produced by the search algorithm between a given location and the start location.
+</p>
+
+<h3>Graduate Requirement</h3>
+
+<p>
+In addition to the A-star algorithm, students in the graduate section of AutoRob must additionally implement path planning by Depth-first search, Breadth-first search, and Greedy best-first search.  An additional extra credit point will be given for submitting an additional report, as file "report.html", describing results from executing every search algorithm with every planning world for various start and goal configurations.
+</p>
+
+<h3>Project Submission</h3>
+
+<p>
+For turning in your assignment, create a branch in your repository labeled "Assignment-1".  <b>NOTE: spelling matters!</b>  More specifically, ensure your completed project code has been committed and pushed to the master branch of your repository.  At this point, create an Assignment-1 branch from the master branch.  The "Assignment-1" branch is essentially a tag and should not be merged back into the master.  You should continue work from the master branch, including committing and pushing updates, while the Assignment-1 branch is being graded.
+</p>
+
+<p>
+To ensure proper submission of your assignments, please do the following:
+</p>
+
+<p>
+<ul>
+<li>confirm with the course instructor (ocj addrsign umich) with your name, email address, and pointer to your repository, </li>
+<li>ensure your assignment branch is created and not modified past project deadline</li>
+<li>ensure the instructor (id:ohseejay) has push/admin access to your repository, which can be confirmed/addressed through email or office hours (or by seeing that the instructor has committed the file "grading.txt")</li>
+</ul>
+</p>
 
 <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
@@ -1917,7 +2015,16 @@ Inspect this directory to ensure it has been cloned with the contents of the rep
 </code></pre>
 
 <p>
-and open "home.html" from this directory in a web browser and ensure you see the starting point picture for <a href="#assignment1">Assignment 1</a>.  Then, copy the kineval-stencil files to the directory with your workspace
+and open "home.html" from this directory in a web browser and ensure you see the starting point picture below:
+<!--
+for <a href="#assignment1">Assignment 1</a>.  
+-->
+</p>
+
+<img width=100% src="images/kineval_welcome.png">
+
+<p>
+Then, copy the kineval-stencil files to the directory with your workspace
 </p>
 
 <pre><code data-language="javascript">
