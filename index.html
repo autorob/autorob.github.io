@@ -49,8 +49,8 @@
             <li><a href="#git_tutorial">git</a></li>
             assignments:
             <li><a href="#assignment1">1</a></li>
-<!-- unassigned
             <li><a href="#assignment2">2</a></li>
+<!-- unassigned
             <li><a href="#assignment3">3</a></li>
             <li><a href="#assignment4">4</a></li>
             <li><a href="#assignment5">5</a></li>
@@ -493,11 +493,11 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
     <td>
          <a href="not_posted_yet">
          <!-- 
-         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_03_dynamics_pendulum.pdf">
+         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_00_robot_what_is.pdf">
          -->
-         Simple Pendulum</a>: Cartesian vs. Generalized coordinates, Lagrangian equation(s) of motion<br>
+         What is a robot?</a><br>
     </td>
-    <td>Spong 7.1-3<hr>Corke 9.1-3</td> 
+    <td>Spong Ch 1<hr>Corke Ch 1</td> 
     <td></td> 
 </tr>
 
@@ -510,16 +510,21 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
 <tr>
     <td><b>Sep 19</b></td>
     <td>
-         <a href="not_posted_yet">
          <!-- 
-         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_03_dynamics_pendulum.pdf">
+         <a href="not_posted_yet">
          -->
+         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_03_dynamics_pendulum.pdf">
+         Simple Pendulum</a>:  Lagrangian equation(s) of motion<br>
+         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_03_dynamics_pendulum.pdf">
          Numerical Integrators</a>: Initial value problem, Integrators: Euler, Verlet, Runge-Kutta 4<br>
     </td>
     <td>
-        <a href="https://en.wikipedia.org/wiki/Euler_method">Handout 1</a>,
+        <a href="https://en.wikipedia.org/wiki/Euler_method">Handout: 1</a>,
         <a href="https://en.wikipedia.org/wiki/Verlet_integration">2</a>,
-        <a href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods#The_Runge.E2.80.93Kutta_method">3</a>
+        <a href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods#The_Runge.E2.80.93Kutta_method">3</a>; <br>
+        Witkin&Baraff 1998:
+        <a href="https://www.cs.cmu.edu/~baraff/sigcourse/notesd1.pdf">Dynamics</a>,
+        <a href="https://www.cs.cmu.edu/~baraff/sigcourse/notesb.pdf">Integrators</a>
     </td> 
     <td></td> 
 </tr>
@@ -541,11 +546,11 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
 <tr>
     <td><b>Sep 21</b></td>
     <td>
-         <a href="not_posted_yet">
          <!-- 
-         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_04_control_pid.pdf">
+         <a href="not_posted_yet">
          -->
-         Motion Control</a>: Open-loop vs. Closed-loop control, PID control<br>
+         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_04_control_pid.pdf">
+         Motion Control</a>: Cartesian vs. Generalized coordinates, Open-loop vs. Closed-loop control, PID control<br>
     </td>
     <td>Spong 6.3<hr><a href="http://www.cds.caltech.edu/~murray/courses/cds101/fa02/caltech/astrom-ch6.pdf">Handout</a></td> 
     <td>Due: Path Planning
@@ -1121,9 +1126,6 @@ To ensure proper submission of your assignments, please do the following:
 </ul>
 </p>
 
-<hr>
-<h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
-<hr>
 
 
 <!--
@@ -1182,7 +1184,8 @@ As an introduction to physical dynamics and control, your task is to implement a
 </p>
 
 <!-- (uncomment marker begin)
-The code stencil for the Pendularm assignment is available within the "pendularm" subdirectory of KinEval in the file <a href="https://github.com/ohseejay/kineval-stencil/blob/master/pendularm/pendularm1.html">pendularm1.html</a>.
+-->
+The code stencil for the Pendularm assignment is available within the "pendularm" subdirectory of KinEval in the file <a href="https://github.com/ohseejay/kineval-stencil-f16/blob/master/pendularm/pendularm1.html">pendularm1.html</a>.
 
 <p>
 For physical simulation, you will implement several numerical integrators for a pendulum with parameters specified in the code stencil.  The numerical integrator will advance the state (angle and velocity) of the pendulum in time given the current acceleration (generated from the pendulum equation of motion).  If implemented successfully, this ideal pendulum should oscillate about the vertical (where the angle is zero) proportional to the pendulum's initial angle.
@@ -1228,8 +1231,12 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 <p>
 Students in the graduate section are strongly encouraged to extend their pendularm to a double pendulum.
 </p>
+<!--
 (uncomment end) -->
 
+<hr>
+<h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
+<hr>
 
 <h2 id="assignment3">Assignment 3: Forward Kinematics</h2>  
 <b>Due 1pm, Wednesday, October 19, 2016</b>
