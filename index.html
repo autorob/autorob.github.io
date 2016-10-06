@@ -50,8 +50,8 @@
             assignments:
             <li><a href="#assignment1">1</a></li>
             <li><a href="#assignment2">2</a></li>
-<!-- unassigned
             <li><a href="#assignment3">3</a></li>
+<!-- unassigned
             <li><a href="#assignment4">4</a></li>
             <li><a href="#assignment5">5</a></li>
             <li><a href="#assignment6">6</a></li>
@@ -557,7 +557,7 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
          <a href="not_posted_yet">
          -->
          <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_04_control_pid.pdf">
-         Motion Control</a>: Cartesian vs. Generalized coordinates, Open-loop vs. Closed-loop control, PID control<br>
+         Motion Control</a>: Cartesian vs. generalized coordinates, open-loop vs. closed-loop control, PID control<br>
     </td>
     <td>Spong 6.3<hr><a href="http://www.cds.caltech.edu/~murray/courses/cds101/fa02/caltech/astrom-ch6.pdf">Handout</a></td> 
     <td>Due: Path Planning
@@ -572,11 +572,12 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
 <tr>
     <td><b>Sep 26</b></td>
     <td>
-         <a href="not_posted_yet">
          <!-- 
-         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_05_linear_refresh.pdf">
-         -->
+         <a href="not_posted_yet">
          Coordinate Systems</a>: Systems of linear equations, Vector operations, Matrix operations, Matrix transforms<br>
+         -->
+         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_05_linear_refresh.pdf">
+         Linear Algebra Refresher</a>: Systems of linear equations, vector spaces and operations, matrix operations<br>
          <!-- FUTURE: move FK here -->
     </td>
     <td>Spong A-B<hr>Corke D</td> 
@@ -600,11 +601,11 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
 <tr>
     <td><b>Oct 3</b></td>
     <td>
-         <a href="not_posted_yet">
          <!-- 
-         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_06_fk_matrixstack.pdf">
+         <a href="not_posted_yet">
          -->
-         Forward Kinematics</a>: Kinematic chains, URDF kinematic specification, matrix stack traversal, DH parameters<br>
+         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_06_fk_matrixstack.pdf">
+         Forward Kinematics</a>: Kinematic chains, URDF, homogeneous transforms, matrix stack traversal, D-H convention<br>
        
          <!-- FUTURE: cover Newton-Euler here -->
     </td>
@@ -615,11 +616,11 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
 <tr>
     <td><b>Oct 5</b></td>
     <td>
-         <a href="not_posted_yet">
          <!-- 
-         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_07_fk_quaternions.pdf">
+         <a href="not_posted_yet">
          -->
-         Quaternions</a>: Euler angles, Gimbal lock, Axis-angle rotation, Matrix stack with joint controls
+         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_07_fk_quaternions.pdf">
+         Quaternions</a>: Motors, Euler angles, gimbal lock, Rodrigues rotation, rotation in complex spaces
     </td>
     <td>
         <a href="https://en.wikipedia.org/wiki/Gimbal_lock">Handout 1</a>, 
@@ -1241,20 +1242,43 @@ Students in the graduate section are strongly encouraged to extend their pendula
 <!--
 (uncomment end) -->
 
-<hr>
-<h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
-<hr>
-
 <h2 id="assignment3">Assignment 3: Forward Kinematics</h2>  
-<b>Due 1pm, Wednesday, October 19, 2016</b>
+<b>Due 11:59pm, Wednesday, October 19, 2016</b>
 <p>
 In this assignment, you will render the forward kinematics (FK) of a robot, given its kinematic specification (in the "robots" subdirectory).  To render the robot properly, you will compute matrix coordinate frame transforms for each link and joint of the robot based on the parameters of its hierarchy configuration.  The computation of the matrix transform for each joint and link will allow KinEval's rendering support routines to properly display the full robot.  We will assume the joints will remain in their zero position, saving joint motion for the next assignment.  
 </p>
 
 <!-- (uncomment marker begin)
-!!! move some of getting started assignment to this description
+-->
+
+<h3>Just Starting Mode</h3>
+
 <p>
-Assuming proper completion of Assignment 1, ensure the following files are included (within script tags) in your "home.html".  You will modify these files for implementing FK:
+kineval_stencil contains a code template for this assignment as well as all future projects in the course.  This KinEval stencil allows for developing the core of a modeling and control computation stack (forward Kinematics, inverse kinematics, and motion planning) in a modular fashion.  
+</p>
+
+<p>
+If you open "home.html" in this repository, you should see the jittering disconnected pieces of a robot (described in "robots/mr2.js"), similar to the snapshot below.  This initial mode is the "starting point" state of the stencil to help build familiarity with JavaScript/HTML5 and KinEval.
+</p>
+<img width=100% src="images/kineval_welcome.png">
+
+<p>
+Your task is to make these objects in starting point mode responsive to keyboard commands.  Specifically, these objects will move upward, stop/start jittering, move closer together, and further apart (although more is encouraged).  To do this, you will modify "kineval/kineval_startingpoint.js" at the sections marked with "STENCIL".  These sections also include code examples meant to be a quick (and very rough) introduction to JavaScript, assuming programming competency in another language. 
+</p>
+
+<h3>Brief KinEval Stencil Overview</h3>
+<p>
+Within the KinEval stencil, the functions my_animate() and my_init() in "home.html" are the principal access points into animation system.  my_animate() is particularly important as it will direct the invocation of functions we develop throughout the AutoRob course.  my_animate() and my_init() are called by the primary process that maintains the animation loop: kineval.animate() and kineval.init() within "kineval/kineval.js".  <b>IMPORTANT</b>: "kineval/kineval.js", kineval.animate(), and kineval.init() should not be modified.  
+</p>
+
+<p>
+For starting point mode, my_animate() will call startingPlaceholderAnimate() and startingPlaceholderInit().  startingPlaceholderInit() contains JavaScript tutorial-by-example code that initializes variables for this project. startingPlaceholderAnimate() contains keyboard handlers and code to update the positioning of each body of the robot.  By modifying the proper variables at the locations labed "STENCIL", this code will update the transformation matrix for each geometry of the robot (stored in the ".xform" attribute) as a translation in the robot's world.  The ".xform" transform for each robot geometry is then used by kineval.robotDraw() to have the browser render the robot parts in the appropriate locations.
+</p>
+
+
+<h3>Forward Kinematics</h3>
+<p>
+Assuming proper completion of Just Starting Mode, you are now ready for implementation of robot forward kinematics.  Ensure the following files are included (within script tags) in your "home.html".  You will modify these files for implementing FK:
 
 <ul>
 <li>"kineval/kineval_robot_init.js" for initializing your robot object based on a given description object; modification is require to add parent and child references to each link</li>
@@ -1314,7 +1338,7 @@ if (kineval.params.just_starting == true) {
 </code></pre>
 
 
-
+<!--
  (uncomment end) -->
 
 <p>
@@ -1340,6 +1364,7 @@ The "robots/robot_crawler.js" example should produce the following:
 
 
 <!-- (uncomment marker begin)
+-->
 <h3> Interactive Hierarchy Traversal</h3>
 <p>
 Additionally, a correct implementation will be able to interactively traverse the kinematic hierarchically by changing the active joint.  The active joint has focus for user control, which will be used in the next assignment.  For now, we are using the active joint to ensure your kinematic hierarchy is correct.  You should be able to move up and down the kinematic hierarchy with the "k" and "j" keys, respectively.  You can also move between the children of a link using the "h" and "l" keys.
@@ -1350,9 +1375,9 @@ Additionally, a correct implementation will be able to interactively traverse th
 The cylinders used as rendering geometries for joints are not aligned with joint axes by default.  The support code in Kineval will properly orient joint rendering cylinders.  To use this functionality, simply implement a vector cross product function named vector_cross() in your matrix routines.  vector_cross() will be automatically detected and used to properly orient each joint rendering cylinder.
 </p>
 
-<h3> EECS 598-010 Requirement</h3>
+<h3> Graduate Section Requirement</h3>
 <p>
-Students in EECS 598-010 must implement the assignment as described above to work with given examples as well as the Fetch robot description.  The file "robots/fetch/fetch.urdf/js" contains the robot data object for the Fetch kinematic description.  This JavaScript file converted from the <a href="https://github.com/fetchrobotics/fetch_ros/blob/indigo-devel/fetch_description/robots/fetch.urdf">Fetch URDF description</a> for ROS.  ROS uses a different default coordinate system than threejs, which needs to be taken into account in the FK computation.  Coordinate frames in ROS assumes that the Z, X, and Y axes correspond to the up, forward, and side directions, respectively.  In contrast, threejs coordinate frames assume the Y, Z, and X correspond to the up, forward, and side directions.  The variable robot.links_geom_imported will be set to true when geometries have been imported from ROS and set to false when geometries are defined completely within the robot description file.
+Students in the AutoRob Graduate Section must implement the assignment as described above to work with given examples as well as the Fetch robot description.  The file "robots/fetch/fetch.urdf/js" contains the robot data object for the Fetch kinematic description.  This JavaScript file converted from the <a href="https://github.com/fetchrobotics/fetch_ros/blob/indigo-devel/fetch_description/robots/fetch.urdf">Fetch URDF description</a> for ROS.  ROS uses a different default coordinate system than threejs, which needs to be taken into account in the FK computation.  Coordinate frames in ROS assumes that the Z, X, and Y axes correspond to the up, forward, and side directions, respectively.  In contrast, threejs coordinate frames assume the Y, Z, and X correspond to the up, forward, and side directions.  The variable robot.links_geom_imported will be set to true when geometries have been imported from ROS and set to false when geometries are defined completely within the robot description file.
 </p>
 
 <p>
@@ -1368,7 +1393,12 @@ A proper implementation for fetch.urdf.js example should produce the following:
 <p>
 For turning in your assignment, create a branch in your repository labeled "Assignment-3".  
 <p>
+<!--
 (uncomment end) -->
+
+<hr>
+<h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
+<hr>
 
 <p>
 
