@@ -639,10 +639,10 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
 <tr>
     <td><b>Oct 10</b></td>
     <td>
-         <a href="not_posted_yet">
          <!-- 
-         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_08_fsm_subsumption.pdf">
+         <a href="not_posted_yet">
          -->
+         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_08_fsm_subsumption.pdf">
          Reactive Controllers</a>: Reactive and Deliberative Decision Making, Finite State Machines, Subsumption Architecture<br>
     </td>
     <td></td> 
@@ -759,17 +759,6 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
 <tr>
     <td><b>Oct 31</b></td>
     <td> 
-         Quiz 3</a> 
-    </td> 
-    <td>
-    </td> 
-    <td></td> 
-<tr>
-
-
-<tr>
-    <td><b>Nov 2</b></td>
-    <td> 
          <a href="not_posted_yet">
          <!-- 
          <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_12_bugs.pdf">
@@ -778,6 +767,17 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
     </td> 
     <td>
     Corke Ch. 5
+    </td>
+    <td></td> 
+<tr>
+
+
+<tr>
+    <td><b>Nov 2</b></td>
+    <td> 
+         Quiz 3</a> 
+    </td> 
+    <td>
     </td> 
     <td>Due: Dance Contest <br>Out: <a href="#assignment5">Inverse Kinematics</a></td>
 <tr>
@@ -1209,6 +1209,18 @@ Students enrolled in the undergraduate section will implement numerical integrat
 <li><a href="http://en.wikipedia.org/wiki/Verlet_integration#Velocity_Verlet">Velocity Verlet</a> 
 </ul>
 
+
+<p>
+For motion control, students in both undergraduate and sections will implement a <a href="http://en.wikipedia.org/wiki/PID_controller">proportional-integral-derivative controller</a> to control the system's motor to a desired angle.  This PID controller should output control forces integrated into the system's dynamics.  You will need to tune the gains of the PID controller for stable and timely motion to the desired angle for pendulum with parameters: length=2.0, mass=2.0, gravity=9.81.  
+</p>
+
+<p>
+For user input, you should be able to select the choice of integrator using the [0-4] keys (with no integration as a default), toggle the invocation of the servo controller with the 'c' or 'x' key (which is off by default), decrement and increment the desired angle of the 1 DOF servoed robot arm use the 'q' and 'e' keys, and momentarily disable the servo controller with 's' key (and allowing the arm to swing uncontrolled).
+
+</p>
+
+<h3> Graduate Section Requirement</h3>
+
 <p>
 Students enrolled in the graduate section will implement numerical integrators for:
 </p>
@@ -1220,15 +1232,14 @@ Students enrolled in the graduate section will implement numerical integrators f
 <li><a href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods#The_Runge.E2.80.93Kutta_method">Runge-Kutta 4</a>
 </ul>
 
-<p>
-For motion control, students in both undergraduate and sections will implement a <a href="http://en.wikipedia.org/wiki/PID_controller">proportional-integral-derivative controller</a> to control the system's motor to a desired angle.  This PID controller should output control forces integrated into the system's dynamics.  You will need to tune the gains of the PID controller for stable and timely motion to the desired angle for pendulum with parameters: length=2.0, mass=2.0, gravity=9.81.  
-</p>
+<!--
+<h4> Advanced Extension </h4>
 
 <p>
-For user input, you should be able to select the choice of integrator using the [0-4] keys (with no integration as a default), toggle the invocation of the servo controller with the 'c' key (which is off by default), decrement and increment the desired angle of the 1 DOF servoed robot arm use the 'q' and 'e' keys, and momentarily disable the servo controller with 's' key (and allowing the arm to swing uncontrolled).
-
-!!! update with 'x' key for better event handling
+Of the 4 possible advanced extension points, four additional points for this assignment can be earned by implementing a controllable double pendulum.  This double pendulum implementation should be contained within the file "pendularm2.html" under the "project_pendularm" directory.
 </p>
+-->
+
 
 <h3> Project Submission</h3>
 <p>
@@ -1380,6 +1391,14 @@ The cylinders used as rendering geometries for joints are not aligned with joint
 Students in the AutoRob Graduate Section must implement the assignment as described above to work with given examples as well as the Fetch robot description.  The file "robots/fetch/fetch.urdf/js" contains the robot data object for the Fetch kinematic description.  This JavaScript file converted from the <a href="https://github.com/fetchrobotics/fetch_ros/blob/indigo-devel/fetch_description/robots/fetch.urdf">Fetch URDF description</a> for ROS.  ROS uses a different default coordinate system than threejs, which needs to be taken into account in the FK computation.  Coordinate frames in ROS assumes that the Z, X, and Y axes correspond to the up, forward, and side directions, respectively.  In contrast, threejs coordinate frames assume the Y, Z, and X correspond to the up, forward, and side directions.  The variable robot.links_geom_imported will be set to true when geometries have been imported from ROS and set to false when geometries are defined completely within the robot description file.
 </p>
 
+<!--
+<h4> Advanced Extension </h4>
+
+<p>
+Of the 4 possible advanced extension points, one additional point for this assignment can be earned by creating a new robot description.  This robot description should be placed in the "robots" directory with a filename with your username in the format "robot_uid.js".
+</p>
+-->
+
 <p>
 A proper implementation for fetch.urdf.js example should produce the following:
 </p>
@@ -1508,6 +1527,15 @@ Your code can interface with a robot (or simulated robot) running rosbridge/ROS 
 Machines running rosbridge, ROS, and Gazebo for the Fetch will be available during special sessions of the class.  Students are encouraged to install and run the Fetch simulator on their own machines based on <a href="http://docs.fetchrobotics.com/gazebo.html">this tutorial</a>.
 </p>
 
+<!--
+<h4> Advanced Extension </h4>
+
+<p>
+Of the 4 possible advanced extension points, four additional points for this assignment can be earned by implementing dynamical simulation through the recursive Newton-Euler algorithm.  This dynamical simulation update be implemented as function kineval.updateDynamicsNewtonEuler() in the file "kineval/kineval_controls.js".  In "home.html", the call to kineval.updateDynamicsNewtonEuler() should replace the call purely kinematic update in kineval.applyControls().
+</p>
+-->
+
+
 
 <h3>Project Submission</h3>
 <p>
@@ -1605,7 +1633,7 @@ function robot_inverse_kinematics(target_pos, endeffector_joint, endeffector_loc
 Both endeffector_geom and target_geom have been previously created by kineval, so your code only needs to set the transform using simpleApplyMatrix() for proper rendering.  
 ->
 
-
+!!! ADD RANDOM TRIAL CODE 
 <p>
 IK iterations can be invoked through the user interface by holding down the 'p' key.  Further, the 'r'/'f' keys will move the target location up/down.  When performing IK iterations, the endeffector and its target pose will be rendered as cube geometries in blue and green, respectively.  
 </p>
@@ -1624,10 +1652,20 @@ In implementing this IK routine, please remember the following:
 Students enrolled in EECS 398-002 will implement inverse kinematics for only the position of the endeffector.
 </p>
 
+<h3> Graduate Section Requirement</h3>
 
 <p>
 Students enrolled in EECS 598-010 will implement inverse kinematics for both the position and orientation of the endeffector, especially for the Fetch robot.  The default IK behavior will be for endeffector position control.  Both endeffector position and orientation are controlled when the boolean parameter kineval.params.ik_orientation_included is set to true.  Below is an example of the reference IK implementation working with the Fetch robot example:
 </p>
+
+<!--
+<h4> Advanced Extension </h4>
+
+<p>
+Of the 4 possible advanced extension points, one additional point for this assignment can be earned by reaching to 100 targets in a random trial within 60 seconds.  A video of this execution must be provided to demonstrate this achievement.
+</p>
+-->
+
 
 <p>
 For turning in your assignment, create a branch in your repository labeled "Assignment-5".  
@@ -1870,6 +1908,7 @@ Make sure to test from a reasonable set of robots and initial configurations wit
 <li> (EECS 598-010) joint limits for the different joint types are respected.
 </ul>
 
+!!! CLARIFY THIS LANGUAGE
 <p>
 EECS 398-002: The "mr2" robot should be able to navigate all of the provided worlds. 
 </p>
@@ -1877,6 +1916,21 @@ EECS 398-002: The "mr2" robot should be able to navigate all of the provided wor
 <p>
 EECS 598-010: The "fetch" robot should be able to navigate all of the provided worlds. 
 </p>
+
+<h3> Graduate Section Requirement</h3>
+
+!!! UPDATE THIS
+
+<h4> Advanced Extension </h4>
+
+<p>
+Of the 4 possible advanced extension points, one additional point for this assignment can be earned by adding the capability of motion planning to an arbitrary robot configuration. 
+Of the 4 possible advanced extension points, two additional points for this assignment can be earned by using the A-star algorithm for base path planning in combination with RRT-Connect for arm motion planning. 
+Of the 4 possible advanced extension points, one additional points for this assignment can be earned by adding the capability of displaying laser scans from a real or simulated Fetch robot.
+Of the 4 possible advanced extension points, four additional points for this assignment can be earned by adding the capability of displaying 3D point clouds from a real or simulated Fetch robot and computing surface normals about each point.
+Of the 4 possible advanced extension points, four additional points for this assignment can be earned by implementation of triangle-triangle tests for collision detection between robot and planning scene meshes. 
+</p>
+
 
 <h3>Warning: Respect configuration space</h3> 
 
