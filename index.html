@@ -52,8 +52,8 @@
             <li><a href="#assignment2">2</a></li>
             <li><a href="#assignment3">3</a></li>
             <li><a href="#assignment4">4</a></li>
-<!-- unassigned
             <li><a href="#assignment5">5</a></li>
+<!-- unassigned
             <li><a href="#assignment6">6</a></li>
             <li><a href="#assignment7">7</a></li>
 -->
@@ -424,6 +424,10 @@ This policy applies not only applies to collaboration during the current semeste
 </p>
 
 <p>
+To acknowledge compliance with this collaboration policy, include a file named "honor.txt" in the main directory of your repository with the following text: "I have neither given nor received unauthorized aid on this course project implementation, nor have I concealed any violations of the Honor Code."  This text will be considered updated with the current date and time of each commit to your repository.  Repository commits that do not include this honor file will not be graded as the discretion of the course advisor.
+</p>
+
+<p>
 Should you fail to abide by this policy, you will receive no credit for this course.  The University of Michigan reserves the right to pursue any means necessary to ensure compliance. This includes, but is not limited to prosecution through The College of Engineering’s Honor Council, which can result in your suspension or expulsion from the University of Michigan.  Please refer to the <a href ="http://ossa.engin.umich.edu/honor-council/">Engineering Honor Council</a> for additional information.
 </p>
 
@@ -691,10 +695,10 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
 <tr>
     <td><b>Oct 24</b></td>
     <td>
-         <a href="not_posted_yet">
          <!-- 
-         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_10_ik_closedform.pdf">
+         <a href="not_posted_yet">
          -->
+         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_10_ik_closedform.pdf">
          Inverse Kinematics 1 - Closed-form</a>: Joint vs. Endeffector control, Planar 2-link arm, Closed form solutions, Cyclic Coordinate Descent<br>
     </td>
     <td>Spong 3.3<hr>Corke 7.3</td> 
@@ -705,10 +709,10 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
     <td><b>Oct 26</b></td>
 
     <td>
-         <a href="not_posted_yet">
          <!-- 
-         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_11_ik_jacobian.pdf">
+         <a href="not_posted_yet">
          -->
+         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_11_ik_jacobian.pdf">
          Inverse Kinematics 2 - Manipulator Jacobian</a>: Gradient descent, Manipulator Jacobian, Jacobian transpose, pseudoinverse
     </td>
     <td>Spong Ch. 4 <a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=86079">Wang, Chen 1991</a><hr>Corke Ch. 8</td> 
@@ -756,8 +760,19 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
 <td></td><td>Week 9</td><td></td><td></td>
 </tr>
 
+
 <tr>
     <td><b>Oct 31</b></td>
+    <td> 
+         Quiz 3</a> 
+    </td> 
+    <td>
+    </td> 
+    <td>Due: Dance Contest <br>Out: <a href="#assignment5">Inverse Kinematics</a></td>
+<tr>
+
+<tr>
+    <td><b>Nov 2</b></td>
     <td> 
          <a href="not_posted_yet">
          <!-- 
@@ -771,16 +786,6 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
     <td></td> 
 <tr>
 
-
-<tr>
-    <td><b>Nov 2</b></td>
-    <td> 
-         Quiz 3</a> 
-    </td> 
-    <td>
-    </td> 
-    <td>Due: Dance Contest <br>Out: <a href="#assignment5">Inverse Kinematics</a></td>
-<tr>
 
 
 <!--
@@ -1110,10 +1115,20 @@ This code stencil is implemented to perform graph search iterations interactivel
 Within the code stencil, you will complete the functions initSearchGraph() and iterateGraphSearch() as well as add functions for heap operations.  Locations in "search_canvas.html" where code should be added are labeled with the "STENCIL" string.  In initSearchGraph() creates a 2D array over locations to be searched.  Each element of this array contains various information computed by the search algorithm for a particular location.  iterateGraphSearch() should use three of the provided functions to perform a search iteration.  testCollision() returns a boolean of whether a given 2D location, as a two-element vector, is in collision with the planning scene.  draw_2D_configuration() draws a square at a given location in the planning world to indicate that location has been explored.  Once the search is complete, drawHighlightedPathGraph() will render the path produced by the search algorithm between a given location and the start location.
 </p>
 
-<h3>Graduate Requirement</h3>
+<h3> Graduate Section Requirement</h3>
 
 <p>
 In addition to the A-star algorithm, students in the graduate section of AutoRob must additionally implement path planning by Depth-first search, Breadth-first search, and Greedy best-first search.  An additional extra credit point will be given for submitting an additional report, as file "report.html", describing results from executing every search algorithm with every planning world for various start and goal configurations.
+</p>
+
+<h4> Advanced Extensions </h4>
+
+<p>
+Of the 4 possible advanced extension points, two additional points for this assignment can be earned by implementing the Bug0, Bug1, Bug2, and TangentBug navigation algorithms.  This bug algorithm implementation should be contained within the file "search_canvas.html" under the "project_pathplan" directory.
+</p>
+
+<p>
+Of the 4 possible advanced extension points, one additional point for this assignment can be earned by implementing a navigation algorithm using a probabilistic roadmap.  This roadmap algorithm implementation should be contained within the file "search_canvas.html" under the "project_pathplan" directory.
 </p>
 
 <h3>Project Submission</h3>
@@ -1233,12 +1248,12 @@ Students enrolled in the graduate section will implement numerical integrators f
 </ul>
 
 <!--
-<h4> Advanced Extension </h4>
+-->
+<h4> Advanced Extensions </h4>
 
 <p>
 Of the 4 possible advanced extension points, four additional points for this assignment can be earned by implementing a controllable double pendulum.  This double pendulum implementation should be contained within the file "pendularm2.html" under the "project_pendularm" directory.
 </p>
--->
 
 
 <h3> Project Submission</h3>
@@ -1392,12 +1407,12 @@ Students in the AutoRob Graduate Section must implement the assignment as descri
 </p>
 
 <!--
-<h4> Advanced Extension </h4>
+-->
+<h4> Advanced Extensions </h4>
 
 <p>
 Of the 4 possible advanced extension points, one additional point for this assignment can be earned by creating a new robot description.  This robot description should be placed in the "robots" directory with a filename with your username in the format "robot_uid.js".
 </p>
--->
 
 <p>
 A proper implementation for fetch.urdf.js example should produce the following:
@@ -1528,12 +1543,20 @@ Machines running rosbridge, ROS, and Gazebo for the Fetch will be available duri
 </p>
 
 <!--
-<h4> Advanced Extension </h4>
+-->
+<h4> Advanced Extensions </h4>
 
 <p>
-Of the 4 possible advanced extension points, four additional points for this assignment can be earned by implementing dynamical simulation through the recursive Newton-Euler algorithm.  This dynamical simulation update be implemented as function kineval.updateDynamicsNewtonEuler() in the file "kineval/kineval_controls.js".  In "home.html", the call to kineval.updateDynamicsNewtonEuler() should replace the call purely kinematic update in kineval.applyControls().
+Of the 4 possible advanced extension points, one additional points for this assignment can be earned by adding the capability of displaying laser scans from a real or simulated Fetch robot.
 </p>
--->
+
+<p>
+Of the 4 possible advanced extension points, four additional points for this assignment can be earned by adding the capability of displaying 3D point clouds from a real or simulated Fetch robot and computing surface normals about each point.
+</p>
+
+<p>
+Of the 4 possible advanced extension points, four additional points for this assignment can be earned by implementing dynamical simulation through the recursive <a href="http://robotics.usc.edu/~aatrash/cs545/CS545_lecture_11_new.pdf">Newton-Euler algorithm</a> (Spong Ch.7).  This dynamical simulation update be implemented as function kineval.updateDynamicsNewtonEuler() in the file "kineval/kineval_controls.js".  In "home.html", the call to kineval.updateDynamicsNewtonEuler() should replace the call purely kinematic update in kineval.applyControls().
+</p>
 
 
 
@@ -1549,16 +1572,11 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 
 <p>
 
-<hr>
-<h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
-<hr>
-
-
 
 
 <h2 id="assignment5">Assignment 5: Inverse Kinematics </h2>  
 <p>
-<b>Due 1pm, Monday, November 16, 2016</b>
+<b>Due 11:59pm, Monday, November 21, 2016</b>
 <p>
 
 For this assignment, you will now control your robot to reach to a given point in space through inverse kinematics for position control of the robot endeffector.  Inverse kinematics will be implemented through gradient descent optimization with both the Jacobian Transpose and Jacobian Pseudoinverse methods, although only one will be invoked at run-time.  
@@ -1579,6 +1597,7 @@ As shown in the video below, if successful, your robot will be able to continual
 
 
 <!-- (uncomment marker begin)
+-->
 <p>
 The core of this assignment is to complete the kineval.iterateIK() function in the file kineval/kineval_inverse_kinematics.js.  This function is invoked within the function kineval.inverseKinematics()  with three arguments: 
 </p>
@@ -1599,7 +1618,7 @@ kineval.iterateIK() should also respect global parameters for using the Jacobian
 
 
 
-<!-  !!! remind myself why this is commented.  for previous stencil
+<!--  !!! remind myself why this is commented.  for previous stencil
 function invoked from home.html
 The following is an example of invoking kineval.inverseKinematics():
 
@@ -1631,9 +1650,8 @@ function robot_inverse_kinematics(target_pos, endeffector_joint, endeffector_loc
 </code></pre>
 <p>
 Both endeffector_geom and target_geom have been previously created by kineval, so your code only needs to set the transform using simpleApplyMatrix() for proper rendering.  
-->
+-->
 
-!!! ADD RANDOM TRIAL CODE 
 <p>
 IK iterations can be invoked through the user interface by holding down the 'p' key.  Further, the 'r'/'f' keys will move the target location up/down.  When performing IK iterations, the endeffector and its target pose will be rendered as cube geometries in blue and green, respectively.  
 </p>
@@ -1642,7 +1660,7 @@ IK iterations can be invoked through the user interface by holding down the 'p' 
 In implementing this IK routine, please remember the following:
 <p>
 <ul>
-<li>Computation of the Jacobian should only occur with respect to the joints along the chain from the endeffector joint to the robot base</li>
+<li>Computation of the Jacobian need only to occur with respect to the joints along the chain from the endeffector joint to the robot base</li>
 <li>The location of the endeffector needs to be computed using transforms resulting from the robot's forward kinematics  </li>
 <li>Matrix inversion can be invoked by using the provided routine numeric.inv(mat), available through <a href="http://www.numericjs.com/">numericjs</a> </li>
 <li>The computed velocity in configuration space should be applied to the robot through the joint.controls field of each joint </li>
@@ -1652,26 +1670,43 @@ In implementing this IK routine, please remember the following:
 Students enrolled in EECS 398-002 will implement inverse kinematics for only the position of the endeffector.
 </p>
 
+<h3> IK Random Trial </h3>
+
+<p>
+All students in the AutoRob course are expected to run their IK controller with the random trial feature in the KinEval stencil.  The IK random trial is executed through the function kineval.randomizeIKtrial() in the file "kineval/kineval_inverse_kinematics.js".  This function is incomplete in the provided stencil.  Code for this function to properly run the random trial will be made available upon request through the course discussion channel.
+<p>
+
 <h3> Graduate Section Requirement</h3>
 
 <p>
-Students enrolled in EECS 598-010 will implement inverse kinematics for both the position and orientation of the endeffector, especially for the Fetch robot.  The default IK behavior will be for endeffector position control.  Both endeffector position and orientation are controlled when the boolean parameter kineval.params.ik_orientation_included is set to true.  Below is an example of the reference IK implementation working with the Fetch robot example:
+Students enrolled in the graduate section of AutoRob will implement inverse kinematics for both the position and orientation of the endeffector, especially for the Fetch robot.  The default IK behavior will be for endeffector position control.  Both endeffector position and orientation are controlled when the boolean parameter kineval.params.ik_orientation_included is set to true.  
 </p>
 
-<!--
-<h4> Advanced Extension </h4>
+<h4> Advanced Extensions </h4>
 
 <p>
 Of the 4 possible advanced extension points, one additional point for this assignment can be earned by reaching to 100 targets in a random trial within 60 seconds.  A video of this execution must be provided to demonstrate this achievement.
 </p>
--->
 
+<p>
+Of the 4 possible advanced extension points, four additional points for this assignment can be earned by implementing the <a href="http://ieeexplore.ieee.org/document/86079/">Cyclic Coordinate Descent (CCD)</a> inverse kinematics algorithm by Wang and Chen (1991).  This function should be implemented in the file "kineval/kineval_inverse_kinematics.js" as another option within the function kineval.iterateIK().
+</p>
+
+
+<h3> Project Submission</h3>
 
 <p>
 For turning in your assignment, create a branch in your repository labeled "Assignment-5".  
 <p>
 
+<!--
 (comment end) -->
+
+<hr>
+<h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
+<hr>
+
+
 
 <h2 id="assignment6">Assignment 6: Motion Planning  </h2>  
 <p>
@@ -1926,8 +1961,6 @@ EECS 598-010: The "fetch" robot should be able to navigate all of the provided w
 <p>
 Of the 4 possible advanced extension points, one additional point for this assignment can be earned by adding the capability of motion planning to an arbitrary robot configuration. 
 Of the 4 possible advanced extension points, two additional points for this assignment can be earned by using the A-star algorithm for base path planning in combination with RRT-Connect for arm motion planning. 
-Of the 4 possible advanced extension points, one additional points for this assignment can be earned by adding the capability of displaying laser scans from a real or simulated Fetch robot.
-Of the 4 possible advanced extension points, four additional points for this assignment can be earned by adding the capability of displaying 3D point clouds from a real or simulated Fetch robot and computing surface normals about each point.
 Of the 4 possible advanced extension points, four additional points for this assignment can be earned by implementation of triangle-triangle tests for collision detection between robot and planning scene meshes. 
 </p>
 
