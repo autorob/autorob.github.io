@@ -53,9 +53,9 @@
             <li><a href="#assignment3">3</a></li>
             <li><a href="#assignment4">4</a></li>
             <li><a href="#assignment5">5</a></li>
-<!-- unassigned
             <li><a href="#assignment6">6</a></li>
             <li><a href="#assignment7">7</a></li>
+<!-- unassigned
 -->
         </ul>
     </div>
@@ -1128,6 +1128,11 @@ Of the 4 possible advanced extension points, two additional points for this assi
 </p>
 
 <p>
+Of the 4 possible advanced extension points, two additional points for this assignment can be earned by implementing navigation by potential fields and navigation using the Wavefront algorithm.  This potential-based navigation implementation should be contained within the file "search_canvas.html" under the "project_pathplan" directory.
+</p>
+
+
+<p>
 Of the 4 possible advanced extension points, one additional point for this assignment can be earned by implementing a navigation algorithm using a probabilistic roadmap.  This roadmap algorithm implementation should be contained within the file "search_canvas.html" under the "project_pathplan" directory.
 </p>
 
@@ -1702,15 +1707,17 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 <!--
 (comment end) -->
 
+<!--
 <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr>
+-->
 
 
 
 <h2 id="assignment6">Assignment 6: Motion Planning  </h2>  
 <p>
-<b>Due 1pm, Wednesday, December 7, 2016</b>
+<b>Due 1pm, Monday, December 12, 2016</b>
 </p>
 
 
@@ -1728,13 +1735,15 @@ The graduate section will additionally implement the <a href="http://dspace.mit.
 <p>
 
 <!-- (uncomment marker begin)
+-->
+<p>
 The core of this assignment is to complete the robot_rrt_planner_init() and robot_rrt_planner_iterate() in the provided kineval_rrt_connect.js stencil.  For successful execution, your implementation of RRT-Connect, the provided collision detection system, and a single specification of world geometry has been included in home.html:
-
+</p>
 
 <pre><code data-language="javascript">
-<script src="kineval_rrt_connect.js"></script> 
-<script src="kineval_collision.js"></script> 
-<script src="worlds/world_basic.js"></script>
+&lt script src="kineval_rrt_connect.js" >&lt/script> 
+&lt script src="kineval_collision.js" >&lt/script> 
+&lt script src="worlds/world_basic.js" >&lt/script>
 </code></pre>
 
 <p>
@@ -1778,6 +1787,7 @@ The call to kineval.isCollision() has been placed within my_animate() in home.ht
 </code></pre>
 
 <!-- (uncomment marker begin)
+-->
 
 <h3>Updating kineval_collision for your implementation</h3>
 <p>
@@ -1876,7 +1886,6 @@ function collision_FK_link(link,mstack,q) {
 </code></pre>
 
 
-<!- revisit  the matrix routine interface
 kineval_collision.js uses matrix and quaternion calls based on the reference implementation (i.e., my code).  Your matrix and quaternion calls likely have a different structure to the function arguments and returned data structures.  You should either:
 
  <ul> 
@@ -1885,7 +1894,6 @@ kineval_collision.js uses matrix and quaternion calls based on the reference imp
   <li>2) use a modified version of your own FK with the collision test added to the link traversal function (remember: you need the inverse of the matrix stack for collision testing in a link frame)
 </ul>
 <p>
-->
 
 <p>
 You can feel free to implement matrix_invert_affine() instead of using numeric.inv().  Affine transforms can be inverted (in constant time, Quiz 2!) through a much simpler process than the generic matrix inversion, which is O(n^3) for Gaussian elimination. 
@@ -1933,34 +1941,40 @@ Note: we are <b>NOT</b> using robot.controls to execute the found path of the ro
 <img src="images/asgn6_scurve_small.png" width=100%>
 
 <p>
-Make sure to test from a reasonable set of robots and initial configurations within all of the provided worlds, ensuring that:
-
-<p>
-<ul>
-<li> a valid non-colliding path is found and can be traversed
-<li> the robot does not to take steps longer than 1 unit
-<li> the robot base does not move outside the X-Z plane.  Specifically, the base should not translate along the Y axis, and should not rotate about the X and Z axes.
-<li> (EECS 598-010) joint limits for the different joint types are respected.
-</ul>
-
-!!! CLARIFY THIS LANGUAGE
-<p>
-EECS 398-002: The "mr2" robot should be able to navigate all of the provided worlds. 
+Make sure to test all provided robot descriptions from a reasonable set of initial configurations within all of the provided worlds, ensuring that:
 </p>
 
 <p>
-EECS 598-010: The "fetch" robot should be able to navigate all of the provided worlds. 
+<ul>
+<li> a valid non-colliding path is found and can be traversed,</li>
+<li> the robot does not to take steps longer than 1 unit,</li>
+<li> the robot base does not move outside the X-Z plane.  Specifically, the base should not translate along the Y axis, and should not rotate about the X and Z axes.,</li>
+</ul>
 </p>
 
 <h3> Graduate Section Requirement</h3>
 
-!!! UPDATE THIS
+<p>
+In addition to the requirements above, students in the graduate section must also test to ensure:
+</p>
+
+<p>
+<ul>
+<li> joint limits for the different joint types are respected, and </li>
+<li> the "fetch" robot should be able to navigate all of the provided worlds.</li> 
+</ul>
+</p>
+
 
 <h4> Advanced Extension </h4>
 
 <p>
 Of the 4 possible advanced extension points, one additional point for this assignment can be earned by adding the capability of motion planning to an arbitrary robot configuration. 
+</p>
+<p>
 Of the 4 possible advanced extension points, two additional points for this assignment can be earned by using the A-star algorithm for base path planning in combination with RRT-Connect for arm motion planning. 
+</p>
+<p>
 Of the 4 possible advanced extension points, four additional points for this assignment can be earned by implementation of triangle-triangle tests for collision detection between robot and planning scene meshes. 
 </p>
 
@@ -1976,16 +1990,19 @@ The planner should produce a collision-free path in configuration space (over al
 <img width=100% src="images/asgn6_rrt_canvas_stencil_small.png">
 
 <p>
-Using the browser for as a development environment has many benefits.  However, when coding mistakes occur, it will make the browser lock up and be completely unusable.  This becomes even worse when the overhead of rendering with threejs is involved.  
+Using the browser for as a development environment has many benefits.  However, when coding mistakes occur, it will make the browser lock up and be completely unusable.  Such mistakes can be especially difficult to debug when the overhead of rendering with threejs is involved.  
+</p>
 
 <p>
-To help you get started, the code stencil also has a "rrt_canvas" directory where you can implement your RRT in 2D worlds with provided routines for visualization and collision.  Because the RRT is invariant across configuration spaces, an RRT developed for the 2D Canvas world should easily port to the N-D threejs world, with minor changes for invoking drawing routines.
+To help you get started, the path planning code stencil in the "search_canvas" directory has entry points for developing your core RRT routines.  This stencil will allow you to implement the RRT-Connect algorithm in simplified 2D worlds with provided routines for visualization and collision.  Because the RRT is invariant across configuration spaces, an RRT developed for the 2D Canvas world should easily port to the N-D threejs world, with minor changes for invoking drawing routines.
+</p>
 
 <p>
 
 <p>
 For turning in your assignment, create a branch in your repository labeled "Assignment-6".  
 <p>
+<!--
 (comment end) -->
 
 <h2 id="assignment7">Assignment 7: The best use of robotics? </h2>  
@@ -1996,15 +2013,21 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 Scenario: An investor is considering giving you 3 million dollars (cold hard USD cash, figuratively).  This investor has been impressed by your work with KinEval and other accomplishments while at the University of Michigan.  They are convinced you have the technical ability to make a compelling robot technology... but, they are unsure how this technology could produce something useful.  Your task is to make a convincing pitch for a  robotics project that would yield a high return on investment, as measured by some metric (financial profit, good for society, creating of new knowledge, etc.). 
 
 <!-- (uncomment marker begin)
+-->
 <p>
 You will get 2 minutes to make a pitch to develop something useful with robots.  Consider the instructor and your classmates as the people that need to be convinced.  As a guideline, your pitch should address an opportunity (presented by a need or a problem), your planned result (as a system, technology, product, and/or service), and how you will measure successful return on investment.  Return on investment can be viewed as financial profit (wrt. venture capital), good for society (wrt. a government program), creation of new knowledge or capabilities (wrt. a grant for scientific research).  Remember, the purpose is to convince and inspire about what is possible, rather than dive into specifics.
 <p>
-The last scheduled class period and a little more (Wednesday April 13th, 1:30-4:30pm) will be dedicated to student presentations to pitch ideas on the best use of robotics.  Please email your slides to the instructor before 9am on Monday April 11th with the subject line ("AutoRob asgn7 pitch slides").  OS X Keynote will be used as the sole means of slide presentation, and will be timed and controlled by the instructor.  As such, slide materials can be accepted as Keynote, Powerpoint (no guarantees on conversion), PDF, and common image and video formats (JPG, PNG, MP4, FLV, etc.).
+The last scheduled class period and a little more (Monday December 12th, 1:30-4:30pm) will be dedicated to student presentations to pitch ideas on the best use of robotics.  
+</p>
+
 <p>
+Please post your slides to the "asgn7-best-use" discussion channel before 11:59pm on Friday December 9th.  Your slides must include the title of your presentation, your name, and your UID.  Slides will only be accepted in PDF format, although embedding of videos or links to videos will be accepted.  You can post new versions of your slides up to the submission deadline on December 9th.
+</p>
 <!--
 (end comment) -->
-The pitch judged to be the most convincing will get first dibs.
 <p>
+The pitch judged to be the most convincing will get first dibs.
+</p>
 
 <!--
 <hr>
