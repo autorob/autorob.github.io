@@ -152,7 +152,10 @@ function draw() {
         ctx.fillText(ctx.fillStyle,point[i].x,point[i].y);
         else { 
             if (i%2 == 0) // output congrats message part 1
-               ctx.fillText("EECS398",point[i].x,point[i].y);
+                if (i%4 == 0) 
+                    ctx.fillText("EECS398",point[i].x,point[i].y);
+                else
+                    ctx.fillText("EECS567",point[i].x,point[i].y);
             else // output congrats message part 2 
                 ctx.fillText("AutoRob",point[i].x,point[i].y);
         }
