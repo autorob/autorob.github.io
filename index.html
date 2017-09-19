@@ -578,9 +578,9 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
     <td><b>Sep 18</b></td>
     <td>
          <!-- 
-         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_04_control_pid.pdf">
          -->
-         Motion Control</a>: Cartesian vs. generalized coordinates, open-loop vs. closed-loop control, PID control<br>
+         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_04_control_pid.pdf">
+         Motion Control</a>: Cartesian vs. generalized coordinates, open-loop vs. closed-loop control, PID control; Rigid body dynamics<br>
     </td>
     <td>Spong 6.3<hr><a href="http://www.cds.caltech.edu/~murray/courses/cds101/fa02/caltech/astrom-ch6.pdf">Handout</a></td> 
     <td>Due: Path Planning
@@ -1119,7 +1119,7 @@ This code stencil is implemented to perform graph search iterations interactivel
 </p>
 
 <p>
-Within the code stencil, you will complete the functions initSearchGraph() and iterateGraphSearch() as well as add functions for heap operations.  Locations in "search_canvas.html" where code should be added are labeled with the "STENCIL" string.  In initSearchGraph() creates a 2D array over locations to be searched.  Each element of this array contains various information computed by the search algorithm for a particular location.  iterateGraphSearch() should use three of the provided functions to perform a search iteration.  testCollision() returns a boolean of whether a given 2D location, as a two-element vector, is in collision with the planning scene.  draw_2D_configuration() draws a square at a given location in the planning world to indicate that location has been explored.  Once the search is complete, drawHighlightedPathGraph() will render the path produced by the search algorithm between a given location and the start location.
+Within the code stencil, you will complete the functions initSearchGraph() and iterateGraphSearch() as well as add functions for heap operations.  Locations in "search_canvas.html" where code should be added are labeled with the "STENCIL" string.  In initSearchGraph() creates a 2D array over locations to be searched.  Each element of this array contains various information computed by the search algorithm for a particular location.  iterateGraphSearch() should use three of the provided functions to perform a search iteration.  testCollision() returns a boolean of whether a given 2D location, as a two-element vector, is in collision with the planning scene.  draw_2D_configuration() draws a square at a given location in the planning world to indicate that location has been explored.  Once the search is complete, drawHighlightedPathGraph() will render the path produced by the search algorithm between a given location and the start location.  The global variable search_iterate should be set to false to end animation loop.
 </p>
 
 <h3> Graduate Section Requirement</h3>
