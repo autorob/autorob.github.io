@@ -49,8 +49,8 @@
             <li><a href="#git_tutorial">git</a></li>
             assignments:
             <li><a href="#assignment1">1</a></li>
-<!-- unassigned
             <li><a href="#assignment2">2</a></li>
+<!-- unassigned
             <li><a href="#assignment3">3</a></li>
             <li><a href="#assignment4">4</a></li>
             <li><a href="#assignment5">5</a></li>
@@ -303,9 +303,9 @@ The following project features are planned for AutoRob this semester.  Students 
 
 <tr><td>4</td><td>All</td><td> Heap implementation</td></tr>
 <tr><td>8</td><td>All</td><td> A-star search</td></tr>
-<tr><td>2</td><td>598</td><td> BFS</td></tr>
-<tr><td>2</td><td>598</td><td> DFS</td></tr>
-<tr><td>2</td><td>598</td><td> Greedy best-first</td></tr>
+<tr><td>2</td><td>567</td><td> BFS</td></tr>
+<tr><td>2</td><td>567</td><td> DFS</td></tr>
+<tr><td>2</td><td>567</td><td> Greedy best-first</td></tr>
 
 <tr bgcolor="#dddddd">     
 <td></td><td></td><td>Assignment 2: Pendularm</td>
@@ -314,8 +314,9 @@ The following project features are planned for AutoRob this semester.  Students 
 <tr><td>4</td><td>All</td><td> Euler integrator</td></tr>
 <tr><td>4</td><td>All</td><td> Velocity Verlet integrator</td></tr>
 <tr><td>4</td><td>All</td><td> PID control</td></tr>
-<tr><td>2</td><td>598</td><td> Verlet integrator</td></tr>
-<tr><td>4</td><td>598</td><td> RK4 integrator</td></tr>
+<tr><td>1</td><td>567</td><td> Verlet integrator</td></tr>
+<tr><td>2</td><td>567</td><td> RK4 integrator</td></tr>
+<tr><td>3</td><td>567</td><td> Double pendulum</td></tr>
 
 <tr bgcolor="#dddddd">     
 <td></td><td></td><td>Assignment 3: Forward Kinematics</td>
@@ -324,8 +325,8 @@ The following project features are planned for AutoRob this semester.  Students 
 <tr><td>2</td><td>All</td><td> Core matrix routines</td></tr>
 <tr><td>8</td><td>All</td><td> FK transforms</td></tr>
 <tr><td>2</td><td>All</td><td> Joint selection/rendering</td></tr>
-<tr><td>3</td><td>598</td><td> Base offset transform</td></tr>
-<tr><td>3</td><td>598</td><td> Fetch rosbridge interface (now in asgn4)</td></tr>
+<tr><td>2</td><td>567</td><td> Base offset transform</td></tr>
+<tr><td>4</td><td>567</td><td> Fetch DH table</td></tr>
 
 <tr bgcolor="#dddddd">     
 <td></td><td></td><td>Assignment 4: Dance Controller</td>
@@ -335,8 +336,9 @@ The following project features are planned for AutoRob this semester.  Students 
 <tr><td>2</td><td>All</td><td> Interactive base control</td></tr>
 <tr><td>2</td><td>All</td><td> Pose setpoint controller</td></tr>
 <tr><td>2</td><td>All</td><td> Dance FSM</td></tr>
-<tr><td>3</td><td>598</td><td> Joint limits</td></tr>
-<tr><td>3</td><td>598</td><td> Prismatic joints</td></tr>
+<tr><td>2</td><td>567</td><td> Joint limits</td></tr>
+<tr><td>2</td><td>567</td><td> Prismatic joints</td></tr>
+<tr><td>2</td><td>567</td><td> Fetch rosbridge interface</td></tr>
 
 <tr bgcolor="#dddddd">     
 <td></td><td></td><td>Assignment 5: Inverse Kinematics</td>
@@ -345,7 +347,7 @@ The following project features are planned for AutoRob this semester.  Students 
 <tr><td>6</td><td>All</td><td> Manipulator Jacobian</td></tr>
 <tr><td>3</td><td>All</td><td> Gradient descent with Jacobian transpose</td></tr>
 <tr><td>3</td><td>All</td><td> Jacobian pseudoinverse</td></tr>
-<tr><td>6</td><td>598</td><td> Euler angle conversion</td></tr>
+<tr><td>6</td><td>567</td><td> Euler angle conversion</td></tr>
 <!--<tr><td>!</td><td> SVD</td></tr> -->
 
 <tr bgcolor="#dddddd">     
@@ -355,7 +357,7 @@ The following project features are planned for AutoRob this semester.  Students 
 <tr><td>4</td><td>All</td><td> Collision detection</td></tr>
 <tr><td>2</td><td>All</td><td> 2D RRT-Connect</td></tr>
 <tr><td>6</td><td>All</td><td> Configuration space RRT-Connect</td></tr>
-<tr><td>6</td><td>598</td><td> RRT-Star</td></tr>
+<tr><td>6</td><td>567</td><td> RRT-Star</td></tr>
 </table>
 
 
@@ -1224,7 +1226,7 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 
 <h2 id="assignment2">Assignment 2: Pendularm </h2>  
 <p>
-<b>Due 11:59pm, Wednesday, October 4, 2017</b>
+<b>Due 11:59pm, Friday, October 6, 2017</b>
 </p>
 
 <p>
@@ -1237,13 +1239,16 @@ As an introduction to physical dynamics and control, your task is to implement a
 </center>
 </p>
 
-<!-- -->
+<!-- 
 <!-- (uncomment marker begin)
-
-The code stencil for the Pendularm assignment is available within the "pendularm" subdirectory of KinEval in the file <a href="https://github.com/ohseejay/kineval-stencil-fall16/blob/master/pendularm/pendularm1.html">pendularm1.html</a>.
+-->
 
 <p>
-For physical simulation, you will implement several numerical integrators for a pendulum with parameters specified in the code stencil.  The numerical integrator will advance the state (angle and velocity) of the pendulum in time given the current acceleration (generated from the pendulum equation of motion).  If implemented successfully, this ideal pendulum should oscillate about the vertical (where the angle is zero) proportional to the pendulum's initial angle.
+The code stencil for the Pendularm assignment is available within the "pendularm" subdirectory of KinEval in the file <a href="https://github.com/ohseejay/kineval-stencil-fall16/blob/master/pendularm/pendularm1.html">pendularm1.html</a>.
+</p>
+
+<p>
+For physical simulation, you will implement several numerical integrators for a pendulum with parameters specified in the code stencil.  The numerical integrator will advance the state (angle and velocity) of the pendulum in time given the current acceleration (generated from the pendulum equation of motion).  If implemented successfully, this ideal pendulum should oscillate about the vertical (where the angle is zero) and with an amplitude that preserves the initial height of the pendulum bob.
 </p>
 
 
@@ -1252,9 +1257,10 @@ Students enrolled in the undergraduate section will implement numerical integrat
 </p>
 
 <ul>
-<li><a href="http://en.wikipedia.org/wiki/Euler%27s_method">Euler's Method</a> 
-<li><a href="http://en.wikipedia.org/wiki/Verlet_integration#Velocity_Verlet">Velocity Verlet</a> 
+<li><p><a href="http://en.wikipedia.org/wiki/Euler%27s_method">Euler's Method</a> </p></li>
+<li><p><a href="http://en.wikipedia.org/wiki/Verlet_integration#Velocity_Verlet">Velocity Verlet</a></p></li> 
 </ul>
+
 
 
 <p>
@@ -1262,9 +1268,16 @@ For motion control, students in both undergraduate and sections will implement a
 </p>
 
 <p>
-For user input, you should be able to select the choice of integrator using the [0-4] keys (with no integration as a default), toggle the invocation of the servo controller with the 'c' or 'x' key (which is off by default), decrement and increment the desired angle of the 1 DOF servoed robot arm use the 'q' and 'e' keys, and momentarily disable the servo controller with 's' key (and allowing the arm to swing uncontrolled).
-
+For user input, you should be able to: 
 </p>
+
+<ul>
+<li><p>select the choice of integrator using the [0-4] keys (with the "none" integrator as a default),</p></li> 
+<li><p>toggle the invocation of the servo controller with the 'c' or 'x' key (which is off by default),</p></li> 
+<li><p>decrement and increment the desired angle of the 1 DOF servoed robot arm use the 'q' and 'e' keys, and</p> </li>
+<li><p>momentarily disable the servo controller with 's' key (and allowing the arm to swing uncontrolled).</p></li>
+</ul>
+
 
 <h3> Graduate Section Requirement</h3>
 
@@ -1273,30 +1286,50 @@ Students enrolled in the graduate section will implement numerical integrators f
 </p>
 
 <ul>
-<li><a href="http://en.wikipedia.org/wiki/Euler%27s_method">Euler's Method</a> 
-<li><a href="https://en.wikipedia.org/wiki/Verlet_integration#Verlet_integration_.28without_velocities.29">Verlet integration</a>
-<li><a href="http://en.wikipedia.org/wiki/Verlet_integration#Velocity_Verlet">Velocity Verlet</a>
-<li><a href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods#The_Runge.E2.80.93Kutta_method">Runge-Kutta 4</a>
+<li><p><a href="http://en.wikipedia.org/wiki/Euler%27s_method">Euler's Method</a> </p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/Verlet_integration#Verlet_integration_.28without_velocities.29">Verlet integration</a></p></li>
+<li><p><a href="http://en.wikipedia.org/wiki/Verlet_integration#Velocity_Verlet">Velocity Verlet</a></p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods#The_Runge.E2.80.93Kutta_method">Runge-Kutta 4</a></p></li>
 </ul>
+
+<p>
+to simulate and control both a single pendulum (in "pendulum1.html") a double pendulum (by creating "pendulum2.html").  A code stencil update will be provided for pendularm2.  A working visualization for the double pendularm will look similar to the following:
+</p>
+
+<p>
+<center>
+<a href="https://github.com/ohseejay/kineval-stencil/blob/master/pendularm/pendularm1.html"><img width=80% src="images/pendularm2.png"></a>
+</center>
+</p>
+
 
 <h4> Advanced Extensions </h4>
 
 <p>
-Of the 4 possible advanced extension points, four additional points for this assignment can be earned by implementing a controllable double pendulum.  This double pendulum implementation should be contained within the file "pendularm2.html" under the "project_pendularm" directory.
+Of the 4 possible advanced extension points, two additional points for this assignment can be earned by implementing a simulation of a planar <a href="https://en.wikipedia.org/wiki/Inverted_pendulum">cart pole system</a>.  This cart pole implementation should be contained within the file "cartpole.html" under the "project_pendularm" directory.
+</p>
+
+
+<p>
+Of the 4 possible advanced extension points, two additional points for this assignment can be earned by implementing a single pendulum simulator in maximal coordinates with a spring constraint enforced by <a href="https://en.wikipedia.org/wiki/Verlet_integration#Constraints">Gauss-Seidel optimization</a>.  This maximal coordinate pendulum implementation should be contained within the file "pendularm1maximal.html" under the "project_pendularm" directory.  An additional point can be earned by extending this implementation to a cloth simulator in the file "cloth_pointmass.html".
 </p>
 
 
 <h3> Project Submission</h3>
 <p>
-For turning in your assignment, create a branch in your repository labeled "Assignment-2".  
+For turning in your assignment, push your updated code to the <b>master</b> branch in your repository.  
 </p>
 
+<!-- 
 <h3> Additional Notes</h3>
 <p>
 Students in the graduate section are strongly encouraged to extend their pendularm to a double pendulum.
 </p>
 (uncomment end) -->
-<!-- -->
+
+<hr>
+<h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
+<hr>
 
 <h2 id="assignment3">Assignment 3: Forward Kinematics</h2>  
 <b>Due 11:59pm, Wednesday, October 18, 2017</b>
@@ -1420,7 +1453,7 @@ The "robots/robot_crawler.js" example should produce the following:
 
 
 <!-- (uncomment marker begin)
--->
+
 <h3> Interactive Hierarchy Traversal</h3>
 <p>
 Additionally, a correct implementation will be able to interactively traverse the kinematic hierarchically by changing the active joint.  The active joint has focus for user control, which will be used in the next assignment.  For now, we are using the active joint to ensure your kinematic hierarchy is correct.  You should be able to move up and down the kinematic hierarchy with the "k" and "j" keys, respectively.  You can also move between the children of a link using the "h" and "l" keys.
@@ -1436,8 +1469,6 @@ The cylinders used as rendering geometries for joints are not aligned with joint
 Students in the AutoRob Graduate Section must implement the assignment as described above to work with given examples as well as the Fetch robot description.  The file "robots/fetch/fetch.urdf/js" contains the robot data object for the Fetch kinematic description.  This JavaScript file converted from the <a href="https://github.com/fetchrobotics/fetch_ros/blob/indigo-devel/fetch_description/robots/fetch.urdf">Fetch URDF description</a> for ROS.  ROS uses a different default coordinate system than threejs, which needs to be taken into account in the FK computation.  Coordinate frames in ROS assumes that the Z, X, and Y axes correspond to the up, forward, and side directions, respectively.  In contrast, threejs coordinate frames assume the Y, Z, and X correspond to the up, forward, and side directions.  The variable robot.links_geom_imported will be set to true when geometries have been imported from ROS and set to false when geometries are defined completely within the robot description file.
 </p>
 
-<!--
--->
 <h4> Advanced Extensions </h4>
 
 <p>
@@ -1445,12 +1476,20 @@ Of the 4 possible advanced extension points, one additional point for this assig
 </p>
 
 <p>
+Of the 4 possible advanced extension points, three additional points for this assignment can be earned by implementing LU decomposition routines for matrix inversion and solving linear systems.  These functions should be named "matrix_inverse" and "linear_solved" and placed within the file containing your matrix routines.
+</p>
+
+(uncomment end HACK)
+-->
+<p>
 A proper implementation for fetch.urdf.js example should produce the following:
 </p>
 <p> <center>
 <img  width=90% src="images/fk_fetch_example.png">
 </center> <p>
 </p>
+
+<!-- (uncomment begin HACK)
 
 
 <h3> Project Submission</h3>
