@@ -50,8 +50,8 @@
             assignments:
             <li><a href="#assignment1">1</a></li>
             <li><a href="#assignment2">2</a></li>
-<!-- unassigned
             <li><a href="#assignment3">3</a></li>
+<!-- unassigned
             <li><a href="#assignment4">4</a></li>
             <li><a href="#assignment5">5</a></li>
             <li><a href="#assignment6">6</a></li>
@@ -1327,18 +1327,21 @@ Students in the graduate section are strongly encouraged to extend their pendula
 </p>
 (uncomment end) -->
 
+<!--
 <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr>
+-->
 
 <h2 id="assignment3">Assignment 3: Forward Kinematics</h2>  
-<b>Due 11:59pm, Wednesday, October 18, 2017</b>
+<b>Due 11:59pm, Friday, October 20, 2017</b>
 <p>
 In this assignment, you will render the forward kinematics (FK) of a robot, given its kinematic specification (in the "robots" subdirectory).  To render the robot properly, you will compute matrix coordinate frame transforms for each link and joint of the robot based on the parameters of its hierarchy configuration.  The computation of the matrix transform for each joint and link will allow KinEval's rendering support routines to properly display the full robot.  We will assume the joints will remain in their zero position, saving joint motion for the next assignment.  
 </p>
 
-<!-- -->
+<!-- 
 <!-- (uncomment marker begin)
+-->
 
 <h3>Just Starting Mode</h3>
 
@@ -1357,7 +1360,7 @@ Your task is to make these objects in starting point mode responsive to keyboard
 
 <h3>Brief KinEval Stencil Overview</h3>
 <p>
-Within the KinEval stencil, the functions my_animate() and my_init() in "home.html" are the principal access points into animation system.  my_animate() is particularly important as it will direct the invocation of functions we develop throughout the AutoRob course.  my_animate() and my_init() are called by the primary process that maintains the animation loop: kineval.animate() and kineval.init() within "kineval/kineval.js".  <b>IMPORTANT</b>: "kineval/kineval.js", kineval.animate(), and kineval.init() should not be modified.  
+Within the KinEval stencil, the functions my_animate() and my_init() in "home.html" are the principal access points into animation system.  my_animate() is particularly important as it will direct the invocation of functions we develop throughout the AutoRob course.  my_animate() and my_init() are called by the primary process that maintains the animation loop: kineval.animate() and kineval.init() within "kineval/kineval.js".  <b>IMPORTANT</b>: "kineval/kineval.js", kineval.animate(), kineval.init(), and any of the given robot descriptions should not be modified.  
 </p>
 
 <p>
@@ -1426,9 +1429,9 @@ if (kineval.params.just_starting == true) {
 }
 </code></pre>
 
-
+<!--
  (uncomment end) -->
-<!-- -->
+ -->
 
 <p>
 If implemented properly, the "robots/robot_urdf_example.js" example should produce the following rendering:
@@ -1452,7 +1455,9 @@ The "robots/robot_crawler.js" example should produce the following:
 </center> <p>
 
 
+<!--
 <!-- (uncomment marker begin)
+ -->
 
 <h3> Interactive Hierarchy Traversal</h3>
 <p>
@@ -1466,7 +1471,11 @@ The cylinders used as rendering geometries for joints are not aligned with joint
 
 <h3> Graduate Section Requirement</h3>
 <p>
-Students in the AutoRob Graduate Section must implement the assignment as described above to work with given examples as well as the Fetch robot description.  The file "robots/fetch/fetch.urdf/js" contains the robot data object for the Fetch kinematic description.  This JavaScript file converted from the <a href="https://github.com/fetchrobotics/fetch_ros/blob/indigo-devel/fetch_description/robots/fetch.urdf">Fetch URDF description</a> for ROS.  ROS uses a different default coordinate system than threejs, which needs to be taken into account in the FK computation.  Coordinate frames in ROS assumes that the Z, X, and Y axes correspond to the up, forward, and side directions, respectively.  In contrast, threejs coordinate frames assume the Y, Z, and X correspond to the up, forward, and side directions.  The variable robot.links_geom_imported will be set to true when geometries have been imported from ROS and set to false when geometries are defined completely within the robot description file.
+Students in the AutoRob Graduate Section must implement the assignment as described above to work with given examples as well as the Fetch robot description.  Students in the graduate section must also generate a proper Denavit-Hartenberg table for the kinematics of the Fetch robot.    
+</p>
+
+<p>
+The file "robots/fetch/fetch.urdf/js" contains the robot data object for the Fetch kinematic description.  This JavaScript file converted from the <a href="https://github.com/fetchrobotics/fetch_ros/blob/indigo-devel/fetch_description/robots/fetch.urdf">Fetch URDF description</a> for ROS.  ROS uses a different default coordinate system than threejs, which needs to be taken into account in the FK computation.  Coordinate frames in ROS assumes that the Z, X, and Y axes correspond to the up, forward, and side directions, respectively.  In contrast, threejs coordinate frames assume the Y, Z, and X correspond to the up, forward, and side directions.  The variable robot.links_geom_imported will be set to true when geometries have been imported from ROS and set to false when geometries are defined completely within the robot description file.
 </p>
 
 <h4> Advanced Extensions </h4>
@@ -1479,8 +1488,15 @@ Of the 4 possible advanced extension points, one additional point for this assig
 Of the 4 possible advanced extension points, three additional points for this assignment can be earned by implementing LU decomposition routines for matrix inversion and solving linear systems.  These functions should be named "matrix_inverse" and "linear_solved" and placed within the file containing your matrix routines.
 </p>
 
+<h3> Project Submission</h3>
+<p>
+For turning in your assignment, push your updated code to the <b>master</b> branch in your repository.  
+</p>
+
+<!--
 (uncomment end HACK)
 -->
+
 <p>
 A proper implementation for fetch.urdf.js example should produce the following:
 </p>
@@ -1489,15 +1505,13 @@ A proper implementation for fetch.urdf.js example should produce the following:
 </center> <p>
 </p>
 
-<!-- (uncomment begin HACK)
-
-
-<h3> Project Submission</h3>
-<p>
-For turning in your assignment, create a branch in your repository labeled "Assignment-3".  
-<p>
 <!--
-(uncomment end) -->
+-->
+<hr>
+<h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
+<hr>
+
+
 
 <p>
 
