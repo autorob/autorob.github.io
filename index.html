@@ -51,8 +51,8 @@
             <li><a href="#assignment1">1</a></li>
             <li><a href="#assignment2">2</a></li>
             <li><a href="#assignment3">3</a></li>
-<!-- unassigned
             <li><a href="#assignment4">4</a></li>
+<!-- unassigned
             <li><a href="#assignment5">5</a></li>
             <li><a href="#assignment6">6</a></li>
             <li><a href="#assignment7">7</a></li>
@@ -669,8 +669,8 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
     <td><b>Oct 9</b></td>
     <td>
          <!-- 
-         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_08_fsm_subsumption.pdf">
          -->
+         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_08_fsm_subsumption.pdf">
          Reactive Controllers</a>: Reactive and Deliberative Decision Making, Finite State Machines, Subsumption Architecture<br>
     </td>
     <td></td> 
@@ -716,8 +716,8 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
     <td><b>Oct 18</b></td>
     <td>
          <!-- 
-         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_10_ik_closedform.pdf">
          -->
+         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_10_ik_closedform.pdf">
          Inverse Kinematics 1 - Closed-form</a>: Joint vs. Endeffector control, Planar 2-link arm, Closed form solutions, Cyclic Coordinate Descent<br>
     </td>
     <td>Spong 3.3<hr>Corke 7.3</td> 
@@ -731,21 +731,8 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
 
 </tr>
 
-
 <tr>
     <td><b>Oct 23</b></td>
-
-    <td>
-         ROS/rosbridge tutorial session
-    </td>
-    <td>
-         <a href="http://ohseejay.org/papers/rctoris_iros2015.pdf">Toris 2015</a>
-    </td> 
-    <td></td> 
-</tr>
-
-<tr>
-    <td><b>Oct 25</b></td>
 
     <td>
          <!-- 
@@ -754,6 +741,19 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
          Inverse Kinematics 2 - Iterative</a>: Gradient descent, Manipulator Jacobian, Jacobian transpose, pseudoinverse
     </td>
     <td>Spong Ch. 4 <a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=86079">Wang, Chen 1991</a><hr>Corke Ch. 8</td> 
+    <td></td> 
+</tr>
+
+
+<tr>
+    <td><b>Oct 25</b></td>
+
+    <td>
+         ROS/rosbridge tutorial session
+    </td>
+    <td>
+         <a href="http://ohseejay.org/papers/rctoris_iros2015.pdf">Toris 2015</a>
+    </td> 
     <td></td> 
 </tr>
 
@@ -1172,8 +1172,8 @@ To ensure proper submission of your assignments, please do the following:
 
 <p>
 <ul>
-<li>confirm with the course instructor (ocj addrsign umich) with your name, email address, and pointer to your repository, </li>
-<li>ensure the instructor (id:ohseejay) has push/admin access to your repository, which can be confirmed/addressed through email or office hours (or by seeing that the instructor has committed the file "grading.txt")</li>
+<li><p>confirm with the course instructor (ocj addrsign umich) with your name, email address, and pointer to your repository,</p> </li>
+<li><p>ensure the instructor (id:ohseejay) has push/admin access to your repository, which can be confirmed/addressed through email or office hours (or by seeing that the instructor has committed the file "grading.txt")</p></li>
 </ul>
 </p>
 
@@ -1212,9 +1212,9 @@ To ensure proper submission of your assignments, please do the following:
  
 <p>
 <ul>
-<li>email the course instructor (ocj addrsign umich) with your name, email address, and pointer to your repository, </li>
-<li>ensure the course instructor knows what repository you are using, and your branch is created and not modified past project deadlines</li>
-<li>ensure the instructor (id:ohseejay) has push/admin access to your repository, which can be confirmed/addressed through email or office hours (or by seeing that the instructor has committed the file "grading.txt")</li>
+<li><p>email the course instructor (ocj addrsign umich) with your name, email address, and pointer to your repository,</p> </li>
+<li><p>ensure the course instructor knows what repository you are using, and your branch is created and not modified past project deadlines</p></li>
+<li><p>ensure the instructor (id:ohseejay) has push/admin access to your repository, which can be confirmed/addressed through email or office hours (or by seeing that the instructor has committed the file "grading.txt")</p></li>
 </ul>
 </p>
 
@@ -1373,9 +1373,9 @@ For starting point mode, my_animate() will call startingPlaceholderAnimate() and
 Assuming proper completion of Just Starting Mode, you are now ready for implementation of robot forward kinematics.  Ensure the following files are included (within script tags) in your "home.html".  You will modify these files for implementing FK:
 
 <ul>
-<li>"kineval/kineval_robot_init.js" for initializing your robot object based on a given description object; modification is require to add parent and child references to each link</li>
-<li>"kineval/kineval_forward_kinematics.js" for implementing (a recursive) traversal over joints and links to compute transforms; traversal of forward kinematics is invoked from kineval.robotForwardKinematics() within my_animate() in home.html </li>
- <li>"kineval/kineval_matrix.js" for the implementation of your vector and matrix routines, such as for matrix multiplication, matrix generation, etc. in kineval_matrix.js </li>
+<li><p>"kineval/kineval_robot_init.js" for initializing your robot object based on a given description object; modification is require to add parent and child references to each link</p></li>
+<li><p>"kineval/kineval_forward_kinematics.js" for implementing (a recursive) traversal over joints and links to compute transforms; traversal of forward kinematics is invoked from kineval.robotForwardKinematics() within my_animate() in home.html</p></li>
+ <li><p>"kineval/kineval_matrix.js" for the implementation of your vector and matrix routines, such as for matrix multiplication, matrix generation, etc. in kineval_matrix.js</p></li>
 </ul>
 </p>
 
@@ -1417,7 +1417,7 @@ A matrix stack recursion can be used to compute these global frames, starting fr
 To run your FK routine, you must toggle out of starting point mode.  This toggle can be done interactively within the GUI menu or by setting kineval.params.just_starting to false.  The code below in "home.html" controls starting point mode invocation, where single line can be uncommented to use FK mode by default:
 </p>
 
-<pre><code data-language="javascript">
+<pre style="color:black"> <code data-language="javascript">
 // set to starting point mode is true as default 
 //   set to false once starting forward kinematics project
 //kineval.params.just_starting = true;
@@ -1431,7 +1431,6 @@ if (kineval.params.just_starting == true) {
 
 <!--
  (uncomment end) -->
- -->
 
 <p>
 If implemented properly, the "robots/robot_urdf_example.js" example should produce the following rendering:
@@ -1506,17 +1505,17 @@ A proper implementation for fetch.urdf.js example should produce the following:
 </p>
 
 <!--
--->
 <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr>
+-->
 
 
 
 <p>
 
 <h2 id="assignment4">Assignment 4: Robot FSM Dance Contest </h2>  
-<b>Due 11:59pm, Wednesday, November 1, 2017</b>
+<b>Due 11:59pm, Friday, November 3, 2017</b>
 <p>
 
 <p>
@@ -1538,17 +1537,18 @@ This <a href="https://www.youtube.com/embed/WyQ9aoB3bpI">updated dance</a> contr
 </center>
 
 
-<!-- -->
+<!-- 
 <!-- (uncomment marker begin)
+-->
 
 <p>
 Assuming proper completion of Assignment 3, ensure the following files are included (within script tags) in your "home.html".  You will modify these files for implementing axis-angle rotation, the pose setpoint controller, and the FSM controller:
 
 <ul>
-<li>"kineval/kineval_quaternion.js" for your implementation of quaternions for axis-angle rotation in 3D</li>
- <li>"kineval/kineval_forward_kinematics.js" to augment your existing kinematic traversal to account for axis-angle joint rotation</li>
-<li>"kineval/kineval_controls.js" includes function kineval.applyControls() to apply a control update to the robot's base and angle of each joint, as well as updating the camera position; this update just does an addition and does not consider a physical model of dynamics</li>
- <li>"kineval/kineval_servo_control.js" for your implementation of a P servo controller and an FSM pose sequencer</li>
+<li><p>"kineval/kineval_quaternion.js" for your implementation of quaternions for axis-angle rotation in 3D</p></li>
+<li><p>"kineval/kineval_forward_kinematics.js" to augment your existing kinematic traversal to account for axis-angle joint rotation</p></li>
+<li><p>"kineval/kineval_controls.js" includes function kineval.applyControls() to apply a control update to the robot's base and angle of each joint, as well as updating the camera position; this update just does an addition and does not consider a physical model of dynamics</p></li>
+<li><p>"kineval/kineval_servo_control.js" for your implementation of a P servo controller and an FSM pose sequencer</p></li>
 </ul>
 </p>
 
@@ -1593,14 +1593,14 @@ The robot can servo to the current pose setpoint by holding down the 'o' key or 
 Once your pose setpoint controller is work, a FSM controller should be implemented in the function kineval.setpointDanceSequence() in "kineval/kineval_setpoint_control.js".  The reference implementation uses pose setpoints initialized and stored in kineval.setpoints with a sequence of indices stored in kineval.params.dance_sequence_index and playback index stored in kineval.params.dance_pose_index.  If this convention is not used, the following line in "kineval/kineval_userinput.js" will require modification:
 <p>
 
-<pre><code data-language="javascript">
+<pre style="color:black"><code data-language="javascript">
 if (kineval.params.update_pd_dance)
     textbar.innerHTML += "executing dance routine, pose " + kineval.params.dance_pose_index + " of " + kineval.params.dance_sequence_index.length;
 </code></pre>
 
 <h3> Graduate Section Requirement</h3>
 <p>
-Students in the graduate section of AutoRob must implement the assignment as described above for the Fetch robot with two additional requirements: 1) proper enforcement of joint types and limits for Fetch robot description, and 2) integration of their code with ROS or a <a href="http://docs.fetchrobotics.com/gazebo.html">Gazebo simulation of the Fetch</a> using <a href="http://wiki.ros.org/rosbridge_suite">rosbridge</a>.  
+Students in the graduate section of AutoRob must implement the assignment as described above for the Fetch robot with two additional requirements: 1) proper enforcement of joint types and limits for Fetch robot description, and 2) integration (via <a href="http://wiki.ros.org/rosbridge_suite">rosbridge</a>) of their code with ROS or a <a href="http://docs.fetchrobotics.com/gazebo.html">Gazebo simulation of the Fetch</a>.  
 
 <p>
 The Fetch URDF JS file, included in the provided code stencil, contains joints with with various types that correspond to different types of motion:
@@ -1608,10 +1608,10 @@ The Fetch URDF JS file, included in the provided code stencil, contains joints w
 
 <p>
 <ul>
-<li>continuous: rotation about the joint axis with no joint limits</li>
-<li>revolute: rotation about the joint axis with joint limits</li>
-<li>prismatic: translation along the joint axis with joint limits</li>
-<li>fixed: no motion of the joint</li>
+<li><p>continuous: rotation about the joint axis with no joint limits</p></li>
+<li><p>revolute: rotation about the joint axis with joint limits</p></li>
+<li><p>prismatic: translation along the joint axis with joint limits</p></li>
+<li><p>fixed: no motion of the joint</p></li>
 </ul>
 </p>
 
@@ -1620,7 +1620,7 @@ Joints are considered to be continuous as the default.  Joints with undefined mo
 </p>
 
 <p>
-Your code can interface with a robot (or simulated robot) running rosbridge/ROS using the function kineval.rosbridge() in "kineval/kineval_rosbridge.js".  This code requires that the rosbridge_server package is running in a ROS run-time environment and listening on a websocket port, such as for ws://fetch7:9090.  If your FK implementation is working properly, the model of your robot in the browser will update along with the motion of the robot based on the topic subscription and callback.  This functionality works seamlessly between real and simulated robots.  To control the robot, a rosbridge publisher must be written to update the ROS topic "/arm_controller/follow_joint_trajectory/goal" with a message of type "control_msgs/FollowJointTrajectoryActionGoal".
+Your code can interface with any robot (or simulated robot) running rosbridge/ROS using the function kineval.rosbridge() in "kineval/kineval_rosbridge.js".  This code requires that the rosbridge_server package is running in a ROS run-time environment and listening on a websocket port, such as for ws://fetch7:9090.  If your FK implementation is working properly, the model of your robot in the browser will update along with the motion of the robot based on the topic subscription and callback.  This functionality works seamlessly between real and simulated robots.  To control the robot, a rosbridge publisher must be written to update the ROS topic "/arm_controller/follow_joint_trajectory/goal" with a message of type "control_msgs/FollowJointTrajectoryActionGoal".
 </p>
 
 <p>
@@ -1630,7 +1630,7 @@ Machines running rosbridge, ROS, and Gazebo for the Fetch will be available duri
 <h4> Advanced Extensions </h4>
 
 <p>
-Of the 4 possible advanced extension points, one additional points for this assignment can be earned by adding the capability of displaying laser scans from a real or simulated Fetch robot.
+Of the 4 possible advanced extension points, one additional point for this assignment can be earned by adding the capability of displaying laser scans from a real or simulated Fetch robot.
 </p>
 
 <p>
@@ -1642,15 +1642,23 @@ Of the 4 possible advanced extension points, four additional points for this ass
 </p>
 
 
-
-<h3>Project Submission</h3>
+<h3> Project Submission</h3>
 <p>
-For turning in your assignment, create a branch in your repository labeled "Assignment-4" and post a video of your dance controller in action to the course discussion channel.
+For turning in your assignment, push your updated code to the <b>master</b> branch in your repository.  
 </p>
 
+
 <p>
+
+<hr>
+<h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
+<hr>
+<!--
+-->
+
+
+<!-- 
 (uncomment end) -->
-<!-- -->
 
 
 <p>
@@ -1687,9 +1695,9 @@ The core of this assignment is to complete the kineval.iterateIK() function in t
 </p>
 
 <ul>
-<li>endeffector_target_world: an object with two fields with the target endeffector position (as a 3D homogeneous vector) and orientation (as Euler angles) in the world frame</li>
-<li>endeffector_joint: the name of the joint directly connected to the endeffector</li>
-<li>endeffector_position_local: the location of the endeffector in the local joint frame</li>
+<li><p>endeffector_target_world: an object with two fields with the target endeffector position (as a 3D homogeneous vector) and orientation (as Euler angles) in the world frame</p></li>
+<li><p>endeffector_joint: the name of the joint directly connected to the endeffector</p></li>
+<li><p>endeffector_position_local: the location of the endeffector in the local joint frame</p></li>
 </ul>
 
 <p>
@@ -1709,10 +1717,10 @@ IK iterations can be invoked through the user interface by holding down the 'p' 
 In implementing this IK routine, please remember the following:
 <p>
 <ul>
-<li>Computation of the Jacobian need only to occur with respect to the joints along the chain from the endeffector joint to the robot base</li>
-<li>The location of the endeffector needs to be computed using transforms resulting from the robot's forward kinematics  </li>
-<li>Matrix inversion can be invoked by using the provided routine numeric.inv(mat), available through <a href="http://www.numericjs.com/">numericjs</a> </li>
-<li>The computed velocity in configuration space should be applied to the robot through the joint.controls field of each joint </li>
+<li><p>Computation of the Jacobian need only to occur with respect to the joints along the chain from the endeffector joint to the robot base</p></li>
+<li><p>The location of the endeffector needs to be computed using transforms resulting from the robot's forward kinematics </p> </li>
+<li><p>Matrix inversion can be invoked by using the provided routine numeric.inv(mat), available through <a href="http://www.numericjs.com/">numericjs</a> </p></li>
+<li><p>The computed velocity in configuration space should be applied to the robot through the joint.controls field of each joint </p></li>
 </ul>
 
 <p>
@@ -1790,7 +1798,7 @@ The graduate section will additionally implement the <a href="http://dspace.mit.
 The core of this assignment is to complete the robot_rrt_planner_init() and robot_rrt_planner_iterate() in the provided kineval_rrt_connect.js stencil.  For successful execution, your implementation of RRT-Connect, the provided collision detection system, and a single specification of world geometry has been included in home.html:
 </p>
 
-<pre><code data-language="javascript">
+<pre style="color:black"><code data-language="javascript">
 &lt script src="kineval_rrt_connect.js" >&lt/script> 
 &lt script src="kineval_collision.js" >&lt/script> 
 &lt script src="worlds/world_basic.js" >&lt/script>
@@ -1809,7 +1817,7 @@ Your RRT-Connect implementation will depend on detection of collisions (provided
 
 Collision testing for links in a configuration is performed by AABB/Sphere tests that require the bounding box of each link's geometry in the coordinates of that link.  This bounding box is computed by the following within the loop inside kineval.initRobotLinksGeoms() in kineval.js:
 
-<pre><code data-language="javascript">
+<pre style="color:black"><code data-language="javascript">
   // bounding box of robot link in local link coordinates
   robot.links[x].bbox = new THREE.Box3;
   robot.links[x].bbox = 
@@ -1834,7 +1842,7 @@ Even before your planner is implemented, you can use the collision system intera
 
 The call to kineval.isCollision() has been placed within my_animate() in home.html:
 
-<pre><code data-language="javascript">
+<pre style="color:black"><code data-language="javascript">
     // show if robot is currently in collision
     kineval.isCollision();
 </code></pre>
@@ -1847,7 +1855,7 @@ To complete the collision system, you will need to modify the forward kinematics
 </p>
 
 
-<pre><code data-language="javascript">
+<pre style="color:black"><code data-language="javascript">
 function collision_FK_link(link,mstack,q) {
 
   // this function is part of an FK recursion to test each link 
@@ -1940,9 +1948,9 @@ function collision_FK_link(link,mstack,q) {
 kineval_collision.js uses matrix and quaternion calls based on the reference implementation (i.e., my code).  Your matrix and quaternion calls likely have a different structure to the function arguments and returned data structures.  You should either:
 
  <ul> 
-  <li>1) modify calls to matrix/quaternion routines to fit your functions, or
+  <li><p>modify calls to matrix/quaternion routines to fit your functions, or</p></li>
 
-  <li>2) use a modified version of your own FK with the collision test added to the link traversal function (remember: you need the inverse of the matrix stack for collision testing in a link frame)
+  <li><p> use a modified version of your own FK with the collision test added to the link traversal function (remember: you need the inverse of the matrix stack for collision testing in a link frame)</p></li>
 </ul>
 <p>
 
@@ -1970,7 +1978,7 @@ Once implemented, your planner will be invoked interactively by first moving the
 The output of your planner will be a motion path in a sequentially ordered array (named kineval.motion_plan[]) of RRT vertices.  Each element of this array contains a reference to an RRT vertex with a robot configuration (.vertex), an array of edges (.edges), and a threejs indicator geometry (.geom).  Once a viable motion plan is found, this path can be highlighted by changing the color of the RRT vertex "breadcrumb" geom indicators.  The color of any configuration breadcrumb indicator in a tree can be modified, such as in the following example for red:
 </p>
 
-<pre><code data-language="javascript">
+<pre style="color:black"><code data-language="javascript">
   tree.vertices[i].geom.material.color = {r:1,g:0,b:0};
 </code></pre>
 
@@ -1978,7 +1986,7 @@ The output of your planner will be a motion path in a sequentially ordered array
 The user should should be able to interactively move the robot through the found plan.  After adding the following code below to user_input() in kineval_userinput.js, the "n" and "b" keys to move the robot to the next and previous configuration in the found path, respectively.  These user key presses will respectively increment and decrement the parameter kineval.motion_plan_traversal_index such that the robot's current configuration will become:
 </p>
 
-<pre><code data-language="javascript">
+<pre style="color:black"><code data-language="javascript">
   kineval.motion_plan[kineval.motion_plan_traversal_index]
 </code></pre>
 
@@ -1997,9 +2005,9 @@ Make sure to test all provided robot descriptions from a reasonable set of initi
 
 <p>
 <ul>
-<li> a valid non-colliding path is found and can be traversed,</li>
-<li> the robot does not to take steps longer than 1 unit,</li>
-<li> the robot base does not move outside the X-Z plane.  Specifically, the base should not translate along the Y axis, and should not rotate about the X and Z axes.,</li>
+<li> <p>a valid non-colliding path is found and can be traversed,</p></li>
+<li> <p>the robot does not to take steps longer than 1 unit,</p></li>
+<li> <p>the robot base does not move outside the X-Z plane.  Specifically, the base should not translate along the Y axis, and should not rotate about the X and Z axes.</p></li>
 </ul>
 </p>
 
@@ -2011,8 +2019,8 @@ In addition to the requirements above, students in the graduate section must als
 
 <p>
 <ul>
-<li> joint limits for the different joint types are respected, and </li>
-<li> the "fetch" robot should be able to navigate all of the provided worlds.</li> 
+<li> <p>joint limits for the different joint types are respected, and </p></li>
+<li> <p>the "fetch" robot should be able to navigate all of the provided worlds.</p></li> 
 </ul>
 </p>
 
@@ -2119,10 +2127,10 @@ The AutoRob course assumes git is used from an command line terminal to work wit
 git can be installed on Linux through a common package managment system, based on your distribution, with one of the following commands:
 </p>
 
-<pre><code data-language="javascript">
+<pre style="color:black"><code data-language="javascript">
 sudo yum install git-all
 </code></pre>
-<pre><code data-language="javascript">
+<pre style="color:black"><code data-language="javascript">
 sudo apt-get install git-all
 </code></pre>
 
@@ -2178,7 +2186,7 @@ From your current directory, you can use Bash commands to view and modify the co
 You are now ready to clone a copy of your remote repository and populate it with files for AutoRob projects.  It assumed that you have already created a repository on your git hosting service, given the course staff access to this repository, and provided a link of your repository to the course staff.  This repository link (in the form of "https://github.com/user_name/repository_name.git") will now be used to clone a copy of your remote repository onto your local machine using the following git command below.  This command will clone the repository contents to a subdirectory labeled with the name of the repository:
 </p>
 
-<pre><code data-language="javascript">
+<pre style="color:black"><code data-language="javascript">
   git clone [repository URL link]
 </code></pre>
 
@@ -2186,7 +2194,7 @@ You are now ready to clone a copy of your remote repository and populate it with
 This directory should be listed and inspected to ensure it has been cloned with the contents of the repository, matching the remote repository from your git hosting service.  If this is a new repository, it is not problem for this directory to be empty:
 </p>
 
-<pre><code data-language="javascript">
+<pre style="color:black"><code data-language="javascript">
   ls [repository_name]
 </code></pre>
 
@@ -2194,7 +2202,7 @@ This directory should be listed and inspected to ensure it has been cloned with 
 You can also check for differences between the files on your computer and the remote repository using git status as shown below.  If you receive the message shown in the example below, then there are no differences. If there are differences, then it will have the number of files which are different highlighted in red. 
 </p>
 
-<pre><code data-language="javascript">
+<pre style="color:black"><code data-language="javascript">
 $ git status
 On branch master
 Your branch is up-to-date with 'origin/master'.
@@ -2213,7 +2221,7 @@ You should now have a local copy of your repository with a workspace in a subdir
 In a separate directory, clone the kineval-stencil-fall16 repository to a subdirectory on your local machine:
 </p>
 
-<pre><code data-language="javascript">
+<pre style="color:black"><code data-language="javascript">
   cd [home_directory]
   git clone https://github.com/ohseejay/kineval-stencil-fall16.git
 </code></pre>
@@ -2222,7 +2230,7 @@ In a separate directory, clone the kineval-stencil-fall16 repository to a subdir
 Inspect this directory to ensure it has been cloned with the contents of the repository:
 </p>
 
-<pre><code data-language="javascript">
+<pre style="color:black"><code data-language="javascript">
   cd kineval-stencil-fall16
   ls
 </code></pre>
@@ -2240,7 +2248,7 @@ for <a href="#assignment1">Assignment 1</a>.
 Then, copy the kineval-stencil-fall16 files to the directory with your workspace
 </p>
 
-<pre><code data-language="javascript">
+<pre style="color:black"><code data-language="javascript">
   cd [home directory]
   cp -r kineval-stencil-fall16/* <repository_name>/
 </code></pre>
@@ -2249,7 +2257,7 @@ Then, copy the kineval-stencil-fall16 files to the directory with your workspace
 As these copied files are new to your working repository, they need to be added to the repository to ensure they are tracked for version control.  These files are added with the following commands:
 </p>
 
-<pre><code data-language="javascript">
+<pre style="color:black"><code data-language="javascript">
   cd [repository name]
   git add * 
 </code></pre>
@@ -2271,7 +2279,7 @@ Below is a more detailed summary of git commands for adding files from your work
 Whenever you make any significant changes to your repository, these changes should be committed to your local repository and pushed to your remote repository.  Such changes can involve adding new files or modifying existing files in your local workspace.  For such changes, you will first commit changes from your workspace to your local repository using the git commit command:
 </p>
 
-<pre><code data-language="javascript">
+<pre style="color:black"><code data-language="javascript">
 git commit -a -m "message describing changes"
 </code></pre>
 
@@ -2279,7 +2287,7 @@ git commit -a -m "message describing changes"
 and then pushing these changes from your local repository to a synced repository on your git hosting service:
 </p>
 
-<pre><code data-language="javascript">
+<pre style="color:black"><code data-language="javascript">
 git push
 </code></pre>
 
@@ -2309,7 +2317,7 @@ Once you have committed and pushed, your local workspace becomes redundant as yo
 Changes be made to your remote repository, potentially by other collaborators, without being tracked by your local repository.  This can lead to potential versioning conflicts when committed changes contradict each other.  For the AutoRob course, versioning conflicts should not be a problem because commits to your repository should be yours alone.  That said, one good practice is to ensure your workspace, local repository, and remote repository are synced before making any changes.  A brute force method for doing this is to re-clone your repository each time you begin to make changes.  Another option is to pull remote changes into your local repository and workspace using the git pull command (or git fetch command):
 </p>
 
-<pre><code data-language="javascript">
+<pre style="color:black"><code data-language="javascript">
 cd [repository_name]
 git pull
 </code></pre>
@@ -2349,7 +2357,7 @@ The simplest means for branching in this context is to use the branching feature
 A branch can also be created from the command line by the following, which will create a copy of the current branch:
 </p>
 
-<pre><code data-language="javascript">
+<pre style="color:black"><code data-language="javascript">
 git branch [branch_name]
 </code></pre>
 
@@ -2357,7 +2365,7 @@ git branch [branch_name]
 You can switch between branches with the following command:
 </p>
 
-<pre><code data-language="javascript">
+<pre style="color:black"><code data-language="javascript">
 git checkout [branch_name]
 </code></pre>
 
@@ -2365,7 +2373,7 @@ git checkout [branch_name]
 as well as clone a specific branch from a repository:
 </p>
 
-<pre><code data-language="javascript">
+<pre style="color:black"><code data-language="javascript">
 git clone -b [branch_name] [repository URL link]
 </code></pre>
 
