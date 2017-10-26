@@ -704,7 +704,10 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
 <tr>
     <td><b>Oct 18</b></td>
     <td>
-         ROS/rosbridge tutorial session
+         <!-- 
+         -->
+         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_09_pointclouds_middleware.pdf">
+         Robot Middleware</a>: Hardware Abstraction, ROS, LCM, Publish-subscribe messaging, rosbridge, Client-server messaging<br>
     </td>
     <td>
          <a href="http://ohseejay.org/papers/rctoris_iros2015.pdf">Toris 2015</a>
@@ -1542,7 +1545,7 @@ This <a href="https://www.youtube.com/embed/WyQ9aoB3bpI">updated dance</a> contr
 -->
 
 <p>
-Assuming proper completion of Assignment 3, ensure the following files are included (within script tags) in your "home.html".  You will modify these files for implementing axis-angle rotation, the pose setpoint controller, and the FSM controller:
+Assuming proper completion of Assignment 4, ensure the following files are included (within script tags) in your "home.html".  You will modify these files for implementing axis-angle rotation, the pose setpoint controller, and the FSM controller:
 
 <ul>
 <li><p>"kineval/kineval_quaternion.js" for your implementation of quaternions for axis-angle rotation in 3D</p></li>
@@ -1620,7 +1623,7 @@ Joints are considered to be continuous as the default.  Joints with undefined mo
 </p>
 
 <p>
-Your code can interface with any robot (or simulated robot) running rosbridge/ROS using the function kineval.rosbridge() in "kineval/kineval_rosbridge.js".  This code requires that the rosbridge_server package is running in a ROS run-time environment and listening on a websocket port, such as for ws://fetch7:9090.  If your FK implementation is working properly, the model of your robot in the browser will update along with the motion of the robot based on the topic subscription and callback.  This functionality works seamlessly between real and simulated robots.  To control the robot, a rosbridge publisher must be written to update the ROS topic "/arm_controller/follow_joint_trajectory/goal" with a message of type "control_msgs/FollowJointTrajectoryActionGoal".
+Your code can interface with any robot (or simulated robot) running rosbridge/ROS using the function kineval.rosbridge() in "kineval/kineval_rosbridge.js".  This code requires that the rosbridge_server package is running in a ROS run-time environment and listening on a websocket port, such as for ws://fetch7:9090.  If your FK implementation is working properly, the model of your robot in the browser will update along with the motion of the robot based on the topic subscription and callback.  This functionality works seamlessly between real and simulated robots.  Although this will not be done for this class, to control the robot arm, a rosbridge publisher must be written to update the ROS topic "/arm_controller/follow_joint_trajectory/goal" with a message of type "control_msgs/FollowJointTrajectoryActionGoal".
 </p>
 
 <p>
