@@ -53,9 +53,9 @@
             <li><a href="#assignment3">3</a></li>
             <li><a href="#assignment4">4</a></li>
             <li><a href="#assignment5">5</a></li>
-<!-- unassigned
             <li><a href="#assignment6">6</a></li>
             <li><a href="#assignment7">7</a></li>
+<!-- unassigned
 -->
         </ul>
     </div>
@@ -159,7 +159,7 @@ Office Hours: Monday 3-5pm, Tuesday 2-4pm
 
 <h3>GSI</h3>
 
-<p>Zhen Zeng
+<p><a href="https://www.zhenzeng.org/">Zhen Zeng</a>
 <br>
 zengzhen addrsign umich
 <br>
@@ -928,9 +928,9 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
     <td><b>Nov 15</b></td>
     <td>
          <!-- 
-         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_16_collision_detection.pdf">
          -->
-         Collision Detection</a>: Axis-Aligned Bounding Boxes, Separating Axis Theorem 
+         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_16_collision_detection.pdf">
+         Collision Detection</a>: 3D Triangle-Triangle Testing, Oriented Bounding Boxes, Axis-Aligned Bounding Boxes, Separating Axis Theorem 
     </td>
     <td><a href="https://wwwx.cs.unc.edu/~walk/papers/gottscha/sig96.pdf">Gottschalk et al. 1996</a>, 
     <a href="http://fileadmin.cs.lth.se/cs/Personal/Tomas_Akenine-Moller/code/tritri_tam.pdf">Moller 1997</a>
@@ -1794,17 +1794,17 @@ For turning in your assignment, ensure your completed project code has been comm
 <!-- (put this line below block comment end for block commenting, above for visibility
 (comment end) -->
 
+<!--
 <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr>
-<!--
 -->
 
 
 
 <h2 id="assignment6">Assignment 6: Motion Planning  </h2>  
 <p>
-<b>Due 11:59pm, Wednesday, December 6, 2017</b>
+<b>Due 11:59pm, Friday, December 8, 2017</b>
 </p>
 
 
@@ -1821,8 +1821,8 @@ The graduate section will additionally implement the <a href="http://dspace.mit.
 <img src="images/asgn6_motionplan.png"  width=100%>
 <p>
 
-<!-- -->
 <!-- (uncomment marker begin)
+<!-- -->
 
 <p>
 The core of this assignment is to complete the robot_rrt_planner_init() and robot_rrt_planner_iterate() in the provided kineval_rrt_connect.js stencil.  For successful execution, your implementation of RRT-Connect, the provided collision detection system, and a single specification of world geometry has been included in home.html:
@@ -1843,7 +1843,7 @@ Note: your planner should be constrained such that the search does not consider 
 
 <h3>First step: add collision detection</h3> 
 <p>
-Your RRT-Connect implementation will depend on detection of collisions (provided by the function kineval.isCollision() in kineval_collision.js) with respect to a specified world geometry.  Worlds are specified as a rectangular boundary and sphere obstacles.  A collection of worlds are provided in the "worlds/" subdirectory of kineval_stencil.  The collision detection system performs two forms of tests: 1) testing of the base position of the robot against the rectangular extents of the world, which is provided by default, and 2) testing of link geometries for a robot configuration against spherical objects, which depends on code you will write.  
+Your RRT-Connect implementation will depend on detection of collisions (provided by the function kineval.robotIsCollision() in kineval_collision.js) with respect to a specified world geometry.  Worlds are specified as a rectangular boundary and sphere obstacles.  A collection of worlds are provided in the "worlds/" subdirectory of kineval_stencil.  The collision detection system performs two forms of tests: 1) testing of the base position of the robot against the rectangular extents of the world, which is provided by default, and 2) testing of link geometries for a robot configuration against spherical objects, which depends on code you will write.  
 
 Collision testing for links in a configuration is performed by AABB/Sphere tests that require the bounding box of each link's geometry in the coordinates of that link.  This bounding box is computed by the following within the loop inside kineval.initRobotLinksGeoms() in kineval.js:
 
@@ -1854,11 +1854,12 @@ Collision testing for links in a configuration is performed by AABB/Sphere tests
     robot.links[x].bbox.setFromObject(robot.links[x].geom);
 </code></pre>
 
+<!--
 (end comment) --> 
 <!-- -->
 
 <p>
-Even before your planner is implemented, you can use the collision system interactively with your robot.  The provided kineval.isCollision() function will test the current configuration of the robot.  When the robot is detected to be in collision, one of the colliding links will be highlighted with a red wireframe.  There could be many links in collision, but only one will be highlighted.  
+Even before your planner is implemented, you can use the collision system interactively with your robot.  The provided kineval.robotIsCollision() function will test the current configuration of the robot.  When the robot is detected to be in collision, one of the colliding links will be highlighted with a red wireframe.  There could be many links in collision, but only one will be highlighted.  
 
 <p>
 <center>
@@ -1867,14 +1868,14 @@ Even before your planner is implemented, you can use the collision system intera
 </center>
 <p>
 
-<!-- -->
 <!-- (uncomment marker begin)
+<!-- -->
 
-The call to kineval.isCollision() has been placed within my_animate() in home.html:
+The call to kineval.robotIsCollision() has been placed within my_animate() in home.html:
 
 <pre style="color:black"><code data-language="javascript">
     // show if robot is currently in collision
-    kineval.isCollision();
+    kineval.robotIsCollision();
 </code></pre>
 
 
@@ -1974,8 +1975,9 @@ function collision_FK_link(link,mstack,q) {
 }
 </code></pre>
 
-
-kineval_collision.js uses matrix and quaternion calls based on the reference implementation (i.e., my code).  Your matrix and quaternion calls likely have a different structure to the function arguments and returned data structures.  You should either:
+<p>
+kineval_collision.js uses matrix and quaternion calls based on the reference implementation (i.e., the instrutor's code).  Your matrix and quaternion calls likely have a different structure to the function arguments and returned data structures.  You should either:
+</p>
 
  <ul> 
   <li><p>modify calls to matrix/quaternion routines to fit your functions, or</p></li>
@@ -1985,7 +1987,7 @@ kineval_collision.js uses matrix and quaternion calls based on the reference imp
 <p>
 
 <p>
-You can feel free to implement matrix_invert_affine() instead of using numeric.inv().  Affine transforms can be inverted (in constant time, Quiz 2!) through a much simpler process than the generic matrix inversion, which is O(n^3) for Gaussian elimination. 
+You can feel free to implement matrix_invert_affine() instead of using numeric.inv().  Affine transforms can be inverted (in constant time, Quiz 3!) through a much simpler process than the generic matrix inversion, which is O(n^3) for Gaussian elimination. 
 </p>
 <p>
 If successful to this point, you should be able to see the collision world of the robot, move around this world, and see the colliding link display a red wireframe when a collision occurs.
@@ -2027,7 +2029,7 @@ Note: we are <b>NOT</b> using robot.controls to execute the found path of the ro
 <h3>Testing</h3>
 
 <p>
-<img src="images/asgn6_scurve_small.png" width=100%>
+<img src="images/asgn6_scurve_2016.png" width=100%>
 
 <p>
 Make sure to test all provided robot descriptions from a reasonable set of initial configurations within all of the provided worlds, ensuring that:
@@ -2058,10 +2060,16 @@ In addition to the requirements above, students in the graduate section must als
 <h4> Advanced Extension </h4>
 
 <p>
-Of the 4 possible advanced extension points, one additional point for this assignment can be earned by adding the capability of motion planning to an arbitrary robot configuration. 
+Of the 4 possible advanced extension points, one additional point for this assignment can be earned by adding the capability of motion planning to an arbitrary robot configuration goal. 
 </p>
 <p>
 Of the 4 possible advanced extension points, two additional points for this assignment can be earned by using the A-star algorithm for base path planning in combination with RRT-Connect for arm motion planning. 
+</p>
+<p>
+Of the 4 possible advanced extension points, one additional point for this assignment can be earned by writing a collision detection system for two arbitrary triangles in 2D using a JavaScript/HTML5 canvas element. 
+</p>
+<p>
+Of the 4 possible advanced extension points, two additional points for this assignment can be earned by writing a collision detection system for two arbitrary triangles in 3D using JavaScript/HTML5 and threejs or a canvas element. 
 </p>
 <p>
 Of the 4 possible advanced extension points, four additional points for this assignment can be earned by implementation of triangle-triangle tests for collision detection between robot and planning scene meshes. 
@@ -2088,32 +2096,37 @@ To help you get started, the path planning code stencil in the "search_canvas" d
 
 <p>
 
+<h3>Project Submission</h3>
 <p>
-For turning in your assignment, create a branch in your repository labeled "Assignment-6".  
+For turning in your assignment, ensure your completed project code has been committed and pushed to the <i>master</i> branch of your repository.  
 <p>
 
+<!--
 (comment end) -->
-<!-- -->
+<!-- 
+-->
 
 <h2 id="assignment7">Assignment 7: The best use of robotics? </h2>  
 <p>
-<b>Slides due 11:59pm, Friday, December 8, 2017</b>
+<b>Slides due 11:59pm, Friday, December 8, 2017</b><br>
 <b>Presentation due 1:30pm, Monday, December 11, 2017</b>
 <p>
 
-Scenario: An investor is considering giving you 3 million dollars (cold hard USD cash, figuratively).  This investor has been impressed by your work with KinEval and other accomplishments while at the University of Michigan.  They are convinced you have the technical ability to make a compelling robot technology... but, they are unsure how this technology could produce something useful.  Your task is to make a convincing pitch for a  robotics project that would yield a high return on investment, as measured by some metric (financial profit, good for society, creating of new knowledge, etc.). 
+Scenario: An investor is considering giving you 20 million dollars (cold hard USD cash, figuratively).  This investor has been impressed by your work with KinEval and other accomplishments while at the University of Michigan.  They are convinced you have the technical ability to make a compelling robot technology... but, they are unsure how this technology could produce something useful.  Your task is to make a convincing pitch for a robotics project that would yield a high return on investment, as measured by some metric (financial profit, good for society, creation of new knowledge, etc.). 
 
-<!-- -->
+<!-- 
 <!-- (uncomment marker begin)
+-->
 <p>
 You will get 2 minutes to make a pitch to develop something useful with robots.  Consider the instructor and your classmates as the people that need to be convinced.  As a guideline, your pitch should address an opportunity (presented by a need or a problem), your planned result (as a system, technology, product, and/or service), and how you will measure successful return on investment.  Return on investment can be viewed as financial profit (wrt. venture capital), good for society (wrt. a government program), creation of new knowledge or capabilities (wrt. a grant for scientific research).  Remember, the purpose is to convince and inspire about what is possible, rather than dive into specifics.
 <p>
-The last scheduled class period and a little more (Monday December 12th, 1:30-4:30pm) will be dedicated to student presentations to pitch ideas on the best use of robotics.  
+The last scheduled class period and a little more (Monday December 11th, 1:30-4:30pm) will be dedicated to student presentations to pitch ideas on the best use of robotics.  
 </p>
 
 <p>
-Please post your slides to the "asgn7-best-use" discussion channel before 11:59pm on Friday December 9th.  Your slides must include the title of your presentation, your name, and your UID.  Slides will only be accepted in PDF format, although embedding of videos or links to videos will be accepted.  You can post new versions of your slides up to the submission deadline on December 9th.
+Please post your slides to the "#asgn7-best-use" discussion channel before 11:59pm on Friday December 8th.  Your first slide must include the title of your presentation, your name, and your UID.  The filename of your slides must start with your UID in the format "asgn7_UID".  Slides will only be accepted in PDF format, although embedding of videos or links to videos will be accepted.  You can post new versions of your slides up to the submission deadline on December 8th.
 </p>
+<!--
 (end comment) -->
 <!-- -->
 <p>
