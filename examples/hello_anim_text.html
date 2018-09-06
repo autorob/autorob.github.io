@@ -1,15 +1,26 @@
+<!--|\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/|
+|\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/|
+||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/
+/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\
 
-<!-- |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/|
+    hello_anim_text.html
 
     JavaScript/HTML5 bouncing text trails animation example
 
-    HTML document (web page) that displays a congratulatory example  
+    @author ohseejay / https://github.com/ohseejay
+                     / https://bitbucket.org/ohseejay
 
-    @author ohseejay / https://github.com/ohseejay / https://bitbucket.org/ohseejay
+    Chad Jenkins
+    Laboratory for Perception RObotics and Grounded REasoning Systems
+    University of Michigan
 
-    License: Creative Commons 3.0 BY-SA
+    License: Michigan Honor License 
 
-|\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| -->
+|\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/|
+||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/
+/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\
+\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\-->
+
 
 <html>  <!-- html tag marking the start of the HTML document -->
 
@@ -56,14 +67,18 @@
 // definition of the initialization function to set the initial animation state
 function init() {
 
-    // create a JavaScript object named "point" with two attributes
-    //   specifying the horizontal and vertical location of the circle
+    // create a JavaScript array named "wave" with two attributes
     var i;
-    point = [];
-    //for (i=0;i<50;i++) point[i] = {x:i*10, y: 50}; 
+    wave = [];
 
-    for (i=0;i<15;i++) point[i] = {x:i*10, y: 50}; 
-    for (i=15;i<30;i++) point[i] = {x:i*10+ 300, y: 50}; 
+    // one long wave of points
+    /*
+    for (i=0;i<60;i++) wave[i] = {x:i*10, y: 50}; 
+    */
+
+    // two waves with bursts of points
+    for (i=0;i<15;i++) wave[i] = {x:i*10, y: 50}; 
+    for (i=15;i<30;i++) wave[i] = {x:i*10+ 300, y: 50}; 
 
     // function call to start the animation loop 
     animate();  
@@ -98,19 +113,20 @@ function update() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight-50;
 
-    // move the circle forward,
-    for (i=0;i<point.length;i++) { 
-        point[i].x = point[i].x + 3;
+    // move each element of the wave forward along the x-axis
+    for (i=0;i<wave.length;i++) { 
+        wave[i].x = wave[i].x + 3;
 
-        // if the circle is at the extent of the canvas, move it back to the start
-        if (point[i].x > canvas.width) {
-            point[i].x = 0;
+        // if an element is at the extent of the canvas, move it back to start
+        if (wave[i].x > canvas.width) {
+            wave[i].x = 0;
         }
 
-        // make the circle look like it bouncing using an sin function
+        // make each element look like it bouncing using sin function on y-axis
         //   remember: the origin of the canvas is in the top left corner
         //   note: the Math object has a number of useful functions
-        point[i].y = (canvas.height-60)-Math.abs((canvas.height/2)*Math.sin(point[i].x/(canvas.width*0.1)));
+        wave[i].y = (canvas.height-50) -
+            Math.abs((canvas.height/2)*Math.sin(wave[i].x/(canvas.width*0.1)));
     }
 
 }
@@ -123,7 +139,12 @@ function draw() {
 
     // insert a string into the "text_output" element describing 
     //   the current state of the animation
-    document.getElementById("text_output").innerHTML = "point_x = "+ point[0].x.toFixed(2) + " point_y = " + point[0].y.toFixed(2);
+    document.getElementById("text_output").innerHTML = 
+       "wave[0].x = " + wave[0].x.toFixed(2) 
+        + " | wave[0].y = " + wave[0].y.toFixed(2)
+        + wave.length;
+        //+ " | point["+point.length-1+"].x = " + point[point.length-1].x.toFixed(2) 
+        //+ " | point["+point.length-1+"].y = " + point[point.length-1].y.toFixed(2);
 
     // get a reference to the canvas element "draw_canvas" in the document
     var canvas = document.getElementById("draw_canvas");
@@ -134,38 +155,56 @@ function draw() {
     // clear drawing canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    for (i=0;i<point.length;i++) { 
-        // draw message
-        ctx.fillStyle = "#000000";
-        var rand_intensity = Math.round(Math.random()*255).toString(16);
-        var rand_intensity1 = Math.round(Math.random()*255).toString(16);
-        var rand_intensity2 = Math.round(Math.random()*255).toString(16);
+    // draw message for teach element of the text waves
+    for (i=0;i<wave.length;i++) { 
+
+        // generate some choices for random colors as hexidecimal strings
+        var randIntensity = Math.round(Math.random()*255).toString(16);
+        var randIntensity1 = Math.round(Math.random()*255).toString(16);
+        var randIntensity2 = Math.round(Math.random()*255).toString(16);
+
+        // pad hexidecimal strings with a leading zero, if less than 2 chars
+        if (randIntensity.length < 2) randIntensity = "0" + randIntensity;
+        if (randIntensity1.length < 2) randIntensity1 = "0" + randIntensity1;
+        if (randIntensity2.length < 2) randIntensity2 = "0" + randIntensity2;
+        
+        // set the color and font of the text
         if (0 == 1) // black
             ctx.fillStyle = "#000000";
         else if (0 == 1) // grayscale
-            ctx.fillStyle = "#"+rand_intensity+rand_intensity+rand_intensity;
+            ctx.fillStyle = "#"+randIntensity+randIntensity+randIntensity;
         else  // rainbow
-            ctx.fillStyle = "#"+rand_intensity+rand_intensity1+rand_intensity2;
+            ctx.fillStyle = "#"+randIntensity+randIntensity1+randIntensity2;
         ctx.font = "30px courier";
 
-        if (0 == 1) // output color
-        ctx.fillText(ctx.fillStyle,point[i].x,point[i].y);
+        // draw the message text in the canvas
+        if (0 == 1) // output place count in wave
+            ctx.fillText(i,wave[i].x,wave[i].y);
+        else if (0 == 1) // output color
+            ctx.fillText(ctx.fillStyle,wave[i].x,wave[i].y);
+        else if (0 == 1) // output place and color
+            ctx.fillText(i+"   "+ctx.fillStyle,wave[i].x,wave[i].y);
         else { 
-            if (i%2 == 0) // output congrats message part 1
-                if (i%4 == 0) 
-                    ctx.fillText("EECS398",point[i].x,point[i].y);
-                else
-                    ctx.fillText("EECS567",point[i].x,point[i].y);
-            else // output congrats message part 2 
-                ctx.fillText("AutoRob",point[i].x,point[i].y);
+            if (i%8 == 0) // output congrats message part 4 
+               ctx.fillText("ME 567",wave[i].x,wave[i].y);
+            else if (i%4 == 0) // output congrats message part 3 
+               ctx.fillText("EECS367",wave[i].x,wave[i].y);
+            else if (i%2 == 0) // output congrats message part 2
+               ctx.fillText("ROB 510",wave[i].x,wave[i].y);
+            else // output congrats message part 1
+                ctx.fillText("AutoRob",wave[i].x,wave[i].y);
         }
     }
 
     // ack
     ctx.fillStyle = "#000000";
-    ctx.font = "20px courier";
-    ctx.fillText("ohseejay",0,canvas.height-50);
     ctx.fillRect(0,canvas.height-50,canvas.width,50);
+    ctx.font = "20px courier";
+    ctx.fillStyle = "#FFFFFF";
+    ctx.fillText("ocj",-2,canvas.height-50);
+    ctx.font = "20px courier";
+    ctx.fillStyle = "#000000";
+    ctx.fillText("ocj",0,canvas.height-50);
 
 }
 

@@ -1,19 +1,26 @@
+<!--|\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/|
+|\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/|
+||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/
+/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\
 
-<!-- |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/|
+    hello_anim.html
 
-    JavaScript/HTML5 falling circle animation example
+    JavaScript/HTML5 bouncing circle animation example
 
-    HTML document (web page) that displays an animation of a bouncing circle  
-
-    @author ohseejay / https://github.com/ohseejay / https://bitbucket.org/ohseejay
+    @author ohseejay / https://github.com/ohseejay
+                     / https://bitbucket.org/ohseejay
 
     Chad Jenkins
     Laboratory for Perception RObotics and Grounded REasoning Systems
     University of Michigan
 
-    License: Creative Commons 3.0 BY-SA
+    License: Michigan Honor License 
 
-|\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| -->
+|\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/|
+||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/
+/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\
+\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\-->
+
 
 <html>  <!-- html tag marking the start of the HTML document -->
 
@@ -151,11 +158,15 @@ function draw() {
     ctx.lineTo(point.x+10,point.y+10);
     ctx.stroke();
 
-    // ack the Laboratory for PRoGReS
+    // big up myself
     ctx.fillStyle = "#000000";
-    ctx.font = "20px courier";
-    ctx.fillText("Laboratory for Progress",0,canvas.height-55);
     ctx.fillRect(0,canvas.height-50,canvas.width,50);
+    ctx.font = "20px courier";
+    ctx.fillStyle = "#FFFFFF";
+    ctx.fillText("ocj",-2,canvas.height-50);
+    ctx.font = "20px courier";
+    ctx.fillStyle = "#000000";
+    ctx.fillText("ocj",0,canvas.height-50);
 
 }
 
