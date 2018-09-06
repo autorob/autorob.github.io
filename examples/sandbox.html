@@ -1,0 +1,71 @@
+<!--|\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/|
+|\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/|
+||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/
+/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\
+
+    sandbox.html
+
+    Simple HTML5 sandbox with interactive rendering of markup text
+
+    @author ohseejay / https://github.com/ohseejay
+                     / https://bitbucket.org/ohseejay
+
+    Chad Jenkins
+    Laboratory for Perception RObotics and Grounded REasoning Systems
+    University of Michigan
+
+    License: Michigan Honor License 
+
+|\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/|
+||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/
+/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\
+\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\-->
+
+
+<!DOCTYPE html>
+<html>
+  <body onload="init()">
+    <h1>Simple HTML5 Sandbox</h1>
+    <p><i>by <a href="ocj.name">Chad Jenkins (ocj)</a></i></p> 
+    <div id="sandboxdiv" style="width:100%;height:1000px;">
+  </body>
+
+  <head>
+    <title>Simple HTML5 Sandbox by Chad Jenkins</title>
+
+    <script>
+    function init() {
+      console.log('creating code sandbox as iframe');
+      displayCodeSandbox('sandboxdiv','<!DOCTYPE html>\n<html>\n  <head>\n    <title>Sandboxed</title>\n  </head>\n  <body>\n    <h1>Sandboxed</h1>\n    This text has been sandboxed by\n    <a href="http://ocj.name">Chad Jenkins</a>.<br>\n    Now, type something here.\n  </body>\n</html>');
+    }
+
+    function displayCodeSandbox(element_id,code_text,frame_width,frame_height) {
+      console.log("displayCodeSandbox");
+      dom_element = document.getElementById(element_id);
+      if (typeof code_text === 'undefined') code_text = dom_element.innerHTML;
+      if (typeof frame_width === 'undefined') 
+        if (typeof dom_element.style.width !== 'undefined') 
+          frame_width = dom_element.style.width;
+        else frame_width = 800;
+        if (typeof frame_height === 'undefined') 
+          if (typeof dom_element.style.height !== 'undefined') 
+            frame_height = dom_element.style.height;
+          else frame_height = 600;
+      ifr = document.createElement("iframe");
+      ifr.width = frame_width;
+      ifr.height = frame_height;
+      dom_element.innerHTML = "";
+      dom_element.appendChild(ifr);
+      var ifrw = (ifr.contentWindow) ? ifr.contentWindow : (ifr.contentDocument.document) ? ifr.contentDocument.document : ifr.contentDocument;
+      ifrw.document.open(); 
+      ifrw.document.write("<!DOCTYPE html> <html> <body onload='atextoutput.innerHTML=atextbox.value'> <table border='0' cellspacing='10' cellpadding='0' > <tr> <th>Code</th> <th width='10'></th> <th>Output</th> </tr> <tr> <td> <textarea id='atextbox' oninput='atextoutput.innerHTML=atextbox.value' cols='60' rows='15'>");
+      ifrw.document.write(code_text); 
+      ifrw.document.write("</textarea> </td> <td> </td> <td> <div id='atextoutput'><div> </td> </tr> </table> </body> </html></iframe>"); 
+      ifrw.document.close(); 
+    }
+    </script>
+  </head>
+
+</html>
+
+
