@@ -51,10 +51,10 @@ function tutorialJSCoding() {
 
     myObject = {};  // objects can also be created dynamically
 
-    // create object property with an assignment
+    // create object property "university" with an assignment of "Michigan"
     myObject.university = "Michigan"; // this variable is of type "string"
 
-    // equivalent to my.object.department = "EECS";
+    // equivalent to myObject.department = "EECS";
     myObject["department"] = "EECS"; // this variable is of type "string"
 
     myObject.course_number = 367;  // this variable is of type "number"
