@@ -528,8 +528,8 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
     <td><b>Sep 10</b></td>
     <td>
          <!-- 
-         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_02_graph_search.pdf">
          -->
+         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_02_graph_search.pdf">
          Path Planning</a>: DFS, BFS, A-star, Greedy best first<br>
     </td>
     <td>
@@ -542,8 +542,8 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
     <td></td>
     <td>
          <!-- 
-         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_02_jsh5_git.pdf">
          -->
+         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_02_jsh5_git.pdf">
          JavaScript and git tutorial</a>: Heap sort example<br>
     </td>
     <td colspan="2">Crockford,<br>
@@ -2199,7 +2199,7 @@ Using version control effectively is an essential skill for both the AutoRob cou
 <a href="https://bitbucket.org/nasa_ros_pkg/nasa_r2_simulator">the NASA Robonaut 2</a>, and
 <a href="https://github.com/RethinkRobotics">the Rethink Baxter</a>.
 To help you use git effectively, the course staff has added the tutorials below for getting started with git.
-This is meant to be a starting guide to using git, bash, and Git Bash.  For a more complete list of commands and features of git, you can refer to the following guides: <a href="http://git-scm.com/book/en/v2/Getting-Started-Installing-Git">The Git Pro book</a> or The <a href="http://www.mathworks.com/help/instrument/using-tcpip-server-sockets.html">Basic git command line reference for windows users</a>. An interactive tutorial for git is available at <a href="http://learngitbranching.js.org/">LearnGitBranching</a>.
+This is meant to be a starting guide to using git version control and the bash command shell.  For a more complete list of commands and features of git, you can refer to the following guides: <a href="http://git-scm.com/book/en/v2/Getting-Started-Installing-Git">The Git Pro book</a> or The <a href="http://www.mathworks.com/help/instrument/using-tcpip-server-sockets.html">Basic git command line reference for windows users</a>. An interactive tutorial for git is available at <a href="http://learngitbranching.js.org/">LearnGitBranching</a>.
 </p>
 
 
@@ -2207,7 +2207,7 @@ This is meant to be a starting guide to using git, bash, and Git Bash.  For a mo
 <h3>Installing git</h3>
 
 <p>
-The AutoRob course assumes git is used from an command line terminal to work with a git hosting service, such as <a href="github.com">GitHub</a> or <a href="bitbucket.com">Bitbucket</a>.  Such terminal environments are readily available in Linux and Mac OSX through their respective terminal programs.  For MS Windows, we are recommending <a href="https://openhatch.org/missions/windows-setup/install-git-bash">Git Bash</a>, although several other viable alternatives exist.  Applications that provide a Graphical User Interface for git are not recommended.  
+The AutoRob course assumes git is used from an command line terminal to work with a git hosting service, such as <a href="github.com">GitHub</a> or <a href="bitbucket.com">Bitbucket</a>.  Such terminal environments are readily available in Linux and Mac OSX through their respective terminal programs.  For MS Windows, we are recommending Git Bash, which can be downloaded from the <a href="https://gitforwindows.org/">Git for Windows</a> project.  Several other viable alternatives git clients exist, such as the GUI-based <a href="https://www.gitkraken.com/">GitKraken</a>.  
 </p>
 
 <p>
@@ -2222,12 +2222,11 @@ sudo apt-get install git-all
 </code></pre>
 
 <p>
-For Mac OSX, git can be installed on its own using the <a href="https://code.google.com/p/git-osx-installer/">Git-OSX-Installer</a> or as part of larger set of <a href="https://en.wikipedia.org/wiki/Xcode">Xcode</a> build tools. 
-For MS Windows, we are recommending <a href="https://openhatch.org/missions/windows-setup/install-git-bash">Git Bash</a>, although several other viable alternatives exist.  
+For Mac OSX, git can be installed on its own using the <a href="https://sourceforge.net/projects/git-osx-installer/">Git-OSX-Installer</a> or as part of larger set of <a href="https://en.wikipedia.org/wiki/Xcode">Xcode</a> build tools. 
 </p>
 
 <p>
-If you have a command line terminal running, you should see a shell environment that looks something like this (screenshot from Git Bash):
+If you have a command line terminal running, you should see a shell environment that looks something like this (screenshot from an older version of Git Bash):
 </p>
 
 <center>
@@ -2355,8 +2354,12 @@ Once you are able to load and view "home.html", the next step is to copy the kin
 
 <pre style="color:black"><code data-language="javascript">
   cd [home directory]
-  cp -r kineval-stencil/* <repository_name>/
+  cp -r kineval-stencil/* [repository_name]/
 </code></pre>
+
+<p>
+IMPORANT: ensure that this copy from kineval-stencil to your repository does not include the ".git" subdirectory.  The ".git" subdirectory is the actual git repository on your local computer, where as the directory itself is your (ephemeral) workspace outside of git.
+</p>
 
 <p>
 As these copied files are new to your working repository, they need to be added to the repository to ensure they are tracked for version control.  These files are added with the following commands:
