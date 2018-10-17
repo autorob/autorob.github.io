@@ -1483,7 +1483,7 @@ The selection of file with a robot description can occur directly in the URL for
 </p>
 
 <p>
-In addition to the given initialization, you should extend the robot object to complete the kinematic hierarchy to specify the parent and children of each link.  This modification should be made in the kineval.initRobotJoints() function in "kineval/kineval_robot_init.js".  The children array of a link should always be defined, which would result in an empty array for leaf nodes in the kinematic tree.
+In addition to the given initialization, you should extend the robot object to complete the kinematic hierarchy to specify the parent and children of each link.  This modification should be made in the kineval.initRobotJoints() function in "kineval/kineval_robot_init.js".  The children array of a link should always be defined, which would result in an empty array for leaf nodes in the kinematic tree.  For the KinEval user controls to work properly, the children array should be named as the ".children" property of the link.
 </p>
 
 <p>
