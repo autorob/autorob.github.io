@@ -52,8 +52,8 @@
             <li><a href="#assignment2">2</a></li>
             <li><a href="#assignment3">3</a></li>
             <li><a href="#assignment4">4</a></li>
-<!-- unassigned
             <li><a href="#assignment5">5</a></li>
+<!-- unassigned
             <li><a href="#assignment6">6</a></li>
             <li><a href="#assignment7">7</a></li>
 -->
@@ -865,7 +865,7 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
          <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/walk_around_example.mp4">
         Example tutorial result</a>
     </td> 
-    <td></td> 
+    <td>Due: Dance Contest <br>Out: <a href="#assignment5">Inverse Kinematics</a></td>
 </tr>
 
 
@@ -900,7 +900,7 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
         <hr>
         Corke 4, 5
     </td>
-    <td>Due: Dance Contest <br>Out: <a href="#assignment5">Inverse Kinematics</a></td>
+    <td></td> 
 </tr>
 
 <tr>
@@ -955,7 +955,7 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
          Quiz 4
     </td>
     <td></td> 
-    <td>Due: Inverse Kinematics<br> Out: <a href="#assignment6">Motion Planning</a></td> 
+    <td></td> 
 </tr>
 
 <tr>
@@ -964,7 +964,7 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
         <b> Course meeting cancelled</b> - Thanksgiving Recess
     </td>
     <td></td> 
-    <td></td> 
+    <td>Due: Inverse Kinematics<br> Out: <a href="#assignment6">Motion Planning</a></td> 
 </tr>
 
 <!--
@@ -1061,7 +1061,6 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
     <td><b>Dec 5</b></td>
     <td>Quiz 5</td>
     <td></td>
-    <td>Due: Motion Planning</td> 
 <tr>
 
 
@@ -1073,6 +1072,8 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
 <tr>
     <td><b>Dec 10</b></td>
     <td>Due: Best Use of Robotics</td>
+    <td></td>
+    <td>Due: Motion Planning</td> 
 <tr>
 
 <tr>
@@ -1784,10 +1785,10 @@ For turning in your assignment, push your updated code to the <b>master</b> bran
 
 <p>
 
+<!--
 <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr>
-<!--
 -->
 
 
@@ -1801,7 +1802,7 @@ For turning in your assignment, push your updated code to the <b>master</b> bran
 
 <h2 id="assignment5">Assignment 5: Inverse Kinematics </h2>  
 <p>
-<b>Due 1:20pm, Monday, November 19, 2018</b>
+<b>Due 1:20pm, Wednesday, November 21, 2018</b>
 
 <p>
 Although effective, robot choreography in configuration space is super tedious and inefficient.  This difficulty is primarily due to posing each joint of the robot at each setpoint.  Further, changing one joint often requires updating several other joints due to the nature of kinematic dependencies.  Inverse kinematics (IK) offers a much easier and efficient alternative.  With IK implemented, we only need to pose the endeffector in a common workspace, and the states of the joints in configuration space automatically inferred.  IK is also important when we are about the "tool tip" of an instrument being used by a robot.  One such example is a robot using marker to draw a picture, such as in the PR2 Portrait Bot Project below:
@@ -1828,8 +1829,8 @@ As shown in the video below, if successful, your robot will be able to continual
 
 
 <!-- (uncomment marker begin, copy above to block uncomment or below to block comment)
--->
 <!-- 
+-->
 
 <p>
 The core of this assignment is to complete the kineval.iterateIK() function in the file kineval/kineval_inverse_kinematics.js.  This function is invoked within the function kineval.inverseKinematics()  with three arguments: 
@@ -1896,7 +1897,11 @@ Of the 4 possible advanced extension points, four additional points for this ass
 </p>
 
 <p>
-Of the 4 possible advanced extension points, four additional points for this assignment can be earned by extending your IK controller to use a potential field to avoid collisions.
+Of the 4 possible advanced extension points, four additional points for this assignment can be earned by implementing <a href="https://en.wikipedia.org/wiki/Nelder%E2%80%93Mead_method">downhill simplex optimization</a> to perform inverse kinematics.  This function should be implemented in the file "kineval/kineval_inverse_kinematics.js" as another option within the function kineval.iterateIK().
+</p>
+
+<p>
+Of the 4 possible advanced extension points, four additional points for this assignment can be earned by extending your IK controller to use potential fields to avoid collisions.
 </p>
 
 
@@ -1911,10 +1916,10 @@ For turning in your assignment, ensure your completed project code has been comm
 (comment end) -->
 
 <!--
+-->
 <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr>
--->
 
 
 
