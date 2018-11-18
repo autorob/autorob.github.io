@@ -53,9 +53,9 @@
             <li><a href="#assignment3">3</a></li>
             <li><a href="#assignment4">4</a></li>
             <li><a href="#assignment5">5</a></li>
-<!-- unassigned
             <li><a href="#assignment6">6</a></li>
             <li><a href="#assignment7">7</a></li>
+<!-- unassigned
 -->
         </ul>
     </div>
@@ -786,7 +786,7 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
          <a href="lectures/autorob_11_ik_jacobian.pdf">
          Inverse Kinematics 2 - Non-linear Optimization</a>: Gradient descent, Manipulator Jacobian, Jacobian transpose and pseudoinverse
     </td>
-    <td>Spong 4, <a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=86079"> Wang&Chen 1991</a>, <a href="http://math.ucsd.edu/~sbuss/ResearchWeb/ikmethods/iksurvey.pdf">Buss 2009</a><hr>Corke 8</td> 
+    <td>Spong 4, <a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=86079"> Wang&Chen 1991</a>, <a href="http://math.ucsd.edu/~sbuss/ResearchWeb/ikmethods/iksurvey.pdf">Buss 2009</a><a href="https://personal.traclabs.com/~pbeeson/papers/Beeson-humanoids-15.pdf">Beeson+ 2015</a><hr>Corke 8</td> 
     <td></td> 
 </tr>
 
@@ -948,15 +948,20 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
 <td></td><td>Week 13</td><td></td><td></td>
 </tr>
 
-
 <tr>
     <td><b>Nov 19</b></td>
     <td>
-         Quiz 4
+         <!-- 
+         -->
+         <a href="lectures/autorob_16_collision_detection.pdf">
+         Collision Detection</a>: 3D Triangle-Triangle Testing, Oriented Bounding Boxes, Axis-Aligned Bounding Boxes, Separating Axis Theorem 
     </td>
-    <td></td> 
+    <td><a href="https://wwwx.cs.unc.edu/~walk/papers/gottscha/sig96.pdf">Gottschalk+ 1996</a>, 
+    <a href="http://fileadmin.cs.lth.se/cs/Personal/Tomas_Akenine-Moller/code/tritri_tam.pdf">Moller 1997</a>
+    </td> 
     <td></td> 
 </tr>
+
 
 <tr>
     <td><b>Nov 21 </b></td>
@@ -981,24 +986,10 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
 <td></td><td>Week 14</td><td></td><td></td>
 </tr>
 
+
+
 <tr>
     <td><b>Nov 26</b></td>
-    <td>
-         <!-- 
-         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_16_collision_detection.pdf">
-         -->
-         Collision Detection</a>: 3D Triangle-Triangle Testing, Oriented Bounding Boxes, Axis-Aligned Bounding Boxes, Separating Axis Theorem 
-    </td>
-    <td><a href="https://wwwx.cs.unc.edu/~walk/papers/gottscha/sig96.pdf">Gottschalk+ 1996</a>, 
-    <a href="http://fileadmin.cs.lth.se/cs/Personal/Tomas_Akenine-Moller/code/tritri_tam.pdf">Moller 1997</a>
-    </td> 
-    <td></td> 
-<tr>
-
-
-
-<tr>
-    <td><b>Nov 28</b></td>
     <td>
          <!--
          <a href="slides will go here">
@@ -1029,6 +1020,16 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
     </td> 
     <td></td> 
 </tr>
+
+<tr>
+    <td><b>Nov 28</b></td>
+    <td>
+         Quiz 4
+    </td>
+    <td></td> 
+    <td></td> 
+</tr>
+
 
 
 <tr bgcolor="#dddddd">     
@@ -1916,16 +1917,16 @@ For turning in your assignment, ensure your completed project code has been comm
 (comment end) -->
 
 <!--
--->
 <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr>
+-->
 
 
 
 <h2 id="assignment6">Assignment 6: Motion Planning  </h2>  
 <p>
-<b>Due 11:59pm, Friday, December 7, 2018</b>
+<b>Due 11:59pm, Monday, December 10, 2018</b>
 </p>
 
 <p>
@@ -1958,8 +1959,8 @@ The graduate section will additionally implement the <a href="http://dspace.mit.
 <p>
 
 <!-- (uncomment marker begin)
--->
 <!-- 
+-->
 
 <p>
 The core of this assignment is to complete the robot_rrt_planner_init() and robot_rrt_planner_iterate() in the provided kineval_rrt_connect.js stencil.  For successful execution, your implementation of RRT-Connect, the provided collision detection system, and a single specification of world geometry has been included in home.html:
@@ -2006,8 +2007,8 @@ Even before your planner is implemented, you can use the collision system intera
 <p>
 
 <!-- (uncomment marker begin)
--->
 <!-- 
+-->
 
 The call to kineval.robotIsCollision() has been placed within my_animate() in home.html:
 
@@ -2215,7 +2216,9 @@ Of the 4 possible advanced extension points, four additional points for this ass
 <p>
 Of the 4 possible advanced extension points, three additional points for this assignment can be earned by implementation of cubic or quintic polynomial interpolation (Spong Ch. 5.5.1 and 5.5.2) across configurations returned in a computed motion plan.
 </p>
-
+<p>
+Of the 4 possible advanced extension points, four additional points for this assignment can be earned by implementing an approved research paper describing a motion planning algorithm. 
+</p>
 
 
 
@@ -2258,8 +2261,8 @@ For turning in your assignment, ensure your completed project code has been comm
 Scenario: An investor is considering giving you 20 million dollars (cold hard USD cash, figuratively).  This investor has been impressed by your work with KinEval and other accomplishments while at the University of Michigan.  They are convinced you have the technical ability to make a compelling robot technology... but, they are unsure how this technology could produce something useful.  Your task is to make a convincing pitch for a robotics project that would yield a high return on investment, as measured by some metric (financial profit, good for society, creation of new knowledge, etc.). 
 
 <!-- 
--->
 <!-- (uncomment marker begin)
+-->
 <p>
 You will get 2 minutes to make a pitch to develop something useful with robots.  Consider the instructor and your classmates as the people that need to be convinced.  As a guideline, your pitch should address an opportunity (presented by a need or a problem), your planned result (as a system, technology, product, and/or service), and how you will measure successful return on investment.  Return on investment can be viewed as financial profit (wrt. venture capital), good for society (wrt. a government program), creation of new knowledge or capabilities (wrt. a grant for scientific research).  Remember, the purpose is to convince and inspire about what is possible, rather than dive into specifics.
 <p>
