@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>UM EECS 398/567 - Autonomous Robotics</title>
+    <title>Michigan EECS 367/567 ROB 510 - Autonomous Robotics</title>
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
 
     <!-- Combo with CSSNormalize, CSSGrids-Responsive, CSSForm, CSSTable, CSSList (v3.9.1) -->
@@ -50,12 +50,12 @@
             assignments:
             <li><a href="#assignment1">1</a></li>
             <li><a href="#assignment2">2</a></li>
+<!-- unassigned
             <li><a href="#assignment3">3</a></li>
             <li><a href="#assignment4">4</a></li>
             <li><a href="#assignment5">5</a></li>
             <li><a href="#assignment6">6</a></li>
             <li><a href="#assignment7">7</a></li>
-<!-- unassigned
 -->
         </ul>
     </div>
@@ -63,7 +63,7 @@
 
         <h1 class="yui3-u-1">AutoRob</h1>
         <h2 class="yui3-u" style="color:white">Introduction to Autonomous Robotics</h2>
-        <h2 class="yui3-u-1">Michigan EECS 398</h2>
+        <h2 class="yui3-u-1">Michigan EECS 367</h2>
         <br>
         <br>
         <h2 class="yui3-u"style="color:white">Robot Kinematics and Dynamics</h2>
@@ -71,7 +71,7 @@
         <h2 class="yui3-u">Michigan ME 567 &nbsp EECS 567 &nbsp ROB 510</h2>
         <br>
         <br>
-        <h2 class="yui3-u">Fall 2018</h2>
+        <h2 class="yui3-u">Fall 2019</h2>
 
      </div>
     <div class="content">
@@ -83,18 +83,18 @@
 
 <!--
 <hr>
-<h1> The current version of the AutoRob course website is preliminary.  An updated version of the Fall 2018 site will be available soon.  The descriptions below are unofficial and tentative.</h1>
+<h1> The current version of the AutoRob course website is preliminary.  An updated version of the Fall 2019 site will be available soon.  The descriptions below are unofficial and tentative.</h1>
 <hr>
 -->
 
         <h2>Introduction</h2>
 
 <p>
-The AutoRob course provide an introduction to core topics in the modeling and control of autonomous robots.  AutoRob has two sections: an undergraduate section offered as Introduction to Autonomous Robotics (EECS 398) and a graduate section offered as Robot Kinematics and Dynamics (ME/EECS 567 or ROB 510) with expanded advanced material.  The AutoRob course can be thought of as the foundation to build "brains for robots". That is, given a robot as a machine with sensing, actuation, and computation, how do we build computational models, algorithms, and program that allow the robot to function autonomously? Such computation involves functions for robots to perceive the world, make decisions towards achieving a given objective, and transforming decided actions into motor commands.  These functions are essential for modern robotics, especially for mobile manipulators such as the pictured <a href="http://fetchrobotics.com/research/">Fetch</a> and <a href="https://www.willowgarage.com/pages/pr2/overview">PR2</a> robots.
+The AutoRob course provides an introduction to core topics in the modeling and control of autonomous robots.  AutoRob has two sections: an undergraduate section offered as Introduction to Autonomous Robotics (EECS 367) and a graduate section offered as Robot Kinematics and Dynamics (ME/EECS 567 or ROB 510) with expanded advanced material.  The AutoRob course can be thought of as the foundation to build "brains for robots". That is, given a robot as a machine with sensing, actuation, and computation, how do we build computational models, algorithms, and program that allow the robot to function autonomously? Such computation involves functions for robots to perceive the world, make decisions towards achieving a given objective, and transforming decided actions into motor commands.  These functions are essential for modern robotics, especially for mobile manipulators such as the pictured <a href="http://fetchrobotics.com/research/">Fetch</a> robot.
 </p>
 
 <p>
-The AutoRob course focuses on the issues of modeling and control for autonomous robots with an emphasis on manipulation and mobility.  Successful completion of AutoRob will result in code modules for "mobile pick-and-place".  That is, given a robot and perception of the robot's environment, resulting code modules can enable the robot to pick up an object at an arbitrary location and place the object in a new location.
+The AutoRob course focuses on the issues of modeling and control for autonomous robots with an emphasis on manipulation and mobility.  Successful completion of AutoRob will result in code modules for "mobile pick-and-place".  That is, given a robot and perception of the robot's environment, the resulting code modules can enable the robot to pick up an object at an arbitrary location and place the object in a new location.
 </p>
 
 <!--
@@ -103,15 +103,15 @@ Caveats: robot will perform suboptimally based on rrt-planner, no self-collision
 
 
 <p>
-AutoRob projects ground course concepts through implementation in JavaScript/HTML5 supported by the KinEval code stencil (snapshot below from Mozilla Firefox).  These projects will cover graph search path planning (A* algorithm), basic physical simulation (Lagrangian dynamics, numerical integrators), proportional-integral-derivative (PID) control, forward kinematics (3D geometric matrix transforms, matrix stack composition of transforms, axis-angle rotation by quaternions), inverse kinematics, (gradient descent optimization, Jacobians for velocity kinematics), and motion planning (simple collision detection, sample-based motion planning).  Additional topics that could be covered include potential field navigation, Bayesian filtering, Cyclic Coordinate Descent, Monte Carlo localization, and Newton-Euler dynamics.  
+AutoRob projects ground course concepts through implementation in <a href="https://en.wikipedia.org/wiki/JavaScript"</a>JavaScript</a>/<a href="https://en.wikipedia.org/wiki/HTML">HTML5</a> supported by the <a href="https://github.com/autorob/kineval-stencil">KinEval code stencil</a> (snapshot below from Mozilla Firefox).  These projects will cover graph search path planning (<a href="https://en.wikipedia.org/wiki/A*_search_algorithm">A* algorithm</a>), basic physical simulation (<a href="https://en.wikipedia.org/wiki/Classical_mechanics">Lagrangian dynamics</a>, <a href ="https://en.wikipedia.org/wiki/Numerical_integration">numerical integrators</a>), proportional-integral-derivative (<a href="https://en.wikipedia.org/wiki/PID_controller">PID</a>) control, forward kinematics (3D geometric <a href="https://en.wikipedia.org/wiki/Transformation_matrix">matrix transforms</a>, matrix stack composition of transforms, axis-angle rotation by <a href="https://en.wikipedia.org/wiki/Quaternion">quaternions</a>), inverse kinematics (<a href="https://en.wikipedia.org/wiki/Gradient_descent">gradient descent</a> optimization, geometric <a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant">Jacobian</a>), and motion planning (simple <a href="https://en.wikipedia.org/wiki/Collision_detection">collision detection</a>, sample-based <a href="https://en.wikipedia.org/wiki/Motion_planning">motion planning</a>).  Additional topics that could be covered include potential field navigation, Bayesian filtering, Cyclic Coordinate Descent, Monte Carlo localization, and Newton-Euler dynamics.  
 </p>
 
 <img width=100% src="images/kineval_fetch.png">
 
 <p>
-AutoRob projects will roughly follow conventions and structures from the <a href="http://ros.org">Robot Operating System (ROS)<a> and <a href="https://github.com/RobotWebTools">Robot Web Tools (RWT)</a> software frameworks, as currently used on the Fetch and PR2 robots.  These conventions include the <a href="http://wiki.ros.org/urdf/Tutorials/Create%20your%20own%20urdf%20file">URDF</a> kinematic modeling format, <a href="http://wiki.ros.org/Topics">ROS topic</a> structure, and the <a href="https://github.com/RobotWebTools/rosbridge_suite/blob/develop/ROSBRIDGE_PROTOCOL.md"><i>rosbridge</i> protocol</a> for <a href="https://json.org/">JSON</a>-based messaging.
+AutoRob projects will roughly follow conventions and structures from the <a href="http://ros.org">Robot Operating System (ROS)<a> and <a href="https://github.com/RobotWebTools">Robot Web Tools (RWT)</a> software frameworks, as widely used across robotics.  These conventions include the <a href="http://wiki.ros.org/urdf/Tutorials/Create%20your%20own%20urdf%20file">URDF</a> kinematic modeling format, <a href="http://wiki.ros.org/Topics">ROS topic</a> structure, and the <a href="https://github.com/RobotWebTools/rosbridge_suite/blob/develop/ROSBRIDGE_PROTOCOL.md"><i>rosbridge</i> protocol</a> for <a href="https://json.org/">JSON</a>-based messaging.
 
-KinEval uses <a href="http://threejs.org/">threejs</a> for in-browser 3D rendering and <a href="http://numericjs.com">Numeric Javascript</a> for select matrix routines.  Auxiliary code examples and stencils will often use the <a href="http://jsfiddle.net/">jsfiddle</a> development environment.    
+KinEval uses <a href="http://threejs.org/">threejs</a> for in-browser 3D rendering and <a href="https://github.com/sloisel/numeric/">Numeric Javascript</a> for select matrix routines.  Auxiliary code examples and stencils will often use the <a href="http://jsfiddle.net/">jsfiddle</a> development environment.    
 </p>
 
 <table><tr><td style="background:#dddddd">
@@ -134,7 +134,7 @@ AutoRob is a computing-friendly pathway into robotics, but does not cover the wh
 </p>
 
 <p>
-AutoRob provides a computation-focused version of ME 567 (Robot Kinematics and Dynamics).  The common ME 567 is a more in-depth mathematical analysis of dynamics and control with extensive use of Denavit-Hartenberg parameters for kinematics.  AutoRob spends more coverage on path and motion planning with use of quaternions and matrix stacks for kinematics.
+AutoRob provides a computation-focused branch of ME 567 (Robot Kinematics and Dynamics).  The common ME 567 is a more in-depth mathematical analysis of dynamics and control with extensive use of Denavit-Hartenberg parameters for kinematics.  AutoRob spends more coverage on path and motion planning with use of quaternions and matrix stacks for kinematics.  In AutoRob, <a href="https://idioms.thefreedictionary.com/seeing+is+believing">coding is believing</a>.
 </p>
 
 <p>
@@ -150,7 +150,7 @@ As indicated in the <a href="http://www.engin.umich.edu/college/academics/bullet
 <h3>Accommodations for Students with Disabilities</h3>
 
 <p>
-If you believe an accommodation is needed for a disability, please let the course instructor know at your earliest convenience. Some aspects of this course, the assignments, the in-class activities, and the way the course is usually taught may be modified to facilitate your participation and progress. As soon as you make us aware of your needs, the course staff can work with the <a href="http://ssd.umich.edu">Services for Students with Disabilities</a> (SSD, 734-763-3000) office to help us determine appropriate academic accommodations. SSD typically recommends accommodations through a Verified Individualized Services and Accommodations (VISA) form. Any information you provide is private and confidential and will be treated as such. For special accommodations for any academic evaluation (exam, quiz, project), the course staff will need to receive the necessary paperwork issued by the SSD office by <i>September 29, 2018</i>.
+If you believe an accommodation is needed for a disability, please let the course instructor know at your earliest convenience. Some aspects of this course, the assignments, the in-class activities, and the way the course is usually taught may be modified to facilitate your participation and progress. As soon as you make us aware of your needs, the course staff can work with the <a href="http://ssd.umich.edu">Services for Students with Disabilities</a> (SSD, 734-763-3000) office to help us determine appropriate academic accommodations. SSD typically recommends accommodations through a Verified Individualized Services and Accommodations (VISA) form. Any information you provide is private and confidential and will be treated as such. For special accommodations for any academic evaluation (exam, quiz, project), the course staff will need to receive the necessary paperwork issued from the SSD office by <i>September 30, 2019</i>.
 </p>
 
 <h3>Student mental health and well being</h3> 
@@ -181,9 +181,9 @@ Office Hours: Monday 3-5pm, Tuesday 1-3pm
 <h3>Graduate Student Instructor</h3>
 
 <p>
-Maithili Patel
+Anthony Opipari
 <br>
-maithili addrsign umich
+topipari  addrsign umich
 <br>
 Office Hours (Beyster 1637): Tuesday 1-3pm, Wednesday 3-4:30pm
 </p>
@@ -192,20 +192,34 @@ Office Hours (Beyster 1637): Tuesday 1-3pm, Wednesday 3-4:30pm
 
 <h2>Meeting time/place</h2>
 <p>
-Monday, Wednesday 1:30-2:40 MMT (Michigan Mean Time)
+<b>Course Lecture</b><br>
+Monday and Wednesday 1:30-2:40 MMT (Michigan Mean Time)
 <br>EECS 1500
 </p>
+
+<p>
+<b>Laboratory Section (EECS 367)</b><br>
+Friday 2:30-3:20 MMT (Michigan Mean Time)
+<br>EECS 1500
+</p>
+
 
 <h2>Discussion channel</h2>
 
 <p>
-<a href="https://autorob.slack.com/messages/general/">AutoRob #general channel</a>
+<a href="https://autorob.slack.com/">The AutoRob slack team</a> will be used for course-related discussions and announcements.  <a href="https://en.wikipedia.org/wiki/Slack_(software)">Slack</a> is a cloud-hosted online discussion and collaboration system with functionality that resembles <a href="https://en.wikipedia.org/wiki/Internet_Relay_Chat">Internet Relay Chat (IRC)</a>.  Slack clients are available for most modern operating systems as well as through the web.
 </p>
 
 <p>
-Note: General course discussion and administrivia will be addressed in the #general channel.  
-Each assignment will have its own discussion channel.
-Random items of general interest to the course and larger field of robotics will appear in the #random channel.  
+Students enrolled in AutoRob will receive an invitation to the AutoRob slack team.  Upon accepting this invitation, you should be automatically subscribed to 9 channels: 
+</p>
+<ul>
+<li> <p>the <i>#general</i> channel for general course discussion and administrivia, </p> </li>
+<li> <p> the <i>#random</i> channel for non-course items that are of general interest to the course and larger field of robotics, </p> </li>
+<li> <p> seven assignment channels for each class project (<i>#asgn1-pathplan, #asgn2-pendularm, #asgn3-fk, #asgn4-dance-fsm, #asgn5-ik #asgn6-rrt, #asgn7-best-use</i>), </p> </li>
+<li> <p> the <i>#advanced-extensions</i> channel for discussion and announcement of graduate advanced extensions to each project.</p> </li>
+</ul>
+<p>
 <i>Actively engaging in course discussions is a great way to become a better roboticist.</i>
 </p>
 
@@ -296,7 +310,7 @@ Individual final grades are assigned based on the sum of points earned from cour
 The timing and due dates for course projects and quizzes will be announced on an ongoing basis.  All project work must be checked by the end of classes.
 </p>
 
-<h3>EECS 398: Introduction to Autonomous Robotics</h3>
+<h3>EECS 367: Introduction to Autonomous Robotics</h3>
 
 <p>
 In the undergraduate section, each fully completed project is weighted as 12 points and each correctly answered quiz question is weighted as 1 point.  
@@ -308,8 +322,11 @@ Based on this sum of points from coursework, an overall grade for the course is 
 <h3>ME 567 | EECS 567 | ROB 510: Robot Kinematics and Dynamics</h3>
 
 <p>
-In the graduate section, each fully completed project is weighted as 18 points, each correctly answered quiz question is weighted as 1 point.  Students in this section have the opportunity to earn 4 additional points through an advanced extension of a course project.  Examples of advanced extensions include implementation of an LU solver for linear systems of equations, inverse kinematics by Cyclic Coordinate Descent, one additional motion planning algorithm, point cloud segmentation, and a review of a current research publication in robotics.
-Based on this sum of points from coursework, an overall grade for the course is earned as follows: An "A" grade in the course is earned if graded coursework sums to 135 points or above; A "B" grade in the course is earned if graded coursework sums to 120 points or above; a "C" grade in the course is earned if graded coursework sums to 105 points or above.  The instructor reserves the option to assign appropriate course grades with plus or minus modifiers.
+In the graduate section, each fully completed project is weighted as 18 points, each correctly answered quiz question is weighted as 1 point.  Students in this section have the opportunity to earn 4 additional points through an advanced extension of a course project.  Examples of advanced extensions include implementation of an LU solver for linear systems of equations, inverse kinematics by Cyclic Coordinate Descent, one additional motion planning algorithm, point cloud segmentation, and a review of a current research publication in robotics.  Advanced extensions are due by the course final grading deadline, and do not need to be completed for the deadlines of each assignment.
+</p>
+
+<p>
+Based on the sum of points earned from coursework, an overall grade for the course is earned as follows: An "A" grade in the course is earned if graded coursework sums to 135 points or above; A "B" grade in the course is earned if graded coursework sums to 120 points or above; a "C" grade in the course is earned if graded coursework sums to 105 points or above.  The instructor reserves the option to assign appropriate course grades with plus or minus modifiers.
 </p>
 
 <h3 id="project_rubric">Project Rubric (tenative and subject to change)</h3>
@@ -399,24 +416,27 @@ The following project features are planned for AutoRob this semester.  Students 
 <h3>Project Submission and Regrading</h3>
 
 <p>
-Git repositories will be used for project implementation, version control, and submission. The implementation of an individual project is submitted through an update to the <i>master</i> branch of your designated repository.  Updates to the master branch must be committed and pushed prior to the due date for each assignment for any consideration of full credit. Your implementation will be checked out and executed by the course staff. Through your repository, you will be notified by the course staff whether your implementation of assignment features is sufficient to receive credit. 
+Git repositories will be used for project implementation, version control, and submission for grading. The implementation of an individual project is submitted through an update to the <i>master</i> branch of your designated repository.  Updates to the master branch must be committed and pushed prior to the due date for each assignment for any consideration of full credit. Your implementation will be checked out and executed by the course staff. Through your repository, you will be notified by the course staff whether your implementation of assignment features is sufficient to receive credit. 
 </p>
 
 <h3>Late Policy</h3>
 <p>
-Do not submit assignments late.  The course staff reserves the right to not grade late submissions. The course instructor reserves the right to decline to grade late submissions and adjust partial credit on regraded assignments.  
-If granted by the course instructor, late submissions can be graded for partial credit, with a guideline as follows.  Submissions pushed within two weeks past the project deadline will be graded for 80% credit.   Submissions pushed within four weeks of the project deadline will be graded for 60% credit.  Submissions pushed at any time before the semester project submission deadline (December 14, 2018) will be considered for 50% credit.  The course instructor reserves the right to decline to grade late submissions and adjust partial credit on regraded assignments.
+<b>Do not submit assignments late.</b>  The course staff reserves the right to not grade late submissions. The course instructor reserves the right to decline late submissions and/or adjust partial credit on regraded assignments.
+</p>
+<p>
+If granted by the course instructor, late submissions can be graded for partial credit, with the following guidelines.  Submissions pushed within two weeks past the project deadline will be graded for 80% credit.   Submissions pushed within four weeks of the project deadline will be graded for 60% credit.  Submissions pushed at any time before the semester project submission deadline (December 13, 2019) will be considered for 50% credit.  As a reminder, the course instructor reserves the right to decline late submissions and/or adjust partial credit on regraded assignments.
 </p>
 
 <h3>Regrading Policy</h3>
 <p>
-The regrading policy allows for submission and regrading of projects up through the final grading of projects, which will be December 18 for the Fall 2018 Semester.  This regrading policy will grant full credit for project submissions pushed to your repository before the corresponding project deadline.  If a feature of graded project is returned as not completed (or "DUE"), your code can updated for consideration at 80% credit.  This code update must be pushed to your repository within two weeks from when the originally graded project was returned.  Regrades of projects updated beyond this two week window can receive at most 60% credit.  
+The regrading policy allows for submission and regrading of projects up through the final grading of projects, which will be December 13 for the Fall 2019 Semester.  This regrading policy will grant full credit for project submissions pushed to your repository before the corresponding project deadline.  If a feature of graded project is returned as not completed (or "DUE"), your code can updated for consideration at 80% credit.  This code update must be pushed to your repository within two weeks from when the originally graded project was returned.  Regrades of projects updated beyond this two week window can receive at most 60% credit.  The course staff will allow one regrade for each grading iteration.
 </p>
 
 <h3>Final Grading</h3>
 
 <p>
-All grading will be finalized on December 14, 2018.  Regrading of specific assignments can be done upon request during office hours.  No regrading will be done after grades are finalized.
+All grading will be finalized on December 13, 2019.  Regrading of specific assignments can be done upon request during office hours.  No regrading will be done after grades are finalized.
+<p>
 
 <h3>Repositories</h3>
 
@@ -444,6 +464,9 @@ There are many different tutorials for learning how to use git repositories.  Th
 We expect students to use these repositories for collaborative development as well as project submission. It is the responsibility of each student group to ensure their repository adheres to the Collaboration Policy and submission standards for each assignment. Submission standards and examples will be described for each assignment as needed.
 </p>
 
+<p>
+<b>IMPORTANT:</b> do not modify the directory structure in the <a href="https://github.com/autorob/kineval-stencil">KinEval</a> stencil.  For example, the file "home.html" should appear in the top level of your repository.  Repositories that do not follow this directory structure will not be graded.
+</p>
 
 <h3>Collaboration Policy</h3>
 
@@ -464,14 +487,14 @@ This policy applies not only applies to collaboration during the current semeste
 </p>
 
 <p>
-To acknowledge compliance with this collaboration policy, append your name the file "LICENSE" in the main directory of your repository with the following text.  This appending action is your attestation of your compliance with the Michigan Honor License and the Michigan Honor Code statement: 
+<b>IMPORTANT:</b> To acknowledge compliance with this collaboration policy, append your name the file "LICENSE" in the main directory of your repository with the following text.  This appending action is your attestation of your compliance with the Michigan Honor License and the Michigan Honor Code statement: 
 </p>
 <pre style="color:black"> <code>
 "I have neither given nor received unauthorized aid on this course project implementation, nor have I concealed any violations of the Honor Code."  
 </code></pre>
 <br>
 <p>
-This attestation of the honor code will be considered updated with the current date and time of each commit to your repository.  Repository commits that do not attestation of the honor code not be graded as the discretion of the course instructor.
+This attestation of the honor code will be considered updated with the current date and time of each commit to your repository.  Repository commits that do not include this attestation of the honor code will not be graded at the discretion of the course instructor.
 </p>
 
 <p>
@@ -491,7 +514,7 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
 </tr>
 
 <tr>
-    <td><b>Sep 5</b></td>
+    <td><b>Sep 4</b></td>
     <td>
          <!-- 
          <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_01_initialization.pdf">
@@ -504,6 +527,7 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
     <td>Setup git repository</td> 
 </tr>
 
+
 <tr>
     <td></td>
     <td>
@@ -515,8 +539,16 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
          Brief history and definitions for robotics<br>
     </td>
     <td></td> 
-    <td></td> 
+    <td>Out: <a href="#assignment1">Path Planning</a></td> 
 </tr>
+
+<tr>
+    <td><b>Sep 6</b></td>
+    <td>
+         367 Lab: Git-ing started with git, JavaScript, and KinEval
+    </td>
+</tr>
+
 
 
 <tr bgcolor="#dddddd">     
@@ -524,7 +556,7 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
 </tr>
 
 <tr>
-    <td><b>Sep 10</b></td>
+    <td><b>Sep 9</b></td>
     <td>
          <!-- 
          -->
@@ -536,11 +568,11 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
     <td>
          <a href="https://en.wikipedia.org/wiki/A*_search_algorithm">Wikipedia</a>
     </td> 
-    <td>Out: <a href="#assignment1">Path Planning</a></td> 
+    <td></td> 
 </tr>
 
 <tr>
-    <td><b>Sep 12</b></td>
+    <td><b>Sep 11</b></td>
     <td>
          <!-- 
          -->
@@ -558,6 +590,14 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
     </td> 
 </tr>
 
+<tr>
+    <td><b>Sep 13</b></td>
+    <td>
+         367 Lab: search_canvas.html code overview
+    </td>
+</tr>
+
+
 <!--
 <tr>
     <td><b>Sep 19</b></td>
@@ -570,14 +610,45 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
 </tr>
 -->
 
-
-
 <tr bgcolor="#dddddd">     
 <td></td><td>Week 3</td><td></td><td></td>
 </tr>
 
 <tr>
-    <td><b>Sep 17</b></td>
+    <td><b>Sep 16</b></td>
+    <td><b> Course meeting cancelled</b> - off-site meeting</td>
+    <td></td> 
+    </td> 
+        
+</tr>
+
+
+<tr>
+    <td><b>Sep 18</b></td>
+    <td>Quiz 1</td>
+    </td>
+    <td></td> 
+    <td>Due: Path Planning
+    <br>Out: <a href="#assignment2">Pendularm</a>
+</tr>
+
+<tr>
+    <td><b>Sep 20</b></td>
+    <td>
+         367 Lab: pendularm1.html code overview
+    </td>
+</tr>
+
+
+
+
+
+<tr bgcolor="#dddddd">     
+<td></td><td>Week 4</td><td></td><td></td>
+</tr>
+
+<tr>
+    <td><b>Sep 23</b></td>
     <td>
          <!-- 
          -->
@@ -600,7 +671,7 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
 
 
 <tr>
-    <td><b>Sep 19</b></td>
+    <td><b>Sep 25</b></td>
     <td>
          <!-- 
          -->
@@ -615,37 +686,21 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
     <td></td> 
 </tr>
 
-
-<tr bgcolor="#dddddd">     
-<td></td><td>Week 4</td><td></td><td></td>
-</tr>
-
 <tr>
-    <td><b>Sep 24</b></td>
-    <td><b> Course meeting cancelled</b> - off-site meeting</td>
-    <td></td> 
-    <td>Due: Path Planning
-    <br>Out: <a href="#assignment2">Pendularm</a>
-    </td> 
-        
-</tr>
-
-
-<tr>
-    <td><b>Sep 26</b></td>
+    <td><b>Sep 27</b></td>
     <td>
-         Quiz 1
+         367 Lab: pendularm1.html support
     </td>
-    <td></td> 
-    <td></td> 
 </tr>
+
+
 
 <tr bgcolor="#dddddd">     
 <td></td><td>Week 5</td><td></td><td></td>
 </tr>
 
 <tr>
-    <td><b>Oct 1</b></td>
+    <td><b>Sep 30</b></td>
     <td>
          <!-- 
          -->
@@ -674,7 +729,7 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
 </tr>
 
 <tr>
-    <td><b>Oct 3</b></td>
+    <td><b>Oct 2</b></td>
     <td>
          <!-- 
          -->
@@ -689,7 +744,14 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
         <hr>
         Corke 2.2-3
     </td> 
-    <td></td> 
+    <td>Due: Pendularm<br>Out: <a href="#assignment3">Forward Kinematics</a></td> 
+</tr>
+
+<tr>
+    <td><b>Oct 4</b></td>
+    <td>
+         367 Lab: KinEval code overview
+    </td>
 </tr>
 
 
@@ -698,7 +760,47 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
 </tr>
 
 <tr>
-    <td><b>Oct 8</b></td>
+    <td><b>Oct 7</b></td>
+    <td>
+         Quiz 2 
+    </td>
+    <td></td> 
+    <td>
+    </td> 
+        
+</tr>
+
+
+<tr>
+    <td><b>Oct 9</b></td>
+    <td><b> Course meeting cancelled</b> - off-site meeting</td>
+    <td></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td><b>Oct 4</b></td>
+    <td>
+         367 Lab: TBD
+    </td>
+</tr>
+
+
+
+
+<tr bgcolor="#dddddd">     
+<td></td><td>Week 7</td><td></td><td></td>
+</tr>
+
+<tr>
+    <td><b>Oct 14</b></td>
+    <td><b> No course meeting</b> - Fall Study Break</td>
+        
+</tr>
+
+
+<tr>
+    <td><b>Oct 16</b></td>
     <td>
          <!-- 
          -->
@@ -711,30 +813,20 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
          <a href="https://ieeexplore.ieee.org/abstract/document/1307247">Platt+ 2004</a>,
          <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7139412">Cunningham+ 2015</a>
     </td> 
-    <td>Due: Pendularm<br>Out: <a href="#assignment3">Forward Kinematics</a></td> 
+    <td>Due: Forward Kinematics<br>Out: <a href="#assignment4">Dance Contest</a></td> 
 </tr>
-
-
 
 <tr>
-    <td><b>Oct 10</b></td>
+    <td><b>Oct 18</b></td>
     <td>
-         Quiz 2
+         367 Lab: KinEval pose parameters and HTML5 audio
     </td>
-    <td><a href="https://scratch.mit.edu/projects/10607750/">IK robot game</a></td> 
-    <td></td> 
 </tr>
+
+
 
 <tr bgcolor="#dddddd">     
-<td></td><td>Week 7</td><td></td><td></td>
-
-</tr>
-
-
-<tr>
-    <td><b>Oct 15</b></td>
-    <td><b> No course meeting</b> - Fall Study Break</td>
-        
+<td></td><td>Week 8</td><td></td><td></td>
 </tr>
 
 <!--
@@ -745,13 +837,32 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
          Robot Middleware</a>: Hardware abstraction, ROS, LCM, Publish-subscribe messaging, rosbridge, Client-server messaging<br>
     </td>
     <td>
-         <a href="http://ohseejay.org/papers/rctoris_iros2015.pdf">Toris 2015</a>
+         <a href="http://ocj.name/papers/rctoris_iros2015.pdf">Toris 2015</a>
     </td> 
     <td>Due: Forward Kinematics<br>Out: <a href="#assignment4">Dance Contest</a></td> 
 -->
 
 <tr>
-    <td><b>Oct 17</b></td>
+    <td><b>Oct 21</b></td>
+
+    <td>
+         <!-- 
+         -->
+         <a href="lectures/autorob_09_pointclouds_middleware.pdf">
+         Robot Middleware</a>: Hardware Abstraction, ROS, LCM, Publish-subscribe messaging, rosbridge, Client-server messaging<br>
+    </td>
+    </td>
+    <td>
+         <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.637.7432&rep=rep1&type=pdf">Quigley+ 2009</a>,
+         <a href="https://april.eecs.umich.edu/pdfs/huang2010.pdf">Huang+ 2010</a>,
+         <a href="http://ocj.name/papers/rctoris_iros2015.pdf">Toris+ 2015</a>
+    </td> 
+    <td></td> 
+</tr>
+
+
+<tr>
+    <td><b>Oct 23</b></td>
     <td>
          <!-- 
          -->
@@ -762,23 +873,31 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
     <td></td> 
 </tr>
 
+<tr>
+    <td></td>
+    <td> </td>
+    <td><a href="https://scratch.mit.edu/projects/10607750/">IK robot game</a></td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td><b>Oct 25</b></td>
+    <td>
+         367 Lab: rosbridge/FK: connect your code to a real robot
+    </td>
+</tr>
+
+
+
 
 <tr>
 <tr bgcolor="#dddddd">     
-<td></td><td>Week 8</td><td></td><td></td>
-
+<td></td><td>Week 9</td><td></td><td></td>
 </tr>
 
-<tr>
-    <td><b>Oct 22</b></td>
-    <td><b> Course meeting cancelled</b> - off-site meeting</td>
-    <td></td> 
-    <td>Due: Forward Kinematics<br>Out: <a href="#assignment4">Dance Contest</a></td> 
-        
-</tr>
 
 <tr>
-    <td><b>Oct 24</b></td>
+    <td><b>Oct 28</b></td>
 
     <td>
          <!-- 
@@ -786,9 +905,27 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
          <a href="lectures/autorob_11_ik_jacobian.pdf">
          Inverse Kinematics 2 - Non-linear Optimization</a>: Gradient descent, Manipulator Jacobian, Jacobian transpose and pseudoinverse
     </td>
-    <td>Spong 4, <a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=86079"> Wang&Chen 1991</a>, <a href="http://math.ucsd.edu/~sbuss/ResearchWeb/ikmethods/iksurvey.pdf">Buss 2009</a><a href="https://personal.traclabs.com/~pbeeson/papers/Beeson-humanoids-15.pdf">Beeson+ 2015</a><hr>Corke 8</td> 
+    <td>Spong 4, <a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=86079"> Wang&Chen 1991</a>, <a href="http://math.ucsd.edu/~sbuss/ResearchWeb/ikmethods/iksurvey.pdf">Buss 2009</a>, <a href="https://personal.traclabs.com/~pbeeson/papers/Beeson-humanoids-15.pdf">Beeson+ 2015</a><hr>Corke 8</td> 
     <td></td> 
 </tr>
+
+
+
+<tr>
+    <td><b>Oct 30</b></td>
+    <td>Quiz 3</td>
+    <td></td> 
+    <td>Due: Dance Contest <br>Out: <a href="#assignment5">Inverse Kinematics</a></td>
+        
+</tr>
+
+<tr>
+    <td><b>Nov 1</b></td>
+    <td>
+         367 Lab: KinEval IK control flow and parameters
+    </td>
+</tr>
+
 
 <!--
 <tr bgcolor="#dddddd">     
@@ -807,31 +944,13 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
 -->
 
 <tr bgcolor="#dddddd">     
-<td></td><td>Week 9</td><td></td><td></td>
+<td></td><td>Week 10</td><td></td><td></td>
 </tr>
 
 
-<tr>
-    <td><b>Oct 29</b></td>
-
-    <td>
-         <!-- 
-         -->
-         <a href="lectures/autorob_09_pointclouds_middleware.pdf">
-         Robot Middleware</a>: Hardware Abstraction, ROS, LCM, Publish-subscribe messaging, rosbridge, Client-server messaging<br>
-    </td>
-    </td>
-    <td>
-         <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.637.7432&rep=rep1&type=pdf">Quigley+ 2009</a>,
-         <a href="https://april.eecs.umich.edu/pdfs/huang2010.pdf">Huang+ 2010</a>,
-         <a href="http://ohseejay.org/papers/rctoris_iros2015.pdf">Toris+ 2015</a>
-    </td> 
-    <td></td> 
-</tr>
-
 
 <tr>
-    <td><b>Oct 31</b></td>
+    <td><b>Nov 4</b></td>
     <td> 
          <!-- 
          -->
@@ -848,13 +967,8 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
     <td></td>
 <tr>
 
-
-<tr bgcolor="#dddddd">     
-<td></td><td>Week 10</td><td></td><td></td>
-</tr>
-
 <tr>
-    <td><b>Nov 5</b></td>
+    <td><b>Nov 6</b></td>
     <td>
          <!--
          <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_17_ros_catkin.pdf">
@@ -865,29 +979,23 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
          <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/walk_around_example.mp4">
         Example tutorial result</a>
     </td> 
-    <td>Due: Dance Contest <br>Out: <a href="#assignment5">Inverse Kinematics</a></td>
+    <td></td>
 </tr>
 
-
-
-
 <tr>
-    <td><b>Nov 7</b></td>
-    <td> 
-         Quiz 3</a> 
-    </td> 
+    <td><b>Nov 8</b></td>
     <td>
-    </td> 
-    <td></td> 
-<tr>
+         367 Lab: ROS/catkin/rosbridge continued
+    </td>
+</tr>
 
 
 <tr bgcolor="#dddddd">     
-<td></td><td>Week 12</td><td></td><td></td>
+<td></td><td>Week 11</td><td></td><td></td>
 </tr>
 
 <tr>
-    <td><b>Nov 12</b></td>
+    <td><b>Nov 11</b></td>
     <td>
 
          <!-- 
@@ -904,7 +1012,7 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
 </tr>
 
 <tr>
-    <td><b>Nov 14</b></td>
+    <td><b>Nov 13</b></td>
     <td>
          <!-- 
          -->
@@ -932,8 +1040,26 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
     <a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=182671">Zelinsky 1992</a>
     </td>
     </td>
-    <td></td> 
+    <td>Due: Inverse Kinematics<br> Out: <a href="#assignment6">Motion Planning</a></td> 
 <tr>
+
+<tr>
+    <td><b>Nov 15</b></td>
+    <td>
+         367 Lab: search_canvas.html revisited for 2D RRT
+    </td>
+</tr>
+
+
+
+
+<tr bgcolor="#dddddd">     
+<td></td><td>Week 12</td><td></td><td></td>
+</tr>
+
+
+
+
 
 
 
@@ -944,12 +1070,8 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
 </tr>
 -->
 
-<tr bgcolor="#dddddd">     
-<td></td><td>Week 13</td><td></td><td></td>
-</tr>
-
 <tr>
-    <td><b>Nov 19</b></td>
+    <td><b>Nov 18</b></td>
     <td>
          <!-- 
          -->
@@ -962,14 +1084,47 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
     <td></td> 
 </tr>
 
+<tr>
+    <td><b>Nov 20</b></td>
+    <td> 
+         Quiz 4</a> 
+    </td> 
+    <td>
+    </td> 
+    <td></td> 
+<tr>
 
 <tr>
-    <td><b>Nov 21 </b></td>
+    <td><b>Nov 15</b></td>
+    <td>
+         367 Lab: KinEval AABB collision detection
+    </td>
+</tr>
+
+
+
+<tr bgcolor="#dddddd">     
+<td></td><td>Week 13</td><td></td><td></td>
+</tr>
+
+<tr>
+    <td><b>Nov 25 </b></td>
+    <td>
+        Extended Office Hours - 
+    </td>
+    <td></td> 
+    <td></td> 
+</tr>
+
+
+
+<tr>
+    <td><b>Nov 27 </b></td>
     <td>
         <b> Course meeting cancelled</b> - Thanksgiving Recess
     </td>
     <td></td> 
-    <td>Due: Inverse Kinematics<br> Out: <a href="#assignment6">Motion Planning</a></td> 
+    <td></td> 
 </tr>
 
 <!--
@@ -989,7 +1144,7 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
 
 
 <tr>
-    <td><b>Nov 26</b></td>
+    <td><b>Dec 2</b></td>
     <td>
          <!--
          <a href="slides will go here">
@@ -1022,22 +1177,7 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
 </tr>
 
 <tr>
-    <td><b>Nov 28</b></td>
-    <td>
-         Quiz 4
-    </td>
-    <td></td> 
-    <td></td> 
-</tr>
-
-
-
-<tr bgcolor="#dddddd">     
-<td></td><td>Week 15</td><td></td><td></td>
-</tr>
-
-<tr>
-    <td><b>Dec 3</b></td>
+    <td><b>Dec 4</b></td>
     <td>
          <!--
          <a href="slides will go here">
@@ -1046,8 +1186,25 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
     </td>
     <td><a href="http://www.cc.gatech.edu/~dellaert/pub/Dellaert99icra.pdf">Dellaert+ 1999</a>,<br>
     <a href="https://april.eecs.umich.edu/pdfs/olson2006icra.pdf">Olson+ 2006,</a><br>
-    <a href="http://ohseejay.org/papers/zsui_iros2017.pdf">Sui+ 2017</a></td> 
+    <a href="http://ocj.name/papers/zsui_iros2017.pdf">Sui+ 2017</a></td> 
+    <td>Due: Motion Planning</td> 
 <tr>
+
+
+
+
+<tr bgcolor="#dddddd">     
+<td></td><td>Week 15</td><td></td><td></td>
+</tr>
+
+<tr>
+    <td><b>Dec 9</b></td>
+    <td>
+         Quiz 5 
+    </td>
+    <td></td> 
+</tr>
+
 
 <!--
 <tr>
@@ -1059,26 +1216,29 @@ Note: Assignment descriptions will have updated assignment due dates.  Assignmen
 -->
 
 <tr>
-    <td><b>Dec 5</b></td>
-    <td>Quiz 5</td>
+    <td><b>Dec 11</b></td>
+    <td>Due: Best Use of Robotics</td>
     <td></td>
+    <td></td> 
 <tr>
 
 
+
 <tr bgcolor="#dddddd">     
-<td></td><td>Week 16</td><td></td><td></td>
+<td></td><td><!--Week 16--></td><td></td><td></td>
 
 </tr>
-
+<!--
 <tr>
     <td><b>Dec 10</b></td>
     <td>Due: Best Use of Robotics</td>
     <td></td>
-    <td>Due: Motion Planning</td> 
+    <td></td> 
 <tr>
+-->
 
 <tr>
-    <td><b>Dec 14</b></td>
+    <td><b>Dec 13</b></td>
     <td>Grading finalized</td> 
 <tr>
 
@@ -1107,7 +1267,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <h2 id="assignment1">Assignment 1: Path Planning</h2>  
 <p>
-<b>Due 1:20pm, Monday, September 24, 2018</b>
+<b>Due 11:59pm, Wednesday, September 18, 2019</b>
 </p>
 
 
@@ -1131,7 +1291,7 @@ If properly implemented, the A-star algorithm should produce the following path 
 </center>
 
 <!-- 
-<!-- (uncomment marker begin)
+<!-- (uncomment marker begin 1)
 -->
 
 <h3>Cloning the Stencil Repository</h3>
@@ -1203,28 +1363,39 @@ In addition to the A-star algorithm, students in the graduate section of AutoRob
 For effective communication, it is recommended to think of "report.html" like a short research paper: motivate the problem, set the value proposition for solving the problem, describe how your methods can address the problem, and show results the demonstrate how well these methods realize the value proposition. Visuals are highly recommended to complement this description. The best research papers can be read in three ways: once in text, once in figures, and once in equations. It is also incredibly important to remember that writing in research is about generalizable understanding of the problem more than a specific technical accomplishment.
 </p>
 
-<h4> Advanced Extensions </h4>
+<h4> Advanced Extensions</h4>
 
 <p>
-Advanced extensions can be submitted anytime before the final grading is complete.  Concepts for several of these extensions will not be covered until later in the semester.
+Advanced extensions can be submitted anytime before the final grading is complete.  Concepts for several of these extensions will not be covered until later in the semester.  Any new path planning algorithm must be implemented within the file "search_canvas.html" under the "project_pathplan" directory, and invoked through a parameter given through the URL.  For example, the Bug0 algorithm must be invoked by adding the argument <code>?search_alg="Bug0"</code> to the URL. Thus, a valid invocation of Bug0 for the Narrow2 world could use the URL:
+</p>
+<p>
+ <code>file:///project_pathplan/source_search_canvas.html?planning_scene=narrow2?search_alg="Bug0"</code>
+</p>
+<p>
+The same format must be used to invoke any other algorithm (such as Bug1, Bug2, TangentBug, Wavefront, etc.).
 </p>
 
 <p>
-Of the 4 possible advanced extension points, two additional points for this assignment can be earned by implementing the Bug0, Bug1, Bug2, and TangentBug navigation algorithms.  This bug algorithm implementation should be contained within the file "search_canvas.html" under the "project_pathplan" directory.
+Of the 4 possible advanced extension points, two additional points for this assignment can be earned by implementing the "Bug0", "Bug1", "Bug2", and "TangentBug" navigation algorithms.  The implementation of these bug algorithms must be contained within the file "search_canvas.html" under the "project_pathplan" directory.  
 </p>
 
 <p>
-Of the 4 possible advanced extension points, two additional points for this assignment can be earned by implementing navigation by potential fields and navigation using the Wavefront algorithm.  This potential-based navigation implementation should be contained within the file "search_canvas.html" under the "project_pathplan" directory.
+Of the 4 possible advanced extension points, two additional points for this assignment can be earned by implementing navigation by "Potential" fields and navigation using the "Wavefront" algorithm.  The implementation of these potential-based navigation algorithms must be contained within the file "search_canvas.html" under the "project_pathplan" directory.
 </p>
 
 
 <p>
-Of the 4 possible advanced extension points, one additional point for this assignment can be earned by implementing a navigation algorithm using a probabilistic roadmap.  This roadmap algorithm implementation should be contained within the file "search_canvas.html" under the "project_pathplan" directory.
+Of the 4 possible advanced extension points, one additional point for this assignment can be earned by implementing a navigation algorithm using a probabilistic roadmap ("PRM").  This roadmap algorithm implementation must be contained within the file "search_canvas.html" under the "project_pathplan" directory.
 </p>
 
 <p>
-Of the 4 possible advanced extension points, one additional point for this assignment can be earned by implementing costmap functionality using morphological operators.  Based on the computed costmap, the navigation routine would provide path cost in addition path length for a successful search.
+Of the 4 possible advanced extension points, one additional point for this assignment can be earned by implementing costmap functionality using morphological operators.  Based on the computed costmap, the navigation routine would provide path cost in addition path length for a successful search.  The search implementation with this costmap must be contained within the file "search_canvas_costmap.html" under the "project_pathplan" directory.
 </p>
+
+<p>
+Of the 4 possible advanced extension points, one additional point for this assignment can be earned by implementing a priority queue through an <a href="https://en.wikipedia.org/wiki/AVL_tree">AVL tree</a> or a <a href="https://en.wikipedia.org/wiki/Red%E2%80%93black_tree">red-black tree</a>.  The search implementation with this priority queue must be contained within the file "search_canvas_balancedtree.html" under the "project_pathplan" directory.
+</p>
+
 
 
 <h3>Project Submission</h3>
@@ -1240,15 +1411,19 @@ To ensure proper submission of your assignments, please do the following:
 <p>
 <ul>
 <li><p>confirm with the course instructor (ocj addrsign umich) with your name, email address, and pointer to your repository,</p> </li>
-<li><p>ensure the instructor (id:ohseejay) has push/admin access to your repository, which can be confirmed/addressed through email or office hours (or by seeing that the instructor has committed the file "grading.txt")</p></li>
+<li><p>ensure the instructor has push/admin access to your repository, which can be confirmed/addressed through email or office hours (or by seeing that the instructor has committed the file "grading.txt")</p></li>
 </ul>
 </p>
 
 <p>
 You are encouraged to update your repository often using branching.  The <i>master</i> branch should be used for the working (or stable) version of your code.   For development, you can create an <i>Assignment-1</i> branch can be created for your work on this project as it in development and experimentation.  Similarly, an <i>Assignment-2</i> branch can be created for the next project as it develops.  Once you complete an assignment, the code from this branch can then be merged into the <i>master</i> branch for grading.  This configuration allows your work to be continually updated and build upon such that versions are tracked and interruptions due to grading are minimized.
 </p>
+
+<h6>
+If you are paying attention, you should also add a directory to your repository called "me".  This "me" directory should include a simple webpage in the file "me.html".  The "me.html" file should have a title with your name, an h1 tag with your name, an img tag includes a picture of you from the file "me.png", body with a brief introduction about you, and a script tag that prints the result of <code>Array(16).join("wat"-1)+" Batman!"</code> to the console. 
+</h6>
 <!--
-(uncomment end) -->
+(uncomment marker end 1) -->
 
 
 <!--
@@ -1300,7 +1475,7 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 
 <h2 id="assignment2">Assignment 2: Pendularm </h2>  
 <p>
-<b>Due 1:20pm, Monday, October 8, 2018</b>
+<b>Due 11:59pm, Wednesday, October 2, 2019</b>
 </p>
 
 <p>
@@ -1322,7 +1497,7 @@ As an introduction to building your own robot simulator, your task is to impleme
 </p>
 
 <!-- 
-<!-- (uncomment marker begin)
+<!-- (uncomment marker begin 2)
 -->
 
 <p>
@@ -1356,7 +1531,8 @@ For user input, you should be able to:
 <ul>
 <li><p>select the choice of integrator using the [0-4] keys (with the "none" integrator as a default),</p></li> 
 <li><p>toggle the invocation of the servo controller with the 'c' or 'x' key (which is off by default),</p></li> 
-<li><p>decrement and increment the desired angle of the 1 DOF servoed robot arm use the 'q' and 'e' keys, and</p> </li>
+<li><p>decrement and increment the desired angle of the 1 DOF servoed robot arm using the 'q' and 'e' keys, and</p> </li>
+<li><p>(for the double pendulum) decrement and increment the desired angle of the second joint of the arm using the 'w' and 'r' keys, and</p> </li>
 <li><p>momentarily disable the servo controller with 's' key (and allowing the arm to swing uncontrolled).</p></li>
 </ul>
 
@@ -1375,7 +1551,7 @@ Students enrolled in the graduate section will implement numerical integrators f
 </ul>
 
 <p>
-to simulate and control both a single pendulum (in "pendulum1.html") and a double pendulum (by creating "pendulum2.html").  A code stencil update will be provided for pendularm2.  A working visualization for the double pendularm will look similar to the following:
+to simulate and control both a single pendulum (in "pendulum1.html") and a double pendulum (by creating "pendulum2.html").  A code stencil update will be provided for pendularm2.  The double pendulum is allowed to have a smaller timestep than the single pendulum, within reasonable limits. A working visualization for the double pendularm will look similar to the following:
 </p>
 
 <p>
@@ -1388,7 +1564,7 @@ to simulate and control both a single pendulum (in "pendulum1.html") and a doubl
 <h4> Advanced Extensions </h4>
 
 <p>
-Of the 4 possible advanced extension points, one additional point for this assignment can be earned by generating a random desired setpoint state and using PID control to your Pendularm to this setpoint.  This code must randomly generate a new desired setpoint and resume PID control once the current setpoint is achieved.  The number of setpoints that can be achieved in 60 seconds will be recorded.
+Of the 4 possible advanced extension points, one additional point for this assignment can be earned by generating a random desired setpoint state and using PID control to your Pendularm to this setpoint.  This code must randomly generate a new desired setpoint and resume PID control once the current setpoint is achieved.  The number of setpoints that can be achieved in 60 seconds must be maintained and reported in the user interface.  The invocation of this setpoint trial must be enabled a user pressing the "t" key in the user interface.
 </p>
 
 <p>
@@ -1397,7 +1573,7 @@ Of the 4 possible advanced extension points, two additional points for this assi
 
 
 <p>
-Of the 4 possible advanced extension points, two additional points for this assignment can be earned by implementing a single pendulum simulator in maximal coordinates with a spring constraint enforced by <a href="https://en.wikipedia.org/wiki/Verlet_integration#Constraints">Gauss-Seidel optimization</a>.  This maximal coordinate pendulum implementation should be contained within the file "pendularm1maximal.html" under the "project_pendularm" directory.  An additional point can be earned by extending this implementation to a cloth simulator in the file "cloth_pointmass.html".
+Of the 4 possible advanced extension points, two additional points for this assignment can be earned by implementing a single pendulum simulator in maximal coordinates with a spring constraint enforced by <a href="https://en.wikipedia.org/wiki/Verlet_integration#Constraints">Gauss-Seidel optimization</a>.  This maximal coordinate pendulum implementation should be contained within the file "pendularm1_maximal.html" under the "project_pendularm" directory.  An additional point can be earned by extending this implementation to a cloth simulator in the file "cloth_pointmass.html".
 </p>
 
 
@@ -1411,16 +1587,16 @@ For turning in your assignment, push your updated code to the <b>master</b> bran
 <p>
 Students in the graduate section are strongly encouraged to extend their pendularm to a double pendulum.
 </p>
-(uncomment end) -->
+(uncomment end 2) -->
 
-<!--
 <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr>
+<!--
 -->
 
 <h2 id="assignment3">Assignment 3: Forward Kinematics</h2>  
-<b>Due 1:20pm, Monday, October 22, 2018</b>
+<b>Due 11:59pm, Wednesday, October 16, 2019</b>
 <p>
 Forward kinematics (FK) forms the core of our ability to purposefully control the motion of a robot arm.  FK will provide us general formulation for controlling any robot arm to reach a desired configuration, and execute a desired trajectory.  Specifically, FK allows us to predict the spatial layout of the robot our 3D world given a configuration of its joints.  For the purposes of grasping and dexterous tasks, FK gives us the critical ability to predict the location of the robot's hand (i.e., endeffector).  As shown in our <a href="http://www.iros2017.org/">IROS 2017</a> video below, such manipulation assumes a robot has already perceived its environment as scene estimate of objects and their position and orientation.  Given this scene estimate, a robot controller uses FK to evaluate and execute viable endeffector trajectories for grasping and manipulating an object.
 </p>
@@ -1434,8 +1610,8 @@ In this assignment, you will render the forward kinematics of an arbitrary robot
 </p>
 
 <!-- 
-<!-- (uncomment marker begin)
 -->
+<!-- (uncomment marker begin 3)
 
 <h3>Just Starting Mode</h3>
 
@@ -1454,7 +1630,9 @@ Your task is to make these objects in starting point mode responsive to keyboard
 
 <h3>Brief KinEval Stencil Overview</h3>
 <p>
-Within the KinEval stencil, the functions my_animate() and my_init() in "home.html" are the principal access points into animation system.  my_animate() is particularly important as it will direct the invocation of functions we develop throughout the AutoRob course.  my_animate() and my_init() are called by the primary process that maintains the animation loop: kineval.animate() and kineval.init() within "kineval/kineval.js".  <b>IMPORTANT</b>: "kineval/kineval.js", kineval.animate(), kineval.init(), and any of the given robot descriptions should not be modified.  
+Within the KinEval stencil, the functions my_animate() and my_init() in "home.html" are the principal access points into animation system.  my_animate() is particularly important as it will direct the invocation of functions we develop throughout the AutoRob course.  my_animate() and my_init() are called by the primary process that maintains the animation loop: kineval.animate() and kineval.init() within "kineval/kineval.js".  
+<br>
+<b>IMPORTANT</b>: "kineval/kineval.js", kineval.animate(), kineval.init(), and any of the given robot descriptions should not be modified.  
 </p>
 
 <p>
@@ -1538,7 +1716,7 @@ If implemented properly, the "robots/robot_urdf_example.js" example should produ
 </center> <p>
 
 <!--
- (uncomment end) -->
+ (uncomment end 3) -->
 
 <p>
 The "robots/robot_crawler.js" example should produce the following (shown with joint axes highlighted):
@@ -1556,8 +1734,8 @@ The "robots/sawyer/sawyer.urdf.js" example should produce the following (shown w
 
 
 <!--
-<!-- (uncomment marker begin)
  -->
+<!-- (uncomment marker begin 4)
 
 <h3> Interactive Hierarchy Traversal</h3>
 <p>
@@ -1587,8 +1765,11 @@ The files "robots/fetch/fetch.urdf.js" and "robots/baxter/baxter.urdf.js" contai
 ROS uses a different default coordinate system than threejs, which needs to be taken into account in the FK computation.  Coordinate frames in ROS assumes that the Z, X, and Y axes correspond to the up, forward, and side directions, respectively.  In contrast, threejs coordinate frames assume the Y, Z, and X correspond to the up, forward, and side directions.  The variable robot.links_geom_imported will be set to true when geometries have been imported from ROS and set to false when geometries are defined completely within the robot description file.
 </p>
 
+<!--
+(uncomment marker end 4)
+-->
+
 <p>
-<!-- move this outside the uncomment markers -->
 A proper implementation for fetch.urdf.js description should produce the following (shown with joint axes highlighted):
 </p>
 <p> <center>
@@ -1596,9 +1777,12 @@ A proper implementation for fetch.urdf.js description should produce the followi
 </center> <p>
 </p>
 
+<!--
+ -->
+<!-- (uncomment marker begin 5)
 
 <p>
-The newly created robot description should be placed in the "robots" directory with a filename with your username in the format "robot_uid.js" if no external geometries used for this robot (similar to the MR2 or Crawler robots).  If external geometries are imported (similar to the Fetch and Baxter), the robot description should be in a new subdirectory with the robot's name.  The robot's name should also be used to name the URDF file, such as "robots/newrobot/newrobot.urdf.js".  It is requested that geometries for a new robot go into this directory as a "meshes" subdirectory, such as "robots/newrobot/meshes".  Guidance can be provided during office hours about creating or converting URDF-based robot description files to KinEval-compliant JavaScript and importing Collada, STL, and Wavefront OBJ geometry files.
+The newly created robot description should be placed in the "robots" directory with a filename with your username in the format "robot_uniqueid.js" if no external geometries used for this robot (similar to the MR2 or Crawler robots).  If external geometries are imported (similar to the Fetch and Baxter), the robot description should be in a new subdirectory with the robot's name.  The robot's name should also be used to name the URDF file, such as "robots/newrobotname/newrobotname.urdf.js".  It is requested that geometries for a new robot go into this directory as a "meshes" subdirectory, such as "robots/newrobotname/meshes".  Guidance can be provided during office hours about creating or converting URDF-based robot description files to KinEval-compliant JavaScript and importing Collada, STL, and Wavefront OBJ geometry files.
 </p>
 
 <p>
@@ -1629,7 +1813,7 @@ For turning in your assignment, push your updated code to the <b>master</b> bran
 </p>
 
 <!--
-(uncomment end HACK)
+(uncomment marker end 5)
 -->
 
 <!--
@@ -1643,7 +1827,7 @@ For turning in your assignment, push your updated code to the <b>master</b> bran
 <p>
 
 <h2 id="assignment4">Assignment 4: Robot FSM Dance Contest </h2>  
-<b>Due 1:20pm, Monday, November 5, 2018</b>
+<b>Due 11:59pm, Wednesday, October 30, 2019</b>
 <p>
 
 <p>
@@ -1674,8 +1858,8 @@ This <a href="https://www.youtube.com/embed/WyQ9aoB3bpI">updated dance</a> contr
 
 
 <!-- 
-<!-- (uncomment marker begin)
 -->
+<!-- (uncomment marker begin 6)
 
 <p>
 Assuming proper completion of Assignment 4, ensure the following files are included (within script tags) in your "home.html".  You will modify these files for implementing axis-angle rotation, the pose setpoint controller, and the FSM controller:
@@ -1794,7 +1978,7 @@ For turning in your assignment, push your updated code to the <b>master</b> bran
 
 
 <!-- 
-(uncomment end) -->
+(uncomment marker end 6) -->
 
 
 <p>
@@ -1803,7 +1987,7 @@ For turning in your assignment, push your updated code to the <b>master</b> bran
 
 <h2 id="assignment5">Assignment 5: Inverse Kinematics </h2>  
 <p>
-<b>Due 1:20pm, Wednesday, November 21, 2018</b>
+<b>Due 11:59pm, Wednesday, November 13, 2019</b>
 
 <p>
 Although effective, robot choreography in configuration space is super tedious and inefficient.  This difficulty is primarily due to posing each joint of the robot at each setpoint.  Further, changing one joint often requires updating several other joints due to the nature of kinematic dependencies.  Inverse kinematics (IK) offers a much easier and efficient alternative.  With IK implemented, we only need to pose the endeffector in a common workspace, and the states of the joints in configuration space automatically inferred.  IK is also important when we are about the "tool tip" of an instrument being used by a robot.  One such example is a robot using marker to draw a picture, such as in the PR2 Portrait Bot Project below:
@@ -1829,9 +2013,9 @@ As shown in the video below, if successful, your robot will be able to continual
 
 
 
-<!-- (uncomment marker begin, copy above to block uncomment or below to block comment)
 <!-- 
 -->
+<!-- (uncomment marker begin 7, copy above to block uncomment or below to block comment)
 
 <p>
 The core of this assignment is to complete the kineval.iterateIK() function in the file kineval/kineval_inverse_kinematics.js.  This function is invoked within the function kineval.inverseKinematics()  with three arguments: 
@@ -1914,7 +2098,7 @@ For turning in your assignment, ensure your completed project code has been comm
 </p>
 
 <!-- (put this line below block comment end for block commenting, above for visibility
-(comment end) -->
+(comment marker end 7) -->
 
 <!--
 <hr>
@@ -1926,7 +2110,7 @@ For turning in your assignment, ensure your completed project code has been comm
 
 <h2 id="assignment6">Assignment 6: Motion Planning  </h2>  
 <p>
-<b>Due 11:59pm, Monday, December 10, 2018</b>
+<b>Due 11:59pm, Wednesday, December 4, 2019</b>
 </p>
 
 <p>
@@ -1958,9 +2142,9 @@ The graduate section will additionally implement the <a href="http://dspace.mit.
 <img src="images/asgn6_motionplan.png"  width=100%>
 <p>
 
-<!-- (uncomment marker begin)
 <!-- 
 -->
+<!-- (uncomment marker begin 8)
 
 <p>
 The core of this assignment is to complete the robot_rrt_planner_init() and robot_rrt_planner_iterate() in the provided kineval_rrt_connect.js stencil.  For successful execution, your implementation of RRT-Connect, the provided collision detection system, and a single specification of world geometry has been included in home.html:
@@ -1993,7 +2177,7 @@ Collision testing for links in a configuration is performed by AABB/Sphere tests
 </code></pre>
 
 <!--
-(end comment) --> 
+(end comment marker 8) --> 
 <!-- -->
 
 <p>
@@ -2006,9 +2190,9 @@ Even before your planner is implemented, you can use the collision system intera
 </center>
 <p>
 
-<!-- (uncomment marker begin)
 <!-- 
 -->
+<!-- (uncomment marker begin 9)
 
 The call to kineval.robotIsCollision() has been placed within my_animate() in home.html:
 
@@ -2248,21 +2432,19 @@ For turning in your assignment, ensure your completed project code has been comm
 <p>
 
 <!--
-(comment end) -->
-<!-- 
--->
+(comment marker end 9) -->
 
 <h2 id="assignment7">Assignment 7: The best use of robotics? </h2>  
 <p>
-<b>Slides due 11:59pm, Friday, December 7, 2018</b><br>
-<b>Presentation due 1:30pm, Monday, December 10, 2018</b>
+<b>Slides due 11:59pm, Monday, December 9, 2019</b><br>
+<b>Presentation due 1:30pm, Wednesday, December 11, 2019</b>
 <p>
 
 Scenario: An investor is considering giving you 20 million dollars (cold hard USD cash, figuratively).  This investor has been impressed by your work with KinEval and other accomplishments while at the University of Michigan.  They are convinced you have the technical ability to make a compelling robot technology... but, they are unsure how this technology could produce something useful.  Your task is to make a convincing pitch for a robotics project that would yield a high return on investment, as measured by some metric (financial profit, good for society, creation of new knowledge, etc.). 
 
 <!-- 
-<!-- (uncomment marker begin)
 -->
+<!-- (uncomment marker begin 10)
 <p>
 You will get 2 minutes to make a pitch to develop something useful with robots.  Consider the instructor and your classmates as the people that need to be convinced.  As a guideline, your pitch should address an opportunity (presented by a need or a problem), your planned result (as a system, technology, product, and/or service), and how you will measure successful return on investment.  Return on investment can be viewed as financial profit (wrt. venture capital), good for society (wrt. a government program), creation of new knowledge or capabilities (wrt. a grant for scientific research).  Remember, the purpose is to convince and inspire about what is possible, rather than dive into specifics.
 <p>
@@ -2273,7 +2455,7 @@ The last scheduled class period and a little more (Monday December 11th, 1:30-4:
 Please post your slides to the "#asgn7-best-use" discussion channel before 11:59pm on Friday December 8th.  Your first slide must include the title of your presentation, your name, and your UID.  The filename of your slides must start with your UID in the format "asgn7_UID".  Slides will only be accepted in PDF format, although embedding of videos or links to videos will be accepted.  You can post new versions of your slides up to the submission deadline on December 8th.
 </p>
 <!--
-(end comment) -->
+(end comment marker 10) -->
 <!-- -->
 <p>
 The pitch judged to be the most convincing will get first dibs.
