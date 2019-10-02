@@ -50,9 +50,9 @@
             assignments:
             <li><a href="#assignment1">1</a></li>
             <li><a href="#assignment2">2</a></li>
-<!-- unassigned
             <li><a href="#assignment3">3</a></li>
             <li><a href="#assignment4">4</a></li>
+<!-- unassigned
             <li><a href="#assignment5">5</a></li>
             <li><a href="#assignment6">6</a></li>
             <li><a href="#assignment7">7</a></li>
@@ -1600,10 +1600,10 @@ Students in the graduate section are strongly encouraged to extend their pendula
 </p>
 (uncomment end 2) -->
 
+<!--
 <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr>
-<!--
 -->
 
 <h2 id="assignment3">Assignment 3: Forward Kinematics</h2>  
@@ -1621,8 +1621,8 @@ In this assignment, you will render the forward kinematics of an arbitrary robot
 </p>
 
 <!-- 
--->
 <!-- (uncomment marker begin 3)
+-->
 
 <h3>Just Starting Mode</h3>
 
@@ -1642,6 +1642,7 @@ Your task is to make these objects in starting point mode responsive to keyboard
 <h3>Brief KinEval Stencil Overview</h3>
 <p>
 Within the KinEval stencil, the functions my_animate() and my_init() in "home.html" are the principal access points into animation system.  my_animate() is particularly important as it will direct the invocation of functions we develop throughout the AutoRob course.  my_animate() and my_init() are called by the primary process that maintains the animation loop: kineval.animate() and kineval.init() within "kineval/kineval.js".  
+<br>
 <br>
 <b>IMPORTANT</b>: "kineval/kineval.js", kineval.animate(), kineval.init(), and any of the given robot descriptions should not be modified.  
 </p>
@@ -1669,7 +1670,7 @@ Each file in the "robots" subdirectory contains code to create a robot data obje
 </p>
 
 <p>
-<b>IMPORTANT:</b> The given robot description files should <b>NOT</b> be modified.  Code that requires modified robot description files will fail tests used for grading.  You are welcomed and encouraged to create new robot description files for additional testing.
+<b>IMPORTANT (seriously):</b> The given robot description files should <b>NOT</b> be modified.  Code that requires modified robot description files will fail tests used for grading.  You are welcomed and encouraged to create new robot description files for additional testing.
 </p>
 
 <p>
@@ -1745,8 +1746,8 @@ The "robots/sawyer/sawyer.urdf.js" example should produce the following (shown w
 
 
 <!--
- -->
 <!-- (uncomment marker begin 4)
+ -->
 
 <h3> Interactive Hierarchy Traversal</h3>
 <p>
@@ -1759,13 +1760,18 @@ The cylinders used as rendering geometries for joints are not aligned with joint
 </p>
 
 <h3> Undergraduate Advanced Extension </h3>
+
 <p>
-Students in the AutoRob Undergraduate Section can earn one additional point by creating a robot description for the RexArm 4-DOF robot arm, which can be used later in <a href="https://www.youtube.com/playlist?list=PLDutmfAv2lfZ9M0XyYfY4N8EwLJhy58G6">EECS 467 (Autonomous Robotics Laboratory)</a>.
+Students in the AutoRob Undergraduate Section can earn one additional point by creating a robot description for the RexArm 4-DOF robot arm, which can be used later in <a href="https://www.youtube.com/playlist?list=PLDutmfAv2lfZ9M0XyYfY4N8EwLJhy58G6">EECS 467 (Autonomous Robotics Laboratory)</a>.  <a href="https://youtu.be/DTD93KXrfZw">RoBob Ross</a> is an example of a RexArm project from 467 in Winter 2017.  Below is a snapshot of a RexArm in KinEval created by mattdr:
 </p>
+
+<p> <center>
+<img  width=90% src="images/fk_rexarm_example.png">
+</center> <p>
 
 <h3> Graduate Section Requirement</h3>
 <p>
-Students in the AutoRob Graduate Section must implement the assignment as described above to work with given examples as well as the Fetch and Baxter robot descriptions.  Students in the graduate section must also create a new robot description.  
+Students in the AutoRob Graduate Section must: 1) implement the assignment as described above to work with given examples, which includes the Fetch, Baxter, and Sawyer robot descriptions, and 2) create a new robot description that works with KinEval.  
 </p>
 
 <p>
@@ -1789,11 +1795,11 @@ A proper implementation for fetch.urdf.js description should produce the followi
 </p>
 
 <!--
- -->
 <!-- (uncomment marker begin 5)
+ -->
 
 <p>
-The newly created robot description should be placed in the "robots" directory with a filename with your username in the format "robot_uniqueid.js" if no external geometries used for this robot (similar to the MR2 or Crawler robots).  If external geometries are imported (similar to the Fetch and Baxter), the robot description should be in a new subdirectory with the robot's name.  The robot's name should also be used to name the URDF file, such as "robots/newrobotname/newrobotname.urdf.js".  It is requested that geometries for a new robot go into this directory as a "meshes" subdirectory, such as "robots/newrobotname/meshes".  Guidance can be provided during office hours about creating or converting URDF-based robot description files to KinEval-compliant JavaScript and importing Collada, STL, and Wavefront OBJ geometry files.
+The newly created robot description should be placed in the "robots" directory with a filename with your username in the format "robot_uniqueid.js" if no external geometries are used for this robot (similar to the MR2 or Crawler robots).  If external geometries are imported (similar to the Fetch and Baxter), the robot description should be in a new subdirectory with the robot's name.  The robot's name should also be used to name the URDF file, such as "robots/newrobotname/newrobotname.urdf.js".  It is requested that geometries for a new robot go into this directory as a "meshes" subdirectory, such as "robots/newrobotname/meshes".  Guidance can be provided during office hours about creating or converting URDF-based robot description files to KinEval-compliant JavaScript and importing Collada, STL, and Wavefront OBJ geometry files.
 </p>
 
 <p>
@@ -1807,6 +1813,21 @@ and
 <a href="https://github.com/PR2/pr2_common/tree/indigo-devel/pr2_description">Willow Garage PR2</a>. 
 </p>
 
+<p>
+The following KinEval-compatiable robot descriptions were created by students in past offerings of the AutoRob course.  These descriptions are available for your use:
+
+<ul>
+<li><p>Boston Dynamics <a href="robot_descriptions/atlas_yeyangf.zip">Atlas by yeyangf</a></p></li>
+<li><p>Agility Robotics <a href="robot_descriptions/cassie_mungam.zip">Cassie by mungam</a></p></li>
+<li><p>NASA <a href="robot_descriptions/robonaut2_nikhita.zip">Robonaut 2 by nikhita</a></p></li>
+<li><p><a href="robot_descriptions/hsr_sajanptl.zip">Human Support Robot by sajanptl</a></p></li>
+<li><p>KUKA <a href="robot_descriptions/kuka_lbr_iiwa_nmtvijay.zip">Lightweight Arm by nmtvijay</a></p></li>
+<li><p><a href="robot_descriptions/r2d2_eeyan.js">R2D2-like robot by eeyan</a></p></li>
+<li><p>Universal Robots <a href="robot_descriptions/UR10_chengyah.zip">UR10 by chengyah</a></p></li>
+<li><p><a href="robot_descriptions/walle_sarahcc.zip">Wall-E-like robot by sarahcc</a></p></li>
+</ul>
+</p>
+
 <h4> Advanced Extensions </h4>
 
 <p>
@@ -1816,6 +1837,11 @@ Of the 4 possible advanced extension points, two additional points for this assi
 <p>
 Of the 4 possible advanced extension points, three additional points for this assignment can be earned by implementing LU decomposition (with pivoting) routines for matrix inversion and solving linear systems.  These functions should be named "matrix_inverse" and "linear_solve" and placed within the file containing your matrix routines.
 </p>
+
+<p>
+Of the 4 possible advanced extension points, three additional points for this assignment can be earned by implementing rigid body transformations as dual quaternions (<a href-"http://www.xbdev.net/misc_demos/demos/dual_quaternions_beyond/paper.pdf">Kenwright 2012<a/>), in addition to the products of exponentials method described in class.  Use of dual quaternion transformations must be selectable from the KinEval user interface.
+</p>
+
 
 
 <h3> Project Submission</h3>
@@ -1869,8 +1895,8 @@ This <a href="https://www.youtube.com/embed/WyQ9aoB3bpI">updated dance</a> contr
 
 
 <!-- 
--->
 <!-- (uncomment marker begin 6)
+-->
 
 <p>
 Assuming proper completion of Assignment 4, ensure the following files are included (within script tags) in your "home.html".  You will modify these files for implementing axis-angle rotation, the pose setpoint controller, and the FSM controller:
@@ -1982,10 +2008,10 @@ For turning in your assignment, push your updated code to the <b>master</b> bran
 <p>
 
 <!--
+-->
 <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr>
--->
 
 
 <!-- 
@@ -2073,7 +2099,7 @@ All students in the AutoRob course are expected to run their IK controller with 
 
 <h4> Undergraduate Advanced Extension </h4>
 <p>
-Students in the AutoRob Undergraduate Section can earn one additional point by implementing a closed-form inverse kinematics solution for the RexArm 4-DOF robot arm, which can be used later in <a href="https://www.youtube.com/playlist?list=PLDutmfAv2lfZ9M0XyYfY4N8EwLJhy58G6">EECS 467 (Autonomous Robotics Laboratory)</a>.
+Students in the AutoRob Undergraduate Section can earn one additional point by implementing a closed-form inverse kinematics solution for the RexArm 4-DOF robot arm, which can be used later projects in <a href="https://www.youtube.com/playlist?list=PLDutmfAv2lfZ9M0XyYfY4N8EwLJhy58G6">EECS 467 (Autonomous Robotics Laboratory)</a>.  
 </p>
 
 <h3> Graduate Section Requirement</h3>
