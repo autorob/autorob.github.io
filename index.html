@@ -1578,7 +1578,7 @@ to simulate and control both a single pendulum (in "pendulum1.html") and a doubl
 <h4> Advanced Extensions </h4>
 
 <p>
-Of the 4 possible advanced extension points, one additional point for this assignment can be earned by generating a random desired setpoint state and using PID control to your Pendularm to this setpoint.  This code must randomly generate a new desired setpoint and resume PID control once the current setpoint is achieved.  The number of setpoints that can be achieved in 60 seconds must be maintained and reported in the user interface.  The invocation of this setpoint trial must be enabled a user pressing the "t" key in the user interface.
+Of the 4 possible advanced extension points, one additional point for this assignment can be earned by generating a random desired setpoint state and using PID control to your Pendularm to this setpoint.  This code must randomly generate a new desired setpoint and resume PID control once the current setpoint is achieved.  <b> A setpoint is considered achieved if the current state matches the desired state upto 0.01 radians for 2 seconds.</b> The number of setpoints that can be achieved in 60 seconds must be maintained and reported in the user interface.  The invocation of this setpoint trial must be enabled a user pressing the "t" key in the user interface.
 </p>
 
 <p>
@@ -1765,7 +1765,7 @@ The cylinders used as rendering geometries for joints are not aligned with joint
 <h3> Undergraduate Advanced Extension </h3>
 
 <p>
-Students in the AutoRob Undergraduate Section can earn one additional point by creating a robot description for the RexArm 4-DOF robot arm, which can be used later in <a href="https://www.youtube.com/playlist?list=PLDutmfAv2lfZ9M0XyYfY4N8EwLJhy58G6">EECS 467 (Autonomous Robotics Laboratory)</a>.  <a href="https://youtu.be/DTD93KXrfZw">RoBob Ross</a> is an example of a RexArm project from 467 in Winter 2017.  Below is a snapshot of a RexArm in KinEval created by mattdr:
+Students in the AutoRob Undergraduate Section can earn one additional point by creating a robot description for the RexArm 4-DOF robot arm, which can be used later in <a href="https://www.youtube.com/playlist?list=PLDutmfAv2lfZ9M0XyYfY4N8EwLJhy58G6">EECS 467 (Autonomous Robotics Laboratory)</a>.  <a href="robot_descriptions/REX Arm STLs.zip">Rexarm link geometries</a> are provided in <a href="https://en.wikipedia.org/wiki/STL_%28file_format%29">STL format</a>.   <a href="https://youtu.be/DTD93KXrfZw">RoBob Ross</a> is an example of a RexArm project from 467 in Winter 2017.  Below is a snapshot of a RexArm in KinEval created by mattdr:
 </p>
 
 <p> <center>
