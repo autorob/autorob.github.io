@@ -52,8 +52,8 @@
             <li><a href="#assignment2">2</a></li>
             <li><a href="#assignment3">3</a></li>
             <li><a href="#assignment4">4</a></li>
-<!-- unassigned
             <li><a href="#assignment5">5</a></li>
+<!-- unassigned
             <li><a href="#assignment6">6</a></li>
             <li><a href="#assignment7">7</a></li>
 -->
@@ -2019,10 +2019,10 @@ For turning in your assignment, push your updated code to the <b>master</b> bran
 <p>
 
 <!--
--->
 <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr>
+-->
 
 
 <!-- 
@@ -2035,7 +2035,7 @@ For turning in your assignment, push your updated code to the <b>master</b> bran
 
 <h2 id="assignment5">Assignment 5: Inverse Kinematics </h2>  
 <p>
-<b>Due 11:59pm, Wednesday, November 13, 2019</b>
+<b>Due 11:59pm, Friday, November 15, 2019</b>
 
 <p>
 Although effective, robot choreography in configuration space is super tedious and inefficient.  This difficulty is primarily due to posing each joint of the robot at each setpoint.  Further, changing one joint often requires updating several other joints due to the nature of kinematic dependencies.  Inverse kinematics (IK) offers a much easier and efficient alternative.  With IK implemented, we only need to pose the endeffector in a common workspace, and the states of the joints in configuration space automatically inferred.  IK is also important when we are about the "tool tip" of an instrument being used by a robot.  One such example is a robot using marker to draw a picture, such as in the PR2 Portrait Bot Project below:
@@ -2062,8 +2062,8 @@ As shown in the video below, if successful, your robot will be able to continual
 
 
 <!-- 
--->
 <!-- (uncomment marker begin 7, copy above to block uncomment or below to block comment)
+-->
 
 <p>
 The core of this assignment is to complete the kineval.iterateIK() function in the file kineval/kineval_inverse_kinematics.js.  This function is invoked within the function kineval.inverseKinematics()  with three arguments: 
@@ -2126,11 +2126,15 @@ Of the 4 possible advanced extension points, one additional point for this assig
 </p>
 
 <p>
-Of the 4 possible advanced extension points, four additional points for this assignment can be earned by implementing the <a href="http://ieeexplore.ieee.org/document/86079/">Cyclic Coordinate Descent (CCD)</a> inverse kinematics algorithm by Wang and Chen (1991).  This function should be implemented in the file "kineval/kineval_inverse_kinematics.js" as another option within the function kineval.iterateIK().
+Of the 4 possible advanced extension points, three additional points for this assignment can be earned by implementing the <a href="http://ieeexplore.ieee.org/document/86079/">Cyclic Coordinate Descent (CCD)</a> inverse kinematics algorithm by Wang and Chen (1991).  This function should be implemented in the file "kineval/kineval_inverse_kinematics.js" as another option within the function kineval.iterateIK().
 </p>
 
 <p>
-Of the 4 possible advanced extension points, four additional points for this assignment can be earned by implementing <a href="https://en.wikipedia.org/wiki/Nelder%E2%80%93Mead_method">downhill simplex optimization</a> to perform inverse kinematics.  This function should be implemented in the file "kineval/kineval_inverse_kinematics.js" as another option within the function kineval.iterateIK().
+Of the 4 possible advanced extension points, three additional points for this assignment can be earned by implementing <a href="https://en.wikipedia.org/wiki/Nelder%E2%80%93Mead_method">downhill simplex optimization</a> to perform inverse kinematics.  This function should be implemented in the file "kineval/kineval_inverse_kinematics.js" as another option within the function kineval.iterateIK().
+</p>
+
+<p>
+Of the 4 possible advanced extension points, four additional points for this assignment can be earned by implementing resolved-rate inverse kinematics with null space constraints to respect joint limits.  This function should be implemented in the file "kineval/kineval_inverse_kinematics.js" as another option within the function kineval.iterateIK().
 </p>
 
 <p>
@@ -2148,10 +2152,10 @@ For turning in your assignment, ensure your completed project code has been comm
 <!-- (put this line below block comment end for block commenting, above for visibility
 (comment marker end 7) -->
 
-<!--
 <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr>
+<!--
 -->
 
 
