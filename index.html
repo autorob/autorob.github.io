@@ -2398,7 +2398,7 @@ The output of your planner will be a motion path in a sequentially ordered array
 </code></pre>
 
 <p>
-The user should should be able to interactively move the robot through the found plan.  After adding the following code below to user_input() in kineval_userinput.js, the "n" and "b" keys to move the robot to the next and previous configuration in the found path, respectively.  These user key presses will respectively increment and decrement the parameter kineval.motion_plan_traversal_index such that the robot's current configuration will become:
+The user should should be able to interactively move the robot through the found plan.  Stencil code in user_input() within kineval_userinput.js will enable the "n" and "b" keys to move the robot to the next and previous configuration in the found path, respectively.  These user key presses will respectively increment and decrement the parameter kineval.motion_plan_traversal_index such that the robot's current configuration will become:
 </p>
 
 <pre style="color:black"><code data-language="javascript">
