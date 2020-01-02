@@ -81,10 +81,11 @@
 </center>
 
 
+<hr>
 <!--
+<h1> The current version of the AutoRob course website is preliminary, and specific to the Fall 2019 offering of the course.  An updated version of this site will be available for the next offering of the AutoRob course.</h1>
 <hr>
-<h1> The current version of the AutoRob course website is preliminary.  An updated version of the Fall 2019 site will be available soon.  The descriptions below are unofficial and tentative.</h1>
-<hr>
+<h1> The current version of the AutoRob course website is preliminary, and is specific to the Fall 2019 offering of the course.  An updated version of this site will be available for the next offering of the AutoRob course.  The descriptions below are unofficial and tentative for these future course offerings.</h1>
 -->
 
         <h2>Introduction</h2>
@@ -441,7 +442,7 @@ All grading will be finalized on December 13, 2019.  Regrading of specific assig
 <h3>Repositories</h3>
 
 <p>
-You are expected to provide a <b>private</b> git repository for your work in this course with the course instructor added as a read/write collaborator.  If needed, the course staff can assist in the setup of an online git repository through providers such as <a href="https://github.com/">github</a> or <a href="https://bitbucket.org/">bitbucket</a>, or internally through the EECS <a href="https://gitlab.eecs.umich.edu">gitlab</a> server.
+You are expected to provide a <b>private</b> git repository for your work in this course with the course instructor added as a read/write collaborator.  If needed, the course staff can assist in the setup of an online git repository through providers such as <a href="https://github.com/">github</a> or <a href="https://bitbucket.org/">bitbucket</a>.  All Michigan Engineering students have access to an account on the internal EECS <a href="https://gitlab.eecs.umich.edu">gitlab</a> server.
 
 <!--
 Your repository is expected to have the following subdirectories, at a minimum, as well as the file "grading.txt" with your updated course grading status:
@@ -467,6 +468,34 @@ We expect students to use these repositories for collaborative development as we
 <p>
 <b>IMPORTANT:</b> do not modify the directory structure in the <a href="https://github.com/autorob/kineval-stencil">KinEval</a> stencil.  For example, the file "home.html" should appear in the top level of your repository.  Repositories that do not follow this directory structure will not be graded.
 </p>
+
+<h3>Code Maintenance Policy and Branching</h3>
+
+<p>
+This section outlines expectations for maintenance of source code repositories used by students for submission of their work in this course.  Repositories that do not maintain these standards will not be graded at the discretion of the course staff.
+</p>
+
+<p>
+Code submitted for projects in this course must reside in the top level directory of the <i>master</i> branch of your repository.  The directory structure provided in the <a href="https://github.com/autorob/kineval-stencil">KinEval</a> stencil must not be modified.  For example, the file "home.html" should appear in the top level directory of your repository.
+</p>
+
+<p>
+The <i>master</i> branch must always maintain a working (or stable) version of your code for this course.  Code in the <i>master</i> branch can analyzed at anty time with respect to any assignment whose due date has passed.  Improperly functioning code on the <i>master</i> branch can effect the grading of an assignment (even after the assignment due date) up to the start of the following semester.
+</p>
+
+<p>
+The <i>master</i> branch must always be in compliance with the Michigan Honor Code and Michigan Honor License, as described below in the course Collaboration Policy.  A commit of code to your <i>master</i> branch must be signed with your name and the instructor name at the bottom of the file named LICENSE with an unmodified version of the Michigan Honor License.  Without a properly asserted license file, a code commit to your repository will be considered ineligible for grading as an incomplete submission.
+</p>
+
+<p>
+If advanced extension features have been implemented and are ready for grading, such features must be listed in the file "advanced_extensions.txt" in the top level directory of the <i>master</i>.  Advanced extension features not listed in this file may not be graded at the discretion of the course staff.
+</p>
+
+<h4>Branching</h4>
+<p>
+You are encouraged to update your repository often with the help of branching.  Branching allows for you spawn a copy of code in your <i>master</i> branch for development, and merging these changes back into <i>master</i> once successfully updated.  For example, you can create an <i>Assignment-2</i> branch for your work on the second project, as it in development and experimentation, while keeping your <i>master</i> branch stable for grading.  Once you are confident in your implementation of the second project, you can merge your <i>Assignment-2</i> branch back into the <i>master</i> branch.  The <i>master</i> branch at this point will have working stable versions of the first and second projects, which can be graded.  Similarly, an <i>Assignment-3</i> branch can be created for the next project as it develops, and then merged into the <i>master</i> branch when ready for grading.  This configuration allows your work to be continually updated and build upon such that versions are tracked and interruptions due to grading are minimized.
+</p>
+
 
 <h3>Collaboration Policy</h3>
 
@@ -1445,10 +1474,6 @@ To ensure proper submission of your assignments, please do the following:
 </ul>
 </p>
 
-<p>
-You are encouraged to update your repository often using branching.  The <i>master</i> branch should be used for the working (or stable) version of your code.   For development, you can create an <i>Assignment-1</i> branch can be created for your work on this project as it in development and experimentation.  Similarly, an <i>Assignment-2</i> branch can be created for the next project as it develops.  Once you complete an assignment, the code from this branch can then be merged into the <i>master</i> branch for grading.  This configuration allows your work to be continually updated and build upon such that versions are tracked and interruptions due to grading are minimized.
-</p>
-
 <h6>
 If you are paying attention, you should also add a directory to your repository called "me".  This "me" directory should include a simple webpage in the file "me.html".  The "me.html" file should have a title with your name, an h1 tag with your name, an img tag includes a picture of you from the file "me.png", body with a brief introduction about you, and a script tag that prints the result of <code>Array(16).join("wat"-1)+" Batman!"</code> to the console. 
 </h6>
@@ -2160,10 +2185,10 @@ For turning in your assignment, ensure your completed project code has been comm
 <!-- (put this line below block comment end for block commenting, above for visibility
 (comment marker end 7) -->
 
+<!--
 <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr>
-<!--
 -->
 
 
