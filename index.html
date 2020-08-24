@@ -2,13 +2,13 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>AutoRob - Michigan EECS 367 ROB 510 - Autonomous Robotics</title>
+    <title>AutoRob - Michigan EECS 367 ROB 511 - Autonomous Robotics</title>
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
-    <meta name="description" content="The AutoRob Course at Michigan (EECS 367, ROB 511) is an introduction to autonomous robotics for building robot operating systems for mobile manipulation">
+    <meta name="description" content="AutoRob at Michigan (EECS 367, ROB 511) is an introduction to autonomous robotics for building robot operating systems and mobile manipulation apps">
     <meta name="author" content="ocj">
     <meta property="og:image" content="https://autorob.org/images/um_fetch.jpg" />
-    <meta property="og:title" content="AutoRob - Michigan EECS 367 ROB 510 - Autonomous Robotics" />
-    <meta property="og:description" content="The AutoRob Course at Michigan (EECS 367, ROB 511) is an introduction to autonomous robotics for building robot operating systems for mobile manipulation" />
+    <meta property="og:title" content="AutoRob - Michigan EECS 367 ROB 511 - Autonomous Robotics" />
+    <meta property="og:description" content="AutoRob at Michigan (EECS 367, ROB 511) is an introduction to autonomous robotics for building robot operating systems and mobile manipulation apps" />
     <meta property="og:url" content="http://autorob.org" />
     <meta property="og:type" content="article" />
 
@@ -73,12 +73,14 @@
         <h2 class="yui3-u-1">Michigan EECS 367</h2>
         <br>
         <br>
-        <h2 class="yui3-u"style="color:white">Robot Kinematics and Dynamics</h2>
+        <h2 class="yui3-u"style="color:white">Robot Operating Systems</h2>
         <br>
-        <h2 class="yui3-u">Michigan ME 567 &nbsp EECS 567 &nbsp ROB 510</h2>
+        <h2 class="yui3-u">Michigan ROB 511</h2>
+        <!-- <h2 class="yui3-u">Michigan ME 567 &nbsp EECS 567 &nbsp ROB 510</h2> -->
         <br>
         <br>
-        <h2 class="yui3-u">Fall 2019</h2>
+        <h2 class="yui3-u">Fall 2020</h2>
+        <p>Flipped Classroom Hybrid COVID-19 Edition</p>
 
      </div>
     <div class="content">
@@ -89,20 +91,36 @@
 
 
 <hr>
+
+        <h2>Fall 2020 Course Format</h2>
+
+<p>
+The AutoRob course will have a flipped classroom hybrid format this Fall semester.  At their discretion, a student will be able to complete the course remotely in its entirety.  Course meetings, quizzes, and office hours will be held in-person as needed and with consideration of the public health situation.  All lectures will be pre-recorded and available online through this course website.  The course staff will be available to students through regularly scheduled all-class interactive sessions twice per week, a laboratory discussion section once per week, and office hours with small pods that are scheduled as needed. 
+</p>
+
 <!--
 <h1> The current version of the AutoRob course website is preliminary, and specific to the Fall 2019 offering of the course.  An updated version of this site will be available for the next offering of the AutoRob course.</h1>
 <hr>
 <h1> The current version of the AutoRob course website is preliminary, and is specific to the Fall 2019 offering of the course.  An updated version of this site will be available for the next offering of the AutoRob course.  The descriptions below are unofficial and tentative for these future course offerings.</h1>
 -->
 
+<hr>
+
+<h1> The remainder of the AutoRob course website below is unofficial and preliminary, until the start of courses on August 31, 2020. </h1>
+
+
         <h2>Introduction</h2>
 
 <p>
-The AutoRob course provides an introduction to core topics in the modeling and control of autonomous robots.  AutoRob has two sections: an undergraduate section offered as Introduction to Autonomous Robotics (EECS 367) and a graduate section offered as Robot Kinematics and Dynamics (ME/EECS 567 or ROB 510) with expanded advanced material.  The AutoRob course can be thought of as the foundation to build "brains for robots". That is, given a robot as a machine with sensing, actuation, and computation, how do we build computational models, algorithms, and program that allow the robot to function autonomously? Such computation involves functions for robots to perceive the world, make decisions towards achieving a given objective, and transforming decided actions into motor commands.  These functions are essential for modern robotics, especially for mobile manipulators such as the pictured <a href="http://fetchrobotics.com/research/">Fetch</a> robot.
+AutoRob at the University of Michigan (EECS 367, ROB 511) is an introduction to autonomous robotics for building robot operating systems and applications that perform mobile manipulation tasks.  AutoRob covers foundational topics in the modeling and control of autonomous robots and their instantiation as algorithms and computational systems.  AutoRob has two sections: an undergraduate section offered as Introduction to Autonomous Robotics (EECS 367) and a graduate section offered as Robot Operating Systems (ROB 511) with expanded advanced material.  
 </p>
 
 <p>
-The AutoRob course focuses on the issues of modeling and control for autonomous robots with an emphasis on manipulation and mobility.  Successful completion of AutoRob will result in code modules for "mobile pick-and-place".  That is, given a robot and perception of the robot's environment, the resulting code modules can enable the robot to pick up an object at an arbitrary location and place the object in a new location.
+The AutoRob course can be thought of as the foundation to build "brains for robots." That is, given a robot as a machine with sensing, actuation, and computation, how do we build computational models, algorithms, programming environments, and applications that allow the robot to function autonomously? Such computation involves functions for robots to perceive the world, make decisions towards achieving a given objective, and transforming decided actions into motor commands.  These functions are essential for modern robotics, especially for mobile manipulators such as the pictured <a href="http://fetchrobotics.com/research/">Fetch</a> robot.
+</p>
+
+<p>
+AutoRob focuses on the computational issues of modeling and control for autonomous robots with an emphasis on manipulation and mobility.  Successful completion of AutoRob will result in code modules for "mobile pick-and-place".  That is, given a robot and perception (or "full observation") of the robot's environment, the resulting code modules can enable the robot to pick up an object at an arbitrary location and place the object in a new location.
 </p>
 
 <!--
@@ -111,15 +129,28 @@ Caveats: robot will perform suboptimally based on rrt-planner, no self-collision
 
 
 <p>
-AutoRob projects ground course concepts through implementation in <a href="https://en.wikipedia.org/wiki/JavaScript"</a>JavaScript</a>/<a href="https://en.wikipedia.org/wiki/HTML">HTML5</a> supported by the <a href="https://github.com/autorob/kineval-stencil">KinEval code stencil</a> (snapshot below from Mozilla Firefox).  These projects will cover graph search path planning (<a href="https://en.wikipedia.org/wiki/A*_search_algorithm">A* algorithm</a>), basic physical simulation (<a href="https://en.wikipedia.org/wiki/Classical_mechanics">Lagrangian dynamics</a>, <a href ="https://en.wikipedia.org/wiki/Numerical_integration">numerical integrators</a>), proportional-integral-derivative (<a href="https://en.wikipedia.org/wiki/PID_controller">PID</a>) control, forward kinematics (3D geometric <a href="https://en.wikipedia.org/wiki/Transformation_matrix">matrix transforms</a>, matrix stack composition of transforms, axis-angle rotation by <a href="https://en.wikipedia.org/wiki/Quaternion">quaternions</a>), inverse kinematics (<a href="https://en.wikipedia.org/wiki/Gradient_descent">gradient descent</a> optimization, geometric <a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant">Jacobian</a>), and motion planning (simple <a href="https://en.wikipedia.org/wiki/Collision_detection">collision detection</a>, sample-based <a href="https://en.wikipedia.org/wiki/Motion_planning">motion planning</a>).  Additional topics that could be covered include potential field navigation, Bayesian filtering, Cyclic Coordinate Descent, Monte Carlo localization, and Newton-Euler dynamics.  
+AutoRob projects ground course concepts through implementation in <a href="https://en.wikipedia.org/wiki/JavaScript"</a>JavaScript</a>/<a href="https://en.wikipedia.org/wiki/HTML">HTML5</a> supported by the <a href="https://github.com/autorob/kineval-stencil">KinEval code stencil</a> (snapshot below from Mozilla Firefox).  These projects will cover graph search path planning (<a href="https://en.wikipedia.org/wiki/A*_search_algorithm">A* algorithm</a>), basic physical simulation (<a href="https://en.wikipedia.org/wiki/Classical_mechanics">Lagrangian dynamics</a>, <a href ="https://en.wikipedia.org/wiki/Numerical_integration">numerical integrators</a>), proportional-integral-derivative (<a href="https://en.wikipedia.org/wiki/PID_controller">PID</a>) control, forward kinematics (3D geometric <a href="https://en.wikipedia.org/wiki/Transformation_matrix">matrix transforms</a>, matrix stack composition of transforms, axis-angle rotation by <a href="https://en.wikipedia.org/wiki/Quaternion">quaternions</a>), inverse kinematics (<a href="https://en.wikipedia.org/wiki/Gradient_descent">gradient descent</a> optimization, geometric <a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant">Jacobian</a>), and motion planning (simple <a href="https://en.wikipedia.org/wiki/Collision_detection">collision detection</a>, sample-based <a href="https://en.wikipedia.org/wiki/Motion_planning">motion planning</a>).  Additional topics that could be covered include potential field navigation, Cyclic Coordinate Descent, Newton-Euler dynamics, task and mission planning, Bayesian filtering, Monte Carlo localization.  
 </p>
 
 <img width=100% src="images/kineval_fetch.png">
 
-<p>
-AutoRob projects will roughly follow conventions and structures from the <a href="http://ros.org">Robot Operating System (ROS)<a> and <a href="https://github.com/RobotWebTools">Robot Web Tools (RWT)</a> software frameworks, as widely used across robotics.  These conventions include the <a href="http://wiki.ros.org/urdf/Tutorials/Create%20your%20own%20urdf%20file">URDF</a> kinematic modeling format, <a href="http://wiki.ros.org/Topics">ROS topic</a> structure, and the <a href="https://github.com/RobotWebTools/rosbridge_suite/blob/develop/ROSBRIDGE_PROTOCOL.md"><i>rosbridge</i> protocol</a> for <a href="https://json.org/">JSON</a>-based messaging.
+<h3>Concepts to build your own robot operating system</h3>
 
-KinEval uses <a href="http://threejs.org/">threejs</a> for in-browser 3D rendering and <a href="https://github.com/sloisel/numeric/">Numeric Javascript</a> for select matrix routines.  Auxiliary code examples and stencils will often use the <a href="http://jsfiddle.net/">jsfiddle</a> development environment.    
+<p>
+AutoRob aims to provide a general conceptual framework that enables students to build their own robot operating systems.  Like <a href="https://en.wikipedia.org/wiki/Operating_system">computing</a> <a href="https://www.merriam-webster.com/dictionary/operating%20system">operating systems</a>, the fundamental goal of a robot operating system is to bridge the gap between robot hardware and application programs to control the robot purposefully.  <a href="https://perldoc.perl.org/perlglossary.html#operating-system">In other words<a/>, robot operating systems hide the gory details of managing robot devices, software processes, and (especially) low-level <a href="https://www.merriam-webster.com/dictionary/sensorimotor">sensorimotor</a> routines.  This abstraction provides a platform for robot applications to <a href="https://en.wikipedia.org/wiki/Runtime_system">run</a> seamlessly across a wide variety of robots with different physical and electronic configurations.
+</p>
+
+<p>
+The area of robot operating systems has emerged from pioneering work in <a href="https://en.wikipedia.org/wiki/Robotics_middleware">robot middleware</a> systems over the last 20 years.  <a href="https://lcm-proj.github.io/">Lightweight Communications and Marshalling (LCM)</a>, <a href="https://www.yarp.it/">Yet Another Robot Platform (YARP)</a>, <a href="http://www.themoos.org/">the MOOS</a> (<a href="http://www.moos-ivp.org/">Mission Oriented Operating Suite"</a>), 
+<a href="https://openjaus.com/understanding-jaus/">JAUS-based systems</a>, <a href="https://en.wikipedia.org/wiki/Player_Project">Player/Stage</a>, and the well-branded <a href="http://ros.org">Robot Operating System (ROS)<a> are examples of leading robot middleware systems.  Topics covered in AutoRob will help you understand the insides of all of these robot middleware systems, make them better, and develop the robot operating systems of the future.  Brief vocational coverage of how to use and develop robot controllers with ROS and/or LCM will be included in this offering of AutoRob.
+</p>
+
+<h3>KinEval code stencil</h3>
+
+<p>
+AutoRob projects will use the KinEval code stencil that roughly follows conventions and structures from the <a href="http://ros.org">Robot Operating System (ROS)<a> and <a href="https://github.com/RobotWebTools">Robot Web Tools (RWT)</a> software frameworks, as widely used across robotics.  These conventions include the <a href="http://wiki.ros.org/urdf/Tutorials/Create%20your%20own%20urdf%20file">URDF</a> kinematic modeling format, <a href="http://wiki.ros.org/Topics">ROS topic</a> structure, and the <a href="https://github.com/RobotWebTools/rosbridge_suite/blob/develop/ROSBRIDGE_PROTOCOL.md"><i>rosbridge</i> protocol</a> for <a href="https://json.org/">JSON</a>-based messaging.
+
+KinEval uses <a href="http://threejs.org/">threejs</a> for in-browser 3D rendering.  There is also use of the <a href="https://github.com/sloisel/numeric/">Numeric Javascript</a> external for select matrix routines, although other math support libraries are being explored.  Auxiliary code examples and stencils will often use the <a href="http://jsfiddle.net/">jsfiddle</a> development environment. 
 </p>
 
 <table><tr><td style="background:#dddddd">
@@ -129,7 +160,11 @@ KinEval uses <a href="http://threejs.org/">threejs</a> for in-browser 3D renderi
 </p>
 
 <p>
-KinEval allows for your code to work with any robot that supports the <a href="https://github.com/RobotWebTools/rosbridge_suite/blob/develop/ROSBRIDGE_PROTOCOL.md"><i>rosbridge</i> protocol</a>, which includes any robot running ROS.  Given a URDF description, the code your produce for AutoRob will allow you to view and control the motion of any mobile manipulation robot with rigid links.  Your code will also be able to access the sensors and other software services of the robot for your continued work as a roboticist.
+AutoRob will be mostly in simulation, KinEval allows for your code to work with any robot that supports the <a href="https://github.com/RobotWebTools/rosbridge_suite/blob/develop/ROSBRIDGE_PROTOCOL.md"><i>rosbridge</i> protocol</a>, which includes any robot running ROS.  Given a URDF description, the code your produce for AutoRob will allow you to view and control the motion of any mobile manipulation robot with rigid links.  Your code will also be able to access the sensors and other software services of the robot for your continued work as a roboticist.
+</p>
+
+<p>
+For Fall 2020, the course staff is exploring ways to enable students to access physical robots at least once during the course in a manner that is in compliance with safe research operations and public health guidelines.
 </p>
 </td></tr></table>
 
@@ -138,15 +173,23 @@ KinEval allows for your code to work with any robot that supports the <a href="h
 <h3>Related Courses</h3>
 
 <p>
-AutoRob is a computing-friendly pathway into robotics, but does not cover the whole of robotics.  The scope of AutoRob is robot modeling and control, which is well-suited as preparation for a Major Design Experience in EECS 467 (Autonomous Robotics Laboratory).  EECS 467 and ROB 550 (Robotics Systems Laboratory) provides more extensive hands-on experience with a small set of real robotic platforms.  In contrast, AutoRob emphasizes the creation of a generalized modeling and control software stack in simulation, with interfaces to work with a diversity of real robots.
+AutoRob is a computing-friendly pathway into robotics.  The course is aimed to provide broad exposure to autonomous robotics, but does not cover the whole of robotics.  The scope of AutoRob is robot modeling and control.  AutoRob is well-suited as preparation for a Major Design Experience, such as in EECS 467 (Autonomous Robotics Laboratory).  In complement to AutoRob, EECS 467 and ROB 550 (Robotics Systems Laboratory) provides more extensive hands-on experience with a small set of real robotic platforms.  In contrast, AutoRob emphasizes the creation of a generalized modeling and control software stack in simulation, with interfaces to work with a diversity of real robots.
 </p>
 
 <p>
-AutoRob provides a computation-focused branch of ME 567 (Robot Kinematics and Dynamics).  The common ME 567 is a more in-depth mathematical analysis of dynamics and control with extensive use of Denavit-Hartenberg parameters for kinematics.  AutoRob spends more coverage on path and motion planning with use of quaternions and matrix stacks for kinematics.  In AutoRob, <a href="https://idioms.thefreedictionary.com/seeing+is+believing">coding is believing</a>.
+AutoRob is a computation-focused alternative to ME 567/ROB 510 (Robot Kinematics and Dynamics).  ME 567 is a more in-depth mathematical analysis of dynamics and control with extensive use of <a href="https://en.wikipedia.org/wiki/Denavit%E2%80%93Hartenberg_parameters">Denavit-Hartenberg parameters</a> for kinematics.  AutoRob has a greater emphasis on algorithms for autonomous path and motion planning along with use of quaternions and matrix stacks for kinematics.  In AutoRob, <a href="https://idioms.thefreedictionary.com/seeing+is+believing">coding is believing</a>.
 </p>
 
 <p>
-AutoRob is also a complement to courses covering perception (EECS 568 Mobile Robotics, EECS 442 Computer Vision), robot building (EECS 498 Hands-on Robotics, ME 552 Mechatronics), robot simulation (ME 543 Analytical and Computational Dynamics), controls systems (EECS 460 Control Systems Analysis and Design, EECS 461 Embedded Control Systems), and artificial intelligence (EECS 492 Introduction to Artificial Intelligence), as well as general graduate courses in robotics (ROB 501 Math for Robotics, ROB 550 Robotic Systems Laboratory).  
+AutoRob is well suited to complement courses that provide more depth in <a href="https://web.eecs.umich.edu/~dmitryb/courses/fall2018iar/index.html">algorithmic robotics (EECS 498)</a> and <a href="https://web.eecs.umich.edu/~dmitryb/courses/winter2019motionplanning/index.html">motion planning (EECS 598)</a>.
+</p>
+
+<p>
+AutoRob can be taken in parallel with <a href="https://robotics.umich.edu/academic-program/courses/rob502-f20/">ROB 502 (Programming for Robotics)</a>.  AutoRob makes some accommodations for students with less programming experience than provided in common data structures courses, such as <a href="https://www.eecs.umich.edu/courses/eecs280/">EECS 280</a>.  However, for students new to computer programming, it is recommended to take AutoRob after ROB 502, EECS 280, or EECS 402.
+</p>
+
+<p>
+AutoRob is also a complement to courses covering perception (EECS 568 Mobile Robotics, EECS 442 Computer Vision), robot building (ME 552 Mechatronics, EECS 498 Hands-on Robotics), robot simulation (ME 543 Analytical and Computational Dynamics), controls systems (EECS 460 Control Systems Analysis and Design, EECS 461 Embedded Control Systems), and artificial intelligence (EECS 492 Introduction to Artificial Intelligence), as well as general graduate courses in robotics (ROB 501 Math for Robotics, ROB 550 Robotic Systems Laboratory).  
 </p>
 
 <h3>Commitment to equal opportunity</h3>
@@ -158,19 +201,13 @@ As indicated in the <a href="http://www.engin.umich.edu/college/academics/bullet
 <h3>Accommodations for Students with Disabilities</h3>
 
 <p>
-If you believe an accommodation is needed for a disability, please let the course instructor know at your earliest convenience. Some aspects of this course, the assignments, the in-class activities, and the way the course is usually taught may be modified to facilitate your participation and progress. As soon as you make us aware of your needs, the course staff can work with the <a href="http://ssd.umich.edu">Services for Students with Disabilities</a> (SSD, 734-763-3000) office to help us determine appropriate academic accommodations. SSD typically recommends accommodations through a Verified Individualized Services and Accommodations (VISA) form. Any information you provide is private and confidential and will be treated as such. For special accommodations for any academic evaluation (exam, quiz, project), the course staff will need to receive the necessary paperwork issued from the SSD office by <i>September 30, 2019</i>.
+If you believe an accommodation is needed for a disability, please let the course instructor know at your earliest convenience. Some aspects of this course, the assignments, the in-class activities, and the way the course is usually taught may be modified to facilitate your participation and progress. As soon as you make us aware of your needs, the course staff can work with the <a href="http://ssd.umich.edu">Services for Students with Disabilities</a> (SSD, 734-763-3000) office to help us determine appropriate academic accommodations. SSD typically recommends accommodations through a Verified Individualized Services and Accommodations (VISA) form. Any information you provide is private and confidential and will be treated as such. For special accommodations for any academic evaluation (exam, quiz, project), the course staff will need to receive the necessary paperwork issued from the SSD office by <i>September 20, 2020</i>.
 </p>
 
 <h3>Student mental health and well being</h3> 
 
 <p>
-The University of Michigan is committed to advancing the mental health and
-wellbeing of its students. If you or someone you know is feeling
-overwhelmed, depressed, and/or in need of support, services are available.
-For help, please contact <a href="https://caps.umich.edu/">Counseling and Psychological Services</a> (CAPS) by phone at 734-764-8312, during and after hours, on
-weekends and holidays, or through its counselors physically located in
-schools on both North and Central Campus. You may also consult <a href="https://www.uhs.umich.edu/mentalhealthsvcs">University Health Service</a> (UHS, 734-764-8320) as well as its <a href="https://www.uhs.umich.edu/aodresources">services for alcohol or drug concerns</a>.
-There is also a more comprehensive <a href="http://umich.edu/~mhealth/">listing of mental health resources</a> available on and off campus.
+The University of Michigan is committed to advancing the mental health and wellbeing of its students. If you or someone you know is feeling overwhelmed, depressed, and/or in need of support, services are available.  For help, please contact one of the many resources offered by the University that are committed helping students through challenging situations, including: <a href="https://medicine.umich.edu/dept/psychiatry/patient-care/psychiatric-emergency-service">U-M Psychiatric Emergency</a> (734-996-4747, 24-hour), <a href="https://caps.umich.edu/">Counseling and Psychological Services</a> (CAPS, 734-764-8312, 24-hour), and the <a href="https://care.engin.umich.edu/">C.A.R.E. Center</a> on North Campus. You may also consult <a href="https://www.uhs.umich.edu/mentalhealthsvcs">University Health Service</a> (UHS, 734-764-8320) as well as its <a href="https://www.uhs.umich.edu/aodresources">services for alcohol or drug concerns</a>.  There is also a more comprehensive <a href="http://umich.edu/~mhealth/">listing of mental health resources</a> available on and off campus.
 </p>
 
 <h2>Course Staff</h2>
@@ -183,53 +220,107 @@ ocj addrsign umich
 <br>
 Office: Beyster 3644
 <br>
-Office Hours: Monday 3-5pm, Tuesday 1-3pm
+Office Hours: Monday 2:30-5pm, Wednesday 2:30-5pm
 </p>
 
-<h3>Graduate Student Instructor</h3>
+<h3>Graduate Student Instructors</h3>
 
 <p>
-Anthony Opipari
+<a href="http://www.zhemingzhou.net/">Zheming Zhou</a>
 <br>
-topipari  addrsign umich
+zhezhou addrsign umich
 <br>
-Office Hours (Beyster 1637): Monday 3-5pm, Friday 12:30-2:30pm
-</p>
-
-
-
-<h2>Meeting time/place</h2>
-<p>
-<b>Course Lecture</b><br>
-Monday and Wednesday 1:30-2:40 MMT (Michigan Mean Time)
-<br>EECS 1500
+Office Hours: TBD 
 </p>
 
 <p>
-<b>Laboratory Section (EECS 367)</b><br>
+<a href="https://github.com/emgoeddel">Elizabeth Goeddel</a>
+<br>
+mamantov addrsign umich
+<br>
+Office Hours: TBD
+</p>
+
+<p>
+<a href="https://robotics.umich.edu/profile/xiaotong-chen/">Xiaotong Chen</a>
+<br>
+cxt addrsign umich
+<br>
+Office Hours: TBD 
+</p>
+
+
+<h2>Course Meetings</h2>
+
+<p>
+The AutoRob course will have a <a href="https://en.wikipedia.org/wiki/Flipped_classroom">flipped classroom</a> hybrid format for the Fall 2020 semester.  At their discretion, a student will be able to complete the course remotely in its entirety.  Course meetings, quizzes, and office hours will be held in-person as needed and with consideration of the public health situation.  All lectures will be pre-recorded and available online through this course website.  The course staff will be available to students through regularly scheduled all-class discussion sessions twice per week, a laboratory section once per week, and interactive meetings of small pods of assigned students, as well as office hours that are scheduled as needed. 
+</p>
+
+<p>
+<b>Course Lectures</b> will be recorded and available on this site as listed in the <a href="#schedule">course schedule</a><br>
+</p>
+
+<p>
+<b>Course Discussion Sessions</b> will be dedicated to address general questions and comments regarding course concepts in relation to lectures and projects, quiz synchronization, and course administrivia.<br>
+Monday and Wednesday 1:30-2:00 MMT (Michigan Mean Time)
+<br>(location to be determined)
+</p>
+
+<p>
+<b>Laboratory Sections</b> (EECS 367, optional for ROB 511) will provide guidance through the workflow of course projects.<br>
 Friday 2:30-3:20 MMT (Michigan Mean Time)
-<br>EECS 1500
+<br>(remote location to be determined)
+</p>
+
+<h3>Interactive Study Pods</h3>
+<p>
+Small pods of students will be assigned to regularly meet together with a member of the course staff once per week.  <br>
+(time and location to be assigned)
+</p>
+
+<p>
+Students within a study pod are expected to actively engage and discuss with other members of the pod regarding course and project concepts, interactive debugging (<a href="#collaboration_policy">without sharing code directly</a>), and other topics of relevance to the course.  Collaborative discussion and assistance is highly encouraged within the course <a href="#collaboration_policy">collaboration policy</a>.
+</p>
+
+<p>
+Students are expected to be prepared for their study pod meetings by providing their most important question and an optional status update, and being prepared to demonstrate the current state of their project implementation.
 </p>
 
 
-<h2>Discussion channel</h2>
 
+
+<h2>Discussion servers</h2>
+
+<h3>Microsoft Teams</h3> 
 <p>
-<a href="https://autorob.slack.com/">The AutoRob slack team</a> will be used for course-related discussions and announcements.  <a href="https://en.wikipedia.org/wiki/Slack_(software)">Slack</a> is a cloud-hosted online discussion and collaboration system with functionality that resembles <a href="https://en.wikipedia.org/wiki/Internet_Relay_Chat">Internet Relay Chat (IRC)</a>.  Slack clients are available for most modern operating systems as well as through the web.
+<a href="https://teams.microsoft.com/l/team/19%3ae1a8302e08d24fd8b42154f6b8edbdbf%40thread.tacv2/conversations?groupId=2a4f0e48-af38-412e-90c5-a2c0a1284404&tenantId=e66e77b4-5724-44d7-8721-06df160450ce">The AutoRob Microsoft team</a> will be used for course-related discussions and announcements.  <a href="https://en.wikipedia.org/wiki/Microsoft_Teams">Microsoft Teams</a> is a cloud-hosted online discussion and collaboration system with functionality that resembles <a href="https://en.wikipedia.org/wiki/Internet_Relay_Chat">Internet Relay Chat (IRC)</a>.  Microsoft Teams clients are available for most modern operating systems as well as through the web.
 </p>
 
 <p>
-Students enrolled in AutoRob will receive an invitation to the AutoRob slack team.  Upon accepting this invitation, you should be automatically subscribed to 9 channels: 
+Students enrolled in AutoRob will receive an invitation to the AutoRob MS team.  Upon accepting this invitation, you should be automatically subscribed to 9 channels: 
 </p>
 <ul>
 <li> <p>the <i>#general</i> channel for general course discussion and administrivia, </p> </li>
+<li> <p>the <i>#lecture-questions</i> channel for questions regarding lecture content, </p> </li>
 <li> <p> the <i>#random</i> channel for non-course items that are of general interest to the course and larger field of robotics, </p> </li>
 <li> <p> seven assignment channels for each class project (<i>#asgn1-pathplan, #asgn2-pendularm, #asgn3-fk, #asgn4-dance-fsm, #asgn5-ik #asgn6-rrt, #asgn7-best-use</i>), </p> </li>
 <li> <p> the <i>#advanced-extensions</i> channel for discussion and announcement of graduate advanced extensions to each project.</p> </li>
 </ul>
+
+<p>
+Each student pod will also have a dedicated discussion channel.
+</p>
+
+
 <p>
 <i>Actively engaging in course discussions is a great way to become a better roboticist.</i>
 </p>
+
+<h3>Discord</h3> 
+<p>
+The <a href="https://discord.gg/A8eQhRq">AutoRob at Michigan Discord</a> Server is optionally available for informal discussion for participants both at Michigan and beyond.  As Discord is not necessarily <a href="https://ro.umich.edu/records-registration/student-rights-records">FERPA</a> compliant, there can be no discussion on this server regarding grades, and formal student records, or any student who is not a member of the server.
+</p>
+
 
 <h2>Prerequisites</h2> 
 
@@ -238,7 +329,7 @@ This course has recommended prerequisites for "Linear Algebra" and "Data Structu
 </p>
 
 <p>
-<i>Programming proficiency</i>: EECS 281 (Data Structures and Algorithms), EECS 402 (Programming for Scientists and Engineers), or proficiency in data structures and algorithms should provide an adequate programming background for the projects in this course.  Interested students should consult with the course instructor if they have not taken EECS 281, EECS 402, or its equivalent, but have some other notable programming experience.
+<i>Programming proficiency</i>: EECS 281 (Data Structures and Algorithms), EECS 402 (Programming for Scientists and Engineers), ROB 502 (Programming for Robotics) or proficiency in data structures and algorithms should provide an adequate programming background for the projects in this course.  Interested students should consult with the course instructor if they have not taken EECS 281, EECS 402, ROB 502, or its equivalent, but have some other notable programming experience.
 </p>
 
 <p>
@@ -256,7 +347,7 @@ The instructor will do their best to cover the necessary prerequisite material, 
 <h2>Textbook</h2>
 
 <p>
-The AutoRob course is compatible with both the Spong et al. and Corke textbooks (listed below), although only one of these books is needed.  Depending on individual styles of learning, one textbook may be preferrable over the other.  Spong et al. is the listed required textbook for AutoRob (as well as ME 567) and is supplemented with additional handouts.  The Corke textbook provides broader coverage with an emphasis on intuitive explanation.  A pointer to the Lynch and Park textbook is provided for an alternative perspective on robot kinematics that goes deeper into spatial transforms in exponential coordinates.  Lynch and Park also provides some discussion and context for using ROS.  This semester, AutoRob will not officially support the Lynch and Park book, but will make every effort to work with students interested in using this text.
+AutoRob is compatible with both the Spong et al. and Corke textbooks (listed below), although only one of these books is needed.  Depending on individual styles of learning, one textbook may be preferrable over the other.  Spong et al. is the listed required textbook for AutoRob and is supplemented with additional handouts.  The Corke textbook provides broader coverage with an emphasis on intuitive explanation.  A pointer to the Lynch and Park textbook is provided for an alternative perspective on robot kinematics that goes deeper into spatial transforms in exponential coordinates.  Lynch and Park also provides some discussion and context for using ROS.  This semester, AutoRob will not officially support the Lynch and Park book, but will make every effort to work with students interested in using this text.
 </p>
 
 <p>
@@ -309,38 +400,38 @@ MIT Press, 2005
 <h2>Projects and Grading</h2>
 
 <p>
-The AutoRob course will assign 7 projects (6 programming, 1 oral) and 5 quizzes.  Each project has been decomposed into a collection of features, each of which is worth a specified number of points.  AutoRob project features are graded as “checked” (completed) or “due” (incomplete). Prior to being assigned, upcoming projects will have the status of "pending."  In terms of workload, each project is expected to take approximately 4 hours of work on average (as a rough estimate).  
+The AutoRob course will assign 7 projects (6 programming, 1 oral) and 5 quizzes.  Each project has been decomposed into a collection of features, each of which is worth a specified number of points.  AutoRob project features are graded as "checked" (completed) or "due" (incomplete). Prior to its due date, the grading status of each feature will be in the "pending" state.  In terms of workload, each project is expected to take approximately 4 hours of work on average (as a rough estimate).  
 Each quiz will consist of 4 short questions that will be within the scope of previously graded projects.  In other words, each quiz question should be readily answerable given knowledge from correctly completing projects on time.
 </p>
 
 <p>
 Individual final grades are assigned based on the sum of points earned from coursework (detailed in subsections below). 
-The timing and due dates for course projects and quizzes will be announced on an ongoing basis.  All project work must be checked by the end of classes.
+The timing and due dates for course projects and quizzes will be announced on an ongoing basis.  The official due date of a project is listed with its project description, such as for <a href="#assignment1">Assignment 1: Path Planning</a>.  Due dates listed in the <a href="#schedule">course schedule</a> are tentative.  All project work must be checked by the final grading deadline to recieve credit.
 </p>
 
 <h3>EECS 367: Introduction to Autonomous Robotics</h3>
 
 <p>
 In the undergraduate section, each fully completed project is weighted as 12 points and each correctly answered quiz question is weighted as 1 point.  
-Based on this sum of points from coursework, an overall grade for the course is earned as follows: An "A" grade in the course is earned if graded coursework sums to 93 points or above; A "B" grade in the course is earned if graded coursework sums to 83 points or above; a "C" grade in the course is earned if graded coursework sums to 73 points or above.  The instructor reserves the option to assign appropriate course grades with plus or minus modifiers.
+Based on this sum of points from coursework, an overall grade for the course is earned as follows: An "A" grade in the course is earned if graded coursework sums to <!--93--> 95 points or above; A "B" grade in the course is earned if graded coursework sums to 83 points or above; a "C" grade in the course is earned if graded coursework sums to 73 points or above.  The instructor reserves the option to assign appropriate course grades with plus or minus modifiers.
 </p>
 
 <!--???<a href="https://www.michigandaily.com/content/viewpoint-qwizdom-can-help">pop quiz</a>--> 
 
-<h3>ME 567 | EECS 567 | ROB 510: Robot Kinematics and Dynamics</h3>
+<h3>ROB 511: Robot Operating Systems</h3>
 
 <p>
 In the graduate section, each fully completed project is weighted as 18 points, each correctly answered quiz question is weighted as 1 point.  Students in this section have the opportunity to earn 4 additional points through an advanced extension of a course project.  Examples of advanced extensions include implementation of an LU solver for linear systems of equations, inverse kinematics by Cyclic Coordinate Descent, one additional motion planning algorithm, point cloud segmentation, and a review of a current research publication in robotics.  Advanced extensions are due by the course final grading deadline, and do not need to be completed for the deadlines of each assignment.
 </p>
 
 <p>
-Based on the sum of points earned from coursework, an overall grade for the course is earned as follows: An "A" grade in the course is earned if graded coursework sums to 135 points or above; A "B" grade in the course is earned if graded coursework sums to 120 points or above; a "C" grade in the course is earned if graded coursework sums to 105 points or above.  The instructor reserves the option to assign appropriate course grades with plus or minus modifiers.
+Based on the sum of points earned from coursework, an overall grade for the course is earned as follows: An "A" grade in the course is earned if graded coursework sums to <!-- 135--> 138 points or above; A "B" grade in the course is earned if graded coursework sums to 120 points or above; a "C" grade in the course is earned if graded coursework sums to 105 points or above.  The instructor reserves the option to assign appropriate course grades with plus or minus modifiers.
 </p>
 
 <h3 id="project_rubric">Project Rubric (tenative and subject to change)</h3>
 
 <p>
-The following project features are planned for AutoRob this semester.  Students enrolled in ME/EECS 567 will complete all features.  Students in the undergraduate section are not expected to implement features for the graduate section.
+The following project features are planned for AutoRob this semester.  Students enrolled in the graduate section will complete all features.  Students in the undergraduate section are not expected to implement features for the graduate section.
 </p>
 
 <table cellpadding=5 border=0  width="100%">
@@ -414,6 +505,16 @@ The following project features are planned for AutoRob this semester.  Students 
 <tr><td>2</td><td>All</td><td> 2D RRT-Connect</td></tr>
 <tr><td>6</td><td>All</td><td> Configuration space RRT-Connect</td></tr>
 <tr><td>6</td><td>Grad</td><td> RRT-Star</td></tr>
+
+<tr bgcolor="#dddddd">     
+<td></td><td></td><td>Participation</td>
+</tr>
+<tr><td>4</td><td>All</td><td> Participation in Assigned Pod and Course Discussion</td></tr>
+
+<tr bgcolor="#dddddd">     
+<td></td><td></td><td>Optional</td>
+</tr>
+<tr><td>4</td><td>Grad</td><td> Selected Advanced Extensions</td></tr>
 </table>
 
 
@@ -424,7 +525,7 @@ The following project features are planned for AutoRob this semester.  Students 
 <h3>Project Submission and Regrading</h3>
 
 <p>
-Git repositories will be used for project implementation, version control, and submission for grading. The implementation of an individual project is submitted through an update to the <i>master</i> branch of your designated repository.  Updates to the master branch must be committed and pushed prior to the due date for each assignment for any consideration of full credit. Your implementation will be checked out and executed by the course staff. Through your repository, you will be notified by the course staff whether your implementation of assignment features is sufficient to receive credit. 
+<a href="https://en.wikipedia.org/wiki/Git">Git</a> repositories will be used for project implementation, version control, and submission for grading. The implementation of project is submitted through an update to the <i>master</i> branch of your designated repository.  Updates to the master branch must be committed and pushed prior to the due date for each assignment for any consideration of full credit. Your implementation will be checked out and executed by the course staff. Through your repository, you will be notified by the course staff whether your implementation of assignment features is sufficient to receive credit. 
 </p>
 
 <h3>Late Policy</h3>
@@ -432,24 +533,31 @@ Git repositories will be used for project implementation, version control, and s
 <b>Do not submit assignments late.</b>  The course staff reserves the right to not grade late submissions. The course instructor reserves the right to decline late submissions and/or adjust partial credit on regraded assignments.
 </p>
 <p>
-If granted by the course instructor, late submissions can be graded for partial credit, with the following guidelines.  Submissions pushed within two weeks past the project deadline will be graded for 80% credit.   Submissions pushed within four weeks of the project deadline will be graded for 60% credit.  Submissions pushed at any time before the semester project submission deadline (December 13, 2019) will be considered for 50% credit.  As a reminder, the course instructor reserves the right to decline late submissions and/or adjust partial credit on regraded assignments.
+If granted by the course instructor, late submissions can be graded for partial credit, with the following guidelines.  Submissions pushed within two weeks past the project deadline will be graded for 80% credit.   Submissions pushed within four weeks of the project deadline will be graded for 60% credit.  Submissions pushed at any time before the semester project submission deadline (December 8, 2020) will be considered for 50% credit.  As a reminder, the course instructor reserves the right to decline late submissions and/or adjust partial credit on regraded assignments.
 </p>
 
 <h3>Regrading Policy</h3>
 <p>
-The regrading policy allows for submission and regrading of projects up through the final grading of projects, which will be December 13 for the Fall 2019 Semester.  This regrading policy will grant full credit for project submissions pushed to your repository before the corresponding project deadline.  If a feature of graded project is returned as not completed (or "DUE"), your code can updated for consideration at 80% credit.  This code update must be pushed to your repository within two weeks from when the originally graded project was returned.  Regrades of projects updated beyond this two week window can receive at most 60% credit.  The course staff will allow one regrade for each grading iteration.
+The regrading policy allows for submission and regrading of projects up through the final grading of projects, which will be December 8 for the Fall 2020 Semester.  This regrading policy will grant full credit for project submissions pushed to your repository before the corresponding project deadline.  If a feature of graded project is returned as not completed (or "DUE"), your code can be updated for consideration at 80% credit.  This code update must be pushed to your repository within two weeks from when the originally graded project was returned.  Regrades of projects updated beyond this two week window can receive at most 60% credit.  The course staff will allow one regrade for each grading iteration.
 </p>
+
+<h3>Completed Features Policy</h3>
+
+<p>
+All checked features must continue to function properly in your repository up through the final grading deadline.  Checked features that do not function properly for subsequent projects will be treated as a new submission and subject to the regrading policy.
+</p>
+
 
 <h3>Final Grading</h3>
 
 <p>
-All grading will be finalized on December 13, 2019.  Regrading of specific assignments can be done upon request during office hours.  No regrading will be done after grades are finalized.
+All grading will be finalized on December 8, 2020.  Regrading of specific assignments can be done upon request during office hours.  No regrading will be done after grades are finalized.
 <p>
 
 <h3>Repositories</h3>
 
 <p>
-You are expected to provide a <b>private</b> git repository for your work in this course with the course instructor added as a read/write collaborator.  If needed, the course staff can assist in the setup of an online git repository through providers such as <a href="https://github.com/">github</a> or <a href="https://bitbucket.org/">bitbucket</a>.  All Michigan Engineering students have access to an account on the internal EECS <a href="https://gitlab.eecs.umich.edu">gitlab</a> server.
+You are expected to provide a <b>private</b> git repository for your work in this course with the course instructor added as a read/write collaborator.  If needed, the course staff can assist in the setup of an online git repository through providers such as <a href="https://github.com/">github</a> or <a href="https://bitbucket.org/">bitbucket</a>.  All Michigan Engineering students have access to an account on the internal EECS <a href="https://gitlab.eecs.umich.edu">gitlab</a> server at no additional cost.
 
 <!--
 Your repository is expected to have the following subdirectories, at a minimum, as well as the file "grading.txt" with your updated course grading status:
@@ -465,7 +573,7 @@ Your repository is expected to have the following subdirectories, at a minimum, 
 -->
 
 <p>
-There are many different tutorials for learning how to use git repositories.  The AutoRob course site has its own basic <a href="#git_tutorial">quick start tutorial</a>.  The EECS gitlab server has a basic <a href="http://gitlab.eecs.umich.edu/help/gitlab-basics/README.md">quick start tutorial</a>.  The <a href="http://www.git-scm.com/book/en/v2">Pro Git book</a> provides an in-depth introduction to git and version control.  As different people often learn through different styles, the <a href="http://www-cs-students.stanford.edu/~blynn/gitmagic/">Git Magic tutorial</a> has also proved quite useful when a different perspective is needed.  <a href="http://rogerdudler.github.io/git-guide/">git: the simple guide</a> has often been a great and accessible quick start resource. 
+There are many different tutorials for learning how to use git repositories.  For those new to <a href="https://en.wikipedia.org/wiki/Version_control">version control</a>, we realize git has a significant startup overhead and learning curve, but is definitely worth the effort.  The first laboratory discussion in AutoRob will be dedicated to installing and using git.  The AutoRob course site also has its own basic <a href="#git_tutorial">quick start tutorial</a>.  The EECS gitlab server has a basic <a href="http://gitlab.eecs.umich.edu/help/gitlab-basics/README.md">quick start tutorial</a>.  The <a href="http://www.git-scm.com/book/en/v2">Pro Git book</a> provides an in-depth introduction to git and version control.  As different people often learn through different styles, the <a href="http://www-cs-students.stanford.edu/~blynn/gitmagic/">Git Magic tutorial</a> has also proved quite useful when a different perspective is needed.  <a href="http://rogerdudler.github.io/git-guide/">git: the simple guide</a> has often been a great and accessible quick start resource. 
 </p>
 
 <p>
@@ -487,35 +595,35 @@ Code submitted for projects in this course must reside in the top level director
 </p>
 
 <p>
-The <i>master</i> branch must always maintain a working (or stable) version of your code for this course.  Code in the <i>master</i> branch can analyzed at anty time with respect to any assignment whose due date has passed.  Improperly functioning code on the <i>master</i> branch can effect the grading of an assignment (even after the assignment due date) up to the start of the following semester.
+The <i>master</i> branch must always maintain a working (or stable) version of your code for this course.  Code in the <i>master</i> branch can analyzed at any time with respect to any assignment whose due date has passed.  Improperly functioning code on the <i>master</i> branch can effect the grading of an assignment (even after the assignment due date) up to the assignment of final grades.
 </p>
 
 <p>
-The <i>master</i> branch must always be in compliance with the Michigan Honor Code and Michigan Honor License, as described below in the course Collaboration Policy.  A commit of code to your <i>master</i> branch must be signed with your name and the instructor name at the bottom of the file named LICENSE with an unmodified version of the Michigan Honor License.  Without a properly asserted license file, a code commit to your repository will be considered ineligible for grading as an incomplete submission.
+The <i>master</i> branch must always be in compliance with the <a href="https://bulletin.engin.umich.edu/rules/">Michigan Honor Code</a> and <a href="#collaboration_policy">Michigan Honor License</a>, as described below in the course Collaboration Policy.  To be considered for grading, a commit of code to your <i>master</i> branch must be signed with your name and the instructor name at the bottom of the file named LICENSE with an unmodified version of the Michigan Honor License.  Without a properly asserted license file, a code commit to your repository will be considered ineligible for grading as an incomplete submission.
 </p>
 
 <p>
-If advanced extension features have been implemented and are ready for grading, such features must be listed in the file "advanced_extensions.txt" in the top level directory of the <i>master</i>.  Advanced extension features not listed in this file may not be graded at the discretion of the course staff.
+If advanced extension features have been implemented and are ready for grading, such features must be listed in the file "advanced_extensions.html" in the top level directory of the <i>master</i>.  Advanced extension features not listed in this file may not be graded at the discretion of the course staff.
 </p>
 
 <h4>Branching</h4>
 <p>
-You are encouraged to update your repository often with the help of branching.  Branching allows for you spawn a copy of code in your <i>master</i> branch for development, and merging these changes back into <i>master</i> once successfully updated.  For example, you can create an <i>Assignment-2</i> branch for your work on the second project, as it in development and experimentation, while keeping your <i>master</i> branch stable for grading.  Once you are confident in your implementation of the second project, you can merge your <i>Assignment-2</i> branch back into the <i>master</i> branch.  The <i>master</i> branch at this point will have working stable versions of the first and second projects, which can be graded.  Similarly, an <i>Assignment-3</i> branch can be created for the next project as it develops, and then merged into the <i>master</i> branch when ready for grading.  This configuration allows your work to be continually updated and build upon such that versions are tracked and interruptions due to grading are minimized.
+Sutdents are encouraged to update their repository often with the help of branching.  Branching allows for spawning a copy of code in your <i>master</i> branch into a new branch for development, and then merging these changes back into <i>master</i> once successfully updated.  For example, you can create an <i>Assignment-2</i> branch for your work on the second project, as it in development and experimentation, while keeping your <i>master</i> branch stable for grading.  Once you are confident in your implementation of the second project, you can merge your <i>Assignment-2</i> branch back into the <i>master</i> branch.  The <i>master</i> branch at this point will have working stable versions of the first and second projects, both of which will be eligible for grading.  Similarly, an <i>Assignment-3</i> branch can be created for the next project as it develops, and then merged into the <i>master</i> branch when ready for grading.  This configuration allows your work to be continually updated and build upon such that versions are tracked and interruptions due to grading are minimized.
 </p>
 
 
-<h3>Collaboration Policy</h3>
+<h3 id="collaboration_policy">Collaboration Policy</h3>
 
 <p>
 This collaboration policy covers all course material and assignments unless otherwise stated.  All submitted assignments for this course must adhere to the Michigan Honor License (the <a href="https://opensource.org/licenses/BSD-3-Clause">3-Clause BSD License</a> plus two academic integrity clauses).
 </p>
 
 <p>
-Course material, concepts, and documentation may be discussed with anyone.  Discussion during and examination or quiz is not allowed with anyone other than a member of the course staff.  Assignments may be discussed with the other students at the conceptual level.  Discussions may make use of a whiteboard or paper.  Discussions with others (or people outside of your assigned group) cannot include writing or debugging code on a computer or collaborative analysis of source code that is not your own. You may take notes away from these discussions, provided these notes do not include any source code.
+Course material, concepts, and documentation may be discussed with anyone.  Discussion during and examination or quiz is not allowed with anyone other than a member of the course staff.  Assignments may be discussed with the other students at the conceptual level.  Discussions may make use of a whiteboard or paper.  Discussions with others (or people outside of your assigned project group) cannot include writing or debugging code on a computer or collaborative analysis of source code that is not your own. You may take notes away from these discussions, provided these notes do not include any source code.
 </p>
 
 <p>
-The code for your implementation may not be shown to anyone outside of your group, including granting access to repositories or careless lack of protection. You do not need to hide the screen from anyone, but you should not attempt to show anyone your code. When you are done using any robot device such that another group may use it, you must remove all code you have put onto the device. You may not share your code with others outside of your group. At any time, you may show others the implemented program running on a device or simulator, but you may not discuss specific debugging details about your code while doing so.
+The code for your implementation may not be shown to anyone outside of your assigned project group, including granting access to repositories or careless lack of protection. For example, you do not need to hide the screen of your computer from anyone, but you should not attempt to show anyone your code. When you are done using any robot device such that another group may use it, you must remove all code you have put onto the device. You may not share your code with others outside of your group. At any time, you may show others the implemented program running on a device or simulator, but you may not discuss specific debugging details about your code while doing so.
 </p>
 
 <p>
@@ -538,11 +646,13 @@ Should you fail to abide by this collaboration policy, you will receive no credi
 </p>
 
 <h2 id="schedule">Course Schedule (tentative and subject to change)</h2>
+<!--
 <p>
 Note: Assignment descriptions will have updated assignment due dates.  Assignment due dates listed in the schedule are merely a guide.
 <br>
 Note: Updated lecture slides will be posted after the associated lecture has been given.  Slides provided below are from a previous offering of this course, and provided as a courtesy.
 </p>
+-->
 
 <table cellpadding=5 border=0  width="100%">
 <tr bgcolor="#dddddd">     
@@ -553,7 +663,7 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
 </tr>
 
 <tr>
-    <td><b>Sep 4</b></td>
+    <td><b>Aug 31</b></td>
     <td>
          <!-- 
          <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_01_initialization.pdf">
@@ -563,10 +673,9 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
          Course overview, Robotics roadmap, Path planning quick start<br>
     </td>
     <td>Spong Ch.1<hr>Corke Ch.1</td> 
-    <td>Setup git repository</td> 
+    <td>Setup git repository<br> 
+        Out: <a href="#assignment1">Path Planning</a></td> 
 </tr>
-
-
 <tr>
     <td></td>
     <td>
@@ -578,27 +687,12 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
          Brief history and definitions for robotics<br>
     </td>
     <td></td> 
-    <td>Out: <a href="#assignment1">Path Planning</a></td> 
 </tr>
+
+
 
 <tr>
-    <td><b>Sep 6</b></td>
-    <td>
-         367 Lab: 
-         <a href="labs/autorob_lab_01_git.pdf">
-         Git-ing started with git, JavaScript, and KinEval
-         </a>
-    </td>
-</tr>
-
-
-
-<tr bgcolor="#dddddd">     
-<td></td><td>Week 2</td><td></td><td></td>
-</tr>
-
-<tr>
-    <td><b>Sep 9</b></td>
+    <td><b>Sep 2</b></td>
     <td>
          <!-- 
          -->
@@ -611,25 +705,49 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
     <td></td> 
 </tr>
 
+
 <tr>
-    <td><b>Sep 11</b></td>
+    <td><b>Sep 4</b></td>
+    <td>
+         367 Lab: 
+         <a href="labs/autorob_lab_01_git.pdf">
+         Git-ing started with git, JavaScript, and KinEval
+         </a>
+    </td>
+</tr>
+
+
+<tr bgcolor="#dddddd">     
+<td></td><td>Week 2</td><td></td><td></td>
+</tr>
+
+<tr>
+    <td><b>Sep 7</b></td>
+    <td><b> No course meeting</b> - <a href="https://en.wikipedia.org/wiki/Labor_Day">Labor Day</a></td>
+</tr>
+
+
+<tr>
+    <td><b>Sep 9</b></td>
     <td>
          <!-- 
          -->
          <a href="lectures/autorob_03_jsh5_git.pdf">
-         JavaScript and git tutorial</a>: Project workflow, JS/HTML5, Document Object Model, Data Structures in JS, Animation in JS/H5, Version Control<br>
+         JavaScript and AutoRob workflow</a>: Project workflow with git, JS/HTML5, Document Object Model, Data Structures in JS, Animation in JS/H5, Version Control, LaTeX math mode, Licensing, Michigan Honor License<br>
     </td>
     <td colspan="2">Crockford,<br>
     <a href="examples/sandbox.html">HTML Sandbox</a>,<br>
-    <a href="examples/hello.html">hello.html</a> (<a href="view-source:http://autorob.org/examples/hello.html">source</a>),<br>
-    <a href="examples/js_overview.html">JavaScript by Example</a> (<a href="view-source:http://autorob.org/examples/js_overview.html">source</a>),<br>
-    <a href="examples/hello_anim.html">hello_anim</a> (<a href="view-source:http://autorob.org/examples/hello_anim.html">source</a>),<br>
-    <a href="examples/hello_anim_text.html">hello_anim_text</a> (<a href="view-source:http://autorob.org/examples/hello_anim_text.html">source</a>)
+    <a href="examples/hello.html">hello.html</a><!--(<a href="view-source:http://autorob.org/examples/hello.html">source</a>)-->,<br>
+    <a href="examples/js_overview.html">JavaScript by Example</a><!--(<a href="view-source:http://autorob.org/examples/js_overview.html">source</a>)-->,<br>
+    <a href="examples/hello_anim.html">hello_anim</a><!--(<a href="view-source:http://autorob.org/examples/hello_anim.html">source</a>)-->,<br>
+    <a href="examples/hello_anim_text.html">hello_anim_text</a><!--(<a href="view-source:http://autorob.org/examples/hello_anim_text.html">source</a>)-->
     </td> 
 </tr>
 
+
+
 <tr>
-    <td><b>Sep 13</b></td>
+    <td><b>Sep 11</b></td>
     <td>
          367 Lab: 
          <a href="labs/autorob_lab_02_search_canvas.pdf">
@@ -656,43 +774,7 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
 </tr>
 
 <tr>
-    <td><b>Sep 16</b></td>
-    <td><b> Extended office hours</b> </td>
-    <td></td> 
-    </td> 
-        
-</tr>
-
-
-<tr>
-    <td><b>Sep 18</b></td>
-    <td>Quiz 1</td>
-    </td>
-    <td></td> 
-    <td>Due: Path Planning
-    <br>Out: <a href="#assignment2">Pendularm</a>
-</tr>
-
-<tr>
-    <td><b>Sep 20</b></td>
-    <td>
-         367 Lab:
-         <a href="labs/autorob_lab_03_pendularm.pdf">
-         pendularm1.html code overview
-         </a>
-    </td>
-</tr>
-
-
-
-
-
-<tr bgcolor="#dddddd">     
-<td></td><td>Week 4</td><td></td><td></td>
-</tr>
-
-<tr>
-    <td><b>Sep 23</b></td>
+    <td><b>Sep 14</b></td>
     <td>
          <!-- 
          -->
@@ -712,10 +794,39 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
     <td></td> 
 </tr>
 
+<tr>
+    <td><b>Sep 16</b></td>
+    <td>Quiz 1</td>
+    </td>
+    <td></td> 
+    <td>Due: Path Planning
+    <br>Out: <a href="#assignment2">Pendularm</a>
+</tr>
+
 
 
 <tr>
-    <td><b>Sep 25</b></td>
+    <td><b>Sep 18</b></td>
+    <td>
+         367 Lab:
+         <a href="labs/autorob_lab_03_pendularm.pdf">
+         pendularm1.html code overview
+         </a>
+    </td>
+</tr>
+
+
+
+
+
+<tr bgcolor="#dddddd">     
+<td></td><td>Week 4</td><td></td><td></td>
+</tr>
+
+
+
+<tr>
+    <td><b>Sep 21</b></td>
     <td>
          <!-- 
          -->
@@ -731,23 +842,7 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
 </tr>
 
 <tr>
-    <td><b>Sep 27</b></td>
-    <td>
-         367 Lab: 
-         <a href="labs/autorob_lab_04_pendularm.pdf">
-           pendularm1.html support
-         </a>
-    </td>
-</tr>
-
-
-
-<tr bgcolor="#dddddd">     
-<td></td><td>Week 5</td><td></td><td></td>
-</tr>
-
-<tr>
-    <td><b>Sep 30</b></td>
+    <td><b>Sep 23</b></td>
     <td>
          <!-- 
          -->
@@ -760,9 +855,22 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
 </tr>
 
 
+<tr>
+    <td><b>Sep 25</b></td>
+    <td>
+         367 Lab: 
+         <a href="labs/autorob_lab_04_pendularm.pdf">
+           pendularm1.html support
+         </a>
+    </td>
+</tr>
+
+<tr bgcolor="#dddddd">     
+<td></td><td>Week 5</td><td></td><td></td>
+</tr>
 
 <tr>
-    <td></td>
+    <td><b>Sep 28</b></td>
     <td>
          <!-- 
          -->
@@ -772,30 +880,21 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
          <!-- FUTURE: cover Newton-Euler here -->
     </td>
     <td>Spong 2, 3.1, 3.2 <hr>Corke 7.1-2</td> 
-    <td></td> 
+    <td> </td> 
 </tr>
 
 <tr>
-    <td><b>Oct 2</b></td>
+    <td><b>Sep 30</b></td>
     <td>
-         <!-- 
-         -->
-         <a href="lectures/autorob_08_fk_quaternions.pdf">
-         Axis-angle Rotation and Quaternions</a>: Motors, Euler angles, gimbal lock, Rodrigues rotation, rotation in complex spaces, Dual quaternions and screw coordinates
+         Quiz 2 
     </td>
-    <td>
-        <a href="https://en.wikipedia.org/wiki/Gimbal_lock">Handout 1</a>, 
-        <a href="https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation">2</a>
-        <br>
-           <a href="http://journals.sagepub.com/doi/pdf/10.1177/02783649922066213">Daniilidis 1999</a>
-        <hr>
-        Corke 2.2-3
-    </td> 
+    <td></td> 
     <td>Due: Pendularm<br>Out: <a href="#assignment3">Forward Kinematics</a></td> 
 </tr>
 
+
 <tr>
-    <td><b>Oct 4</b></td>
+    <td><b>Oct 2</b></td>
     <td>
          367 Lab: 
          <a href="labs/autorob_lab_05_kineval.pdf">
@@ -810,26 +909,53 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
 </tr>
 
 <tr>
+    <td><b>Oct 5</b></td>
+    <td>
+         <!-- 
+         -->
+         <a href="lectures/autorob_08_fk_quaternions.pdf">
+         Axis-angle Rotation and Quaternions</a>: Motors, Euler angles, gimbal lock, Rodrigues rotation, rotation in complex spaces, Dual quaternions and screw coordinates
+    </td>
+    <td>
+        <a href="https://en.wikipedia.org/wiki/Gimbal_lock">Handout 1</a>, 
+        <a href="https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation">2</a>
+        <br>
+           <a href="http://journals.sagepub.com/doi/pdf/10.1177/02783649922066213">Daniilidis 1999</a>
+        <hr>
+        Corke 2.2-3
+    </td> 
+    <td></td> 
+</tr>
+
+<tr>
     <td><b>Oct 7</b></td>
     <td>
-         Quiz 2 
+         <!-- 
+         -->
+         <a href="lectures/autorob_09_fsm_subsumption.pdf">
+         Reactive Controllers</a>: Reactive and Deliberative Decision Making, Finite State Machines, Subsumption Architecture<br>
     </td>
-    <td></td> 
     <td>
+         <a href="http://ieeexplore.ieee.org/abstract/document/1087032/">Brooks 1986</a>,
+         <a href="https://ieeexplore.ieee.org/abstract/document/143349">Mataric 1992</a>,
+         <a href="https://ieeexplore.ieee.org/abstract/document/1307247">Platt+ 2004</a>,
+         <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7139412">Cunningham+ 2015</a>
     </td> 
-        
+    <td></td> 
 </tr>
 
 
+<!--
 <tr>
     <td><b>Oct 9</b></td>
     <td><b> Course meeting cancelled</b> - off-site meeting</td>
     <td></td> 
     <td></td> 
 </tr>
+-->
 
 <tr>
-    <td><b>Oct 11</b></td>
+    <td><b>Oct 9</b></td>
     <td>
          367 Lab: Quaternions in KinEval
     </td>
@@ -843,31 +969,48 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
 </tr>
 
 <tr>
-    <td><b>Oct 14</b></td>
-    <td><b> No course meeting</b> - Fall Study Break</td>
-        
-</tr>
+    <td><b>Oct 12</b></td>
 
-
-<tr>
-    <td><b>Oct 16</b></td>
     <td>
          <!-- 
          -->
-         <a href="lectures/autorob_09_fsm_subsumption.pdf">
-         Reactive Controllers</a>: Reactive and Deliberative Decision Making, Finite State Machines, Subsumption Architecture<br>
+         <a href="lectures/autorob_10_pointclouds_middleware.pdf">
+         Robot Middleware</a>: Hardware Abstraction, ROS, LCM, Publish-subscribe messaging, rosbridge, Client-server messaging<br>
+    </td>
     </td>
     <td>
-         <a href="http://ieeexplore.ieee.org/abstract/document/1087032/">Brooks 1986</a>,
-         <a href="https://ieeexplore.ieee.org/abstract/document/143349">Mataric 1992</a>,
-         <a href="https://ieeexplore.ieee.org/abstract/document/1307247">Platt+ 2004</a>,
-         <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7139412">Cunningham+ 2015</a>
+         <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.637.7432&rep=rep1&type=pdf">Quigley+ 2009</a>,
+         <a href="https://april.eecs.umich.edu/pdfs/huang2010.pdf">Huang+ 2010</a>,
+         <a href="http://ocj.name/papers/rctoris_iros2015.pdf">Toris+ 2015</a>
     </td> 
+    <td></td> 
+</tr>
+
+<tr>
+    <td><b>Oct 14</b></td>
+    <td>
+         <!-- 
+         -->
+         <a href="lectures/autorob_11_ik_closedform.pdf">
+         Inverse Kinematics 1 - Closed-form</a>: Joint vs. Endeffector control, Planar 2-link arm, Closed form solutions, Cyclic Coordinate Descent<br>
+    </td>
+    <td>Spong 3.3<hr>Corke 7.3</td> 
     <td>Due: Forward Kinematics<br>Out: <a href="#assignment4">Dance Contest</a></td> 
 </tr>
 
 <tr>
-    <td><b>Oct 18</b></td>
+    <td></td>
+    <td> </td>
+    <td><a href="https://scratch.mit.edu/projects/10607750/">IK robot game</a></td> 
+    <td></td> 
+</tr>
+
+
+
+
+
+<tr>
+    <td><b>Oct 16</b></td>
     <td>
          
          367 Lab: 
@@ -883,6 +1026,12 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
 <tr bgcolor="#dddddd">     
 <td></td><td>Week 8</td><td></td><td></td>
 </tr>
+
+<tr>
+    <td><b>Oct 19</b></td>
+    <td><b> No course meeting</b> - !<del>Fall Study Break</del></td>
+</tr>
+
 
 <!--
 <tr>
@@ -903,45 +1052,23 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
     <td>
          <!-- 
          -->
-         <a href="lectures/autorob_10_pointclouds_middleware.pdf">
-         Robot Middleware</a>: Hardware Abstraction, ROS, LCM, Publish-subscribe messaging, rosbridge, Client-server messaging<br>
+         <a href="lectures/autorob_12_ik_jacobian.pdf">
+         Inverse Kinematics 2 - Non-linear Optimization</a>: Gradient descent, Manipulator Jacobian, Jacobian transpose and pseudoinverse
     </td>
-    </td>
-    <td>
-         <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.637.7432&rep=rep1&type=pdf">Quigley+ 2009</a>,
-         <a href="https://april.eecs.umich.edu/pdfs/huang2010.pdf">Huang+ 2010</a>,
-         <a href="http://ocj.name/papers/rctoris_iros2015.pdf">Toris+ 2015</a>
-    </td> 
+    <td>Spong 4, <a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=86079"> Wang&Chen 1991</a>, <a href="http://math.ucsd.edu/~sbuss/ResearchWeb/ikmethods/iksurvey.pdf">Buss 2009</a>, <a href="https://personal.traclabs.com/~pbeeson/papers/Beeson-humanoids-15.pdf">Beeson+ 2015</a><hr>Corke 8</td> 
     <td></td> 
 </tr>
+
 
 
 <tr>
     <td><b>Oct 23</b></td>
     <td>
-         <!-- 
-         -->
-         <a href="lectures/autorob_11_ik_closedform.pdf">
-         Inverse Kinematics 1 - Closed-form</a>: Joint vs. Endeffector control, Planar 2-link arm, Closed form solutions, Cyclic Coordinate Descent<br>
-    </td>
-    <td>Spong 3.3<hr>Corke 7.3</td> 
-    <td></td> 
-</tr>
-
-<tr>
-    <td></td>
-    <td> </td>
-    <td><a href="https://scratch.mit.edu/projects/10607750/">IK robot game</a></td> 
-    <td></td> 
-</tr>
-
-<tr>
-    <td><b>Oct 25</b></td>
-    <td>
          367 Lab: 
             <a href="lectures/autorob_10_pointclouds_middleware.pdf">
             rosbridge/FK: connect your code to a real robot
             </a>
+            <br>(COVID-19 permitting)
     </td>
 </tr>
 
@@ -953,32 +1080,38 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
 <td></td><td>Week 9</td><td></td><td></td>
 </tr>
 
+<tr>
+    <td><b>Oct 26</b></td>
+    <td> 
+         <!-- 
+         -->
+         <a href="lectures/autorob_13_bugs.pdf">
+         Bug Algorithms</a>: Reaction vs. Deliberation revisted, Bug[0-2], Tangent Bug</a> 
+    </td> 
+    <td>
+     
+         <a href="https://ieeexplore.ieee.org/abstract/document/1104175">Lumelsky+ 1986</a>,
+         <a href="http://www.cs.technion.ac.il/~ehudr/publications/pdf/KamonRR96i.pdf">Kamon+ 1996</a>
+         <hr> 
+         Corke 5
+    </td>
+    <td></td>
+<tr>
+
+
 
 <tr>
     <td><b>Oct 28</b></td>
-
-    <td>
-         <!-- 
-         -->
-         <a href="lectures/autorob_12_ik_jacobian.pdf">
-         Inverse Kinematics 2 - Non-linear Optimization</a>: Gradient descent, Manipulator Jacobian, Jacobian transpose and pseudoinverse
-    </td>
-    <td>Spong 4, <a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=86079"> Wang&Chen 1991</a>, <a href="http://math.ucsd.edu/~sbuss/ResearchWeb/ikmethods/iksurvey.pdf">Buss 2009</a>, <a href="https://personal.traclabs.com/~pbeeson/papers/Beeson-humanoids-15.pdf">Beeson+ 2015</a><hr>Corke 8</td> 
-    <td></td> 
-</tr>
-
-
-
-<tr>
-    <td><b>Oct 30</b></td>
     <td>Quiz 3</td>
     <td></td> 
     <td>Due: Dance Contest <br>Out: <a href="#assignment5">Inverse Kinematics</a></td>
         
 </tr>
 
+
+
 <tr>
-    <td><b>Nov 1</b></td>
+    <td><b>Oct 30</b></td>
     <td>
          367 Lab: 
          <a href="labs/autorob_lab_07_ik.pdf">
@@ -986,6 +1119,7 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
          </a>
     </td>
 </tr>
+
 
 
 <!--
@@ -1008,57 +1142,8 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
 <td></td><td>Week 10</td><td></td><td></td>
 </tr>
 
-
-
 <tr>
-    <td><b>Nov 4</b></td>
-    <td> 
-         <!-- 
-         -->
-         <a href="lectures/autorob_13_bugs.pdf">
-         Bug Algorithms</a>: Reaction vs. Deliberation revisted, Bug[0-2], Tangent Bug</a> 
-    </td> 
-    <td>
-     
-         <a href="https://ieeexplore.ieee.org/abstract/document/1104175">Lumelsky+ 1986</a>,
-         <a href="http://www.cs.technion.ac.il/~ehudr/publications/pdf/KamonRR96i.pdf">Kamon+ 1996</a>
-         <hr> 
-         Corke 5
-    </td>
-    <td></td>
-<tr>
-
-<tr>
-    <td><b>Nov 6</b></td>
-    <td>
-         <!--
-         -->
-         <a href="https://docs.google.com/presentation/d/1U9UOnkoiq7M6xPRR8n7gDFCWzR3ocG3DqrsNQG0Dymw/edit?usp=sharing">
-        ROS/catkin tutorial session</a>
-    </td>
-    <td>
-         <!--
-         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/walk_around_example.mp4">
-         -->
-        Example tutorial result</a>
-    </td> 
-    <td></td>
-</tr>
-
-<tr>
-    <td><b>Nov 8</b></td>
-    <td>
-         367 Lab: ROS/catkin/rosbridge continued
-    </td>
-</tr>
-
-
-<tr bgcolor="#dddddd">     
-<td></td><td>Week 11</td><td></td><td></td>
-</tr>
-
-<tr>
-    <td><b>Nov 11</b></td>
+    <td><b>Nov 2</b></td>
     <td>
 
          <!-- 
@@ -1075,7 +1160,47 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
 </tr>
 
 <tr>
-    <td><b>Nov 13</b></td>
+    <td><b>Nov <</b></td>
+    <td>
+         <a href="https://govote.umich.edu/">
+             Election Day
+         </a>
+    </td>
+</tr>
+
+
+
+<tr>
+    <td><b>Nov 4</b></td>
+    <td>
+         <!--
+         -->
+         <a href="https://docs.google.com/presentation/d/1U9UOnkoiq7M6xPRR8n7gDFCWzR3ocG3DqrsNQG0Dymw/edit?usp=sharing">
+        ROS/catkin tutorial session</a>
+    </td>
+    <td>
+         <!--
+         <a href="http://web.eecs.umich.edu/~ocj/courses/autorob/walk_around_example.mp4">
+         -->
+        Example tutorial result</a>
+    </td> 
+    <td></td>
+</tr>
+
+<tr>
+    <td><b>Nov 6</b></td>
+    <td>
+         367 Lab: ROS/catkin/rosbridge continued
+    </td>
+</tr>
+
+
+<tr bgcolor="#dddddd">     
+<td></td><td>Week 11</td><td></td><td></td>
+</tr>
+
+<tr>
+    <td><b>Nov 9</b></td>
     <td>
          <!-- 
          -->
@@ -1103,11 +1228,32 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
     <a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=182671">Zelinsky 1992</a>
     </td>
     </td>
-    <td>Due: Inverse Kinematics<br> Out: <a href="#assignment6">Motion Planning</a></td> 
+    <td></td> 
 <tr>
 
 <tr>
-    <td><b>Nov 15</b></td>
+    <td><b>Nov 11</b></td>
+    <td> 
+         Quiz 4
+    </td> 
+    <td>
+    </td> 
+    <td>Due: Inverse Kinematics<br> Out: <a href="#assignment6">Motion Planning</a></td> 
+<tr>
+<tr>
+    <td></td>
+    <td> 
+         <a href="https://en.wikipedia.org/wiki/Veterans_Day">Veterans Day</a>
+    </td> 
+    <td>
+    </td> 
+    <td></td> 
+<tr>
+
+
+
+<tr>
+    <td><b>Nov 13</b></td>
     <td>
          367 Lab: search_canvas.html revisited for 2D RRT
     </td>
@@ -1120,13 +1266,6 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
 <td></td><td>Week 12</td><td></td><td></td>
 </tr>
 
-
-
-
-
-
-
-
 <!--
 <tr bgcolor="#dddddd">     
 <td></td><td>Week 13: <a href="http://www.nationalroboticsweek.org/">National Robotics Week</a></td><td></td><td></td>
@@ -1134,7 +1273,7 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
 -->
 
 <tr>
-    <td><b>Nov 18</b></td>
+    <td><b>Nov 16</b></td>
     <td>
          <!-- 
          -->
@@ -1148,17 +1287,15 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
 </tr>
 
 <tr>
-    <td><b>Nov 20</b></td>
-    <td> 
-         Quiz 4</a> 
-    </td> 
+    <td><b>Nov 18</b></td>
     <td>
-    </td> 
-    <td></td> 
-<tr>
+         Full circle: robot operating systems
+    </td>
+</tr>
+
 
 <tr>
-    <td><b>Nov 22</b></td>
+    <td><b>Nov 20</b></td>
     <td>
          367 Lab: 
          <a href="labs/autorob_lab_08_rrt.pdf">
@@ -1174,9 +1311,20 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
 </tr>
 
 <tr>
+    <td><b>Nov 23-27 </b></td>
+    <td>
+        <b> Course meeting cancelled</b> - <a href="https://en.wikipedia.org/wiki/Thanksgiving">Thanksgiving</a> Recess
+    </td>
+    <td></td> 
+    <td></td> 
+</tr>
+
+<!--
+
+<tr>
     <td><b>Nov 25 </b></td>
     <td>
-        Extended Office Hours - 
+        <b> Course meeting cancelled</b> - <a href="https://en.wikipedia.org/wiki/Thanksgiving">Thanksgiving</a> Recess
     </td>
     <td></td> 
     <td></td> 
@@ -1187,11 +1335,12 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
 <tr>
     <td><b>Nov 27 </b></td>
     <td>
-        <b> Course meeting cancelled</b> - Thanksgiving Recess
+        <b> Course meeting cancelled</b> - <a href="https://en.wikipedia.org/wiki/Thanksgiving">Thanksgiving</a> Recess
     </td>
     <td></td> 
     <td></td> 
 </tr>
+-->
 
 <!--
 <tr>
@@ -1207,10 +1356,17 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
 <td></td><td>Week 14</td><td></td><td></td>
 </tr>
 
+<tr>
+    <td><b>Nov 30</b></td>
+    <td>
+        Selected topics for further study
+    </td>
+    <td></td> 
+<tr>
 
 
 <tr>
-    <td><b>Dec 2</b></td>
+    <td></td>
     <td>
          <!--
          <a href="slides will go here">
@@ -1243,7 +1399,7 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
 </tr>
 
 <tr>
-    <td><b>Dec 4</b></td>
+    <td></td>
     <td>
          <!--
          <a href="slides will go here">
@@ -1253,8 +1409,18 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
     <td><a href="http://www.cc.gatech.edu/~dellaert/pub/Dellaert99icra.pdf">Dellaert+ 1999</a>,<br>
     <a href="https://april.eecs.umich.edu/pdfs/olson2006icra.pdf">Olson+ 2006,</a><br>
     <a href="http://ocj.name/papers/zsui_iros2017.pdf">Sui+ 2017</a></td> 
-    <td>Due: Motion Planning</td> 
+    <td></td> 
 <tr>
+
+<tr>
+    <td><b>Dec 2</b></td>
+    <td>
+         Quiz 5 
+    </td>
+    <td></td> 
+    <td>Due: Motion Planning</td> 
+</tr>
+
 
 
 
@@ -1262,15 +1428,6 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
 <tr bgcolor="#dddddd">     
 <td></td><td>Week 15</td><td></td><td></td>
 </tr>
-
-<tr>
-    <td><b>Dec 9</b></td>
-    <td>
-         Quiz 5 
-    </td>
-    <td></td> 
-</tr>
-
 
 <!--
 <tr>
@@ -1282,19 +1439,24 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
 -->
 
 <tr>
-    <td><b>Dec 11</b></td>
+    <td><b>Dec 7</b></td>
     <td>Due: Best Use of Robotics</td>
     <td></td>
     <td></td> 
 <tr>
 
+<tr>
+    <td><b>Dec 11</b></td>
+    <td>Grading finalized</td> 
+<tr>
 
 
+
+<!--
 <tr bgcolor="#dddddd">     
-<td></td><td><!--Week 16--></td><td></td><td></td>
+<td></td><td>Week 16</td><td></td><td></td>
 
 </tr>
-<!--
 <tr>
     <td><b>Dec 10</b></td>
     <td>Due: Best Use of Robotics</td>
@@ -1302,11 +1464,6 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
     <td></td> 
 <tr>
 -->
-
-<tr>
-    <td><b>Dec 13</b></td>
-    <td>Grading finalized</td> 
-<tr>
 
 <!--
 
