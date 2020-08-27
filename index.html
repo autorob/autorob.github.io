@@ -1745,16 +1745,37 @@ As an introduction to building your own robot simulator, your task is to impleme
 </center>
 </p>
 
+<h3>Features Overview</h3>
+
+<p>
+  This assignment requires the following features to be implemented in the corresponding files in your repository:
+</p>
+
+<ul>
+  <li> <p>Euler integrator in "project_pendularm/pendularm1.html"</p></li>
+  <li> <p>Velocity Verlet integrator in "project_pendularm/pendularm1.html"</p></li>
+  <li> <p>PID controller in "project_pendularm/pendularm1.html"</p></li>
+  <li> <p>[Grad section only] Verlet integrator in "project_pendularm/pendularm1.html"</p></li>
+  <li> <p>[Grad section only] Runge-Kutta 4 integrator in "project_pendularm/pendularm1.html"</p></li>
+  <li> <p>[Grad section only] Double pendulum implementation in "project_pendularm/pendularm2.html"</p></li>
+</ul>
+
+<p>
+  Points distributions for these features can be found in the <a href="#project_rubric">project rubric section</a></td>. More details about each of these features and the implementation process are given below.
+</p>
+
 <!-- 
 <!-- (uncomment marker begin 2)
 -->
 
+<h3>Implementation Instructions </h3>
+
 <p>
-The code stencil for the Pendularm assignment is available within the "pendularm" subdirectory of KinEval in the file <a href="https://github.com/autorob/kineval-stencil/blob/master/project_pendularm/pendularm1.html">pendularm1.html</a>.
+The code stencil for the Pendularm assignment is available within the "project_pendularm" subdirectory of KinEval in the file <a href="https://github.com/autorob/kineval-stencil/blob/master/project_pendularm/pendularm1.html">pendularm1.html</a>.
 </p>
 
 <p>
-For physical simulation, you will implement several numerical integrators for a pendulum with parameters specified in the code stencil.  The numerical integrator will advance the state (angle and velocity) of the pendulum in time given the current acceleration (generated from the pendulum equation of motion).  If implemented successfully, this ideal pendulum should oscillate about the vertical (where the angle is zero) and with an amplitude that preserves the initial height of the pendulum bob.
+For physical simulation, you will implement several numerical integrators for a pendulum with parameters specified in the code stencil.  The numerical integrator will advance the state of the pendulum (angle and velocity) in time given the current acceleration, which your pendulum_acceleration function should compute using the pendulum equation of motion. Your code should update the angle and velocity in the pendulum object (pendulum.angle and pendulum.angle_dot) for the visualization to access. If implemented successfully, this ideal pendulum should oscillate about the vertical (where the angle is zero) and with an amplitude that preserves the initial height of the pendulum bob.
 </p>
 
 
@@ -1770,7 +1791,7 @@ Students enrolled in the undergraduate section will implement numerical integrat
 
 
 <p>
-For motion control, students in both undergraduate and sections will implement a <a href="http://en.wikipedia.org/wiki/PID_controller">proportional-integral-derivative controller</a> to control the system's motor to a desired angle.  This PID controller should output control forces integrated into the system's dynamics.  You will need to tune the gains of the PID controller for stable and timely motion to the desired angle for pendulum with parameters: length=2.0, mass=2.0, gravity=9.81.  
+For motion control, students in both undergraduate and sections will implement a <a href="http://en.wikipedia.org/wiki/PID_controller">proportional-integral-derivative controller</a> to control the system's motor to a desired angle.  This PID controller should output control forces integrated into the system's dynamics.  You will need to tune the gains of the PID controller for stable and timely motion to the desired angle for a pendulum with parameters: length=2.0, mass=2.0, gravity=9.81. These default values are also provided directly in the init() function.
 </p>
 
 <p>
@@ -1800,7 +1821,7 @@ Students enrolled in the graduate section will implement numerical integrators f
 </ul>
 
 <p>
-to simulate and control both a single pendulum (in "pendulum1.html") and a double pendulum (by creating "pendulum2.html").  A code stencil update will be provided for pendularm2.  The double pendulum is allowed to have a smaller timestep than the single pendulum, within reasonable limits. A working visualization for the double pendularm will look similar to the following:
+to simulate and control both a single pendulum (in "pendulum1.html") and a double pendulum (in "pendulum2.html"). The double pendulum is allowed to have a smaller timestep than the single pendulum, within reasonable limits. A working visualization for the double pendularm will look similar to the following:
 </p>
 
 <p>
