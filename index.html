@@ -2829,45 +2829,44 @@ The pitch judged to be the most convincing will get first dibs.
 <br>
 <h1>Additional Materials</h1>
 
-<h2 id="git_tutorial">Appendix: Git-ing Started with Git</h2>  
+<h2 id="git_tutorial">Appendix: Git-ing Started with Git</h2>
 
 <p>
-Using version control effectively is an essential skill for both the AutoRob course and, more generally, contributing to advanced projects in robotics research and development.  git is arguably the most widely used version control system at current.  Examples of the many robotics projects using git include: 
+Using version control effectively is an essential skill for both the AutoRob course and, more generally, contributing to advanced projects in robotics research and development.  Git is arguably the most widely used version control system at the current time.  Examples of the many robotics projects using Git include:
 <a href="https://github.com/lcm-proj">Lightweight Communications and Marshalling</a>,
 <a href="https://github.com/ros">the Robot Operating System</a>,
 <a href="https://github.com/RobotWebTools">Robot Web Tools</a>,
-<a href="https://github.com/fetchrobotics">Fetch Robotics</a>,
-<a href="https://bitbucket.org/nasa_ros_pkg/nasa_r2_simulator">the NASA Robonaut 2</a>, and
+<a href="https://github.com/fetchrobotics">Fetch Robotics</a>, and
 <a href="https://github.com/RethinkRobotics">the Rethink Baxter</a>.
-To help you use git effectively, the course staff has added the tutorials below for getting started with git.
-This is meant to be a starting guide to using git version control and the bash command shell.  For a more complete list of commands and features of git, you can refer to the following guides: <a href="http://git-scm.com/book/en/v2/Getting-Started-Installing-Git">The Git Pro book</a> or The <a href="http://www.mathworks.com/help/instrument/using-tcpip-server-sockets.html">Basic git command line reference for windows users</a>. An interactive tutorial for git is available at <a href="http://learngitbranching.js.org/">LearnGitBranching</a>.
+To help you use Git effectively, the course staff has added the tutorials below for getting started with Git.
+This is meant to be a starting guide to using Git version control and the bash command shell.  For a more complete list of commands and features of Git, you can refer to the following guides: <a href="http://git-scm.com/book/en/v2/Getting-Started-Installing-Git">The Git Pro book</a> or The <a href="http://johnatten.com/2012/09/08/basic-git-command-line-reference-for-windows-users/">Basic Git command line reference for windows users</a>. An interactive tutorial for Git is available at <a href="http://learngitbranching.js.org/">LearnGitBranching</a>.
 </p>
 
 
 
-<h3>Installing git</h3>
+<h3>Installing Git</h3>
 
 <p>
-The AutoRob course assumes git is used from an command line terminal to work with a git hosting service, such as <a href="github.com">GitHub</a> or <a href="bitbucket.com">Bitbucket</a>.  Such terminal environments are readily available in Linux and Mac OSX through their respective terminal programs.  For MS Windows, we are recommending Git Bash, which can be downloaded from the <a href="https://gitforwindows.org/">Git for Windows</a> project.  Several other viable alternatives git clients exist, such as the GUI-based <a href="https://www.gitkraken.com/">GitKraken</a>.  
+The AutoRob course assumes Git is used from a command line terminal to work with a Git hosting service, such as <a href="https://github.com">GitHub</a>, <a href="https://bitbucket.com">Bitbucket</a>, or <a href="https://gitlab.eecs.umich.edu/">EECS GitLab</a>.  Such terminal environments are readily available in Linux and Mac OSX through their respective terminal programs.  For MS Windows, we recommend Git Bash, which can be downloaded from the <a href="https://gitforwindows.org/">Git for Windows</a> project.  Several other viable alternatives Git clients exist, such as the GUI-based <a href="https://www.gitkraken.com/">GitKraken</a>.  
 </p>
 
 <p>
-git can be installed on Linux through a common package managment system, based on your distribution, with one of the following commands:
+Git can be installed on Linux through the package managment system used by your Linux distro, likely with one of the following commands:
 </p>
 
 <pre style="color:black"><code data-language="javascript">
-sudo yum install git-all
+    sudo yum install git-all
 </code></pre>
 <pre style="color:black"><code data-language="javascript">
-sudo apt-get install git-all
+    sudo apt install git
 </code></pre>
 
 <p>
-For Mac OSX, git can be installed on its own using the <a href="https://sourceforge.net/projects/git-osx-installer/">Git-OSX-Installer</a> or as part of larger set of <a href="https://en.wikipedia.org/wiki/Xcode">Xcode</a> build tools. 
+For Mac OSX, Git can be installed on its own using the <a href="https://sourceforge.net/projects/git-osx-installer/">Git-OSX-Installer</a> or as part of larger set of <a href="https://en.wikipedia.org/wiki/Xcode">Xcode</a> build tools. 
 </p>
 
 <p>
-If you have a command line terminal running, you should see a shell environment that looks something like this (screenshot from an older version of Git Bash):
+If you open the "Git Bash" program on Windows or the "Terminal" program on Mac OSX or Linux, you should see a shell environment that looks something like this (screenshot from an older version of Windows Git Bash):
 </p>
 
 <center>
@@ -2875,7 +2874,7 @@ If you have a command line terminal running, you should see a shell environment 
 </center>
 
 <p>
-If you have git installed, you should should be able to enter the "git" command and see the following usage information printed (screenshot from OSX):
+If you have Git installed, you should should be able to enter the "git" command and see the following usage information printed (screenshot from OSX):
 </p>
 
 <center>
@@ -2885,87 +2884,99 @@ If you have git installed, you should should be able to enter the "git" command 
 <h3>Cloning your repository</h3>
 
 <p>
-The most common thing that you will need to do is pull and push files from and to your git hosting service. Upon opening Git Bash, you will need to go to the location of <b>both</b> your GitHub/Bitbucket repository on the web and your git workspace on your local computer.  Our first main step is to clone your remote repository onto your local computer.  Towards this end, the next step is to open your terminal application and determine your current directory, assuming you will use this directory to create a workspace.  For Linux and OSX, the terminal should start in your home directory, often "/home/username" or "/Users/username".  For Git Bash on Windows, the default home directory location could be the Documents in your user directory, or the general user folder within "C:\Users". 
+The most common thing that you will need to do is pull and push files from and to your Git hosting service. Upon opening Git Bash or the terminal, you will need to go to the location of <b>both</b> your GitHub/Bitbucket/GitLab repository on the web and your Git workspace on your local computer.  Our first main step is to clone your remote repository onto your local computer.  Towards this end, the next step is to determine your current directory, assuming you will use this directory to create a workspace.  For Linux and OSX, the terminal should start in your home directory, often "/home/username" or "/Users/username".  For Git Bash on Windows, the default home directory location could be the Documents in your user directory, or the general user folder within "C:\Users".
 </p>
 
 <p>
-From your current directory, you can use Bash commands to view and modify the contents of directories and files.  You can see a list of the files and folders that can be accessed using ls (list) and change the folder using the command cd (change directory) as shown below. If you believe that the directory has files in addition to folders, but would like a list of just the folders, then the command ls –d */ can be used instead of ls.  Below is a quick summary of relevant Bash commands:
+From your current directory, you can use Bash commands to view and modify the contents of directories and files.  You can see a list of the files and folders that can be accessed using ls (list) and change the folder using the command cd (change directory) as shown below. If you believe that the directory has files in addition to folders, but would like a list of just the folders, then the command ls –d */ can be used instead of ls.  Below is a quick summary of relevant Bash commands (or reference the <a href="https://files.fosswire.com/2007/08/fwunixref.pdf">cheat sheet here</a>):
 </p>
 
 <p>
 <ul>
 <li>"ls" prints a listing of files in the current directory
 <li>"pwd" prints the location of the current directory in the filesystem
-<li>"cd [NameFolder]" moves the terminal to a new directory in the filesystem
+<li>"cd [FolderName]" moves the terminal to a new directory in the filesystem
 <li>"ls [Expression]" prints a listing of files in the current directory matching the given Expression; ls r* prints all files starting with the character 'r'
-<li>"mkdir [NameFolder]" creates a folder within the current directory. If the folder name has spaces, then NameFolder will need to be in double quotes.
-<li>"rmdir [NameFolder]" removes a specified empty folder. If it is not empty, the folder will not be removed.
-<li>"rm –rf [NameFolder]" removes a specified folder and all the contents
-<li>"touch [FileName]" creates a single empty text file
+<li>"mkdir [FolderName]" creates a folder within the current directory. If the folder name has spaces, then NameFolder will need to be in double quotes.
+<li>"rmdir [FolderName]" removes a specified empty folder. If it is not empty, the folder will not be removed.
+<li>"rm –rf [FolderName]" removes a specified folder and all the contents
+<li>"touch [FileName]" creates a single empty text file. Note: file names cannot have spaces!
 <li>"touch [FIleName1.txt] [FileName2.txt]..." creates multiple empty text files
 <li>"rm [FileName]" removes a specific file from the current directory
-<li>"rm –i <FileName]" confirmation prompt required before removing file from current directory. The file name cannot have spaces.
+<li>"rm –i [FileName]" confirmation prompt required before removing file from current directory.
 <li>"rm –v [FileName]" removes the file and reports in console
 </ul>
 </p>
 
 <p>
-You are now ready to clone a copy of your remote repository and populate it with files for AutoRob projects.  It assumed that you have already created a repository on your git hosting service, given the course staff access to this repository, and provided a link of your repository to the course staff.  This repository link (in the form of "https://github.com/user_name/repository_name.git") will now be used to clone a copy of your remote repository onto your local machine using the following git command below.  This command will clone the repository contents to a subdirectory labeled with the name of the repository:
+Once you have navigated to the directory where you want to create your workspace, you are ready to clone a copy of your remote repository and populate it with files for AutoRob projects.  It assumed that you have already created a repository on your Git hosting service, given the course staff access to this repository, and provided a link of your repository to the course staff.  You will need the repository link in the form of "https://github.com/user_name/repository_name.git" if you are using HTTPS (default) or "git@github.com:user_name/repository_name.git" if you are using SSH (only if you have set up your SSH keys). You'll use this link to clone a copy of your remote repository onto your local machine using the following git command below.  This command will clone the repository contents to a subdirectory labeled with the name of the repository:
 </p>
 
 <pre style="color:black"><code data-language="javascript">
-  git clone [repository URL link]
+    git clone [repository URL link]
 </code></pre>
 
 <p>
-This directory should be listed and inspected to ensure it has been cloned with the contents of the repository, matching the remote repository from your git hosting service.  If this is a new repository, it is not problem for this directory to be empty:
+This directory should be listed and inspected to ensure it has been cloned with the contents of the repository, matching the remote repository from your Git hosting service.  If this is a new repository, it is not problem for this directory to be empty:
 </p>
 
 <pre style="color:black"><code data-language="javascript">
-  ls [repository_name]
+    ls [repository_name]
 </code></pre>
 
 <p>
-You can also check for differences between the files on your computer and the remote repository using git status as shown below.  If you receive the message shown in the example below, then there are no differences. If there are differences, then it will have the number of files which are different highlighted in red. 
+After cloning has finished, you can also check for differences between the files on your computer and the remote repository by running the "git status" command in from within your newly-created directory as shown below.  If you receive the message shown in the example below, then there are no differences. If there are differences, then it will have the number of files which are different highlighted in red.
 </p>
 
 <pre style="color:black"><code data-language="javascript">
-$ git status
-On branch master
-Your branch is up-to-date with 'origin/master'.
-nothing to commit, working directory clean
+    $ git status
+    On branch master
+    Your branch is up-to-date with 'origin/master'.
+    nothing to commit, working directory clean
 </code></pre>
 
 <h3>Important: workspace is not the same as repository</h3>
 
 <p>
-You should now have a local copy of your repository with a workspace in a subdirectory.  It is critical to note that your local repository is different than the subdirectory with your current workspace.  Your workspace is not automatically tracked by the version control system and considered ephemeral.  Any changes made to your workspace must be committed back into the local repository to be recognized by the version control system.  Further, any changes committed to your local repository must also be pushed remotely to be recognized by your git hosting service.  Thus, any changes made to your workspace can be lost if not committed and pushed, which will be discussed more in later sections.
+You should now have a local copy of your repository.  It is critical to note that your local repository is different than your current workspace.  Your workspace is not automatically tracked by the version control system and considered ephemeral.  Any changes made to your workspace must be committed into the local repository to be recognized by the version control system.  Further, any changes committed to your local repository must also be pushed remotely to be recognized by your Git hosting service.  Thus, any changes made to your workspace can be lost if not committed and pushed, which will be discussed more in later sections.
 </p>
 
 <h3>Populating your repository with project stencil code</h3>
 
 <p>
-In a separate directory, clone the kineval-stencil repository to a subdirectory on your local machine:
+Use the "git remote" command to add a second remote repostiory to your new local repository:
 </p>
 
 <pre style="color:black"><code data-language="javascript">
-  cd [home_directory]
-  git clone git@github.com:autorob/kineval-stencil.git 
+    cd [repository_name]
+    git remote add upstream https://github.com/autorob/kineval-stencil.git
 </code></pre>
 
 <p>
-Inspect this directory to ensure it has been cloned with the contents of the repository:
+Now pull the files from the autorob remote with the following command:
 </p>
 
 <pre style="color:black"><code data-language="javascript">
-  cd kineval-stencil
-  ls
+    git pull upstream master
 </code></pre>
 
 <p>
-and open "home.html" from this directory in a web browser and ensure you see the starting point picture below:
+  Note: The above command may not work if your local repository has preexisting commits in it. ONLY if you are having trouble with the pull command, you can try the following command instead:
+</p>
+
+<pre style="color:black"><code data-language="javascript">
+    git reset --hard upstream/master
+</code></pre>
+<p>
+  The "reset --hard" command will erase files and history, so be extra careful that you are not overwriting an important repository here!
+</p>
+
+<h3>Testing out the stencil code</h3>
+
+<p>
+Your folder should now be populated with the KinEval files. Open "home.html" in a web browser and ensure you see the starting point page pictured below:
 <!--
-for <a href="#assignment1">Assignment 1</a>.  
+for <a href="#assignment1">Assignment 1</a>.
 -->
 </p>
 
@@ -2976,7 +2987,7 @@ If your browser throws an error when loading "home.html", one potential cause is
 </p>
 
 <pre style="color:black"><code data-language="javascript">
-  python -m SimpleHTTPServer
+    python -m SimpleHTTPServer
 </code></pre>
 
 <p>
@@ -2984,52 +2995,19 @@ Alternatively, if you have nodejs installed, you can install and start a HTTP wi
 </p>
 
 <pre style="color:black"><code data-language="javascript">
-  npm install simple-server
-  node simple-server
+    npm install simple-server
+    node simple-server
 </code></pre>
-
-
-<p>
-Once you are able to load and view "home.html", the next step is to copy the kineval-stencil files to the directory with your workspace
-</p>
-
-<pre style="color:black"><code data-language="javascript">
-  cd [home directory]
-  cp -r kineval-stencil/* [repository_name]/
-</code></pre>
-
-<p>
-IMPORANT: ensure that this copy from kineval-stencil to your repository does not include the ".git" subdirectory.  The ".git" subdirectory is the actual git repository on your local computer, where as the directory itself is your (ephemeral) workspace outside of git.
-</p>
-
-<p>
-As these copied files are new to your working repository, they need to be added to the repository to ensure they are tracked for version control.  These files are added with the following commands:
-</p>
-
-<pre style="color:black"><code data-language="javascript">
-  cd [repository name]
-  git add * 
-</code></pre>
-
-<p>
-Below is a more detailed summary of git commands for adding files from your workspace to your repository:
-</p>
-
-<ul>
-<li>"git add" adds changed files to the next commit. There are several different options which can follow this command. 
-<li>"git add –A: adds all new files and changes to the next commit including deletions
-<li>"git add ." adds all new files and changes to the next commit without deletions
-<li>"git add –u" adds all changes to the next commit without new files
-</ul>
 
 <h3>Commit and push to update your repository</h3>
 
 <p>
-Whenever you make any significant changes to your repository, these changes should be committed to your local repository and pushed to your remote repository.  Such changes can involve adding new files or modifying existing files in your local workspace.  For such changes, you will first commit changes from your workspace to your local repository using the git commit command:
+Whenever you make any significant changes to your repository, these changes should be committed to your local repository and pushed to your remote repository.  Such changes can involve adding new files or modifying existing files in your local workspace.  For such changes, you will first commit changes from your workspace to your local repository using the "git add" then "git commit" commands:
 </p>
 
 <pre style="color:black"><code data-language="javascript">
-git commit -a -m "message describing changes"
+    git add [FileName]
+    git commit -m "message describing changes"
 </code></pre>
 
 <p>
@@ -3037,7 +3015,7 @@ and then pushing these changes from your local repository to a synced repository
 </p>
 
 <pre style="color:black"><code data-language="javascript">
-git push
+    git push
 </code></pre>
 
 <p>
@@ -3049,26 +3027,38 @@ Note: the change files must be located in the correct repository folder on your 
 </p>
 
 <ul>
-<li>"git commit" commits files with changes. There are several options that can follow this. The message text is required and is good practice to list changes that you have made. GitHub is good at tracking changes.
-<li>"git commit [FileName] -m 'Message'" commits changes to a specific file
-<li>"git commit –a “Message'" commits all files changed since last commit
-<li>"git commit –a –m “Message'" commits all files changed since last commit but not new files
-<li>"git push" pushes the committed changes to remote repository 
+<li>"git add" adds changed files to the next commit. There are several different options which can follow this command.
+<li>"git add –A" adds all new files and changes to the next commit including deletions (not recommended)
+<li>"git add –u" adds all changes to the next commit without new files
+<li>"git add [FileName]" add all changes to a specific file to the next commit
+<li>"git commit" commits files that have been staged with a "git add" command. A commit message (specified with "-m") is required and is good practice to list changes that you have made.
+<li>"git commit –m "Message"" commits all files staged with "git add"
+<li>"git push" pushes the committed changes to remote repository
 </ul>
 
 <p>
-Once you have committed and pushed, your local workspace becomes redundant as your changes have been stored and tracked remotely.  The local workspace can now be deleted without concern.  This local workspace can also be updated with changes to the remote repository by pulling.
+  Note: If you are unsure about the options to use with these commands or any other git command, "-h" is your friend. Try the following commands:
+</p>
+
+<pre style="color:black"><code data-language="javascript">
+    git add -h
+    git commit -h
+    git push -h
+</code></pre>
+
+<p>
+Once you have committed and pushed, your changes have been safely stored and tracked remotely.  The local workspace <i>could</i> now be deleted without concern.  This local workspace can also be updated with changes to the remote repository by pulling.
 </p>
 
 <h3>Pulling remote changes</h3>
 
 <p>
-Changes be made to your remote repository, potentially by other collaborators, without being tracked by your local repository.  This can lead to potential versioning conflicts when committed changes contradict each other.  For the AutoRob course, versioning conflicts should not be a problem because commits to your repository should be yours alone.  That said, one good practice is to ensure your workspace, local repository, and remote repository are synced before making any changes.  A brute force method for doing this is to re-clone your repository each time you begin to make changes.  Another option is to pull remote changes into your local repository and workspace using the git pull command (or git fetch command):
+Changes can be made to your remote repository, potentially by other collaborators, without being continuously tracked by your local repository.  This can lead to potential versioning conflicts when committed changes contradict each other.  For the AutoRob course, versioning conflicts should not be a problem because commits to your repository should be yours alone.  That said, one good practice is to ensure your workspace, local repository, and remote repository are synced before making any changes.  A brute force method for doing this is to re-clone your repository each time you begin to make changes.  Another option is to pull remote changes into your local repository and workspace using the git pull command:
 </p>
 
 <pre style="color:black"><code data-language="javascript">
-cd [repository_name]
-git pull
+    cd [repository_name]
+    git pull
 </code></pre>
 
 <p>
@@ -3076,8 +3066,8 @@ Below is a more detailed summary of git commands for pulling and fetching:
 </p>
 
 <ul>
-<li>"git pull [RemoteName]" is used for retrieving commits and merging the files to what is already on the computer. This may make changes to the files that are already there; effectively, this is a fetch followed by a merge.  If you need to pull directly from the repository which already exists and has been accessed through the change directory command, then you do not list a [RemoteName]. 
-<li>"git fetch <RemoteName>" used for retrieving commits from a repository that does not already exist on the user’s computer. This creates an exact copy of the files to your local repository and not to the workspace. 
+<li>"git pull [RemoteName]" is used for retrieving commits and merging the files into what is already in the local workspace. This may make changes to the files that are already there; effectively, this is a fetch followed by a merge. You do not need the [RemoteName] parameter if you are pulling from your default remote
+<li>"git fetch [RemoteName]" is used for retrieving commits from a remote repository <i>without</i> merging them into the workspace. This creates a copy of the updates in your local repository but does not apply them to the workspace.
 </ul>
 
 <!--
@@ -3091,15 +3081,15 @@ git reset HEAD [FileName] remove a file from the next commit
 <h3>Branching</h3>
 
 <p>
-Branching is an effective mechanism for work in a repository to be done in parallel with changes merged at a later point.  A branch essentially creates a copy of your work at a particular version.  Branches are independently tracked by the version controller and can be merged together when requested (which collaboratively results in a "pull request").  The larger story for branching and merging is outside the scope of AutoRob.
+Branching is an effective mechanism for work in a repository to be done in parallel with changes merged at a later point.  A branch essentially creates a copy of your work at a particular version.  Branches are independently tracked by the version controller and can be merged together when requested (which can result in a "pull request" when you're working on a repository in collaboration with others).  The larger story for branching and merging is outside the scope of AutoRob.
 </p>
 
 <p>
-The working version of your code, which you submit for grading, is expected to be in the "<i>master</i>" branch of your repository.  When working on a new assignment, it is recommend that you create a branch for this new work.  This allows your stable code in the master branch to be undisturbed while you continue to modify your code.  Once your work for this assignment is done, you can then update your <i>master</i> by merging in your assignment branch.  Stylistically, it is helpful to use the name <i>Assignment-X</i> for your assignment branch for Project number <i>X</i>.
+The working version of your code, which you submit for grading, is expected to be in the <i>master</i> branch of your repository.  When working on a new assignment, it is recommend that you create a branch for this new work.  This allows your stable code in the <i>master</i> branch to be undisturbed while you continue to modify your code.  Once your work for this assignment is done, you can then update your <i>master</i> by merging in your assignment branch.  Stylistically, it is helpful to use a branch name like <i>Assignment-X</i> for your assignment branch for project number <i>X</i>.
 </p>
 
 <p>
-The simplest means for branching in this context is to use the branching feature from the webpage of your remote repository.  From GitHub, simply select the master branch from the "Branch: " button and enter the name of the branch to be created.  From Bitbucket, select the "Branches" icon from the left hand toolbar and follow the instructions for branch creation.  If successful, you should see a list of branches that can each be inspected for their respective contents.  Branches can also be deleted from this interface.
+The simplest means for branching in this context is to use the branching feature from the webpage of your remote repository.  From GitHub, simply select the master branch from the "Branch: " button and enter the name of the branch to be created.  From Bitbucket, select the "Branches" icon from the left hand toolbar and follow the instructions for branch creation.  If successful, you should see a list of branches that can each be inspected for their respective contents.  Branches can also be deleted from this interface. You will need to pull from your remote repository after creating any branches from this interface to see them in your local repository.
 </p>
 
 <p>
@@ -3107,7 +3097,7 @@ A branch can also be created from the command line by the following, which will 
 </p>
 
 <pre style="color:black"><code data-language="javascript">
-git branch [branch_name]
+    git branch [branch_name]
 </code></pre>
 
 <p>
@@ -3115,7 +3105,7 @@ You can switch between branches with the following command:
 </p>
 
 <pre style="color:black"><code data-language="javascript">
-git checkout [branch_name]
+    git checkout [branch_name]
 </code></pre>
 
 <p>
@@ -3123,7 +3113,7 @@ as well as clone a specific branch from a repository:
 </p>
 
 <pre style="color:black"><code data-language="javascript">
-git clone -b [branch_name] [repository URL link]
+    git clone -b [branch_name] [repository URL link]
 </code></pre>
 
 <p>
