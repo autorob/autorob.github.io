@@ -1994,7 +1994,7 @@ Forward kinematics (FK) forms the core of our ability to purposefully control th
 </center>
 
 <p>
-In this assignment, you will render the forward kinematics of an arbitrary robot, given an arbitrary kinematic specification.  A collection of specifications for various robots is provided in the "robots" subdirectory of the KinEval code stencil.  These robots include the Rethink Robotics' Baxter and Sawyer robots, the Fetch mobile manipulator, and a variety of example test robots, as shown in the "Invoking Forward Kinematics" section below.  To render the robot properly, you will compute matrix coordinate frame transforms for each link and joint of the robot based on the parameters of its hierarchy of joint configurations.  The computation of the matrix transform for each joint and link will allow KinEval's rendering support routines to properly display the full robot.  We will assume the joints will remain in their zero position, saving joint motion for the next assignment.  
+In this assignment, you will render the forward kinematics of an arbitrary robot, given an arbitrary kinematic specification.  A collection of specifications for various robots is provided in the "robots" subdirectory of the KinEval code stencil.  These robots include the Rethink Robotics' Baxter and Sawyer robots, the Fetch mobile manipulator, and a variety of example test robots, as shown in the "Desired Results" section below.  To render the robot properly, you will compute matrix coordinate frame transforms for each link and joint of the robot based on the parameters of its hierarchy of joint configurations.  The computation of the matrix transform for each joint and link will allow KinEval's rendering support routines to properly display the full robot.  We will assume the joints will remain in their zero position, saving joint motion for the next assignment.  
 </p>
 
 <!-- 
@@ -2117,6 +2117,10 @@ if (kineval.params.just_starting == true) {
 }
 </code></pre>
 
+<p>
+  <b>Note:</b> The stencil in "kineval/kineval_forward_kinematics.js" states that the user interface reuqires "robot_heading" and "robot_lateral", but these are for Assignment 4. You do not need these variables for this assignment.
+</p>
+
 <h3>Desired Results</h3>
 
 <p>
@@ -2178,15 +2182,15 @@ Students in the AutoRob Undergraduate Section can earn one additional point by c
 
 <h3> Graduate Section Requirement</h3>
 <p>
-Students in the AutoRob Graduate Section must: 1) implement the assignment as described above to work with <b>all</b> given examples, which includes the Fetch, Baxter, and Sawyer robot descriptions, and 2) create a new robot description that works with KinEval.
+Students in the AutoRob Graduate Section must: 1) implement the assignment as described above to work with <b>all</b> given examples, which includes the Fetch and Baxter robot descriptions, and 2) create a new robot description that works with KinEval.
 </p>
 
 <p>
-The files "robots/fetch/fetch.urdf.js", "robots/baxter/baxter.urdf.js", and "robots/sawyer/sawyer.urdf.js" contain the robot data object for the Fetch, Baxter and Sawyer kinematic descriptions.  The Fetch robot JavaScript file is converted from the <a href="https://github.com/fetchrobotics/fetch_ros/blob/indigo-devel/fetch_description/robots/fetch.urdf">Fetch URDF description</a> for ROS.  A similar process was also done for the <a href="https://github.com/RethinkRobotics/baxter_common/tree/master/baxter_description/urdf">Baxter URDF description</a>.  
+The files "robots/fetch/fetch.urdf.js" and "robots/baxter/baxter.urdf.js" contain the robot data object for the Fetch and Baxter kinematic descriptions.  The Fetch robot JavaScript file is converted from the <a href="https://github.com/fetchrobotics/fetch_ros/blob/indigo-devel/fetch_description/robots/fetch.urdf">Fetch URDF description</a> for ROS.  A similar process was also done for the <a href="https://github.com/RethinkRobotics/baxter_common/tree/master/baxter_description/urdf">Baxter URDF description</a>.
 </p>
 
 <p>
-ROS uses a different default coordinate system than threejs, which needs to be taken into account in the FK computation for these three robots. ROS assumes that the Z, X, and Y axes correspond to the up, forward, and side directions, respectively.  In contrast, threejs assumes that the Y, Z, and X axes correspond to the up, forward, and side directions.  The variable robot.links_geom_imported will be set to true when geometries have been imported from ROS and set to false when geometries are defined completely within the robot description file. You will need to extend your FK implementation to compensate for the coordinate frame difference when this variable is set to true.
+ROS uses a different default coordinate system than threejs, which needs to be taken into account in the FK computation for these two robots. ROS assumes that the Z, X, and Y axes correspond to the up, forward, and side directions, respectively.  In contrast, threejs assumes that the Y, Z, and X axes correspond to the up, forward, and side directions.  The variable robot.links_geom_imported will be set to true when geometries have been imported from ROS and set to false when geometries are defined completely within the robot description file. You will need to extend your FK implementation to compensate for the coordinate frame difference when this variable is set to true.
 </p>
 
 <!--
