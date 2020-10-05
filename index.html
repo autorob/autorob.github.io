@@ -1015,6 +1015,7 @@ That Ain't Right: AI Mistakes and Black Lives</a>
          <a href="labs/autorob_lab_05_kineval.pdf">
            KinEval and urdf.js code overview
          </a>
+         <br> <a href="https://umich.zoom.us/rec/share/CInJaZL9E4MhC5k95ki5u_1Ni7e_hmfWtWx0OD5PSupzMA2z6OxhfaQmFqkeqGM-.mpNEV3QYaicwv-X6">[Session recording (UM only)]</a>
     </td>
 </tr>
 
@@ -2061,7 +2062,7 @@ Assuming proper completion of Just Starting Mode, you are now ready for implemen
 <h3>Core Matrix Routines</h3>
 
 <p>
-A good place to start with your FK implemetation is writing and testing the core matrix routines. "kineval/kineval_matrix.js" contains function stencils for all required linear algebra routines. You will need to uncomment and fill in all the functions provided in this file <b>except matrix_pesudoinverse</b>. You do <b>not</b> need to implement the pseudoinverse calculation for this assignment; you should leave the matrix_pseudoinverse function commented out.
+A good place to start with your FK implemetation is writing and testing the core matrix routines. "kineval/kineval_matrix.js" contains function stencils for all required linear algebra routines. You will need to uncomment and fill in all the functions provided in this file <b>except matrix_pesudoinverse and matrix_invert_affine</b>. You do <b>not</b> need to implement the pseudoinverse calculation for this assignment; you should leave the matrix_pseudoinverse function commented out. You can implement the affine inverse function, but it will not be used in or tested for this assignment.
 </p>
 <p>
 It is good practice to test these functions before continuing with your FK implementation. Consider writing a collection of tests using example matrix and vector calculations from the lecture slides or other sources.
@@ -2148,14 +2149,6 @@ The "robots/robot_crawler.js" example should produce the following (shown with j
 <img  width=90% src="images/fk_crawler_example.png">
 </center> </p>
 
-<p>
-The "robots/sawyer/sawyer.urdf.js" example should produce the following (shown with joint axes highlighted):
-</p>
-<p> <center>
-<img  width=90% src="images/fk_sawyer_example.png">
-</center> </p>
-
-
 <!--
 <!-- (uncomment marker begin 4)
  -->
@@ -2182,15 +2175,15 @@ Students in the AutoRob Undergraduate Section can earn one additional point by c
 
 <h3> Graduate Section Requirement</h3>
 <p>
-Students in the AutoRob Graduate Section must: 1) implement the assignment as described above to work with <b>all</b> given examples, which includes the Fetch and Baxter robot descriptions, and 2) create a new robot description that works with KinEval.
+Students in the AutoRob Graduate Section must: 1) implement the assignment as described above to work with <b>all</b> given examples, which includes the Fetch, Baxter, and Sawyer robot descriptions, and 2) create a new robot description that works with KinEval.
 </p>
 
 <p>
-The files "robots/fetch/fetch.urdf.js" and "robots/baxter/baxter.urdf.js" contain the robot data object for the Fetch and Baxter kinematic descriptions.  The Fetch robot JavaScript file is converted from the <a href="https://github.com/fetchrobotics/fetch_ros/blob/indigo-devel/fetch_description/robots/fetch.urdf">Fetch URDF description</a> for ROS.  A similar process was also done for the <a href="https://github.com/RethinkRobotics/baxter_common/tree/master/baxter_description/urdf">Baxter URDF description</a>.
+The files "robots/fetch/fetch.urdf.js", "robots/baxter/baxter.urdf.js", and "robots/sawyer/sawyer.urdf.js" contain the robot data object for the Fetch, Baxter, and Sawyer kinematic descriptions.  The Fetch robot JavaScript file is converted from the <a href="https://github.com/fetchrobotics/fetch_ros/blob/indigo-devel/fetch_description/robots/fetch.urdf">Fetch URDF description</a> for ROS.  A similar process was also done for the <a href="https://github.com/RethinkRobotics/baxter_common/tree/master/baxter_description/urdf">Baxter URDF description</a>.
 </p>
 
 <p>
-ROS uses a different default coordinate system than threejs, which needs to be taken into account in the FK computation for these two robots. ROS assumes that the Z, X, and Y axes correspond to the up, forward, and side directions, respectively.  In contrast, threejs assumes that the Y, Z, and X axes correspond to the up, forward, and side directions.  The variable robot.links_geom_imported will be set to true when geometries have been imported from ROS and set to false when geometries are defined completely within the robot description file. You will need to extend your FK implementation to compensate for the coordinate frame difference when this variable is set to true.
+ROS uses a different default coordinate system than threejs, which needs to be taken into account in the FK computation for these three robots. ROS assumes that the Z, X, and Y axes correspond to the up, forward, and side directions, respectively.  In contrast, threejs assumes that the Y, Z, and X axes correspond to the up, forward, and side directions.  The variable robot.links_geom_imported will be set to true when geometries have been imported from ROS and set to false when geometries are defined completely within the robot description file. You will need to extend your FK implementation to compensate for the coordinate frame difference when this variable is set to true.
 </p>
 
 <!--
@@ -2204,6 +2197,13 @@ A proper implementation for fetch.urdf.js description should produce the followi
 <img  width=90% src="images/fk_fetch_example.png">
 </center> <p>
 </p>
+
+<p>
+The "robots/sawyer/sawyer.urdf.js" example should produce the following:
+</p>
+<p> <center>
+<img  width=90% src="images/fk_sawyer_example.png">
+</center> </p>
 
 <!--
 <!-- (uncomment marker begin 5)
