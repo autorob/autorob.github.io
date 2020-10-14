@@ -552,7 +552,7 @@ The following project features are planned for AutoRob this semester.  Students 
 <tr><td>2</td><td>All</td><td> Dance FSM</td></tr>
 <tr><td>2</td><td>Grad</td><td> Joint limits</td></tr>
 <tr><td>2</td><td>Grad</td><td> Prismatic joints</td></tr>
-<tr><td>2</td><td>Grad</td><td> Fetch rosbridge interface</td></tr>
+<tr><td>2</td><td><s>Grad</s></td><td><s>Fetch rosbridge interface</s></td></tr>
 
 <tr bgcolor="#dddddd">     
 <td></td><td></td><td>Assignment 5: Inverse Kinematics</td>
@@ -2266,10 +2266,11 @@ For turning in your assignment, push your updated code to the <b>master</b> bran
 (uncomment marker end 5)
 -->
 
-<!-- -->
+<!--
 <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr>
+-->
 
 <p>
 
@@ -2286,11 +2287,11 @@ Executing choreographed motion is the most common use of current robots.  Robot 
 </center>
 
 <p>
-For this assignment, you will build your own robot choreography system.  This choreography system enable a robot to execute a dance routine by adding motor rotation to its joints and creating a Finite State Machine (FSM) controller over pose setpoints.  Your FK implementation will be extended to consider angular rotation about each joint axis using quaternions for axis-angle rotation.  The positioning of each joint with respect to a given pose setpoint will be controlled by an simple P servo implementation (based on the Pendularm assignment).  You will implement an FSM controller to update the current pose setpoint based on the robot's current state and predetermined sequence of setpoints.  For a single robot, you will choreograph a dance for the robot by creating an FSM with your design of pose setpoints and an execution sequence. 
+For this assignment, you will build your own robot choreography system.  This choreography system will enable a robot to execute a dance routine by adding motor rotation to its joints and creating a Finite State Machine (FSM) controller over pose setpoints.  Your FK implementation will be extended to consider angular rotation about each joint axis using quaternions for axis-angle rotation.  The positioning of each joint with respect to a given pose setpoint will be controlled by a simple P servo implementation (based on the Pendularm assignment).  You will implement an FSM controller to update the current pose setpoint based on the robot's current state and predetermined sequence of setpoints.  For a single robot, you will choreograph a dance for the robot by creating an FSM with your design of pose setpoints and an execution sequence.
 </p>
 
 <p>
-This controller for the "mr2" example robot was a poor attempt at <a href="https://www.youtube.com/watch?v=roBWj9YPKPo">robot Saturday Night Fever</a> (please do better):
+This controller for the "mr2" example robot was a poor attempt at <a href="https://www.youtube.com/watch?v=YxvBPH4sArQ&feature=youtu.be&t=107">robot Saturday Night Fever</a> (please do better):
 </p>
 
 <a href="asgn4_joint_rotation.png"><img width=100% src="images/asgn4_joint_rotation_small.png"></a>
@@ -2307,9 +2308,30 @@ This <a href="https://www.youtube.com/embed/WyQ9aoB3bpI">updated dance</a> contr
 <!-- 
 <!-- (uncomment marker begin 6)
 -->
+<h3>Features Overview</h3>
 
 <p>
-Assuming proper completion of Assignment 4, ensure the following files are included (within script tags) in your "home.html".  You will modify these files for implementing axis-angle rotation, the pose setpoint controller, and the FSM controller:
+  This assignment requires the following features to be implemented in the corresponding files in your repository:
+</p>
+
+<ul>
+  <li> <p>Quaternion joint rotation in "kineval/kineval_quaternion.js" (for quaternion functions) and "kineval/kineval_forward_kinematics" (to add axis-angle joint rotation to existing kinematic traversal)</p></li>
+  <li> <p>Interactive base control vectors in "kineval/kineval_forward_kinematics.js"</p></li>
+  <li> <p>Pose setpoint controller in "kineval/kineval_servo_control.js"</p></li>
+  <li> <p>Dance FSM in "kineval/kineval_servo_control.js" (FSM controller) and "home.html" (dance setpoint initialization)</p></li>
+  <li> <p>[Grad section only] Joint limit enforcement in "kineval/kineval_controls.js"</p></li>
+  <li> <p>[Grad section only] Prismatic joint implementation in "kineval/kineval_forward_kinematics.js"</p></li>
+  <li> <p><s>[Grad section only] Fetch rosbridge interface</s> <i>Cancelled due to COVID-19</i></p></li>
+</ul>
+
+<p>
+  Points distributions for these features can be found in the <a href="#project_rubric">project rubric section</a></td>. More details about each of these features and the implementation process are given below.
+</p>
+
+<!--
+<h3>Relevant Files</h3>
+<p>
+The following files are included (within script tags) in your "home.html".  You will modify these files for implementing axis-angle rotation, the pose setpoint controller, and the FSM controller:
 
 <ul>
 <li><p>"kineval/kineval_quaternion.js" for your implementation of quaternions for axis-angle rotation in 3D</p></li>
@@ -2318,12 +2340,12 @@ Assuming proper completion of Assignment 4, ensure the following files are inclu
 <li><p>"kineval/kineval_servo_control.js" for your implementation of a P servo controller and an FSM pose sequencer</p></li>
 </ul>
 </p>
+-->
 
-
-<h3>Joint Axis Rotation and Interactive Control</h3>
+<h3>Joint Axis Rotation and Interactive Joint Control</h3>
 
 <p>
-Each joint of the robot needs several additional properties for joint rotation and control.  These joint properties for the current angle rotation (".angle"), applied control (".control"), and servo parameters (".servo") have already been created within the function kineval.initRobotJoints().  The joint's angle will be used to calculate a rotation about the joints (normal) axis of rotation vector, specified in the ".axis" field.  The 3D rotation due to joint movement should be accounted for in the robot's forward kinematics and implemented as quaternions in "kineval/kineval_quaternion.js".
+Going beyond the joint properties you worked with in Assignment 3, each joint of the robot now needs several additional properties for joint rotation and control.  These joint properties for the current angle rotation (".angle"), applied control (".control"), and servo parameters (".servo") have already been created within the function kineval.initRobotJoints().  The joint's angle will be used to calculate a rotation about the joint's (normal) axis of rotation vector, specified in the ".axis" field.  To complete an implementation of 3D rotation due to joint movement, you will need to first implement basic quaternion functions in "kineval/kineval_quaternion.js" then extend your FK implementation in "kineval/kineval_forward_kinematics.js" to account for the additional rotations.
 </p>
 
 <p>
@@ -2333,44 +2355,58 @@ If joint axis rotation is implemented correctly, you should be able to use the '
 <h3>Interactive Base Movement Controls</h3>
 
 <p>
-The user interfaces also enables controlling the global position and orientation of the robot base.  In addition to joint updates, the system update function kineval.applyControls() also updates the base state (in robot.origin) with respect to its controls (specified in robot.controls).  With the support function kineval.handleUserInput(), the 'wasd' keys are purposed to move the robot on the ground plane with 'q' and 'e' keys for lateral base movement.  In order for these keys to behave properly, the heading and lateral directions of the robot base are needed such that they respectively express coordinates along local z-axis and x-axis of the base in the global frame.  These vectors need to be computed within your FK implementation and stored within two global variables: robot_heading and robot_lateral.  Each of these variables should be a homogeneous 3D vector stored as a 2D array.
+The user interface also enables controlling the global position and orientation of the robot base.  In addition to joint updates, the system update function kineval.applyControls() also updates the base state (in robot.origin) with respect to its controls (specified in robot.controls).  With the support function kineval.handleUserInput(), the 'wasd' keys are purposed to move the robot on the ground plane, with 'q' and 'e' keys for lateral base movement.  In order for these keys to behave properly, you will need to add code to update variables that store the heading and lateral directions of the robot base: robot_heading and robot_lateral.  These vectors need to be computed within your FK implementation in "kineval/kineval_forward_kinematics.js" and stored as global variables. They express the directions of the robot base's z-axis and x-axis in the global frame, respectively. Each of these variables should be a homogeneous 3D vector stored as a 2D array.
 </p>
 
 <p>
-If robot_heading and robot_lateral are implemented properly, the robot should now be interactively controllable in the ground plane.
+If robot_heading and robot_lateral are implemented properly, the robot should now be interactively controllable in the ground plane using the keys described in the previous paragraph.
 </p>
 
 <h3>Pose Setpoint Controller</h3>
 
 <p>
-Once joint axis rotation is implemented, you will implement proportional setpoint controller for the robot joints in function kineval.robotArmControllerSetpoint() within "kineval/kineval_servo_controller.js".  This setpoint controller uses the current angle (".angle"), desired angle, and servo gains (specified in the ".servo" object) of each joint to output a control (".control") for the joint.  The desired angle for a joint 'JointX' is stored in kineval.params.setpoint_target['JointX'] as a scalar. All of these joint object properties are initialized in the function kineval.initRobotJoints() in "kineval/kineval_robot_init.js".
+Once joint axis rotation is implemented, you will implement a proportional setpoint controller for the robot joints in function kineval.robotArmControllerSetpoint() within "kineval/kineval_servo_control.js".  The desired angle for a joint 'JointX' is stored in kineval.params.setpoint_target['JointX'] as a scalar by the FSM controller or keyboard input. The setpoint controller should take this desired angle, the joint's current angle (".angle"), and servo gains (specified in the ".servo" object) to set the control (".control") for each joint.   All of these joint object properties are initialized in the function kineval.initRobotJoints() in "kineval/kineval_robot_init_joints.js". Note that the "servo.d_gain" is not used in this assignment; it is for advanced extensions.
 </p>
 
 <p>
-For testing, a "clock movement" controller has been provided as the function setpointClockMovement() in "kineval/kineval_setpoint_controller.js".  This function can be invoked by holding down the 'c' key or from the UI.  This controller goes well with <a href="https://www.youtube.com/watch?v=_JPa3BNi6l4"> this song</a>.
+Once you have implemented the control function described above, you can enable the conroller by either holding down the 'o' key or selecting 'persist_pd' from the UI.  With the controller enabled, the robot will attempt to reach the current setpoint. One setpoint is provided with the stencil code: the zero pose, where all joint angles are zero. Pressing the '0' key sets the current setpoint to the zero setpoint.
 </p>
 
 <p>
-The robot can servo to the current pose setpoint by holding down the 'o' key or selecting 'persist_pd' from the UI.  Pressing the '0' key sets the current setpoint to the zero pose, where all joint angles are zero.  Stored in kineval.setpoints, up to 9 other arbitrary pose setpoints can be stored by KinEval for pose control.  The current robot pose can be interactively stored by pressing "Shift+number_key" (e.g., "Shift+1").  The current setpoint can be assigned a stored pose by pressing one of the non-zero number keys [1-9].  At any time, the currently stored setpoints can be output to the console as JavaScript code using the JSON.stringify function for the setpoint object, as the statement "JSON.stringify(kineval.setpoints);".  This setpoint array can be included in your code as part of your dance controller.
+Besides the zero setpoint, up to 9 other arbitrary pose setpoints can be stored by KinEval (in kineval.setpoints) for pose control. You can edit kineval.setpoints in your code for testing and/or for the FSM controller (see below), but the current robot pose can also be interactively stored into the setpoint list by pressing "Shift+number_key" (e.g., "Shift+1" would store the current robot pose as setpoint 1). You can then select any of the stored setpoints to be the current control target by pressing one of the non-zero number keys [1-9] that corresponds to a previously-stored setpoint.  At any time, the currently stored setpoints can be output to the console as JavaScript code using the JSON.stringify function for the setpoint object: "JSON.stringify(kineval.setpoints);".  Once you have found the setpoints needed to implement your desired dance, this setpoint array can be included in your code as part of your dance controller.
 </p>
+
+<p>
+Since you will need to implement your setpoint controller before your FSM controller, for additional testing of your setpoint controller, a "clock movement" FSM controller has been provided as the function setpointClockMovement() in "kineval/kineval_servo_control.js".  This function can be invoked by holding down the 'c' key or from the UI.  This controller goes well with <a href="https://www.youtube.com/watch?v=_JPa3BNi6l4"> this song</a>.
+</p>
+
+
 
 <h3>FSM Controller</h3>
 
 <p>
-Once your pose setpoint controller is working, a FSM controller should be implemented in the function kineval.setpointDanceSequence() in "kineval/kineval_setpoint_control.js".  The reference implementation uses pose setpoints initialized and stored in kineval.setpoints with a sequence of indices stored in kineval.params.dance_sequence_index and playback index stored in kineval.params.dance_pose_index.  If this convention is not used, the following line in "kineval/kineval_userinput.js" will require modification:
+  Once your pose setpoint controller is working, an FSM controller should be implemented in the function kineval.setpointDanceSequence() in "kineval/kineval_servo_control.js".  The reference implementation switches between the pose setpoints in kineval.setpoints based on two additional pieces of data: an array of indices (kineval.params.dance_sequence_index) and the current pose index (kineval.params.dance_pose_index). kineval.params.dance_sequence_index will tell your FSM the order in which the setpoints in kineval.setpoints should be selected to be the control target. Note that using this convention allows you to easily select the same setpoint multiple times to produce repetition in your dance. kineval.params.dance_pose_index is used to keep track of the current index within the dance pose sequence.
+</p>
+
 <p>
+If this recommended variable convention is not used, the following line in "kineval/kineval_userinput.js" will require modification:
+</p>
 
 <pre style="color:black"><code data-language="javascript">
 if (kineval.params.update_pd_dance)
     textbar.innerHTML += "executing dance routine, pose " + kineval.params.dance_pose_index + " of " + kineval.params.dance_sequence_index.length;
 </code></pre>
 
-<h3> Graduate Section Requirement</h3>
 <p>
-Students in the graduate section of AutoRob must implement the assignment as described above for the Fetch and Baxter robots with two additional requirements: 1) proper enforcement of joint types and limits for the robot description, and 2) integration (via <a href="http://wiki.ros.org/rosbridge_suite">rosbridge</a>) of their code with ROS or a <a href="http://docs.fetchrobotics.com/gazebo.html">Gazebo simulation of the Fetch</a>.  
+To complete your dance controller, choreograph a dance by initializing kineval.setpoints with the poses for your dance and kineval.params.dance_sequence_index with the pose ordering. You should initialize these data structures within the my_init() function in "home.html". Once you have the poses and sequence for your dance initialized, when you select both "persist_pd" and "update_pd_dance" in the UI, you should see the robot move through the setpoints of your dance.
+</p>
+
+<h3> Graduate Section Requirements</h3>
+<p>
+Students in the graduate section of AutoRob must implement the assignment as described above for the Fetch and Baxter robots with two additional requirements: 1) proper implementation of all joint types in the robot descriptions and 2) proper enforcement of joint limits for the robot descriptions. <!--and 3) integration (via <a href="http://wiki.ros.org/rosbridge_suite">rosbridge</a>) of their code with ROS or a <a href="http://docs.fetchrobotics.com/gazebo.html">Gazebo simulation of the Fetch</a>.-->
 
 <p>
-The URDF JS files for these robots, included in the provided code stencil, contains joints with with various types that correspond to different types of motion:
+The urdf.js files for these robots, included in the provided code stencil, contain joints with with various types that correspond to different types of motion:
 </p>
 
 <p>
@@ -2383,16 +2419,23 @@ The URDF JS files for these robots, included in the provided code stencil, conta
 </p>
 
 <p>
-Joints are considered to be continuous as the default.  Joints with undefined motion types must be treated as continuous joints.
+Joints are considered to be continuous as the default.  Joints with undefined motion types must be treated as continuous joints. The graduate section features for this assignment will be complete when your implementation correctly handles the direction of motion (rotation or translation) and limits of all of the above types of joints.
+</p>
+
+
+<p>
+  <i>Note: Rosbridge feature cancelled due to COVID-19.</i>
+  <s>
+    Your code can interface with any robot (or simulated robot) running rosbridge/ROS using the function kineval.rosbridge() in "kineval/kineval_rosbridge.js".  This code requires that the rosbridge_server package is running in a ROS run-time environment and listening on a websocket port, such as for ws://fetch7:9090.  If your FK implementation is working properly, the model of your robot in the browser will update along with the motion of the robot based on the topic subscription and callback.  This functionality works seamlessly between real and simulated robots.  Although this will not be done for this class, to control the robot arm, a rosbridge publisher must be written to update the ROS topic "/arm_controller/follow_joint_trajectory/goal" with a message of type "control_msgs/FollowJointTrajectoryActionGoal".
+  </s>
 </p>
 
 <p>
-Your code can interface with any robot (or simulated robot) running rosbridge/ROS using the function kineval.rosbridge() in "kineval/kineval_rosbridge.js".  This code requires that the rosbridge_server package is running in a ROS run-time environment and listening on a websocket port, such as for ws://fetch7:9090.  If your FK implementation is working properly, the model of your robot in the browser will update along with the motion of the robot based on the topic subscription and callback.  This functionality works seamlessly between real and simulated robots.  Although this will not be done for this class, to control the robot arm, a rosbridge publisher must be written to update the ROS topic "/arm_controller/follow_joint_trajectory/goal" with a message of type "control_msgs/FollowJointTrajectoryActionGoal".
+  <s>
+    Machines running rosbridge, ROS, and Gazebo for the Fetch will be available during special sessions of the class.  Students are encouraged to install and run the Fetch simulator on their own machines based on <a href="http://docs.fetchrobotics.com/gazebo.html">this tutorial</a>.
+  </s>
 </p>
 
-<p>
-Machines running rosbridge, ROS, and Gazebo for the Fetch will be available during special sessions of the class.  Students are encouraged to install and run the Fetch simulator on their own machines based on <a href="http://docs.fetchrobotics.com/gazebo.html">this tutorial</a>.
-</p>
 
 <h4> Advanced Extensions </h4>
 
@@ -2420,11 +2463,10 @@ For turning in your assignment, push your updated code to the <b>master</b> bran
 
 <p>
 
-<!--
+<!-- -->
 <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr>
--->
 
 
 <!-- 
