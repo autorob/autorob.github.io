@@ -2502,18 +2502,35 @@ As shown in the video below, if successful, your robot will be able to continual
 <iframe width="420" height="315" src="https://www.youtube.com/embed/ag0j8HzFRzc" frameborder="0" allowfullscreen></iframe>
 </center>
 
+<h3>Features Overview</h3>
+
+<p>
+  This assignment requires the following features to be implemented in the corresponding files in your repository:
+</p>
+
+<ul>
+  <li> <p>Manipulator Jacobian in "kineval/kineval_inverse_kinematics.js"</p></li>
+  <li> <p>Gradient descent with Jacobian transpose in "kineval/kineval_inverse_kinematics.js"</p></li>
+  <li> <p>Jacobian pseudoinverse in "kineval/kineval_matrix.js" (pseudoinverse function) and "kineval/kineval_inverse_kinematics.js" (use in gradient descent)</p></li>
+  <li> <p>[Grad section only] Euler angle conversion in "where?"</p></li>
+</ul>
+
+<p>
+  Points distributions for these features can be found in the <a href="#project_rubric">project rubric section</a></td>. More details about each of these features and the implementation process are given below.
+</p>
 
 
 <!-- 
 <!-- (uncomment marker begin 7, copy above to block uncomment or below to block comment)
 -->
+<h3>Core IK Function</h3>
 
 <p>
 The core of this assignment is to complete the kineval.iterateIK() function in the file kineval/kineval_inverse_kinematics.js.  This function is invoked within the function kineval.inverseKinematics()  with three arguments: 
 </p>
 
 <ul>
-<li><p>endeffector_target_world: an object with two fields with the target endeffector position (as a 3D homogeneous vector) and orientation (as Euler angles) in the world frame</p></li>
+<li><p>endeffector_target_world: an object expressing the endeffector target in the world frame; it has two fields, endeffector_target_world.position, the target endeffector position (as a 3D homogeneous vector), and endeffector_target_world.orientation, the target endeffector orientation (as Euler angles)</p></li>
 <li><p>endeffector_joint: the name of the joint directly connected to the endeffector</p></li>
 <li><p>endeffector_position_local: the location of the endeffector in the local joint frame</p></li>
 </ul>
@@ -2537,7 +2554,7 @@ In implementing this IK routine, please remember the following:
 <ul>
 <li><p>Computation of the Jacobian need only to occur with respect to the joints along the chain from the endeffector joint to the robot base</p></li>
 <li><p>The location of the endeffector needs to be computed using transforms resulting from the robot's forward kinematics </p> </li>
-<li><p>Matrix inversion can be invoked by using the provided routine numeric.inv(mat), available through <a href="http://www.numericjs.com/">numericjs</a> </p></li>
+<li><p>Matrix inversion can be invoked by using the provided routine numeric.inv(mat), available through <a href="https://github.com/sloisel/numeric">numericjs</a> </p></li>
 <li><p>The computed velocity in configuration space should be applied to the robot through the joint.controls field of each joint </p></li>
 </ul>
 
