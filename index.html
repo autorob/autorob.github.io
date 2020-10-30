@@ -2462,11 +2462,11 @@ For turning in your assignment, push your updated code to the <b>master</b> bran
 
 <p>
 
-<!-- -->
+<!--
 <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr>
-
+-->
 
 <!-- 
 (uncomment marker end 6) -->
@@ -2481,7 +2481,7 @@ For turning in your assignment, push your updated code to the <b>master</b> bran
 <b>Due 11:59pm, Wednesday, November 11, 2020</b>
 
 <p>
-Although effective, robot choreography in configuration space is super tedious and inefficient.  This difficulty is primarily due to posing each joint of the robot at each setpoint.  Further, changing one joint often requires updating several other joints due to the nature of kinematic dependencies.  Inverse kinematics (IK) offers a much easier and efficient alternative.  With IK implemented, we only need to pose the endeffector in a common workspace, and the states of the joints in configuration space automatically inferred.  IK is also important when we are about the "tool tip" of an instrument being used by a robot.  One such example is a robot using marker to draw a picture, such as in the PR2 Portrait Bot Project below:
+Although effective, robot choreography in configuration space is super tedious and inefficient.  This difficulty is primarily due to posing each joint of the robot at each setpoint.  Further, changing one joint often requires updating several other joints due to the nature of kinematic dependencies.  Inverse kinematics (IK) offers a much easier and efficient alternative.  With IK implemented, we only need to pose the endeffector in a common workspace, and the states of the joints in configuration space are automatically inferred.  IK is also important when we care about the "tool tip" of an instrument being used by a robot.  One such example is a robot using marker to draw a picture, such as in the PR2 Portrait Bot Project below:
 </p>
 
 <center>
@@ -2502,18 +2502,40 @@ As shown in the video below, if successful, your robot will be able to continual
 <iframe width="420" height="315" src="https://www.youtube.com/embed/ag0j8HzFRzc" frameborder="0" allowfullscreen></iframe>
 </center>
 
+<h3>Features Overview</h3>
+
+<p>
+  This assignment requires the following features to be implemented in the corresponding files in your repository:
+</p>
+
+<ul>
+  <li> <p>Manipulator Jacobian in "kineval/kineval_inverse_kinematics.js"</p></li>
+  <li> <p>Gradient descent with Jacobian transpose in "kineval/kineval_inverse_kinematics.js"</p></li>
+  <li> <p>Jacobian pseudoinverse in "kineval/kineval_matrix.js" (pseudoinverse function) and "kineval/kineval_inverse_kinematics.js" (use in gradient descent)</p></li>
+  <li> <p>[Grad section only] Euler angle conversion in "kineval/kineval_inverse_kinematics.js"</p></li>
+</ul>
+
+<p>
+  Points distributions for these features can be found in the <a href="#project_rubric">project rubric section</a></td>. More details about each of these features and the implementation process are given below.
+</p>
 
 
 <!-- 
 <!-- (uncomment marker begin 7, copy above to block uncomment or below to block comment)
--->
+  -->
+<h3>Matrix Pseudoinverse Function</h3>
+<p>
+  You will need to implement one additional matrix helper function in "kineval/kineval_matrix.js" for this assignment: matrix_pseudoinverse. This method will be necessary for the pseudoinverse version of gradient descent (see below). For this helper function, you are allowed to use a library function for matrix inversion, which can be invoked by using the provided routine numeric.inv(mat), available through <a href="https://github.com/sloisel/numeric">numericjs</a>.
+</p>
+
+<h3>Core IK Function</h3>
 
 <p>
-The core of this assignment is to complete the kineval.iterateIK() function in the file kineval/kineval_inverse_kinematics.js.  This function is invoked within the function kineval.inverseKinematics()  with three arguments: 
+The core of this assignment is to complete the kineval.iterateIK() function in the file kineval/kineval_inverse_kinematics.js. This function is invoked within the function kineval.inverseKinematics()  with three arguments:
 </p>
 
 <ul>
-<li><p>endeffector_target_world: an object with two fields with the target endeffector position (as a 3D homogeneous vector) and orientation (as Euler angles) in the world frame</p></li>
+<li><p>endeffector_target_world: an object expressing the endeffector target in the world frame; it has two fields, endeffector_target_world.position, the target endeffector position (as a 3D homogeneous vector), and endeffector_target_world.orientation, the target endeffector orientation (as Euler angles)</p></li>
 <li><p>endeffector_joint: the name of the joint directly connected to the endeffector</p></li>
 <li><p>endeffector_position_local: the location of the endeffector in the local joint frame</p></li>
 </ul>
@@ -2523,35 +2545,37 @@ From these arguments and the current robot configuration, the kineval.iterateIK(
 </p>
 
 <p>
-kineval.iterateIK() should also respect global parameters for using the Jacobian pseudoinverse (through boolean parameter kineval.params.ik_pseudoinverse) and step length of the IK iteration (through real-valued parameter kineval.params.ik_steplength).  Kineval also maintains the current endeffector target information in the kineval.params.ik_target parameter.
-</p>
-
-
-<p>
-IK iterations can be invoked through the user interface by holding down the 'p' key.  Further, the 'r'/'f' keys will move the target location up/down.  When performing IK iterations, the endeffector and its target pose will be rendered as cube geometries in blue and green, respectively.  
+<b>Important:</b> Students enrolled in EECS 398 will implement inverse kinematics for <b>only</b> the position, not the orientation, of the endeffector.
 </p>
 
 <p>
-In implementing this IK routine, please remember the following:
+kineval.iterateIK() should also respect global parameters for using the Jacobian pseudoinverse (through boolean parameter kineval.params.ik_pseudoinverse) and step length of the IK iteration (through real-valued parameter kineval.params.ik_steplength).  Note that these parameters can be changed through the user interface (under Inverse Kinematics). KinEval also maintains the current endeffector target information in the kineval.params.ik_target parameter.
+</p>
+
+<p>
+IK iterations can be invoked through the user interface (Inverse Kinematics->persist_ik) or by holding down the 'p' key.  Further, the 'r'/'f' keys will move the target location up/down. You can also move the robot relative to the target using the robot base controls. When performing IK iterations, the endeffector and its target pose will be rendered as cube geometries in blue and green, respectively.
+</p>
+
+<p>
+  For your code to work with the CI grader, you will need to set three global variables in kineval.iterateIK(): robot.dx, robot.jacobian, and robot.dq. There is a comment in "kineval/kineval_inverse_kinematics.js" that specifies what each of these variables should hold. Please note that robot.dx and robot.jacobian should both have six rows, even if you are doing position-only IK.
+</p>
+
+<p>
+In implementing this IK routine, please also remember the following:
 <p>
 <ul>
 <li><p>Computation of the Jacobian need only to occur with respect to the joints along the chain from the endeffector joint to the robot base</p></li>
 <li><p>The location of the endeffector needs to be computed using transforms resulting from the robot's forward kinematics </p> </li>
-<li><p>Matrix inversion can be invoked by using the provided routine numeric.inv(mat), available through <a href="http://www.numericjs.com/">numericjs</a> </p></li>
-<li><p>The computed velocity in configuration space should be applied to the robot through the joint.controls field of each joint </p></li>
+<li><p>The computed velocity in configuration space should be applied to the robot through the .control field of each joint </p></li>
 </ul>
-
-<p>
-Students enrolled in EECS 398 will implement inverse kinematics for <b>only</b> the position of the endeffector.
-</p>
 
 <h3> IK Random Trial </h3>
 
 <p>
-All students in the AutoRob course are expected to run their IK controller with the random trial feature in the KinEval stencil.  The IK random trial is executed through the function kineval.randomizeIKtrial() in the file "kineval/kineval_inverse_kinematics.js".  This function is incomplete in the provided stencil.  Code for this function to properly run the random trial will be made available upon request through the course discussion channel.
+All students in the AutoRob course are expected to run their IK controller with the random trial feature in the KinEval stencil.  The IK random trial is executed through the function kineval.randomizeIKtrial() in the file "kineval/kineval_inverse_kinematics.js".  This function is incomplete in the provided stencil.  Code for this function to properly run the random trial will be made available in the assignment 5 discussion channel. Once you have copied the necessary code into this function, you will be able to test your code on random trials by first selecting persist_ik (under Inverse Kinematics) then selecting execute (under Inverse Kinematics->IK Random Trial) from the user interface.
 <p>
 
-<h4> Undergraduate Advanced Extension </h4>
+<h3> Undergraduate Advanced Extension </h3>
 <p>
 Students in the AutoRob Undergraduate Section can earn one additional point by implementing a closed-form inverse kinematics solution for the RexArm 4-DOF robot arm, which can be used later projects in <a href="https://www.youtube.com/playlist?list=PLDutmfAv2lfZ9M0XyYfY4N8EwLJhy58G6">EECS 467 (Autonomous Robotics Laboratory)</a>.  
 </p>
@@ -2559,7 +2583,11 @@ Students in the AutoRob Undergraduate Section can earn one additional point by i
 <h3> Graduate Section Requirement</h3>
 
 <p>
-Students enrolled in the graduate section of AutoRob will implement inverse kinematics for both the position and orientation of the endeffector, namely for the Fetch robot.  The default IK behavior will be for endeffector position control.  Both endeffector position and orientation are controlled when the boolean parameter kineval.params.ik_orientation_included is set to true.  
+Students enrolled in the graduate section of AutoRob will implement inverse kinematics for both the position and orientation of the endeffector, namely for the Fetch robot.  The default IK behavior will be position-only endeffector control.  Both endeffector position and orientation should be controlled when the boolean parameter kineval.params.ik_orientation_included is set to true, which can be done through the user interface (Inverse Kinematics->ik_orientation_included).
+</p>
+
+<p>
+  In order to handle the orientation of the endeffector in your IK implementation, you will need to calculate the orientation part of the error term, which will require you to implement a conversion from a rotation matrix to Euler angles. You may find an online reference to inform your implementation of this conversion (please cite it in a comment in your code) or develop your own approach to the conversion calculation. Completing this conversion is a necessary step for including orientation in your IK implementation, and it also fulfills the "Euler angle conversion" feature.
 </p>
 
 <h4> Advanced Extensions </h4>
@@ -2598,11 +2626,11 @@ For turning in your assignment, ensure your completed project code has been comm
 <!-- (put this line below block comment end for block commenting, above for visibility
 (comment marker end 7) -->
 
-<!--
+<!-- -->
 <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr>
--->
+
 
 
 
