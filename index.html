@@ -571,7 +571,7 @@ The following project features are planned for AutoRob this semester.  Students 
 <tr><td>4</td><td>All</td><td> Collision detection</td></tr>
 <tr><td>2</td><td>All</td><td> 2D RRT-Connect</td></tr>
 <tr><td>6</td><td>All</td><td> Configuration space RRT-Connect</td></tr>
-<tr><td>6</td><td>Grad</td><td> RRT-Star</td></tr>
+<tr><td>6</td><td>Grad</td><td> 2D RRT-Star</td></tr>
 
 <tr bgcolor="#dddddd">     
 <td></td><td></td><td>Participation</td>
@@ -2744,7 +2744,7 @@ For both the undergraduate and graduate sections, motion planning will be implem
   <li> <p>Collision detection in "kineval/kineval_collision.js"</p></li>
   <li> <p>2D RRT-Connect in "project_pathplan/rrt.js"</p></li>
   <li> <p>Configuration space RRT-Connect in "kineval/kineval_rrt_connect.js"</p></li>
-  <li> <p>[Grad section only] RRT-Star in "WHERE"</p></li>
+  <li> <p>[Grad section only] 2D RRT-Star in "project_pathplan/rrt.js"</p></li>
 </ul>
 
 <p>
@@ -2761,8 +2761,19 @@ For both the undergraduate and graduate sections, motion planning will be implem
 </p>
 
 <p>
-  You will implement the 2D version of RRT-Connect in project_pathplan/rrt.js by completing the iterateRRTConnect() function. Note that the two search tree global variables needed for RRT-Connect, T_a and T_b, are initialized for you in kineval/infrastructure.js. In your implementation of iterateRRTConnect(), you can use several provided support functions from project_pathplan/infrastructure.js, including two new RRT-specific helpers: insertTreeVertex() and insertTreeEdge(). You may also create additional helper functions in this file to handle different steps of the RRT-Connect algorithm.
+  You will implement the 2D version of RRT-Connect in project_pathplan/rrt.js by completing the iterateRRTConnect() function. Its signature and desired return values are provided in the code stencil. Note that there are other function stencils provided in this file as well, but your 2D RRT-Connect implementation should involve only iterateRRTConnect() and any helper functions you choose to add. You do <b>not</b> need to implement iterateRRT(), and only students in the graduate section need to implement iterateRRTStar() (see description of graduate section requirements below).
 </p>
+
+<p>
+  A few other details to be aware of when implementing 2D RRT-Connect:
+</p>
+
+<ul>
+  <li> <p>The two search tree global variables needed for RRT-Connect, T_a and T_b, are initialized for you in project_pathplan/infrastructure.js</p></li>
+  <li> <p>You can use provided support functions from project_pathplan/infrastructure.js, including two new RRT-specific helpers: insertTreeVertex() and insertTreeEdge()</p></li>
+  <li> <p>You may also create additional helper functions in project_pathplan/rrt.js to handle different steps of the RRT-Connect algorithm; some suggestions are provided in the code stencil</p></li>
+</ul>
+
 
 <p>
   If properly implemented, your RRT-Connect implementation should produce results similar to the image below, although the inherent randomness of the algorithm will mean that the sampled states and final path will be slightly different:
@@ -2994,19 +3005,28 @@ Make sure to test all provided robot descriptions from a reasonable set of initi
 </ul>
 </p>
 
+<h3>Warning: Respect Configuration Space</h3>
+
+<p>
+The planner should produce a collision-free path in configuration space (over all robot DOFs) and not just the movement of the base on the ground plane.  If your planner does not work in configuration space, it is sure to fail tests used for grading.
+</p>
+
 <h3> Graduate Section Requirement</h3>
 
 <p>
-In addition to the requirements above, students in the graduate section must also implement the <a href="http://dspace.mit.edu/openaccess-disseminate/1721.1/63170">RRT-Star</a> motion planning algorithm and test to ensure:
+In addition to the requirements above, students in the graduate section must also implement the <a href="http://dspace.mit.edu/openaccess-disseminate/1721.1/63170">RRT-Star</a> motion planning algorithm for the 2D search canvas. You will need to complete the iterateRRTStar() function stencil in project_pathplan/rrt.js for this feature. If properly implemented, your RRT-Star implementation should produce results similar to the image below:
 </p>
 
+<h2>RRT-Star result here!!</h2>
+
+<!--
 <p>
 <ul>
 <li> <p>joint limits for the different joint types are respected, and </p></li>
 <li> <p>the "fetch" robot should be able to navigate all of the provided worlds.</p></li> 
 </ul>
 </p>
-
+-->
 
 <h4> Advanced Extension </h4>
 
@@ -3034,12 +3054,8 @@ Of the 4 possible advanced extension points, four additional points for this ass
 
 
 
-<h3>Warning: Respect configuration space</h3> 
 
-<p>
-The planner should produce a collision-free path in configuration space (over all robot DOFs) and not just the movement of the base on the ground plane.  If your planner does not work in configuration space, it is sure to fail tests used for grading.
-</p>
-
+<!--
 <h3>Highly recommended: start with HTML5 Canvas Stencil </h3>
 
 <img width=100% src="images/asgn6_rrt_canvas_stencil_small.png">
@@ -3053,6 +3069,7 @@ To help you get started, the path planning code stencil in the "search_canvas" d
 </p>
 
 <p>
+  -->
 
 <h3>Project Submission</h3>
 <p>
