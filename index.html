@@ -166,7 +166,7 @@ Caveats: robot will perform suboptimally based on rrt-planner, no self-collision
 
 
 <p>
-AutoRob projects ground course concepts through implementation in <a href="https://en.wikipedia.org/wiki/JavaScript"</a>JavaScript</a>/<a href="https://en.wikipedia.org/wiki/HTML">HTML5</a> supported by the <a href="https://github.com/autorob/kineval-stencil">KinEval code stencil</a> (snapshot below from Mozilla Firefox).  These projects will cover graph search path planning (<a href="https://en.wikipedia.org/wiki/A*_search_algorithm">A* algorithm</a>), basic physical simulation (<a href="https://en.wikipedia.org/wiki/Classical_mechanics">Lagrangian dynamics</a>, <a href ="https://en.wikipedia.org/wiki/Numerical_integration">numerical integrators</a>), proportional-integral-derivative (<a href="https://en.wikipedia.org/wiki/PID_controller">PID</a>) control, forward kinematics (3D geometric <a href="https://en.wikipedia.org/wiki/Transformation_matrix">matrix transforms</a>, matrix stack composition of transforms, axis-angle rotation by <a href="https://en.wikipedia.org/wiki/Quaternion">quaternions</a>), inverse kinematics (<a href="https://en.wikipedia.org/wiki/Gradient_descent">gradient descent</a> optimization, geometric <a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant">Jacobian</a>), and motion planning (simple <a href="https://en.wikipedia.org/wiki/Collision_detection">collision detection</a>, sample-based <a href="https://en.wikipedia.org/wiki/Motion_planning">motion planning</a>).  Additional topics that could be covered include potential field navigation, Cyclic Coordinate Descent, Newton-Euler dynamics, task and mission planning, Bayesian filtering, and Monte Carlo localization.  
+AutoRob projects ground course concepts through implementation in <a href="https://en.wikipedia.org/wiki/JavaScript"</a>JavaScript</a>/<a href="https://en.wikipedia.org/wiki/HTML">HTML5</a> supported by the <a href="https://github.com/autorob/kineval-stencil">KinEval code stencil</a> (snapshot below from Mozilla Firefox).  These projects will cover graph search path planning (<a href="https://en.wikipedia.org/wiki/A*_search_algorithm">A* algorithm</a>), basic physical simulation (<a href="https://en.wikipedia.org/wiki/Classical_mechanics">Lagrangian dynamics</a>, <a href ="https://en.wikipedia.org/wiki/Numerical_integration">numerical integrators</a>), proportional-integral-derivative (<a href="https://en.wikipedia.org/wiki/PID_controller">PID</a>) control, forward kinematics (3D geometric <a href="https://en.wikipedia.org/wiki/Transformation_matrix">matrix transforms</a>, matrix stack composition of transforms, axis-angle rotation by <a href="https://en.wikipedia.org/wiki/Quaternion">quaternions</a>), inverse kinematics (<a href="https://en.wikipedia.org/wiki/Gradient_descent">gradient descent</a> optimization, geometric <a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant">Jacobian</a>), and motion planning (simple <a href="https://en.wikipedia.org/wiki/Collision_detection">collision detection</a>, sampling-based <a href="https://en.wikipedia.org/wiki/Motion_planning">motion planning</a>).  Additional topics that could be covered include potential field navigation, Cyclic Coordinate Descent, Newton-Euler dynamics, task and mission planning, Bayesian filtering, and Monte Carlo localization.  
 </p>
 
 <img width=100% src="images/kineval_fetch.png">
@@ -1335,7 +1335,7 @@ That Ain't Right: AI Mistakes and Black Lives</a>
          <!-- 
          -->
          <a href="lectures/autorob_15_roadmaps_rrt.pdf ">
-         Sample-based Planning</a>: Probabilistic roadmaps, RRT-based motion planning
+         Sampling-based Planning</a>: Probabilistic roadmaps, RRT-based motion planning
     </td>
     <td>
          <a href="http://www.kavrakilab.org/publications/kavraki-svestka1996probabilistic-roadmaps-for.pdf">Kavraki+ 1996</a>, 
@@ -2709,7 +2709,7 @@ For turning in your assignment, ensure your completed project code has been comm
 </p>
 
 <p>
-Our last programming project for AutoRob returns to search algorithms for generating navigation setpoints, but now for a high-dimensional robot arm.  The A-star graph search algorithm in Project 1 is a good fit for path planning given the space to explore is limited to two degrees-of-freedom for a robot base.  However, as the number of degree-of-freedom of our robot increases, our search complexity will grow exponentially towards intractability.  For such high-dimensional search problems, we now look to sampling-based search algorithms.  These sampling-based algorithms trade off the guarantees and optimality of exhaustive graph search for viably tractable planning in complex environments.  The example below shows one example of sample-based planning navigating to move a rod through a narrow passageway: 
+Our last programming project for AutoRob returns to search algorithms for generating navigation setpoints, but now for a high-dimensional robot arm.  The A-star graph search algorithm in Assignment 1 is a good fit for path planning when the space to explore is limited to the two degrees-of-freedom of a robot base.  However, as the number of degrees-of-freedom of our robot increases, our search complexity will grow exponentially towards intractability.  For such high-dimensional search problems, we now look to sampling-based search algorithms.  These sampling-based algorithms trade off the guarantees and optimality of exhaustive graph search for viably tractable planning in complex environments.  The example below shows one example of sampling-based planning navigating to move a rod through a narrow passageway: 
 </p>
 
 <center>
@@ -2725,40 +2725,68 @@ and such planning is also used in simple tabletop scenarios:
 </center>
 
 <p>
-For this assignment, you will now implement a collision-free motion planner to enable your robot to navigate from a random configuration in the world to its home configuration (or "zero configuration").  This home configuration is where every robot DOF has a zero value.  For planning, configuration space includes the state of each joint and the global orientation and position of the robot base.  Thus, the robot must move to its original state at the origin of the world.  Motion planning will be implemented through the <a href="https://personalrobotics.ri.cmu.edu/files/courses/papers/Kuffner00-rrtconnect.pdf">RRT-Connect algorithm</a> (described by Kuffner and LaValle).  
-</p>
-
-
-<p>
-The graduate section will additionally implement the <a href="http://dspace.mit.edu/openaccess-disseminate/1721.1/63170">RRT-Star</a> (alternate paper <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5980479">link<a/> via IEEE) motion planner of Karaman et al. (ICRA 2011).
-
+  For this assignment, you will now implement a collision-free motion planner to enable your robot to navigate from a random configuration in the world to its home configuration (or "zero configuration").  This home configuration is where every robot DOF has a zero value.  For your planning implementation, the configuration space includes the state of each joint and the global orientation and position of the robot base.  Thus, the robot must move to its original state at the origin of the world. A visual explanation of this desired behavior is below:
 </p>
 
 <img src="images/asgn6_motionplan.png"  width=100%>
-<p>
 
-<!-- 
+<p>
+For both the undergraduate and graduate sections, motion planning will be implemented through the <a href="http://www.cs.cmu.edu/afs/cs/academic/class/15494-s12/readings/kuffner_icra2000.pdf">RRT-Connect algorithm</a> (described by Kuffner and LaValle). The graduate section will additionally implement the <a href="http://dspace.mit.edu/openaccess-disseminate/1721.1/63170">RRT-Star</a> (alternate paper <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5980479">link<a/> via IEEE) motion planner of Karaman et al. (ICRA 2011).
+</p>
+
+<h3>Features Overview</h3>
+
+<p>
+  This assignment requires the following features to be implemented in the corresponding files in your repository:
+</p>
+
+<ul>
+  <li> <p>Collision detection in "kineval/kineval_collision.js"</p></li>
+  <li> <p>2D RRT-Connect in "project_pathplan/rrt.js"</p></li>
+  <li> <p>Configuration space RRT-Connect in "kineval/kineval_rrt_connect.js"</p></li>
+  <li> <p>[Grad section only] RRT-Star in "WHERE"</p></li>
+</ul>
+
+<p>
+  Points distributions for these features can be found in the <a href="#project_rubric">project rubric section</a></td>. More details about each of these features and the implementation process are given below.
+</p>
+
+<!--
 <!-- (uncomment marker begin 8)
 -->
+<h3>2D RRT-Connect</h3>
 
 <p>
-The core of this assignment is to complete the robot_rrt_planner_init() and robot_rrt_planner_iterate() in the provided kineval_rrt_connect.js stencil.  For successful execution, your implementation of RRT-Connect, the provided collision detection system, and a single specification of world geometry has been included in home.html:
+  To gain familiarity with the RRT-Connect algorithm, you can start this assignment by returning to the 2D world from Assignment 1. If needed, refer back to the Assignment 1 description for a description of the search canvas environment and its parameters. You can enable RRT-Connect as the search algorithm through the URL parameter "?search_alg=RRT-Connect".
+</p>
+
+<p>
+  You will implement the 2D version of RRT-Connect in project_pathplan/rrt.js by completing the iterateRRTConnect() function. Note that the two search tree global variables needed for RRT-Connect, T_a and T_b, are initialized for you in kineval/infrastructure.js. In your implementation of iterateRRTConnect(), you can use several provided support functions from project_pathplan/infrastructure.js, including two new RRT-specific helpers: insertTreeVertex() and insertTreeEdge(). You may also create additional helper functions in this file to handle different steps of the RRT-Connect algorithm.
+</p>
+
+<p>
+  If properly implemented, your RRT-Connect implementation should produce results similar to the image below, although the inherent randomness of the algorithm will mean that the sampled states and final path will be slightly different:
+</p>
+
+<h2>RRT-Connect result here!!</h2>
+
+<h3>Getting Started in Configuration Space</h3>
+<p>
+The core of this assignment is to complete the robot_rrt_planner_init() and robot_rrt_planner_iterate() in kineval/kineval_rrt_connect.js.  This file and the collision detection file kineval/kineval_collision.js have already been included in home.html for you:
 </p>
 
 <pre style="color:black"><code data-language="javascript">
-&lt script src="kineval_rrt_connect.js" >&lt/script> 
-&lt script src="kineval_collision.js" >&lt/script> 
-&lt script src="worlds/world_basic.js" >&lt/script>
+&lt;script src="kineval/kineval_rrt_connect.js">&lt/script>
+&lt;script src="kineval/kineval_collision.js">&lt/script>
 </code></pre>
 
 <p>
-The code stencil will automatically load a default world.  A world can also be specified as an appended parameter within the URL, in the form of "?world=worlds/world_name.js".
-The result of including a world file are the global objects "robot_boundary" descrbing the min and max values of the world boundaries along the X, Y, and Z axes and "robot_obstacles" as the locations and radii of sphere obstacles.  To ensure these worlds rendered in the display and available for collision detection, the geometries of the world are included through the provided call to kineval.initWorldPlanningScene() in kineval/kineval.js.
-<p>
+The code stencil will automatically load a default world.  A different world can be specified as an appended parameter within the URL, in the form of "?world=worlds/world_name.js".
+The world file specifies the global objects "robot_boundary", which describes the min and max values of the world along the X, Y, and Z axes, and "robot_obstacles", which contains the locations and radii of sphere obstacles.  To ensure the world is rendered in the display and available for collision detection, the geometries of the world are included through the provided call to kineval.initWorldPlanningScene() in kineval/kineval.js.
+</p>
 
-Note: your planner should be constrained such that the search does not consider configurations where the base is outside the X-Z plane.  Specifically, the base should not translate along the Y axis, and should not rotate about the X and Z axes.
 
-<h3>First step: add collision detection</h3> 
+<h3>Add Collision Detection</h3>
 <p>
 Your RRT-Connect implementation will depend on detection of collisions (provided by the function kineval.robotIsCollision() in kineval_collision.js) with respect to a specified world geometry.  Worlds are specified as a rectangular boundary and sphere obstacles.  A collection of worlds are provided in the "worlds/" subdirectory of kineval_stencil.  The collision detection system performs two forms of tests: 1) testing of the base position of the robot against the rectangular extents of the world, which is provided by default, and 2) testing of link geometries for a robot configuration against spherical objects, which depends on code you will write.  
 
@@ -2797,13 +2825,13 @@ The call to kineval.robotIsCollision() has been placed within my_animate() in ho
 </code></pre>
 
 
-<h3>Updating kineval_collision for your implementation</h3>
+<h3>Using Collision Detection in Planning</h3>
 <p>
 
-To complete the collision system, you will need to modify the forward kinematics calls in kineval/kineval_collision.js.  Specifically, you will need to perform a traversal of the forward kinematics of the robot for an arbitrary robot configuration within the function kineval.poseIsCollision().  kineval.poseIsCollision() takes in a vector in the robot's configuration space and returns either a boolean false for no detected collision or a string with the name of a link that is in collision.  As a default, this function performs base collision detection against the extents of the world.  For collision detection of each link, this function will make a call to function that you create called robot_collision_forward_kinematics() to recursively test for collisions along each link.  Your collision FK recursion should use the link collision function, collision_FK_link(), provided below along with a joint traversal function properly positions the link and joint frames for the given configuration.
+To complete the collision system, you will need to modify the forward kinematics calls in kineval/kineval_collision.js.  Specifically, you will need to perform a traversal of the forward kinematics of the robot for an arbitrary robot configuration within the function kineval.poseIsCollision().  kineval.poseIsCollision() takes in a vector in the robot's configuration space and returns either a boolean false for no detected collision or a string with the name of a link that is in collision.  As a default, this function performs base collision detection against the extents of the world.  For collision detection of each link, this function will make a call to function that you create called robot_collision_forward_kinematics() to recursively test for collisions along each link.  Your collision FK recursion should use the link collision function, traverse_collision_forward_kinematics_link(), which is provided in kineval/kineval_collision.js, along with a joint traversal function that properly positions the link and joint frames for the given configuration.
 </p>
 
-
+<!--
 <pre style="color:black"><code data-language="javascript">
 function collision_FK_link(link,mstack,q) {
 
@@ -2892,12 +2920,13 @@ function collision_FK_link(link,mstack,q) {
   return false;
 }
 </code></pre>
+-->
 
 <p>
 kineval_collision.js uses matrix and quaternion calls based on the reference implementation (i.e., the instrutor's code).  Your matrix and quaternion calls likely have a different structure to the function arguments and returned data structures.  You should either:
 </p>
 
- <ul> 
+ <ul>
   <li><p>modify calls to matrix/quaternion routines to fit your functions, or</p></li>
 
   <li><p> use a modified version of your own FK with the collision test added to the link traversal function (remember: you need the inverse of the matrix stack for collision testing in a link frame)</p></li>
@@ -2905,17 +2934,21 @@ kineval_collision.js uses matrix and quaternion calls based on the reference imp
 <p>
 
 <p>
-You can feel free to implement matrix_invert_affine() instead of using numeric.inv().  Affine transforms can be inverted (in constant time, Quiz 3!) through a much simpler process than the generic matrix inversion, which is O(n^3) for Gaussian elimination. 
+You can feel free to implement matrix_invert_affine() instead of using numeric.inv().  Affine transforms can be inverted (in constant time, Quiz 3!) through a much simpler process than the generic matrix inversion, which is O(n^3) for Gaussian elimination.
 </p>
 <p>
 If successful to this point, you should be able to see the collision world of the robot, move around this world, and see the colliding link display a red wireframe when a collision occurs.
 <p>
 
 
-<h3>Implementing and invoking the planner</h3> 
+<h3>Implementing and Invoking the Planner</h3>
 
 <p>
 Your motion planner will be implemented in the file kineval/kineval_rrt_connect.js through the functions kineval.robotRRTPlannerInit() and robot_rrt_planner_iterate().  The kineval.robotRRTPlannerInit() function should be modified to initialize the RRT trees and other necessary variables. The robot_rrt_planner_iterate() function should be modified to perform a <b>single</b> RRT-Connect iteration based on the current RRT trees.  Basic RRT tree support functions are provided for initialization, adding configuration vertices (which renders "breadcrumb" indicators of base positions explored), and adding graph edges between configuration vertices.  This function should <b>not</b> use a for loop to perform multiple planning iterations, as this will cause the browser to block and become unresponsive.  Instead, the planner will be continually called asynchronously by the code stencil until a motion plan solution is found.
+</p>
+
+<p>
+<b>Important:</b> Your planner should be constrained such that the search does not consider configurations where the base is outside the X-Z plane.  Specifically, the base should not translate along the Y axis, and should not rotate about the X and Z axes.
 </p>
 
 <p>
@@ -2923,7 +2956,7 @@ Once implemented, your planner will be invoked interactively by first moving the
 </p>
 
 
-<h3>Planner output</h3> 
+<h3>Planner Output</h3>
 <p>
 The output of your planner will be a motion path in a sequentially ordered array (named kineval.motion_plan[]) of RRT vertices.  Each element of this array contains a reference to an RRT vertex with a robot configuration (.vertex), an array of edges (.edges), and a threejs indicator geometry (.geom).  Once a viable motion plan is found, this path can be highlighted by changing the color of the RRT vertex "breadcrumb" geom indicators.  The color of any configuration breadcrumb indicator in a tree can be modified, such as in the following example for red:
 </p>
