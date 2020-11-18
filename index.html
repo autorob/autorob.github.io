@@ -2695,12 +2695,11 @@ For turning in your assignment, ensure your completed project code has been comm
 <!-- (put this line below block comment end for block commenting, above for visibility
 (comment marker end 7) -->
 
-<!-- -->
+<!--
 <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr>
-
-
+ -->
 
 
 <h2 id="assignment6">Assignment 6: Motion Planning</h2>
@@ -2772,7 +2771,8 @@ For both the undergraduate and graduate sections, motion planning will be implem
   <li> <p>The two search tree global variables needed for RRT-Connect, T_a and T_b, are initialized for you in project_pathplan/infrastructure.js</p></li>
   <li> <p>You can use provided support functions from project_pathplan/infrastructure.js, including two new RRT-specific helpers: insertTreeVertex() and insertTreeEdge()</p></li>
   <li> <p>You may also create additional helper functions in project_pathplan/rrt.js to handle different steps of the RRT-Connect algorithm; some suggestions are provided in the code stencil</p></li>
-    <li> <p>iterateRRTConnect() is called for you from the animation code, and it should perform just one iteration of the RRT-Connect algorithm each time it is called</p></li>
+  <li> <p>iterateRRTConnect() is called for you from the animation code, and it should perform just one iteration of the RRT-Connect algorithm each time it is called</p></li>
+  <li> <p>You should use drawHighlightedPath(), <b>not</b> drawHighlightedPathGraph(), to visualize the final path found by RRT-Connect; see the implementation in draw.js for information about how this function works</p></li>
 </ul>
 
 
@@ -2786,12 +2786,12 @@ For both the undergraduate and graduate sections, motion planning will be implem
 
 <h3>Getting Started in Configuration Space</h3>
 <p>
-The core of this assignment is to complete the robot_rrt_planner_init() and robot_rrt_planner_iterate() in kineval/kineval_rrt_connect.js.  This file and the collision detection file kineval/kineval_collision.js have already been included in home.html for you:
+The core of this assignment is to complete the robot_rrt_planner_init() and robot_rrt_planner_iterate() in kineval/kineval_rrt_connect.js. This file and the collision detection file kineval/kineval_collision.js have already been included in home.html for you:
 </p>
 
 <pre style="color:black"><code data-language="javascript">
-&lt;script src="kineval/kineval_rrt_connect.js">&lt/script>
-&lt;script src="kineval/kineval_collision.js">&lt/script>
+    &lt;script src="kineval/kineval_rrt_connect.js">&lt/script>
+    &lt;script src="kineval/kineval_collision.js">&lt/script>
 </code></pre>
 
 <p>
@@ -2800,46 +2800,50 @@ The world file specifies the global objects "robot_boundary", which describes th
 </p>
 
 
-<h3>Add Collision Detection</h3>
+<h3>Collision Detection Setup</h3>
 <p>
-Your RRT-Connect implementation will depend on detection of collisions (provided by the function kineval.robotIsCollision() in kineval_collision.js) with respect to a specified world geometry.  Worlds are specified as a rectangular boundary and sphere obstacles.  A collection of worlds are provided in the "worlds/" subdirectory of kineval_stencil.  The collision detection system performs two forms of tests: 1) testing of the base position of the robot against the rectangular extents of the world, which is provided by default, and 2) testing of link geometries for a robot configuration against spherical objects, which depends on code you will write.  
+  In the search canvas world, a collision detection function was provided for you. For RRT-Connect in robot configuration space, you will need to start by completing the collision detection feature yourself. The main collision detection function used by configuration-space RRT-Connect is kineval.robotIsCollision() (in kineval/kineval_collision.js), which detects robot-world collisions with respect to a specified world geometry.
+</p>
 
-Collision testing for links in a configuration is performed by AABB/Sphere tests that require the bounding box of each link's geometry in the coordinates of that link.  This bounding box is computed by the following within the loop inside kineval.initRobotLinksGeoms() in kineval.js:
+<p>
+  Worlds are specified as a rectangular boundary and sphere obstacles.  A collection of worlds are provided in the "worlds/" subdirectory of kineval_stencil.  The collision detection system performs two forms of tests: 1) testing of the base position of the robot against the rectangular extents of the world, which is provided by default, and 2) testing of link geometries for a robot configuration against spherical objects, which depends on code you will write.
+</p>
+
+<p>
+  Collision testing for links in a configuration should be performed by AABB/Sphere tests that require the bounding box of each link's geometry in the coordinates of that link. This bounding box is computed for you by the following code within the loop inside kineval.initRobotLinksGeoms() in kineval.js:
+</p>
 
 <pre style="color:black"><code data-language="javascript">
-  // bounding box of robot link in local link coordinates
-  robot.links[x].bbox = new THREE.Box3;
-  robot.links[x].bbox = 
-    robot.links[x].bbox.setFromObject(robot.links[x].geom);
-</code></pre>
+    // For collision detection,
+    // set the bounding box of robot link in local link coordinates
+    robot.links[x].bbox = new THREE.Box3;
+    // setFromObject returns world space bbox
+    robot.links[x].bbox = robot.links[x].bbox.setFromObject(robot.links[x].geom);
+  </code>
+</pre>
+
+<p>
+  As you write the collision test, you can thus access the AABB for any robot link as robot.links[x].bbox. This object contains two elements, max and min, that contain the maximum and minimum corners of the link's bounding box, specified in the link's local coordinate frame.
+</p>
 
 <!--
 (end comment marker 8) --> 
 <!-- -->
 
 <p>
-Even before your planner is implemented, you can use the collision system interactively with your robot.  The provided kineval.robotIsCollision() function will test the current configuration of the robot.  When the robot is detected to be in collision, one of the colliding links will be highlighted with a red wireframe.  There could be many links in collision, but only one will be highlighted.  
+  Even before your planner is implemented, you can use the collision system interactively with your robot.  The provided kineval.robotIsCollision() function is called for you during each iteration from my_animate() in home.html:
+</p>
 
-<p>
-<center>
-<img src="images/rrt_collision_boundary.png" width=48%>
-<img src="images/rrt_collision_link.png" width=48%>
-</center>
-<p>
+<pre style="color:black"><code data-language="javascript">
+    // determine if robot is currently in collision with world
+    kineval.robotIsCollision();
+</code></pre>
 
 <!-- 
 <!-- (uncomment marker begin 9)
 -->
 
-The call to kineval.robotIsCollision() has been placed within my_animate() in home.html:
-
-<pre style="color:black"><code data-language="javascript">
-    // show if robot is currently in collision
-    kineval.robotIsCollision();
-</code></pre>
-
-
-<h3>Using Collision Detection in Planning</h3>
+<h3>Completing Collision Detection</h3>
 <p>
 
 To complete the collision system, you will need to modify the forward kinematics calls in kineval/kineval_collision.js.  Specifically, you will need to perform a traversal of the forward kinematics of the robot for an arbitrary robot configuration within the function kineval.poseIsCollision().  kineval.poseIsCollision() takes in a vector in the robot's configuration space and returns either a boolean false for no detected collision or a string with the name of a link that is in collision.  As a default, this function performs base collision detection against the extents of the world.  For collision detection of each link, this function will make a call to function that you create called robot_collision_forward_kinematics() to recursively test for collisions along each link.  Your collision FK recursion should use the link collision function, traverse_collision_forward_kinematics_link(), which is provided in kineval/kineval_collision.js, along with a joint traversal function that properly positions the link and joint frames for the given configuration.
@@ -2934,7 +2938,7 @@ function collision_FK_link(link,mstack,q) {
   return false;
 }
 </code></pre>
--->
+
 
 <p>
 kineval_collision.js uses matrix and quaternion calls based on the reference implementation (i.e., the instrutor's code).  Your matrix and quaternion calls likely have a different structure to the function arguments and returned data structures.  You should either:
@@ -2946,19 +2950,37 @@ kineval_collision.js uses matrix and quaternion calls based on the reference imp
   <li><p> use a modified version of your own FK with the collision test added to the link traversal function (remember: you need the inverse of the matrix stack for collision testing in a link frame)</p></li>
 </ul>
 <p>
+  -->
+<p>
+  Some pointers about your collision FK traversal:
+</p>
+
+<ul>
+  <li> <p>Remember that you need the inverse of the matrix stack for collision testing in a link frame (instead of in the world frame)</p></li>
+  <li> <p>You can feel free to implement matrix_invert_affine() instead of using numeric.inv().  Affine transforms can be inverted (in constant time, Quiz 3!) through a much simpler process than the generic matrix inversion, which is O(n^3) for Gaussian elimination.</p></li>
+</ul>
 
 <p>
-You can feel free to implement matrix_invert_affine() instead of using numeric.inv().  Affine transforms can be inverted (in constant time, Quiz 3!) through a much simpler process than the generic matrix inversion, which is O(n^3) for Gaussian elimination.
+If successful to this point, you should be able to move the robot around the world and see the colliding link display a red wireframe when a collision occurs. There could be many links in collision, but only one will be highlighted, as shown in the following examples:
 </p>
+
 <p>
-If successful to this point, you should be able to see the collision world of the robot, move around this world, and see the colliding link display a red wireframe when a collision occurs.
-<p>
+<center>
+<img src="images/rrt_collision_boundary.png" width=48%>
+<img src="images/rrt_collision_link.png" width=48%>
+</center>
+</p>
+
 
 
 <h3>Implementing and Invoking the Planner</h3>
 
 <p>
-Your motion planner will be implemented in the file kineval/kineval_rrt_connect.js through the functions kineval.robotRRTPlannerInit() and robot_rrt_planner_iterate().  The kineval.robotRRTPlannerInit() function should be modified to initialize the RRT trees and other necessary variables. The robot_rrt_planner_iterate() function should be modified to perform a <b>single</b> RRT-Connect iteration based on the current RRT trees.  Basic RRT tree support functions are provided for initialization, adding configuration vertices (which renders "breadcrumb" indicators of base positions explored), and adding graph edges between configuration vertices.  This function should <b>not</b> use a for loop to perform multiple planning iterations, as this will cause the browser to block and become unresponsive.  Instead, the planner will be continually called asynchronously by the code stencil until a motion plan solution is found.
+  Your motion planner will be implemented in the file kineval/kineval_rrt_connect.js through the functions kineval.robotRRTPlannerInit() and robot_rrt_planner_iterate(). This implementation can be a port of your 2D RRT-Connect, but it will require some updates to work with in the configuration space of KinEval robots. The kineval.robotRRTPlannerInit() function should be modified to initialize the RRT trees and other necessary variables. The robot_rrt_planner_iterate() function should be modified to perform a <b>single</b> RRT-Connect iteration based on the current RRT trees.
+</p>
+
+<p>
+  Basic RRT tree support functions are provided for initialization, adding configuration vertices (which renders "breadcrumb" indicators of base positions explored), and adding graph edges between configuration vertices.  This function should <b>not</b> use a for loop to perform multiple planning iterations, as this will cause the browser to block and become unresponsive.  Instead, the planner will be continually called asynchronously by the code stencil until a motion plan solution is found.
 </p>
 
 <p>
@@ -2966,7 +2988,7 @@ Your motion planner will be implemented in the file kineval/kineval_rrt_connect.
 </p>
 
 <p>
-Once implemented, your planner will be invoked interactively by first moving the robot to an arbitrary non-colliding configuration in the world and then pressing the "m" key.  The "m" key will request the generation of a motion plan.  While the planner is working, it will not accept new planning requests.  Thus, you can move the robot around while the planner is executing.
+Once implemented, your planner will be invoked interactively by first moving the robot to an arbitrary non-colliding configuration in the world and then pressing the "m" key.  The "m" key will request the generation of a motion plan. The goal of a motion plan will always be the home configuration, as defined in the introduction to this assignment.  While the planner is working, it will not accept new planning requests.  Thus, you can move the robot around while the planner is executing.
 </p>
 
 
@@ -2988,13 +3010,15 @@ The user should should be able to interactively move the robot through the found
 </code></pre>
 
 <p>
-Note: we are <b>NOT</b> using robot.controls to execute the found path of the robot.  Although this can be done, the collision system does not currently test for configurations that occur due to the motion between configurations.
+<b>Note:</b> we are <b>NOT</b> using robot.joints[...].control to execute the found path of the robot.  Although this can be done, the collision system does not currently test for configurations that occur due to the motion between configurations.
 </p>
 
-<h3>Testing</h3>
-
 <p>
+  The result of your RRT-Connect implementation in configuration space should look similar to this path found in the worlds/world_s.js world:
+</p>
 <img src="images/asgn6_scurve_2016.png" width=100%>
+
+<h3>Testing</h3>
 
 <p>
 Make sure to test all provided robot descriptions from a reasonable set of initial configurations within all of the provided worlds, ensuring that:
@@ -3008,6 +3032,7 @@ Make sure to test all provided robot descriptions from a reasonable set of initi
 </ul>
 </p>
 
+
 <h3>Warning: Respect Configuration Space</h3>
 
 <p>
@@ -3017,7 +3042,7 @@ The planner should produce a collision-free path in configuration space (over al
 <h3> Graduate Section Requirement</h3>
 
 <p>
-In addition to the requirements above, students in the graduate section must also implement the <a href="http://dspace.mit.edu/openaccess-disseminate/1721.1/63170">RRT-Star</a> motion planning algorithm for the 2D search canvas. You will need to complete the iterateRRTStar() function stencil in project_pathplan/rrt.js for this feature. Please refer to the linked paper for details on how to implement the RRT-Star algorithm.
+In addition to the requirements above, students in the graduate section must also implement the <a href="http://dspace.mit.edu/openaccess-disseminate/1721.1/63170">RRT-Star</a> motion planning algorithm for the 2D search canvas. You will need to complete the iterateRRTStar() function stencil in project_pathplan/rrt.js for this feature. Refer to the linked paper for details on how to implement the RRT-Star algorithm. <b>Note:</b> The course staff will not provide assistance with RRT-Star, so we strongly encourage high-level discussion of the algorithm among students on the assignment channel or in pod meetings.
 </p>
 
 <!--
@@ -3029,7 +3054,7 @@ In addition to the requirements above, students in the graduate section must als
 </p>
 -->
 
-<h4> Advanced Extension </h4>
+<h4> Advanced Extensions</h4>
 
 <p>
 Of the 4 possible advanced extension points, one additional point for this assignment can be earned by adding the capability of motion planning to an arbitrary robot configuration goal. 
