@@ -2710,7 +2710,7 @@ For turning in your assignment, ensure your completed project code has been comm
 </p>
 
 <p>
-Our last programming project for AutoRob returns to search algorithms for generating navigation setpoints, but now for a high-dimensional robot arm.  The A-star graph search algorithm in Assignment 1 is a good fit for path planning when the space to explore is limited to the two degrees-of-freedom of a robot base.  However, as the number of degrees-of-freedom of our robot increases, our search complexity will grow exponentially towards intractability.  For such high-dimensional search problems, we now look to sampling-based search algorithms.  These sampling-based algorithms trade off the guarantees and optimality of exhaustive graph search for viably tractable planning in complex environments.  The example below shows one example of sampling-based planning navigating to move a rod through a narrow passageway:
+Our last programming project for AutoRob returns to search algorithms for generating navigation setpoints, but now for a high-dimensional robot arm.  The A-star graph search algorithm in Assignment 1 is a good fit for path planning when the space to explore is limited to the two degrees-of-freedom of a robot base.  However, as the number of degrees-of-freedom of our robot increases, our search complexity will grow exponentially towards intractability. For such high-dimensional search problems, an exhaustive overview of the majority of the space is not an option. Instead, we now look to sampling-based search algorithms, which will introduce randomness to our search process. These sampling-based algorithms trade off the guarantees and optimality of exhaustive graph search for viably tractable planning in complex environments.  The example below shows one example of sampling-based planning navigating to move a rod through a narrow passageway:
 </p>
 
 <center>
@@ -2758,7 +2758,7 @@ For both the undergraduate and graduate sections, motion planning will be implem
 <h3>2D RRT-Connect</h3>
 
 <p>
-  To gain familiarity with the RRT-Connect algorithm, you can start this assignment by returning to the 2D world from Assignment 1. If needed, refer back to the Assignment 1 description for a description of the search canvas environment and its parameters. You can enable RRT-Connect as the search algorithm through the URL parameter "?search_alg=RRT-Connect".
+  To gain familiarity with the RRT-Connect algorithm, you can start this assignment by returning to the 2D world from Assignment 1. If needed, refer back to the Assignment 1 description for a description of the search canvas environment and its parameters. You can enable RRT-Connect as the search algorithm through the URL parameter search_alg: "search_canvas.html?search_alg=RRT-Connect".
 </p>
 
 <p>
@@ -2797,7 +2797,7 @@ The core of this assignment is to complete the robot_rrt_planner_init() and robo
 </code></pre>
 
 <p>
-The code stencil will automatically load a default world.  A different world can be specified as an appended parameter within the URL, in the form of "?world=worlds/world_name.js".
+The code stencil will automatically load a default world.  A different world can be specified as an appended parameter within the URL: "home.html?world=worlds/world_name.js".
 The world file specifies the global objects "robot_boundary", which describes the min and max values of the world along the X, Y, and Z axes, and "robot_obstacles", which contains the locations and radii of sphere obstacles.  To ensure the world is rendered in the display and available for collision detection, the geometries of the world are included through the provided call to kineval.initWorldPlanningScene() in kineval/kineval.js.
 </p>
 
@@ -3044,7 +3044,7 @@ The planner should produce a collision-free path in configuration space (over al
 <h3> Graduate Section Requirement</h3>
 
 <p>
-In addition to the requirements above, students in the graduate section must also implement the <a href="http://dspace.mit.edu/openaccess-disseminate/1721.1/63170">RRT-Star</a> motion planning algorithm for the 2D search canvas. You will need to complete the iterateRRTStar() function stencil in project_pathplan/rrt.js for this feature. Refer to the linked paper for details on how to implement the RRT-Star algorithm. <b>Note:</b> The course staff will not provide assistance with RRT-Star, so we strongly encourage high-level discussion of the algorithm among students on the assignment channel or in pod meetings.
+In addition to the requirements above, students in the graduate section must also implement the <a href="http://dspace.mit.edu/openaccess-disseminate/1721.1/63170">RRT-Star</a> motion planning algorithm for the 2D search canvas. You will need to complete the iterateRRTStar() function stencil in project_pathplan/rrt.js for this feature. Part of this assignment is an exercise in how to conceptualize implementation details of an algorithm from a robotics paper. Because of this, you will need to refer to the linked paper for details on how to implement the RRT-Star algorithm. <b>Note:</b> The course staff will not provide assistance with RRT-Star, so we strongly encourage high-level discussion of the algorithm among students on the assignment channel or in pod meetings.
 </p>
 
 <!--
