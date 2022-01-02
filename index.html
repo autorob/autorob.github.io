@@ -54,11 +54,11 @@
         <span class="yui3-menu-heading">AutoRob</span>
         <ul>
             <li class="yui3-menu-active"><a href="#schedule">schedule</a></li>
-            <li><a href="https://github.com/autorob/kineval-stencil">kineval</a></li>
+            <li><!-- <a href="https://github.com/autorob/kineval-stencil"> --><a href="https://github.com/autorob-WN22/kineval-stencil">kineval</a></li>
             <li><a href="#git_tutorial">git</a></li>
             <li><a href="#faq">FAQ</a></li>
-<!-- unassigned
             <li>assignments:</li>
+<!-- unassigned
             <li><a href="#assignment1">1</a></li>
             <li><a href="#assignment2">2</a></li>
             <li><a href="#assignment3">3</a></li>
@@ -274,9 +274,7 @@ topipari addrsign umich
 <br>
 <i>GitHub:</i> tonyop
 <br>
-Office Hours: Monday 3:00-5:00pm EST, Wednesday 3:00-5:00pm EST
-<br>
-<i>Office hours will be offered in-person and virtually in accordance with public health guidelines.</i>
+Office Hours: Wednesday 3:00-5:00pm EST, Friday 3:30-5:30pm EST, <a href="https://umich.zoom.us/j/99821635067">Zoom ID: 998 2163 5067</a>
 </p>
 
 <h3>Instructional Aides</h3>
@@ -365,9 +363,9 @@ Students enrolled in AutoRob will receive an invitation to the AutoRob Slack cha
 <ul>
 <li> <p>the <i>#General</i> channel for general course discussion and administrivia, </p> </li>
 <li> <p>the <i>#lecture-questions</i> channel for questions regarding lecture content, </p> </li>
-<li> <p> the <i>#Random</i> channel for non-course items that are of general interest to the course and larger field of robotics, </p> </li>
+<li> <p> the <i>#random</i> channel for non-course items that are of general interest to the course and larger field of robotics, </p> </li>
 <li> <p> seven assignment channels for each class project (<i>#asgn1-pathplan, #asgn2-pendularm, #asgn3-fk, #asgn4-dance-fsm, #asgn5-ik #asgn6-rrt, #asgn7-best-use</i>), </p> </li>
-<li> <p> the <i>#advanced-extensions</i> channel for discussion and announcement of advanced extensions to each project.</p> </li>
+<li> <p> the <i>#optional-extensions</i> channel for discussion and announcement of optional extension features for each project.</p> </li>
 </ul>
 
 <p>
@@ -494,7 +492,7 @@ Based on the sum of points earned from coursework, an overall grade for the cour
 <h3 id="project_rubric">Project Rubrics (tenative and subject to change)</h3>
 
 <p>
-The following project features are planned for AutoRob this semester.  Students are expected to complete all 'Base' features and may attempt the optional extension ('Ext') features for a maximum of 4 extra credit points. <!-- Students enrolled in the graduate section will complete all features.   Students in the undergraduate section are not expected to implement features for the graduate section.-->
+The following project features are planned for AutoRob this semester.  Students are expected to complete all 'Base' features. <!-- Students enrolled in the graduate section will complete all features.   Students in the undergraduate section are not expected to implement features for the graduate section.-->
 </p>
 
 <table cellpadding=5 border=0  width="100%">
@@ -503,7 +501,7 @@ The following project features are planned for AutoRob this semester.  Students 
 <col align="center">
 <tr bgcolor="#aaaaaa">     
         <th style="width:100px"><b><center>Points</center></b></th> 
-        <th style="width:100px"><b><center>Type</center></b></th>
+        <th style="width:100px"><b><center></center></b></th>
         <th style="width:600px"><b><center>Feature</center></b></th>
 </tr>
 
@@ -511,73 +509,73 @@ The following project features are planned for AutoRob this semester.  Students 
 <td></td><td></td><td>Assignment 1: 2D Path Planning</td>
 </tr>
 
-<tr><td>4</td><td>Base</td><td> Heap implementation</td></tr>
-<tr><td>8</td><td>Base</td><td> A-star search</td></tr>
-<tr><td>2</td><td>Ext</td><td> BFS</td></tr>
+<tr><td>4</td><td></td><td> Heap implementation</td></tr>
+<tr><td>8</td><td></td><td> A-star search</td></tr>
+<!-- <tr><td>2</td><td>Ext</td><td> BFS</td></tr>
 <tr><td>2</td><td>Ext</td><td> DFS</td></tr>
-<tr><td>2</td><td>Ext</td><td> Greedy best-first</td></tr>
+<tr><td>2</td><td>Ext</td><td> Greedy best-first</td></tr> -->
 
 <tr bgcolor="#dddddd">     
 <td></td><td></td><td>Assignment 2: Pendularm</td>
 </tr>
 
-<tr><td>4</td><td>Base</td><td> Euler integrator</td></tr>
-<tr><td>4</td><td>Base</td><td> Velocity Verlet integrator</td></tr>
-<tr><td>4</td><td>Base</td><td> PID control</td></tr>
-<tr><td>1</td><td>Ext</td><td> Verlet integrator</td></tr>
+<tr><td>4</td><td></td><td> Euler integrator</td></tr>
+<tr><td>4</td><td></td><td> Velocity Verlet integrator</td></tr>
+<tr><td>4</td><td></td><td> PID control</td></tr>
+<!-- <tr><td>1</td><td>Ext</td><td> Verlet integrator</td></tr>
 <tr><td>2</td><td>Ext</td><td> RK4 integrator</td></tr>
-<tr><td>3</td><td>Ext</td><td> Double pendulum</td></tr>
+<tr><td>3</td><td>Ext</td><td> Double pendulum</td></tr> -->
 
 <tr bgcolor="#dddddd">     
 <td></td><td></td><td>Assignment 3: Forward Kinematics</td>
 </tr>
 
-<tr><td>2</td><td>Base</td><td> Core matrix routines</td></tr>
-<tr><td>8</td><td>Base</td><td> FK transforms</td></tr>
-<tr><td>2</td><td>Base</td><td> Joint selection/rendering</td></tr>
-<tr><td>2</td><td>Ext</td><td> Base offset transform</td></tr>
-<tr><td>4</td><td>Ext</td><td> New robot definition</td></tr>
+<tr><td>2</td><td></td><td> Core matrix routines</td></tr>
+<tr><td>8</td><td></td><td> FK transforms</td></tr>
+<tr><td>2</td><td></td><td> Joint selection/rendering</td></tr>
+<!-- <tr><td>2</td><td>Ext</td><td> Base offset transform</td></tr>
+<tr><td>4</td><td>Ext</td><td> New robot definition</td></tr> -->
 
 <tr bgcolor="#dddddd">     
 <td></td><td></td><td>Assignment 4: Dance Controller</td>
 </tr>
 
-<tr><td>6</td><td>Base</td><td> Quaternion joint rotation</td></tr>
-<tr><td>2</td><td>Base</td><td> Interactive base control</td></tr>
-<tr><td>2</td><td>Base</td><td> Pose setpoint controller</td></tr>
-<tr><td>2</td><td>Base</td><td> Dance FSM</td></tr>
-<tr><td>2</td><td>Ext</td><td> Joint limits</td></tr>
+<tr><td>6</td><td></td><td> Quaternion joint rotation</td></tr>
+<tr><td>2</td><td></td><td> Interactive base control</td></tr>
+<tr><td>2</td><td></td><td> Pose setpoint controller</td></tr>
+<tr><td>2</td><td></td><td> Dance FSM</td></tr>
+<!-- <tr><td>2</td><td>Ext</td><td> Joint limits</td></tr>
 <tr><td>2</td><td>Ext</td><td> Prismatic joints</td></tr>
-<tr><td>2</td><td>Ext</td><td>Fetch rosbridge interface</td></tr>
+<tr><td>2</td><td>Ext</td><td>Fetch rosbridge interface</td></tr> -->
 
 <tr bgcolor="#dddddd">     
 <td></td><td></td><td>Assignment 5: Inverse Kinematics</td>
 </tr>
 
-<tr><td>6</td><td>Base</td><td> Manipulator Jacobian</td></tr>
-<tr><td>3</td><td>Base</td><td> Gradient descent with Jacobian transpose</td></tr>
-<tr><td>3</td><td>Base</td><td> Jacobian pseudoinverse</td></tr>
-<tr><td>6</td><td>Ext</td><td> Euler angle conversion</td></tr>
+<tr><td>6</td><td></td><td> Manipulator Jacobian</td></tr>
+<tr><td>3</td><td></td><td> Gradient descent with Jacobian transpose</td></tr>
+<tr><td>3</td><td></td><td> Jacobian pseudoinverse</td></tr>
+<!-- <tr><td>6</td><td>Ext</td><td> Euler angle conversion</td></tr> -->
 <!--<tr><td>!</td><td> SVD</td></tr> -->
 
 <tr bgcolor="#dddddd">     
 <td></td><td></td><td>Assignment 6: Motion Planning</td>
 </tr>
 
-<tr><td>4</td><td>Base</td><td> Collision detection</td></tr>
-<tr><td>6</td><td>Base</td><td> 2D RRT-Connect</td></tr>
-<tr><td>2</td><td>Base</td><td> Configuration space RRT-Connect</td></tr>
-<tr><td>6</td><td>Ext</td><td> 2D RRT-Star</td></tr>
+<tr><td>4</td><td></td><td> Collision detection</td></tr>
+<tr><td>6</td><td></td><td> 2D RRT-Connect</td></tr>
+<tr><td>2</td><td></td><td> Configuration space RRT-Connect</td></tr>
+<!-- <tr><td>6</td><td>Ext</td><td> 2D RRT-Star</td></tr> -->
 
 <tr bgcolor="#dddddd">     
 <td></td><td></td><td>Participation</td>
 </tr>
-<tr><td>4</td><td>All</td><td> Participation in assigned pod and course discussion</td></tr>
+<tr><td>4</td><td></td><td> Participation in assigned pod and course discussion</td></tr>
 
 <tr bgcolor="#dddddd">     
 <td></td><td></td><td>Optional</td>
 </tr>
-<tr><td>4</td><td>Grad</td><td> Selected Advanced Extensions</td></tr>
+<tr><td>4</td><td></td><td>Optional Feature Extensions (extra credit)</td></tr>
 </table>
 
 
@@ -603,25 +601,25 @@ For the Winter 2022 semester, AutoRob will make use of "continous integration gr
 <b>Do not submit assignments late.</b>  The course staff reserves the right to not grade late submissions. The course instructor reserves the right to decline late submissions and/or adjust partial credit on regraded assignments.
 </p>
 <p>
-If granted by the course instructor, late submissions can be graded for partial credit, with the following guidelines.  Submissions pushed within two weeks past the project deadline will be graded for 80% credit.   Submissions pushed within four weeks of the project deadline will be graded for 60% credit.  Submissions pushed at any time before the semester project submission deadline (December 8, 2020) will be considered for 50% credit.  As a reminder, the course instructor reserves the right to decline late submissions and/or adjust partial credit on regraded assignments.
+If granted by the course instructor, late submissions can be graded for partial credit, with the following guidelines.  Submissions pushed within two weeks past the project deadline will be graded for 80% credit.   Submissions pushed within four weeks of the project deadline will be graded for 60% credit.  Submissions pushed at any time before the semester project submission deadline (April 18, 2022) will be considered for 50% credit.  As a reminder, the course instructor reserves the right to decline late submissions and/or adjust partial credit on regraded assignments.
 </p>
 
 <h3>Regrading Policy</h3>
 <p>
-The regrading policy allows for submission and regrading of projects up through the final grading of projects, which will be April 20 for the Winter 2022 Semester.  This regrading policy will grant full credit for project submissions pushed to your repository before the corresponding project deadline.  If a feature of a graded project is returned as not completed (or "DUE"), your code can be updated for consideration at 80% credit.  This code update must be pushed to your repository within two weeks from when the originally graded project was returned.  Regrades of projects updated beyond this two week window can receive at most 60% credit.  <!-- The course staff will allow one regrade for each grading iteration. -->
+The regrading policy allows for submission and regrading of projects up through the final grading of projects, which will be Monday, April 18 for the Winter 2022 Semester.  This regrading policy will grant full credit for project submissions pushed to your repository before the corresponding project deadline.  If a feature of a graded project is returned as not completed (or "DUE"), your code can be updated for consideration at 80% credit.  This code update must be pushed to your repository within two weeks from when the originally graded project was returned.  Regrades of projects updated beyond this two week window can receive at most 60% credit.  <!-- The course staff will allow one regrade for each grading iteration. -->
 </p>
 
 <h3>Completed Features Policy</h3>
 
 <p>
-All checked features must continue to function properly in your repository up through the final grading deadline (April 20, 2022).  Checked features that do not function properly for subsequent projects will be treated as a new submission and subject to the regrading policy.
+All checked features must continue to function properly in your repository up through the final grading deadline (April 18, 2022).  Checked features that do not function properly for subsequent projects will be treated as a new submission and subject to the regrading policy.
 </p>
 
 
 <h3>Final Grading</h3>
 
 <p>
-All grading will be finalized on December 8, 2020.  Regrading of specific assignments can be done upon request during office hours.  No regrading will be done after grades are finalized.
+All grading will be finalized on April 24, 2022.  Regrading of specific assignments can be done upon request during office hours.  No regrading will be done after grades are finalized.
 <p>
 
 <h3>Repositories</h3>
@@ -733,7 +731,7 @@ Preview slides from lectures during the Fall 2020 offering of AutoRob are provid
         <th style="width:40px"><b><center>Date</center></b></th> 
         <th style="width:500px"><b><center>Topic</center></b></th>
         <th style="width:150px"><b><center>Reading</center></b></th>
-        <th style="width:200px"><b><center>Project</center></b></th>
+        <th style="width:200px"><b><center>Project | Quiz</center></b></th>
 </tr>
 
 <tr>
@@ -745,7 +743,7 @@ Preview slides from lectures during the Fall 2020 offering of AutoRob are provid
          <a href="lectures/autorob_01_initialization.pdf"> 
          Initialization</a>: 
          "So, where is my robot?", "What is a Robot OS?", Course administration and logistics<br>
-         <a href="https://umich.zoom.us/rec/share/9eB5Nujp515IW4Xryk3dXYMGOK3Caaa80XdL8vNZzx3o8AP_uBznuRNTMdkHrBjF">[Session recording (UM only)]</a> 
+         <!-- <a href="https://umich.zoom.us/rec/share/9eB5Nujp515IW4Xryk3dXYMGOK3Caaa80XdL8vNZzx3o8AP_uBznuRNTMdkHrBjF">[Session recording (UM only)]</a>  -->
     </td>
     <td>Spong Ch.1<hr>Corke Ch.1</td> 
     <td>Setup git repository<br> 
@@ -771,10 +769,10 @@ Preview slides from lectures during the Fall 2020 offering of AutoRob are provid
     <td><b>Jan 7</b></td>
     <td>
          Lab Session: 
-         <a href="labs/autorob_lab_01_git.pdf">
+         <!-- <a href="labs/autorob_lab_01_git.pdf"> -->
          Git-ing started with git, JavaScript, and KinEval
-         </a>
-         <br> <a href="https://umich.zoom.us/rec/share/WantsIQDtg_TTUDR9MHtp8Zf8QZQzfJMltShcQ7sVbc3HPkr78KVs2WAJ0COgYo8.D5BxtKlJlDIAfysv">[Session recording (UM only)]</a>
+         <!-- </a> -->
+         <!-- <br> <a href="https://umich.zoom.us/rec/share/WantsIQDtg_TTUDR9MHtp8Zf8QZQzfJMltShcQ7sVbc3HPkr78KVs2WAJ0COgYo8.D5BxtKlJlDIAfysv">[Session recording (UM only)]</a> -->
     </td>
 </tr>
 
@@ -790,7 +788,7 @@ Preview slides from lectures during the Fall 2020 offering of AutoRob are provid
          -->
          <a href="lectures/autorob_02_graph_search.pdf">
          Path Planning</a>: Navigation as graph search, DFS, BFS, Dijkstra shortest paths, A-star, Greedy best first, Priority queues and binary heaps<br>
-         <a href="https://youtu.be/DcW7CbJ1Flw">[Lecture Video]</a> 
+         <!-- <a href="https://youtu.be/DcW7CbJ1Flw">[Lecture Video]</a>  -->
     </td>
     <td>
          <a href="https://en.wikipedia.org/wiki/A*_search_algorithm">Wikipedia</a>
@@ -826,7 +824,7 @@ That Ain't Right: AI Mistakes and Black Lives</a>
          -->
          <a href="lectures/autorob_03_jsh5_git.pdf">
          JavaScript and AutoRob workflow</a>: Project workflow with git, JS/HTML5 tutorial, Document Object Model, Version Control, LaTeX math mode, Licensing, Michigan Honor License<br>
-         <a href="https://youtu.be/VZ3llORSumk">[Lecture Video]</a> 
+         <!-- <a href="https://youtu.be/VZ3llORSumk">[Lecture Video]</a>  -->
     </td>
     <td colspan="2">Crockford,<br>
     <a href="examples/sandbox.html">HTML Sandbox</a>,<br>
@@ -843,13 +841,12 @@ That Ain't Right: AI Mistakes and Black Lives</a>
     <td><b>Jan 14</b></td>
     <td>
          367 Lab: 
-         <a href="labs/autorob_lab_02_search_canvas.pdf">
-         KinEval Path Planning code overview
+         <!-- <a href="labs/autorob_lab_02_search_canvas.pdf"> -->
+         KinEval Path Planning code overview</a>
 <!--
          heapsort.html and search_canvas.html code overview
 -->
-         <br> <a href="https://umich.zoom.us/rec/share/pdDbnyOPErtWIHw_sagJ6knOQ019uWKRV2Yal7c5eaEGuQJY5SlVPSae9hA9XEiR.i_V3DmCTxUuNbs6I">[Session recording (UM only)]</a>
-         </a>
+         <!-- <br> <a href="https://umich.zoom.us/rec/share/pdDbnyOPErtWIHw_sagJ6knOQ019uWKRV2Yal7c5eaEGuQJY5SlVPSae9hA9XEiR.i_V3DmCTxUuNbs6I">[Session recording (UM only)]</a> -->
     </td>
 </tr>
 
@@ -876,9 +873,9 @@ That Ain't Right: AI Mistakes and Black Lives</a>
          -->
          <a href="lectures/autorob_04_dynamics_pendulum.pdf">
          Dynamical Simulation</a>:  Simple pendulum, Lagrangian equation(s) of motion, Initial value problem, Explicit integrators:  Euler, Verlet, and Runge-Kutta 4, Double pendulum<br>
-         <a href="https://youtu.be/B_yWF6SqZW0">[Lecture Video]</a> 
-         <br><a href="lectures/autorob_04_dynamics_pendulum_errata.pdf">[errata]</a> 
-         <br><a href="https://umich.zoom.us/rec/share/m-nNL_xYVqOVX-L6i3j0xKyhJRuG_0yVHOnFRQsdD2C2e6iznTHG-GpcUQW_-yDu.CpeJV-KMgs7LX6W6">[Session recording (UM only)]</a> 
+         <!-- <a href="https://youtu.be/B_yWF6SqZW0">[Lecture Video]</a> 
+         <br><a href="lectures/autorob_04_dynamics_pendulum_errata.pdf">[errata]</a>  -->
+         <!-- <br><a href="https://umich.zoom.us/rec/share/m-nNL_xYVqOVX-L6i3j0xKyhJRuG_0yVHOnFRQsdD2C2e6iznTHG-GpcUQW_-yDu.CpeJV-KMgs7LX6W6">[Session recording (UM only)]</a>  -->
     </td>
     <td>
         Spong Ch.7 | Corke Ch.9<br>
@@ -890,8 +887,7 @@ That Ain't Right: AI Mistakes and Black Lives</a>
         Witkin&Baraff 1998:
         <a href="https://www.cs.cmu.edu/~baraff/sigcourse/notesb.pdf">Integrators</a><br> -->
     </td> 
-    <td>Due: Path Planning
-    <br>Out: <a href="#assignment2">Pendularm</a></td>
+    <td></td>
 </tr>
 
 
@@ -902,12 +898,14 @@ That Ain't Right: AI Mistakes and Black Lives</a>
     <td><b>Jan 21</b></td>
     <td>
          367 Lab:
-         <a href="labs/autorob_lab_03_pendularm.pdf">
+         <!-- <a href="labs/autorob_lab_03_pendularm.pdf"> -->
          pendularm1.html code overview
-         </a>
-         <br> <a href="https://umich.zoom.us/rec/share/gIUSn4W14vyzJ9lw92de5UydXiUnEd8_VWR6sNjfpsD8DQ-H2QWO1Q3zCsrx_1ze.frgAZ3HnCOo8xKel">[Session recording (UM only)]</a>
-         </a>
+         <!-- </a> -->
+         <!-- <br> <a href="https://umich.zoom.us/rec/share/gIUSn4W14vyzJ9lw92de5UydXiUnEd8_VWR6sNjfpsD8DQ-H2QWO1Q3zCsrx_1ze.frgAZ3HnCOo8xKel">[Session recording (UM only)]</a> -->
     </td>
+    <td></td>
+    <td>Due: Path Planning
+    <br>Out: <a href="#assignment2">Pendularm</a></td>
 </tr>
 
 
@@ -926,16 +924,16 @@ That Ain't Right: AI Mistakes and Black Lives</a>
          <!-- 
          -->
          <a href="lectures/autorob_05_control_pid.pdf">
-         Motion Control</a>: Cartesian vs. generalized coordinates, open-loop vs. closed-loop control, PID control; Rigid body dynamics<br>
-         <a href="https://youtu.be/VdEA4InDxKc">[Lecture Video]</a> 
-         <br><a href="https://umich.zoom.us/rec/share/wWdcU_Q6leggzcc_oxjABvoPGypG3ltD04IOGxoPOaz9y3J2S8Kbkpyz5KUb0Bm5.VZVOaij6HxlB-__h">[Session recording (UM only)]</a> 
+         Motion Control</a>: Cartesian vs. generalized coordinates, open-loop vs. closed-loop control, PID control; Rigid body dynamics
+         <!-- <br><a href="https://youtu.be/VdEA4InDxKc">[Lecture Video]</a>  -->
+         <!-- <br><a href="https://umich.zoom.us/rec/share/wWdcU_Q6leggzcc_oxjABvoPGypG3ltD04IOGxoPOaz9y3J2S8Kbkpyz5KUb0Bm5.VZVOaij6HxlB-__h">[Session recording (UM only)]</a>  -->
     </td>
     <td>
         Spong 6.3,<br>
         <a href="http://ocj.name/papers/marek_pami2012.pdf">Vondrak+ 2012</a> <br>
         <hr>
         <a href="http://www.cds.caltech.edu/~murray/courses/cds101/fa02/caltech/astrom-ch6.pdf">Astrom Ch. 6</a></td> 
-    <td></td> 
+    <td><b>Quiz 1</b></td> 
 </tr>
 
 <tr>
@@ -956,10 +954,10 @@ That Ain't Right: AI Mistakes and Black Lives</a>
     <td><b>Jan 28</b></td>
     <td>
          367 Lab: 
-         <a href="labs/autorob_lab_04_pendularm.pdf">
+         <!-- <a href="labs/autorob_lab_04_pendularm.pdf"> -->
            Pendularm Support
-         </a>
-         <br> <a href="https://umich.zoom.us/rec/share/ZaXDrA2mMwlg0r8Z-9YWkYLoAiVzyaN_9SJqmKE0UxFddqOHMqJygPx9I59bBw1b.3MPpuV-UONLYm5qe?startTime=1601058883000">[Session recording (UM only)]</a>
+         <!-- </a> -->
+         <!-- <br> <a href="https://umich.zoom.us/rec/share/ZaXDrA2mMwlg0r8Z-9YWkYLoAiVzyaN_9SJqmKE0UxFddqOHMqJygPx9I59bBw1b.3MPpuV-UONLYm5qe?startTime=1601058883000">[Session recording (UM only)]</a> -->
     </td>
 </tr>
 
@@ -973,21 +971,21 @@ That Ain't Right: AI Mistakes and Black Lives</a>
          <!-- 
          -->
          <a href="lectures/autorob_07_fk_matrixstack.pdf">
-         Forward Kinematics</a>: Kinematic chains, URDF, homogeneous transforms, matrix stack traversal, D-H convention<br>
-         <a href="https://youtu.be/to5yp5FpsGc">[Lecture Video]</a> 
+         Forward Kinematics</a>: Kinematic chains, URDF, homogeneous transforms, matrix stack traversal, D-H convention
+         <!-- <a href="https://youtu.be/to5yp5FpsGc">[Lecture Video]</a>  -->
          <!-- FUTURE: cover Newton-Euler here -->
     </td>
     <td>Spong 2, 3.1, 3.2 <hr>Corke 7.1-2</td> 
-    <td> </td> 
+    <td><b>Quiz 2</b></td> 
 </tr>
 
 <tr>
     <td><b>Feb 2</b></td>
     <td>
-         Quiz 2 
+         Extended Office Hours
     </td>
     <td></td> 
-    <td>Due: Pendularm<br>Out: <a href="#assignment3">Forward Kinematics</a></td> 
+    <td></td> 
 </tr>
 
 
@@ -995,11 +993,13 @@ That Ain't Right: AI Mistakes and Black Lives</a>
     <td><b>Feb 4</b></td>
     <td>
          367 Lab: 
-         <a href="labs/autorob_lab_05_kineval.pdf">
+         <!-- <a href="labs/autorob_lab_05_kineval.pdf"> -->
            KinEval and urdf.js code overview
-         </a>
-         <br> <a href="https://umich.zoom.us/rec/share/CInJaZL9E4MhC5k95ki5u_1Ni7e_hmfWtWx0OD5PSupzMA2z6OxhfaQmFqkeqGM-.mpNEV3QYaicwv-X6">[Session recording (UM only)]</a>
+         <!-- </a> -->
+         <!-- <br> <a href="https://umich.zoom.us/rec/share/CInJaZL9E4MhC5k95ki5u_1Ni7e_hmfWtWx0OD5PSupzMA2z6OxhfaQmFqkeqGM-.mpNEV3QYaicwv-X6">[Session recording (UM only)]</a> -->
     </td>
+    <td></td>
+    <td>Due: Pendularm<br>Out: <a href="#assignment3">Forward Kinematics</a></td> 
 </tr>
 
 
@@ -1013,8 +1013,8 @@ That Ain't Right: AI Mistakes and Black Lives</a>
          <!-- 
          -->
          <a href="lectures/autorob_08_fk_quaternions.pdf">
-         Axis-angle Rotation and Quaternions</a>: Motors, Euler angles, gimbal lock, Rodrigues rotation, rotation in complex spaces, Dual quaternions and screw coordinates <br>
-         <a href="https://youtu.be/zEmIV_FMGyo">[Lecture Video]</a> 
+         Axis-angle Rotation and Quaternions</a>: Motors, Euler angles, gimbal lock, Rodrigues rotation, rotation in complex spaces, Dual quaternions and screw coordinates 
+         <!-- <a href="https://youtu.be/zEmIV_FMGyo">[Lecture Video]</a>  -->
     </td>
     <td>
         <a href="https://en.wikipedia.org/wiki/Gimbal_lock">Handout 1</a>, 
@@ -1024,7 +1024,7 @@ That Ain't Right: AI Mistakes and Black Lives</a>
         <hr>
         Corke 2.2-3
     </td> 
-    <td></td> 
+    <td><b>Quiz 3</b></td> 
 </tr>
 
 <tr>
@@ -1057,7 +1057,7 @@ That Ain't Right: AI Mistakes and Black Lives</a>
 <tr>
     <td><b>Feb 11</b></td>
     <td>
-         367 Lab: <s>Quaternions in KinEval</s> Extended office hours
+         367 Lab: Quaternions in KinEval
     </td>
 </tr>
 
@@ -1075,7 +1075,7 @@ That Ain't Right: AI Mistakes and Black Lives</a>
          <!-- 
          -->
          <a href="lectures/autorob_10_pointclouds_middleware.pdf">
-         Robot Middleware</a>: Hardware Abstraction, ROS, LCM, Publish-subscribe messaging, rosbridge, Client-server messaging<br>
+         Robot Middleware</a>: Hardware Abstraction, ROS, LCM, Publish-subscribe messaging, rosbridge, Client-server messaging
     </td>
     </td>
     <td>
@@ -1083,7 +1083,7 @@ That Ain't Right: AI Mistakes and Black Lives</a>
          <a href="https://april.eecs.umich.edu/pdfs/huang2010.pdf">Huang+ 2010</a>,
          <a href="http://ocj.name/papers/rctoris_iros2015.pdf">Toris+ 2015</a>
     </td> 
-    <td></td> 
+    <td><b>Quiz 4</b></td> 
 </tr>
 
 <tr>
@@ -1094,10 +1094,10 @@ That Ain't Right: AI Mistakes and Black Lives</a>
          <a href="lectures/autorob_11_ik_closedform.pdf">
          Inverse Kinematics 1 - Closed-form</a>: Joint vs. Endeffector control, Planar 2-link arm, Closed form solutions<br>
 
-         <br> <a href="https://umich.zoom.us/rec/share/txatjqKzGyKu81GhnTARjVoLf1tRPKBeKLyvFYeQ6gGwSJcCyRMgNAASRqfLmR-j.559ufHjN7_CZx9MS">[Lecture recording (UM only)]</a>
+         <!-- <br> <a href="https://umich.zoom.us/rec/share/txatjqKzGyKu81GhnTARjVoLf1tRPKBeKLyvFYeQ6gGwSJcCyRMgNAASRqfLmR-j.559ufHjN7_CZx9MS">[Lecture recording (UM only)]</a> -->
     </td>
     <td>Spong 3.3<hr>Corke 7.3</td> 
-    <td>Due: Forward Kinematics<br>Out: <a href="#assignment4">Dance Contest</a></td> 
+    <td></td> 
 </tr>
 
 <tr>
@@ -1116,11 +1116,13 @@ That Ain't Right: AI Mistakes and Black Lives</a>
     <td>
          
          367 Lab: 
-         <a href="labs/autorob_lab_06_fsm.pdf">
+         <!-- <a href="labs/autorob_lab_06_fsm.pdf"> -->
              KinEval pose parameters and HTML5 audio
-         </a>
-         <br> <a href="https://drive.google.com/file/d/18FlDwmid0Q6YyDfuAZGblGthoUIz2dGo/view?usp=sharing">[Session recording (UM only)]</a>
+         <!-- </a> -->
+         <!-- <br> <a href="https://drive.google.com/file/d/18FlDwmid0Q6YyDfuAZGblGthoUIz2dGo/view?usp=sharing">[Session recording (UM only)]</a> -->
     </td>
+    <td></td>
+    <td>Due: Forward Kinematics<br>Out: <a href="#assignment4">Dance Contest</a></td> 
 </tr>
 
 
@@ -1150,10 +1152,10 @@ That Ain't Right: AI Mistakes and Black Lives</a>
          -->
          <a href="lectures/autorob_12_ik_jacobian.pdf">
          Inverse Kinematics 2 - Non-linear Optimization</a>: Gradient descent, Manipulator Jacobian, Jacobian transpose and pseudoinverse, Cyclic Coordinate Descent
-         <br> <a href="https://umich.zoom.us/rec/share/LU9HPprTJWkJ9ub8HxuEv_RM_ZvBHWtEoR3-_brafbt-erTtky0JwYNwKxUDlEeW.14a4PPdgeD5WYG3Z?startTime=1604515111000">[Lecture recording (UM only)]</a>
+         <!-- <br> <a href="https://umich.zoom.us/rec/share/LU9HPprTJWkJ9ub8HxuEv_RM_ZvBHWtEoR3-_brafbt-erTtky0JwYNwKxUDlEeW.14a4PPdgeD5WYG3Z?startTime=1604515111000">[Lecture recording (UM only)]</a> -->
     </td>
     <td>Spong 4, <a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=86079"> Wang&Chen 1991</a>, <a href="http://math.ucsd.edu/~sbuss/ResearchWeb/ikmethods/iksurvey.pdf">Buss 2009</a>, <a href="https://personal.traclabs.com/~pbeeson/papers/Beeson-humanoids-15.pdf">Beeson+ 2015</a><hr>Corke 8</td> 
-    <td></td> 
+    <td><b>Quiz 5</b></td> 
 </tr>
 
 
@@ -1181,9 +1183,9 @@ That Ain't Right: AI Mistakes and Black Lives</a>
     <td><b>Feb 25</b></td>
     <td>
          367 Lab: 
-            <s><a href="lectures/autorob_10_pointclouds_middleware.pdf">
-            rosbridge/FK: connect your code to a real robot</a></s><br>Extended office hours
-            <br>
+            <!-- <a href="lectures/autorob_10_pointclouds_middleware.pdf"> -->
+            rosbridge/FK: connect your code to a real robot
+            <!-- </a> -->
     </td>
 </tr>
 
@@ -1246,7 +1248,7 @@ That Ain't Right: AI Mistakes and Black Lives</a>
         <hr>
         Corke 4, 5
     </td>
-    <td></td> 
+    <td><b>Quiz 6</b></td> 
 </tr>
 
 
@@ -1257,8 +1259,8 @@ That Ain't Right: AI Mistakes and Black Lives</a>
          -->
          <a href="lectures/autorob_15_roadmaps_rrt.pdf ">
            Sampling-based Planning</a>: Probabilistic roadmaps, RRT-based motion planning<br>
-         <a href="https://umich.zoom.us/rec/share/1umGyI9zsnvfjPNPEOCAUn0HGQehOezdZQ2mpqgBp9Fxu_QsXWEd-Hrov3rr6fhU.n8Ttav2M9Pw81RRX">
-        [Session recording (UM only)]</a>
+         <!-- <a href="https://umich.zoom.us/rec/share/1umGyI9zsnvfjPNPEOCAUn0HGQehOezdZQ2mpqgBp9Fxu_QsXWEd-Hrov3rr6fhU.n8Ttav2M9Pw81RRX">
+        [Session recording (UM only)]</a> -->
     </td>
     <td>
          <a href="http://www.kavrakilab.org/publications/kavraki-svestka1996probabilistic-roadmaps-for.pdf">Kavraki+ 1996</a>, 
@@ -1295,11 +1297,11 @@ That Ain't Right: AI Mistakes and Black Lives</a>
     <td><b>Mar 11</b></td>
     <td>
          367 Lab: 
-         <a href="labs/autorob_lab_07_ik.pdf">
+         <!-- <a href="labs/autorob_lab_07_ik.pdf"> -->
            KinEval IK control flow and parameters
-         </a>
-         <br> <a href="https://drive.google.com/file/d/1z1UblMd71no1Rs-5_9yi6dWoXBhfAu3J/view?usp=sharing">[Session recording (UM only)]</a>
-         </a>
+         <!-- </a> -->
+         <!-- <br> <a href="https://drive.google.com/file/d/1z1UblMd71no1Rs-5_9yi6dWoXBhfAu3J/view?usp=sharing">[Session recording (UM only)]</a>
+         </a> -->
     </td>
     <td></td>
     <td></td>
@@ -1327,8 +1329,7 @@ That Ain't Right: AI Mistakes and Black Lives</a>
     <a href="https://books.google.com/books?id=8MDsCgAAQBAJ&pg=PA3&lpg=PA3&dq=Distance+Transform+Based+Path+Planning+for+Robot+Navigation&source=bl&ots=4YC-ov9RTx&sig=uQAPV5UEPkqs2_JbmUWQ_Lcunec&hl=en&sa=X&ved=0ahUKEwi28Kz3yJnXAhWH6oMKHbOPAW4Q6AEINjAC#v=onepage&q=Distance%20Transform%20Based%20Path%20Planning%20for%20Robot%20Navigation&f=false">Jarvis 1993</a>, 
     <a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=182671">Zelinsky 1992</a>
     </td>
-    </td>
-    <td></td> 
+    <td><b>Quiz 7</b></td> 
 </tr>
 
 <!-- <tr>
@@ -1369,7 +1370,7 @@ That Ain't Right: AI Mistakes and Black Lives</a>
 <tr>
     <td><b>Mar 18</b></td>
     <td>
-         367 Lab: <s>search_canvas.html revisited for 2D RRT</s><br>Extended office hours
+         367 Lab: search_canvas.html revisited for 2D RRT
     </td>
 </tr>
 
@@ -1394,7 +1395,7 @@ That Ain't Right: AI Mistakes and Black Lives</a>
         Extended Office Hours
     </td>
     <td></td> 
-    <td></td>
+    <td><b>Quiz 8</b></td>
 </tr>
 
 
@@ -1453,11 +1454,12 @@ That Ain't Right: AI Mistakes and Black Lives</a>
     <td><b>Mar 25</b></td>
     <td>
          367 Lab: 
-         <a href="labs/autorob_lab_08_rrt.pdf">
-           KinEval RRT stencil and AABB collision detection<br>
+         <!-- <a href="labs/autorob_lab_08_rrt.pdf"> -->
+           KinEval RRT stencil and AABB collision detection
+        <!-- </a> -->
+        <!-- <br>
            <a href="https://drive.google.com/file/d/1r2kQQOMGbzVhIAslb0hK3eXZS7Q6m402/view?usp=sharing">
-             [Session recording (UM only)]</a>
-         </a>
+             [Session recording (UM only)]</a> -->
     </td>
 </tr>
 
@@ -1481,7 +1483,7 @@ That Ain't Right: AI Mistakes and Black Lives</a>
 <a href="http://www.willowgarage.com/sites/default/files/Rusu08RAS-Semantic.pdf">Rusu+ 2008</a>, <br>
         <a href="http://www.ccs.neu.edu/home/atp/publications/affordances_iser2014_final.pdf">ten Pas+ 2014</a>,<br>
     </td> 
-    <td></td> 
+    <td><b>Quiz 9</b></td> 
 </tr>
 
 
@@ -1508,8 +1510,10 @@ That Ain't Right: AI Mistakes and Black Lives</a>
 <tr>
     <td><b>Apr 1</b></td>
     <td>
-        Lab: <a href="labs/autorob_ros_tutorial_2020.pdf">
-        ROS tutorial</a>
+        Lab: 
+        <!-- <a href="labs/autorob_ros_tutorial_2020.pdf"> -->
+        ROS tutorial
+        <!-- </a> -->
     </td>
     <td></td>
     <td></td>
@@ -1561,7 +1565,7 @@ That Ain't Right: AI Mistakes and Black Lives</a>
     <td><a href="http://www.cc.gatech.edu/~dellaert/pub/Dellaert99icra.pdf">Dellaert+ 1999</a>,<br>
     <a href="https://april.eecs.umich.edu/pdfs/olson2006icra.pdf">Olson+ 2006,</a><br>
     <a href="http://ocj.name/papers/zsui_iros2017.pdf">Sui+ 2017</a></td> 
-    <td></td> 
+    <td><b>Quiz 10</b></td> 
 <tr>
 
 
@@ -1626,7 +1630,7 @@ That Ain't Right: AI Mistakes and Black Lives</a>
 
 
 <tr>
-    <td><b>Apr 20</b></td>
+    <td><b>Apr 18</b></td>
     <td>Final grading deadline</td>
     <td></td>
     <td></td>
@@ -1677,7 +1681,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <h2 id="assignment1">Assignment 1: Path Planning</h2>  
 <p>
-<b>Due 11:59pm, Wednesday, January 19, 2022</b>
+<b>Due 11:59pm, Friday, January 21, 2022</b>
 </p>
 
 
@@ -1713,9 +1717,9 @@ If properly implemented, the A-star algorithm should produce the following path 
 <ul>
   <li> <p>Heap implementation in "tutorial_heapsort/heap.js"</p></li>
   <li> <p>A-star search in "project_pathplan/graph_search.js"</p></li>
-  <li> <p>[Grad section only] Breadth-first search (BFS) in "project_pathplan/graph_search.js"</p></li>
-  <li> <p>[Grad section only] Depth-first search (DFS) in "project_pathplan/graph_search.js"</p></li>
-  <li> <p>[Grad section only] Greedy best-first search in "project_pathplan/graph_search.js"</p></li>
+  <!-- <li> <p>[Optional Extension] Breadth-first search (BFS) in "project_pathplan/graph_search.js"</p></li>
+  <li> <p>[Optional Extension] Depth-first search (DFS) in "project_pathplan/graph_search.js"</p></li>
+  <li> <p>[Optional Extension] Greedy best-first search in "project_pathplan/graph_search.js"</p></li> -->
 </ul>
 
 <p>
@@ -1724,9 +1728,17 @@ If properly implemented, the A-star algorithm should produce the following path 
 
 <h3>Cloning the Stencil Repository</h3>
 
+
 <p>
-The first step for completing this project (and all projects for AutoRob) is to clone the <a href="https://github.com/autorob/kineval-stencil">KinEval stencil repository</a>.  The appended git quick start below is provided those unfamiliar with git to perform this clone operation, as well as commiting and pushing updates for project submission.  <b>IMPORTANT</b>: the stencil repository should be cloned and <b>not forked</b>.
+The first step for completing this project is to join our <a href="https://classroom.github.com/a/j_-yiHwt">autorob-WN22 GitHub Classroom</a>. By following the preceeding link, your GitHub account will be linked to our 'classroom' and a private clone of the <a href="https://github.com/autorob-WN22/kineval-stencil">KinEval stencil repository</a> will be created for you to use. Your private repository will automatically be named <code>kineval-stencil-&ltusername&gt</code>.
 </p>
+
+<p>
+After joining the autorob-WN22 classroom, you will be able to clone your private repository for development on your local machine.  The appended <a href="#">git quick start</a> below is provided those unfamiliar with git to perform this clone operation, as well as commiting and pushing updates for project submission.  <b>IMPORTANT</b>: the stencil repository should be cloned and <b>not forked</b>.
+</p>
+<!-- <p>
+The first step for completing this project (and all projects for AutoRob) is to clone the <a href="https://github.com/autorob/kineval-stencil">KinEval stencil repository</a>.  The appended git quick start below is provided those unfamiliar with git to perform this clone operation, as well as commiting and pushing updates for project submission.  <b>IMPORTANT</b>: the stencil repository should be cloned and <b>not forked</b>.
+</p> -->
 
 <p>
 Throughout the KinEval code stencil, there are markers with the string "STENCIL" for code that needs to be completed for course projects. For this assignment, you will write code where indicated by the "STENCIL" marker in "tutorial_heapsort/heap.js" and "project_pathplan/graph_search.js".
@@ -1793,7 +1805,7 @@ This code stencil is implemented to perform graph search iterations interactivel
   The iterateGraphSearch() function should perform a search iteration towards the goal pose of the robot, specified as a 2D vector in parameter "q_goal".  The search must find a goal node that allows for departure from the planning graph without collision.  iterateGraphSearch() makes use of three provided helper functions.  testCollision([x, y]) returns a boolean of whether a given 2D location, as a two-element vector [x, y], is in collision with the planning scene.  draw_2D_configuration([x, y], type) draws a square at a given location in the planning world to indicate that location has been visited by the search (type = "visited") or is currently in the planning queue (type = "queued").  Once the search is complete, drawHighlightedPathGraph(l) will render the path produced by the search algorithm between location l and the start location. The global variable search_iterate should be set to false when the search is complete to end animation loop.
 </p>
 
-<h3> Graduate Section Requirement</h3>
+<!-- <h3> Graduate Section Requirement</h3>
 
 <p>
 In addition to the A-star algorithm, students in the graduate section of AutoRob must additionally implement path planning by Depth-first search, Breadth-first search, and Greedy best-first search.  An additional report is required in "report.html" (you will need to create this file) in the "project_pathplan" directory. This report must: 1) show results from executing every search algorithm with every planning world for various start and goal configurations and 2) synthesize these results into coherent findings about these experiments.
@@ -1801,7 +1813,7 @@ In addition to the A-star algorithm, students in the graduate section of AutoRob
 
 <p>
 For effective communication, it is recommended to think of "report.html" like a short research paper: motivate the problem, set the value proposition for solving the problem, describe how your methods can address the problem, and show results that demonstrate how well these methods realize the value proposition. Visuals are highly recommended to complement this description. The best research papers can be read in three ways: once in text, once in figures, and once in equations. It is also incredibly important to remember that writing in research is about generalizable understanding of the problem more than a specific technical accomplishment.
-</p>
+</p> -->
 
 <h4> Advanced Extensions</h4>
 
@@ -1855,14 +1867,14 @@ To ensure proper submission of your assignments, please do the following:
 
 <p>
 <ul>
-<li><p>complete the <a href="https://docs.google.com/forms/d/e/1FAIpQLSeeD4jabAk-QcMvTR2zSvslcBbPQzhyOOK90VEUQGffOhOdlQ/viewform?usp=sf_link">AutoRob Fall 2020 Student Workflow Survey</a>, making sure you provide the URL pointer to your git repository,</p> </li>
+<li><p>complete the <a href="https://forms.gle/uEfkN8aPWaYZ87K3A">AutoRob Winter 2022 Student Workflow Survey</a>, making sure you provide your GitHub username</p> </li>
 <!--<li><p>confirm with the course instructor (ocj addrsign umich) with your name, email address, and pointer to your repository,</p> </li> -->
-<li><p>ensure the instructor and all GSIs have push/admin access to your repository, which can be confirmed/addressed through email or office hours</p></li>
+<li><p>ensure the instructor and all IAs have push/admin access to your repository, which can be confirmed/addressed through slack, email, or office hours</p></li>
 </ul>
 </p>
 
 <h6>
-If you are paying attention, you should also add a directory to your repository called "me".  This "me" directory should include a simple webpage in the file "me.html".  The "me.html" file should have a title with your name, an h1 tag with your name, an img tag includes a picture of you from the file "me.png", body with a brief introduction about you, and a script tag that prints the result of <code>Array(16).join("wat"-1)+" Batman!"</code> to the console. 
+If you are paying attention, you should also add a directory to your repository called "me".  This "me" directory should include a simple webpage in the file "me.html".  The "me.html" file should have a title with your name, an h1 tag with your name, <!-- an img tag includes a picture of you from the file "me.png", --> body with a brief introduction about you, and a script tag that prints the result of <code>Array(16).join("wat"-1)+" Batman!"</code> to the console. 
 </h6>
 <!--
 (uncomment marker end 1) -->
@@ -1917,7 +1929,7 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 
 <h2 id="assignment2">Assignment 2: Pendularm </h2>  
 <p>
-<b>Due 11:59pm, Wednesday, February 2, 2022</b>
+<b>Due 11:59pm, Friday, February 4, 2022</b>
 </p>
 
 <p>
@@ -2056,7 +2068,7 @@ Students in the graduate section are strongly encouraged to extend their pendula
 -->
 
 <h2 id="assignment3">Assignment 3: Forward Kinematics</h2>  
-<b>Due 11:59pm, Wednesday, February 16, 2022</b>
+<b>Due 11:59pm, Friday, February 18, 2022</b>
 <p>
 Forward kinematics (FK) forms the core of our ability to purposefully control the motion of a robot arm.  FK will provide us a general formulation for controlling any robot arm to reach a desired configuration and execute a desired trajectory.  Specifically, FK allows us to predict the spatial layout of the robot in our 3D world given a configuration of its joints.  For the purposes of grasping and dexterous tasks, FK gives us the critical ability to predict the location of the robot's gripper (also known as its "endeffector").  As shown in our <a href="http://www.iros2017.org/">IROS 2017</a> video below, such manipulation assumes a robot has already perceived its environment as a scene estimate of objects and their positions and orientations.  Given this scene estimate, a robot controller uses FK to evaluate and execute viable endeffector trajectories for grasping and manipulating an object.
 </p>
@@ -3123,7 +3135,7 @@ Scenario: An investor is considering giving you 20 million dollars (cold hard US
 <p>
 You will get 2 minutes to make a pitch to develop something useful with robots.  Consider the instructor and your classmates as the people that need to be convinced.  As a guideline, your pitch should address an opportunity (presented by a need or a problem), your planned result (as a system, technology, product, and/or service), and how you will measure successful return on investment.  Return on investment can be viewed as financial profit (wrt. venture capital), good for society (wrt. a government program), creation of new knowledge or capabilities (wrt. a grant for scientific research).  Remember, the purpose is to convince and inspire about what is possible, rather than dive into specifics.
 <p>
-The last scheduled class period and a little more (December 7, 1:30-4:30pm) will be dedicated to a screening of student video presentations to pitch ideas on the best use of robotics.  
+The last two scheduled class periods (April 11 & 13, 1:30-3:00pm) will be dedicated to a screening of student video presentations to pitch ideas on the best use of robotics.  
 </p>
 
 <p>
@@ -3181,7 +3193,7 @@ This is meant to be a starting guide to using Git version control and the bash c
 <h3>Installing Git</h3>
 
 <p>
-The AutoRob course assumes Git is used from a command line terminal to work with a Git hosting service, such as <a href="https://github.com">GitHub</a>, <a href="https://bitbucket.com">Bitbucket</a>, or <a href="https://gitlab.eecs.umich.edu/">EECS GitLab</a>.  Such terminal environments are readily available in Linux and Mac OSX through their respective terminal programs.  For MS Windows, we recommend Git Bash, which can be downloaded from the <a href="https://gitforwindows.org/">Git for Windows</a> project.  Several other viable alternatives Git clients exist, such as the GUI-based <a href="https://www.gitkraken.com/">GitKraken</a>.  
+The AutoRob course assumes Git is used from a command line terminal to work with the <a href="https://github.com">GitHub</a> hosting service<!-- a Git hosting service, such as <a href="https://github.com">GitHub</a>, <a href="https://bitbucket.com">Bitbucket</a>, or <a href="https://gitlab.eecs.umich.edu/">EECS GitLab</a> -->.  Such terminal environments are readily available in Linux and Mac OSX through their respective terminal programs.  For MS Windows, we recommend Git Bash, which can be downloaded from the <a href="https://gitforwindows.org/">Git for Windows</a> project.  Several other viable alternatives Git clients exist, such as the GUI-based <a href="https://www.gitkraken.com/">GitKraken</a>.  
 </p>
 
 <p>
@@ -3215,6 +3227,29 @@ If you have Git installed, you should should be able to enter the "git" command 
 <img width=80% src="images/git_terminal_osx.png">
 </center>
 
+
+<h3>Joining the GitHub Classroom</h3>
+
+<p>
+Once you have configured Git with your local development environment, you should then join the autorob-WN22 GitHub classroom by following the instructions at this <a href="https://classroom.github.com/a/j_-yiHwt">invitation link</a>. This link should take you to the following page:
+</p>
+
+<center>
+<img width=80% src="images/github_classroom_invite.png">
+</center>
+
+<p>
+By clicking on 'Skip to the next step', shown above, you will be able to accept the invitation. After accepting, you will be enrolled in the autorob-WN22 classroom and a private clone of the <a href="https://github.com/autorob-WN22/kineval-stencil">KinEval stencil repository</a> will be created for you to use. Your private repository will automatically be named <code>kineval-stencil-&ltusername&gt</code>. After accepting, you should see a page similar to the one below:
+</p>
+
+<center>
+<img width=80% src="images/github_classroom_result.png">
+</center>
+
+<p>
+<b>If you run into any issues with the GitHub classroom, contact the course staff through slack or email.</b>
+</p>
+
 <h3>Cloning your repository</h3>
 
 <p>
@@ -3243,7 +3278,7 @@ From your current directory, you can use Bash commands to view and modify the co
 </p>
 
 <p>
-Once you have navigated to the directory where you want to create your workspace, you are ready to clone a copy of your remote repository and populate it with files for AutoRob projects.  It assumed that you have already created a repository on your Git hosting service, given the course staff access to this repository, and provided a link of your repository to the course staff.  You will need the repository link in the form of "https://github.com/user_name/repository_name.git" if you are using HTTPS (default) or "git@github.com:user_name/repository_name.git" if you are using SSH (only if you have set up your SSH keys). You'll use this link to clone a copy of your remote repository onto your local machine using the following git command below.  This command will clone the repository contents to a subdirectory labeled with the name of the repository:
+Once you have navigated to the directory where you want to create your workspace, you are ready to clone a copy of your remote repository and populate it with files for AutoRob projects.  It assumed that you have already created a repository on your Git hosting service, given the course staff access to this repository, and provided a link of your repository to the course staff.  You will need the repository link in the form of <!-- "https://github.com/user_name/repository_name.git" -->"https://github.com/autorob-WN22/kineval-stencil-&ltusername&gt" if you are using HTTPS (default) or <!-- "git@github.com:user_name/repository_name.git" -->"git@github.com:autorob-WN22/kineval-stencil-&ltusername&gt.git" if you are using SSH (only if you have set up your SSH keys). You'll use this link to clone a copy of your remote repository onto your local machine using the following git command below.  This command will clone the repository contents to a subdirectory labeled with the name of the repository:
 </p>
 
 <pre style="color:black"><code data-language="javascript">
@@ -3275,7 +3310,7 @@ After cloning has finished, you can also check for differences between the files
 You should now have a local copy of your repository.  It is critical to note that your local repository is different than your current workspace.  Your workspace is not automatically tracked by the version control system and considered ephemeral.  Any changes made to your workspace must be committed into the local repository to be recognized by the version control system.  Further, any changes committed to your local repository must also be pushed remotely to be recognized by your Git hosting service.  Thus, any changes made to your workspace can be lost if not committed and pushed, which will be discussed more in later sections.
 </p>
 
-<h3>Populating your repository with project stencil code</h3>
+<!-- <h3>Populating your repository with project stencil code</h3>
 
 <p>
 Use the "git remote" command to add a second remote repostiory to your new local repository:
@@ -3303,7 +3338,7 @@ Now pull the files from the autorob remote with the following command:
 </code></pre>
 <p>
   The "reset --hard" command will erase files and history, so be extra careful that you are not overwriting an important repository here!
-</p>
+</p> -->
 
 <h3>Testing out the stencil code</h3>
 
