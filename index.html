@@ -2073,9 +2073,9 @@ Students in the graduate section are strongly encouraged to extend their pendula
 (uncomment end 2) -->
 
 
-<hr>
+<!-- <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
-<hr>
+<hr> -->
 
 
 <h2 id="assignment3">Assignment 3: Forward Kinematics</h2>  
@@ -2106,8 +2106,8 @@ In this assignment, you will render the forward kinematics of an arbitrary robot
   <li> <p>Core matrix routines in "kineval/kineval_matrix.js"</p></li>
   <li> <p>FK transforms in "kineval/kineval_forward_kinematics.js"</p></li>
   <li> <p>Joint selection/rendering, based on the kinematic hierarchy in "kineval/kineval_robot_init_joints.js"</p></li>
-  <li> <p>[Grad section only] Base offset transform in "kineval/kineval_forward_kinematics.js" </p></li>
-  <li> <p>[Grad section only] New robot definition in your own file in the "robots" directory</p></li>
+  <!-- <li> <p>[Grad section only] Base offset transform in "kineval/kineval_forward_kinematics.js" </p></li> -->
+  <li> <p><!-- [Grad section only]  -->New robot definition in your own file in the "robots" directory</p></li>
 </ul>
 
 <p>
@@ -2257,19 +2257,34 @@ Additionally, a correct implementation will be able to interactively traverse th
 The cylinders used as rendering geometries for joints are not aligned with joint axes by default.  The support code in KinEval will properly orient joint rendering cylinders.  To use this functionality, simply ensure that the vector_cross() function is correctly implemented in "kineval/kineval_matrix.js".  vector_cross() will be automatically detected and used to properly orient each joint rendering cylinder.
 </p>
 
-<h3> Undergraduate Advanced Extension </h3>
+<!-- <h3> Undergraduate Advanced Extension </h3> -->
+
+<h3> New Robot Description </h3>
 
 <p>
-Students in the AutoRob Undergraduate Section can earn one additional point by creating a robot description for the RexArm 4-DOF robot arm, which can be used later in <a href="https://www.youtube.com/playlist?list=PLDutmfAv2lfZ9M0XyYfY4N8EwLJhy58G6">EECS 467 (Autonomous Robotics Laboratory)</a>.  <a href="robot_descriptions/REX Arm STLs.zip">Rexarm link geometries</a> are provided in <a href="https://en.wikipedia.org/wiki/STL_%28file_format%29">STL format</a>.   <a href="https://youtu.be/DTD93KXrfZw">RoBob Ross</a> is an example of a RexArm project from 467 in Winter 2017.  Below is a snapshot of a RexArm in KinEval created by mattdr:
+Students also must create a new robot description that works with KinEval. Details to follow during interactive sessions.
 </p>
+
+<p>
+Your newly created robot description should be placed in the "robots" directory with a filename with your username in the format "robot_uniqueid.js" if no external geometries are used for this robot (similar to the MR2 or Crawler robots).  If external geometries are imported (similar to the Fetch and Baxter), the robot description should be in a new subdirectory with the robot's name.  The robot's name should also be used to name the URDF file, such as "robots/newrobotname/newrobotname.urdf.js".  It is requested that geometries for a new robot go into this directory within a "meshes" subdirectory, such as "robots/newrobotname/meshes".  Guidance can be provided during office hours about creating or converting URDF-based robot description files to KinEval-compliant JavaScript and importing Collada, STL, and Wavefront OBJ geometry files.
+</p>
+
+<!-- <p>
+Students in the AutoRob Undergraduate Section can earn one additional point by creating a robot description for the RexArm 4-DOF robot arm, which can be used later in <a href="https://www.youtube.com/playlist?list=PLDutmfAv2lfZ9M0XyYfY4N8EwLJhy58G6">EECS 467 (Autonomous Robotics Laboratory)</a>.  <a href="robot_descriptions/REX Arm STLs.zip">Rexarm link geometries</a> are provided in <a href="https://en.wikipedia.org/wiki/STL_%28file_format%29">STL format</a>.   <a href="https://youtu.be/DTD93KXrfZw">RoBob Ross</a> is an example of a RexArm project from 467 in Winter 2017.  Below is a snapshot of a RexArm in KinEval created by mattdr:
+</p> -->
 
 <p> <center>
 <img  width=90% src="images/fk_rexarm_example.png">
 </center> <p>
 
-<h3> Graduate Section Requirement</h3>
+<!-- <h3> Graduate Section Requirement</h3>
 <p>
 Students in the AutoRob Graduate Section must: 1) implement the assignment as described above to work with <b>all</b> given examples, which includes the Fetch, Baxter, and Sawyer robot descriptions, and 2) create a new robot description that works with KinEval.
+</p> -->
+
+<h3> Real Robot Examples</h3>
+<p>
+Students may optionally implement their forward kinematics routines to work with <b>all</b> given examples, which includes the Fetch, Baxter, and Sawyer robot descriptions, with the following .
 </p>
 
 <p>
@@ -2303,9 +2318,9 @@ The "robots/sawyer/sawyer.urdf.js" example should produce the following:
 <!-- (uncomment marker begin 5)
  -->
 
-<p>
+<!-- <p>
 Your newly created robot description should be placed in the "robots" directory with a filename with your username in the format "robot_uniqueid.js" if no external geometries are used for this robot (similar to the MR2 or Crawler robots).  If external geometries are imported (similar to the Fetch and Baxter), the robot description should be in a new subdirectory with the robot's name.  The robot's name should also be used to name the URDF file, such as "robots/newrobotname/newrobotname.urdf.js".  It is requested that geometries for a new robot go into this directory within a "meshes" subdirectory, such as "robots/newrobotname/meshes".  Guidance can be provided during office hours about creating or converting URDF-based robot description files to KinEval-compliant JavaScript and importing Collada, STL, and Wavefront OBJ geometry files.
-</p>
+</p> -->
 
 <p>
 Students are highly encouraged to port URDF descriptions of real world robot platforms into their code.  Such examples of real world robot systems include the 
@@ -2358,11 +2373,11 @@ For turning in your assignment, push your updated code to the <b>master</b> bran
 (uncomment marker end 5)
 -->
 
-<!--
+
 <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr>
--->
+
 
 <p>
 
