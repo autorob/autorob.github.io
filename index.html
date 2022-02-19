@@ -61,8 +61,8 @@
             <li><a href="#assignment1">1</a></li>
             <li><a href="#assignment2">2</a></li>
             <li><a href="#assignment3">3</a></li>
-<!-- unassigned
             <li><a href="#assignment4">4</a></li>
+<!-- unassigned
             <li><a href="#assignment5">5</a></li>
             <li><a href="#assignment6">6</a></li>
             <li><a href="#assignment7">7</a></li>
@@ -2393,10 +2393,10 @@ For turning in your assignment, push your updated code to the <b>master</b> bran
 (uncomment marker end 5)
 -->
 
-
+<!-- 
 <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
-<hr>
+<hr> -->
 
 
 <p>
@@ -2447,9 +2447,9 @@ This <a href="https://www.youtube.com/embed/WyQ9aoB3bpI">updated dance</a> contr
   <li> <p>Interactive base control vectors in "kineval/kineval_forward_kinematics.js"</p></li>
   <li> <p>Pose setpoint controller in "kineval/kineval_servo_control.js"</p></li>
   <li> <p>Dance FSM in "kineval/kineval_servo_control.js" (FSM controller) and "home.html" (dance setpoint initialization)</p></li>
-  <li> <p>[Grad section only] Joint limit enforcement in "kineval/kineval_controls.js"</p></li>
-  <li> <p>[Grad section only] Prismatic joint implementation in "kineval/kineval_forward_kinematics.js"</p></li>
-  <li> <p><s>[Grad section only] Fetch rosbridge interface</s> <i>Cancelled due to COVID-19</i></p></li>
+  <!-- <li> <p>[Grad section only] Joint limit enforcement in "kineval/kineval_controls.js"</p></li> -->
+  <!-- <li> <p>[Grad section only] Prismatic joint implementation in "kineval/kineval_forward_kinematics.js"</p></li> -->
+  <!-- <li> <p><s>[Grad section only] Fetch rosbridge interface</s> <i>Cancelled due to COVID-19</i></p></li> -->
 </ul>
 
 <p>
@@ -2529,9 +2529,9 @@ if (kineval.params.update_pd_dance)
 To complete your dance controller, choreograph a dance by initializing kineval.setpoints with the poses for your dance and kineval.params.dance_sequence_index with the pose ordering. You should initialize these data structures within the my_init() function in "home.html". Once you have the poses and sequence for your dance initialized, when you select both "persist_pd" and "update_pd_dance" in the UI, you should see the robot move through the setpoints of your dance.
 </p>
 
-<h3> Graduate Section Requirements</h3>
+<!-- <h3> Graduate Section Requirements</h3>
 <p>
-Students in the graduate section of AutoRob must implement the assignment as described above for the Fetch and Baxter robots with two additional requirements: 1) proper implementation of all joint types in the robot descriptions and 2) proper enforcement of joint limits for the robot descriptions. <!--and 3) integration (via <a href="http://wiki.ros.org/rosbridge_suite">rosbridge</a>) of their code with ROS or a <a href="http://docs.fetchrobotics.com/gazebo.html">Gazebo simulation of the Fetch</a>.-->
+Students in the graduate section of AutoRob must implement the assignment as described above for the Fetch and Baxter robots with two additional requirements: 1) proper implementation of all joint types in the robot descriptions and 2) proper enforcement of joint limits for the robot descriptions. !--and 3) integration (via <a href="http://wiki.ros.org/rosbridge_suite">rosbridge</a>) of their code with ROS or a <a href="http://docs.fetchrobotics.com/gazebo.html">Gazebo simulation of the Fetch</a>.--
 
 <p>
 The urdf.js files for these robots, included in the provided code stencil, contain joints with with various types that correspond to different types of motion:
@@ -2562,7 +2562,7 @@ Joints are considered to be continuous as the default.  Joints with undefined mo
   <s>
     Machines running rosbridge, ROS, and Gazebo for the Fetch will be available during special sessions of the class.  Students are encouraged to install and run the Fetch simulator on their own machines based on <a href="http://docs.fetchrobotics.com/gazebo.html">this tutorial</a>.
   </s>
-</p>
+</p> -->
 
 
 <h4> Advanced Extensions </h4>
@@ -2591,11 +2591,11 @@ For turning in your assignment, push your updated code to the <b>master</b> bran
 
 <p>
 
-<!--
+
 <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr>
--->
+
 
 <!-- 
 (uncomment marker end 6) -->
