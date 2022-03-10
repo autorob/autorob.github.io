@@ -62,8 +62,8 @@
             <li><a href="#assignment2">2</a></li>
             <li><a href="#assignment3">3</a></li>
             <li><a href="#assignment4">4</a></li>
-<!-- unassigned
             <li><a href="#assignment5">5</a></li>
+<!-- unassigned
             <li><a href="#assignment6">6</a></li>
             <li><a href="#assignment7">7</a></li>
 
@@ -2591,9 +2591,9 @@ For turning in your assignment, push your updated code to the <b>master</b> bran
 <p>
 
 
-<hr>
+<!-- <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
-<hr>
+<hr> -->
 
 
 <!-- 
@@ -2640,7 +2640,7 @@ As shown in the video below, if successful, your robot will be able to continual
   <li> <p>Manipulator Jacobian in "kineval/kineval_inverse_kinematics.js"</p></li>
   <li> <p>Gradient descent with Jacobian transpose in "kineval/kineval_inverse_kinematics.js"</p></li>
   <li> <p>Jacobian pseudoinverse in "kineval/kineval_matrix.js" (pseudoinverse function) and "kineval/kineval_inverse_kinematics.js" (use in gradient descent)</p></li>
-  <li> <p>[Grad section only] Euler angle conversion in "kineval/kineval_inverse_kinematics.js"</p></li>
+  <!-- <li> <p>[Grad section only] Euler angle conversion in "kineval/kineval_inverse_kinematics.js"</p></li> -->
 </ul>
 
 <p>
@@ -2673,7 +2673,7 @@ From these arguments and the current robot configuration, the kineval.iterateIK(
 </p>
 
 <p>
-<b>Important:</b> Students enrolled in EECS 398 will implement inverse kinematics for <b>only</b> the position, not the orientation, of the endeffector.
+<b>Important:</b> Students <!-- enrolled in EECS 398 will -->are expected to implement inverse kinematics for <b>only</b> the position, not the orientation, of the endeffector.
 </p>
 
 <p>
@@ -2703,12 +2703,12 @@ In implementing this IK routine, please also remember the following:
 All students in the AutoRob course are expected to run their IK controller with the random trial feature in the KinEval stencil.  The IK random trial is executed through the function kineval.randomizeIKtrial() in the file "kineval/kineval_inverse_kinematics.js".  This function is incomplete in the provided stencil.  Code for this function to properly run the random trial will be made available in the assignment 5 discussion channel. Once you have copied the necessary code into this function, you will be able to test your code on random trials by first selecting persist_ik (under Inverse Kinematics) then selecting execute (under Inverse Kinematics->IK Random Trial) from the user interface.
 <p>
 
-<h3> Undergraduate Advanced Extension </h3>
+<!-- <h3> Undergraduate Advanced Extension </h3>
 <p>
 Students in the AutoRob Undergraduate Section can earn one additional point by implementing a closed-form inverse kinematics solution for the RexArm 4-DOF robot arm, which can be used later projects in <a href="https://www.youtube.com/playlist?list=PLDutmfAv2lfZ9M0XyYfY4N8EwLJhy58G6">EECS 467 (Autonomous Robotics Laboratory)</a>.  
-</p>
+</p> -->
 
-<h3> Graduate Section Requirement</h3>
+<!-- <h3> Graduate Section Requirement</h3>
 
 <p>
 Students enrolled in the graduate section of AutoRob will implement inverse kinematics for both the position and orientation of the endeffector, namely for the Fetch robot.  The default IK behavior will be position-only endeffector control.  Both endeffector position and orientation should be controlled when the boolean parameter kineval.params.ik_orientation_included is set to true, which can be done through the user interface (Inverse Kinematics->ik_orientation_included).
@@ -2716,7 +2716,7 @@ Students enrolled in the graduate section of AutoRob will implement inverse kine
 
 <p>
   In order to handle the orientation of the endeffector in your IK implementation, you will need to calculate the orientation part of the error term, which will require you to implement a conversion from a rotation matrix to Euler angles. You may find an online reference to inform your implementation of this conversion (please cite it in a comment in your code) or develop your own approach to the conversion calculation. Completing this conversion is a necessary step for including orientation in your IK implementation, and it also fulfills the "Euler angle conversion" feature.
-</p>
+</p> -->
 
 <h4> Advanced Extensions </h4>
 
@@ -2754,11 +2754,11 @@ For turning in your assignment, ensure your completed project code has been comm
 <!-- (put this line below block comment end for block commenting, above for visibility
 (comment marker end 7) -->
 
-<!--
+
 <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr>
- -->
+ 
 
 
 <h2 id="assignment6">Assignment 6: Motion Planning</h2>
