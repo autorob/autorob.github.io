@@ -794,7 +794,8 @@ Note: Updated lecture slides will be posted after the associated lecture has bee
 -->
 
 <p>
-Preview slides from lectures during the Winter 2022 offering of AutoRob are provided.  These preview slides will be replaced with recorded lectures for Winter 2023 as the videos become available.
+Course material below that is <b>not highlighted in grey</b> can be considered officially released to the course for Winter 2023. 
+Previously recorded <b style="color:#000000;background-color:#cccccc">preview slides and lecture recordings (in gray)</b> are provided below from lectures during the Winter 2022 offering of AutoRob.  These preview materials will be replaced with either recorded lectures for Winter 2023 (as these videos become available) or appropriate materials from past courses.
 </p>
 
 <p>
@@ -802,7 +803,10 @@ Slides from this course borrow from and are indebted to many sources from around
 </p>
 
 <table cellpadding=5 border=0  width="100%">
+<!--
 <tr bgcolor="#dddddd">     
+-->
+<tr style="color:#dddddd;background-color:#8888ff">     
         <th style="width:40px"><b><center>Date</center></b></th> 
         <th style="width:500px"><b><center>Topic</center></b></th>
         <th style="width:150px"><b><center>Reading</center></b></th>
@@ -832,20 +836,40 @@ Slides from this course borrow from and are indebted to many sources from around
 </tr>
 
 
+<tr style="color:#dddddd;background-color:#8888ff">     
+<td></td><td >Week 2</td><td></td><td></td> 
+<!--
 <tr bgcolor="#dddddd">     
-<td></td><td>Week 2</td><td></td><td></td>
+<td></td><td>Week 2</td><td></td><td></td> 
+<td></td><td style="color:#dddddd;background-color:#8888ff">Week 2</td><td></td><td></td>
+-->
 </tr>
 
 <tr>
     <td><b>Jan 9</b></td>
     <td>
-         Interactive Session: Fetch robot ROS and navigation demo<br> <a href="https://docs.google.com/document/d/1M8SDxCB21wrKyidEvfKPGn3AgkjLOoShlsxi98F9lj4/edit?usp=sharing">ROS Pub-Sub</a> <br> 
-                  <!--
-         <br> <a href="https://leccap.engin.umich.edu/leccap/player/r/QPpkOR">[Session recording (UM only)]</a>
-         -->
+         Interactive Session: Fetch robot ROS and navigation demo with
+            <a href="http://wiki.ros.org/roscore"> 
+            roscore,
+            </a>
+            <a href="http://wiki.ros.org/roslaunch"> 
+            roslaunch,
+            </a>
+            <a href="http://wiki.ros.org/rosnode"> 
+            rosnode,
+            </a> and
+            <a href="http://wiki.ros.org/rostopic"> 
+            rostopic
+            </a>
+         <br>
+         <a href="https://youtu.be/VtzLgN51T-Q">[Session recording (2023)]</a>
          <td> 
             <a href="https://drive.google.com/file/d/1xMdrGGAUvKrNAv-Kl269CFWZTwtzprOS/view?usp=sharing"> 
             Git-ing started with git (2023)
+         </a>
+            <br>
+            <a href="http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29"> 
+            ROS C++ Pub-Sub Tutorial
          </a>
 </td>
          <td> 
@@ -854,9 +878,68 @@ Slides from this course borrow from and are indebted to many sources from around
 </tr>
 
 
+
 <tr>
     <td><b>Jan 11</b></td>
     <td>
+         <!-- 
+         -->
+         <a href="lectures/autorob_02_graph_search.pdf">
+         Path Planning (2022)</a>: Navigation as graph search, DFS, BFS, Dijkstra shortest paths, A-star,<!--  Greedy best first, --> Priority queues and binary heaps<br>
+
+         <a href="https://youtu.be/DcW7CbJ1Flw">[Lecture Video (2020)]</a><br>
+         <!-- 
+         <a href="https://youtu.be/kEu_2oT3vNs">[Lecture Video (2022)]</a><br>
+         -->
+    </td>
+    <td>
+         <a href="https://en.wikipedia.org/wiki/A*_search_algorithm">Wikipedia</a>
+    </td> 
+    <td></td> 
+</tr>
+
+
+<tr>
+    <td><b></b></td>
+    <td>
+         <!-- 
+         -->
+         <a href="lectures/autorob_03_jsh5_git.pdf">
+         JavaScript and AutoRob workflow (2022)</a>: Project workflow with git, JS/HTML5 tutorial, Document Object Model, Version Control, LaTeX math mode, Licensing, Michigan Honor License<br>
+         <a href="https://youtu.be/VZ3llORSumk">[Lecture Video (2020)]</a> 
+         <!-- 
+         <a href="https://youtu.be/y2d8pFPdMOA">[Lecture Video (2022)]</a> 
+         -->
+    </td>
+    <td colspan="2">Crockford,<br>
+    <a href="examples/sandbox.html">HTML Sandbox</a>,<br>
+    <a href="examples/hello.html">hello.html</a><!--(<a href="view-source:http://autorob.org/examples/hello.html">source</a>)-->,<br>
+    <a href="examples/js_overview.html">JavaScript by Example</a><!--(<a href="view-source:http://autorob.org/examples/js_overview.html">source</a>)-->,<br>
+    <a href="examples/hello_anim.html">hello_anim</a><!--(<a href="view-source:http://autorob.org/examples/hello_anim.html">source</a>)-->,<br>
+    <a href="examples/hello_anim_text.html">hello_anim_text</a><!--(<a href="view-source:http://autorob.org/examples/hello_anim_text.html">source</a>)-->
+    </td> 
+</tr>
+
+
+
+<tr>
+    <td><b>Jan 13</b></td>
+    <td style="color:#000000;background-color:#cccccc">
+         Lab Session: 
+         <a href="labs/autorob_lab_02_search_canvas.pdf">
+         KinEval Path Planning code overview (2022)</a>
+<!--
+         heapsort.html and search_canvas.html code overview
+-->
+         <!--
+         <br> <a href="https://leccap.engin.umich.edu/leccap/player/r/1uRR98">[Session recording (UM only)]</a>
+         -->
+    </td>
+</tr>
+
+<tr>
+    <td><b></b></td>
+    <td style="color:#000000;background-color:#cccccc">
          <!-- 
          -->
          <a href="lectures/autorob_10_pointclouds_middleware.pdf">
@@ -873,62 +956,12 @@ Slides from this course borrow from and are indebted to many sources from around
 </tr>
 
 
-<tr>
-    <td><b></b></td>
-    <td>
-         <!-- 
-         -->
-         <a href="lectures/autorob_02_graph_search.pdf">
-         Path Planning (2022)</a>: Navigation as graph search, DFS, BFS, Dijkstra shortest paths, A-star,<!--  Greedy best first, --> Priority queues and binary heaps<br>
-         <a href="https://youtu.be/kEu_2oT3vNs">[Lecture Video (2022)]</a><br>
-    </td>
-    <td>
-         <a href="https://en.wikipedia.org/wiki/A*_search_algorithm">Wikipedia</a>
-    </td> 
-    <td></td> 
-</tr>
-
-
-<tr>
-    <td><b></b></td>
-    <td>
-         <!-- 
-         -->
-         <a href="lectures/autorob_03_jsh5_git.pdf">
-         JavaScript and AutoRob workflow (2022)</a>: Project workflow with git, JS/HTML5 tutorial, Document Object Model, Version Control, LaTeX math mode, Licensing, Michigan Honor License<br>
-         <a href="https://youtu.be/y2d8pFPdMOA">[Lecture Video (2022)]</a> 
-    </td>
-    <td colspan="2">Crockford,<br>
-    <a href="examples/sandbox.html">HTML Sandbox</a>,<br>
-    <a href="examples/hello.html">hello.html</a><!--(<a href="view-source:http://autorob.org/examples/hello.html">source</a>)-->,<br>
-    <a href="examples/js_overview.html">JavaScript by Example</a><!--(<a href="view-source:http://autorob.org/examples/js_overview.html">source</a>)-->,<br>
-    <a href="examples/hello_anim.html">hello_anim</a><!--(<a href="view-source:http://autorob.org/examples/hello_anim.html">source</a>)-->,<br>
-    <a href="examples/hello_anim_text.html">hello_anim_text</a><!--(<a href="view-source:http://autorob.org/examples/hello_anim_text.html">source</a>)-->
-    </td> 
-</tr>
-
-
-
-<tr>
-    <td><b>Jan 13</b></td>
-    <td>
-         Lab Session: 
-         <a href="labs/autorob_lab_02_search_canvas.pdf">
-         KinEval Path Planning code overview (2022)</a>
-<!--
-         heapsort.html and search_canvas.html code overview
--->
-         <!--
-         <br> <a href="https://leccap.engin.umich.edu/leccap/player/r/1uRR98">[Session recording (UM only)]</a>
-         -->
-    </td>
-</tr>
 
 
 
 
-
-<tr bgcolor="#dddddd">     
+<!--<tr bgcolor="#dddddd">     -->
+<tr style="color:#dddddd;background-color:#8888ff">     
 <td></td><td>Week 3</td><td></td><td></td>
 </tr>
 
@@ -940,14 +973,16 @@ Slides from this course borrow from and are indebted to many sources from around
         Contribute to broadening participation in computing and robotics
     </td>
     <td style="color:#dddddd;background-color:#888888"></td>
-    <td>
-         Due: ROS Pub-Sub <br> 
-         Out: <a href="#assignment1">Path Planning</a></td> 
+    <td> 
+         <del>Due: ROS Pub-Sub <br> 
+         Out: <a href="#assignment1">Path Planning</a>
+         </del>
+    </td> 
 </tr>
 
 <tr>
     <td><b>Jan 18</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          <!-- 
          -->
          <a href="lectures/autorob_04_dynamics_pendulum.pdf">
@@ -968,7 +1003,10 @@ Slides from this course borrow from and are indebted to many sources from around
         Witkin&Baraff 1998:
         <a href="https://www.cs.cmu.edu/~baraff/sigcourse/notesb.pdf">Integrators</a><br> -->
     </td> 
-    <td></td>
+    <td>
+         Due: ROS Pub-Sub <br> 
+         Out: <a href="#assignment1">Path Planning</a>
+    </td>
 </tr>
 
 
@@ -977,7 +1015,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Jan 20</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          Lab Session:
          <a href="labs/autorob_lab_03_pendularm.pdf">
          pendularm1.html code overview (2022)
@@ -993,13 +1031,14 @@ Slides from this course borrow from and are indebted to many sources from around
 
 
 
-<tr bgcolor="#dddddd">     
+<!-- <tr bgcolor="#dddddd">     -->
+<tr style="color:#dddddd;background-color:#8888ff">     
 <td></td><td>Week 4</td><td></td><td></td>
 </tr>
 
 <tr>
     <td><b>Jan 23</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
        Interactive Session: Quiz 1 and Planning scene creation activity
     </td>
     <td></td> 
@@ -1011,7 +1050,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Jan 25</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          <!-- 
          -->
          <a href="lectures/autorob_05_control_pid.pdf">
@@ -1030,7 +1069,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Jan 27</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          Lab Session: 
          <a href="labs/autorob_lab_04_pendularm.pdf">
            Pendularm Support (2022)
@@ -1041,13 +1080,14 @@ Slides from this course borrow from and are indebted to many sources from around
     </td>
 </tr>
 
-<tr bgcolor="#dddddd">     
+<!-- <tr bgcolor="#dddddd">     -->
+<tr style="color:#dddddd;background-color:#8888ff">     
 <td></td><td>Week 5</td><td></td><td></td>
 </tr>
 
 <tr>
     <td><b>Jan 30</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
        Interactive Session: Quiz 2 and Extended office hours 
     </td>
     <td></td> 
@@ -1058,7 +1098,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Feb 1</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          <!-- 
          -->
          <a href="lectures/autorob_06_linear_refresh.pdf">
@@ -1073,7 +1113,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b></b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          <!-- 
          -->
          <a href="lectures/autorob_07_fk_matrixstack.pdf">
@@ -1088,7 +1128,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Feb 3</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          Lab Session: 
          <a href="labs/autorob_lab_05_kineval.pdf">
            KinEval and urdf.js code overview (2022)
@@ -1101,13 +1141,14 @@ Slides from this course borrow from and are indebted to many sources from around
 </tr>
 
 
-<tr bgcolor="#dddddd">     
+<!-- <tr bgcolor="#dddddd">     -->
+<tr style="color:#dddddd;background-color:#8888ff">     
 <td></td><td>Week 6</td><td></td><td></td>
 </tr>
 
 <tr>
     <td><b>Feb 6</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          Interactive Session: Quiz 3 and Pendularm Setpoint Competition!
     </td>
     <td></td> 
@@ -1117,7 +1158,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Feb 7</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          <!-- 
          -->
          <a href="lectures/autorob_08_fk_quaternions.pdf">
@@ -1138,7 +1179,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Feb 10</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          Lab Session: 
          <a href="labs/autorob_lab_06_fsm.pdf">
              KinEval pose parameters and HTML5 audio (2022)
@@ -1152,13 +1193,14 @@ Slides from this course borrow from and are indebted to many sources from around
 
 
 
-<tr bgcolor="#dddddd">     
+<!-- <tr bgcolor="#dddddd">     -->
+<tr style="color:#dddddd;background-color:#8888ff">     
 <td></td><td>Week 7</td><td></td><td></td>
 </tr>
 
 <tr>
     <td><b>Feb 13</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          Interactive Session: Quiz 4 and Extended office hours
     </td>
     <td></td> 
@@ -1168,7 +1210,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Feb 15</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          <!-- 
          -->
          <a href="lectures/autorob_09_fsm_subsumption.pdf">
@@ -1192,7 +1234,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Feb 17</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          
          Lab Session: 
          <a href="labs/autorob_lab_07_fsm.pdf">
@@ -1207,13 +1249,14 @@ Slides from this course borrow from and are indebted to many sources from around
 
 
 
-<tr bgcolor="#dddddd">     
+<!-- <tr bgcolor="#dddddd">     -->
+<tr style="color:#dddddd;background-color:#8888ff">     
 <td></td><td>Week 8</td><td></td><td></td>
 </tr>
 
 <tr>
     <td><b>Feb 20</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          Interactive Session: Quiz 5 and URDF/JS Definition Programming 
     </td>
     <td></td> 
@@ -1222,7 +1265,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Feb 22</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          <!-- 
          -->
          <a href="lectures/autorob_11_ik_closedform.pdf">
@@ -1235,7 +1278,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td></td>
-    <td> </td>
+    <td style="color:#000000;background-color:#cccccc">
     <td><a href="https://scratch.mit.edu/projects/10607750/">IK robot game</a></td> 
     <td></td> 
 </tr>
@@ -1246,7 +1289,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Feb 24</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          Lab Session: Extended Office Hours
     </td>
     <td></td>
@@ -1255,6 +1298,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 
 
+<tr><td></td></tr> <!-- spacing -->
 
 <tr bgcolor="#444444">     
 <td></td><td style="color:#dddddd";>Week 9: Winter Vacation</td><td></td><td></td>
@@ -1275,13 +1319,14 @@ Slides from this course borrow from and are indebted to many sources from around
 
 
 
-<tr bgcolor="#dddddd">     
+<!-- <tr bgcolor="#dddddd">     -->
+<tr style="color:#dddddd;background-color:#8888ff">     
 <td></td><td>Week 10</td><td></td><td></td>
 </tr>
 
 <tr>
     <td><b>Mar 6</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          Interactive Session: Quiz 6 and Robot URDF/JS Showcase 
     </td>
     <td></td> 
@@ -1291,7 +1336,7 @@ Slides from this course borrow from and are indebted to many sources from around
 <tr>
     <td><b>Mar 8</b></td>
 
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          <!-- 
          -->
          <a href="lectures/autorob_12_ik_jacobian.pdf">
@@ -1307,7 +1352,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b></b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
         <a href="lectures/autorob_13_bugs.pdf">
          Bug Algorithms (2022)</a>: Reaction vs. Deliberation revisited, Bug[0-2], Tangent Bug<br>
          <a href="https://youtu.be/pfnQ_11M8KY">[Lecture Video (2022)]</a> 
@@ -1327,7 +1372,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Mar 10</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          Lab Session: 
          <a href="labs/autorob_lab_08_ik.pdf">
            KinEval IK control flow and parameters (2022)
@@ -1342,13 +1387,14 @@ Slides from this course borrow from and are indebted to many sources from around
 
 
 
-<tr bgcolor="#dddddd">     
+<!-- <tr bgcolor="#dddddd">     -->
+<tr style="color:#dddddd;background-color:#8888ff">     
 <td></td><td>Week 11</td><td></td><td></td>
 </tr>
 
 <tr>
     <td><b>Mar 13</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          Interactive Session Quiz 7 and KinEval Setpoint Review
     </td>
     <td></td>
@@ -1361,7 +1407,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Mar 15</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
         <a href="lectures/autorob_14_configuration_spaces.pdf">
          Configuration Spaces (2022)</a>: Curse of dimensionality, Configuration space vs. Workspace, Minkowski planning, Costmaps, Holonomicity<br>
          <a href="https://youtu.be/6HETAENDspc">[Lecture Video (2022)]</a>
@@ -1376,7 +1422,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b></b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          <!-- 
          -->
          <a href="lectures/autorob_15_roadmaps_rrt.pdf ">
@@ -1394,7 +1440,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Mar 17</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          Lab Session: 
         <a href="labs/autorob_lab_09_rrt.pdf">
          search_canvas.html revisited for 2D RRT (2022)
@@ -1407,13 +1453,14 @@ Slides from this course borrow from and are indebted to many sources from around
 
 
 
-<tr bgcolor="#dddddd">     
+<!-- <tr bgcolor="#dddddd">     -->
+<tr style="color:#dddddd;background-color:#8888ff">     
 <td></td><td>Week 12</td><td></td><td></td>
 </tr>
 
 <tr>
     <td><b>Mar 20</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          Interactive Session: Quiz 8 and Dance FSM Showcase
     </td>
     <td></td>
@@ -1423,7 +1470,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Mar 23</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          <!-- 
          -->
          <a href="lectures/autorob_16_potentials_wavefront.pdf ">
@@ -1439,7 +1486,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b></b></td>
-    <td> 
+    <td style="color:#000000;background-color:#cccccc">
       <a href="lectures/autorob_17_collision_detection.pdf">
         Collision Detection (2022)</a>: 3D Triangle-Triangle Testing, Oriented Bounding Boxes, Axis-Aligned Bounding Boxes, Separating Axis Theorem<br> 
          <a href="https://youtu.be/LgtlcU2BMlI">[Lecture Video]</a>
@@ -1454,7 +1501,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Mar 25</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          Lab Session: 
          <a href="labs/autorob_lab_10_aabb.pdf">
            KinEval RRT stencil and AABB collision detection (2022)
@@ -1469,13 +1516,14 @@ Slides from this course borrow from and are indebted to many sources from around
 
 
 
-<tr bgcolor="#dddddd">     
+<!-- <tr bgcolor="#dddddd">     -->
+<tr style="color:#dddddd;background-color:#8888ff">     
 <td></td><td>Week 13</td><td></td><td></td>
 </tr>
 
 <tr>
     <td><b>Mar 27</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          Interactive Session: Quiz 9 and IK Setpoint Competition
     </td>
     <td></td> 
@@ -1489,7 +1537,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Apr 1</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
         Lab Session: Fetch/rosbridge activity
     </td>
     <td></td>
@@ -1497,13 +1545,14 @@ Slides from this course borrow from and are indebted to many sources from around
 </tr>
 
 
-<tr bgcolor="#dddddd">     
+<!-- <tr bgcolor="#dddddd">     -->
+<tr style="color:#dddddd;background-color:#8888ff">     
 <td></td><td>Week 14</td><td></td><td></td>
 </tr>
 
 <tr>
     <td><b>Apr 3</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          Interactive Session: Quiz 10 and Guest Lecture
     </td>
     <td></td> 
@@ -1511,7 +1560,8 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Apr 7</b></td>
-    <td>Extended office hours</td>
+    <td style="color:#000000;background-color:#cccccc">
+      Extended office hours</td>
     <td></td>
 <tr>
 
@@ -1520,7 +1570,7 @@ Slides from this course borrow from and are indebted to many sources from around
 <!--
 <tr>
     <td><b>Mar 30</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          Task Planning Overview</a>: Decision making revisited, declarative programming, axiomatic state, planning operators
          Selected topics for further study
     </td>
@@ -1535,7 +1585,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Apr 4</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          Localization and Mapping Overview</a>: Bayes rule, Bayesian filtering, Monte Carlo Localization, Factor Graphs, SGD-SLAM, Scene estimation
          Extended office hours
     </td>
@@ -1551,7 +1601,7 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Apr 6</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          Selected topics for further study
     </td>
     <td><a href="http://www.cc.gatech.edu/~dellaert/pub/Dellaert99icra.pdf">Dellaert+ 1999</a>,<br>
@@ -1565,13 +1615,14 @@ Slides from this course borrow from and are indebted to many sources from around
 
 
 
-<tr bgcolor="#dddddd">
+<!-- <tr bgcolor="#dddddd">     -->
+<tr style="color:#dddddd;background-color:#8888ff">     
 <td></td><td>Week 15: <a href="https://www.nationalroboticsweek.org">National Robotics Week</a></td><td></td><td></td>
 </tr>
 
 <tr>
     <td><b>Apr 10</b></td>
-    <td>
+    <td style="color:#000000;background-color:#cccccc">
          Interactive Session: Quiz 11 and Guest Lecture
     </td>
     <td></td> 
@@ -1580,20 +1631,23 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Apr 14</b></td>
-    <td>Extended office hours</td>
+    <td style="color:#000000;background-color:#cccccc">
+       Extended office hours</td>
     <td></td>
     <td>Due: Best Use of Robotics</td>
 <tr>
 
 
-<tr bgcolor="#dddddd">
+<!-- <tr bgcolor="#dddddd">     -->
+<tr style="color:#dddddd;background-color:#8888ff">     
 <td></td><td>Week 16</td><td></td><td></td>
 </tr>
 
 
 <tr>
     <td><b>Apr 17</b></td>
-    <td>Interactive Session: Best Use of Robotics</td>
+    <td style="color:#000000;background-color:#cccccc">
+    Interactive Session: Best Use of Robotics</td>
     <td></td>
     <td></td>
 <tr>
