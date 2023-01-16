@@ -1821,7 +1821,7 @@ A successful heap sort implementation will show the following result for a rando
 <h3>Graph Search Stencil</h3>
 
 <p>
-For the path planning implementation, a JavaScript/HTML5 code stencil has been provided in the the "project_pathplan" subdirectory. The main HTML file, "search_canvas.html", includes JavaScript code from "draw.js", "infrastructure.js", and "graph_search.js". Of these files, students must only edit "graph_search.js", although you may want to examine the other files to understand the available helper functions.  Opening "search_canvas.html" in a browser should display an empty 2D world displayed in an <a href="http://www.w3schools.com/html/html5_canvas.asp">HTML5 canvas</a> element.
+For the path planning implementation, a JavaScript/HTML5 code stencil has been provided in the "project_pathplan" subdirectory. The main HTML file, "search_canvas.html", includes JavaScript code from "draw.js", "infrastructure.js", "graph_search.js", and the "/scenes" directory. Of these files, students must only edit "graph_search.js", although you may want to examine the other files to understand the available helper functions. There will also be an optional activity involving adding new planning scene files under the "/scenes" directory. Opening "search_canvas.html" in a browser should display an empty 2D world displayed in an <a href="http://www.w3schools.com/html/html5_canvas.asp">HTML5 canvas</a> element.
 </p>
 
 <center>
@@ -1829,7 +1829,8 @@ For the path planning implementation, a JavaScript/HTML5 code stencil has been p
 </center>
 
 <p>
-There are five planning scenes that have been provided within this code stencil: "empty", "misc", "narrow1", "narrow2", and "three_sections".  The choice of planning_scene can be specified from the URL given to the browser, described in the usage in the file.  For example, the URL "search_canvas.html?planning_scene=narrow2" will bring up the "narrow2" planning world shown above.  Other execution parameters, such as start and goal location, can also be specified through the document URL. A description of these parameters is provided in "search_canvas.html".
+There are five provided planning scenes under the "/scenes" directory within this code stencil: "empty.js", "misc.js", "narrow1.js", "narrow2.js", and "three_sections.js". The choice of planning_scene can be specified from the URL given to the browser, as described in comments in "search_canvas.html". For example, the URL "search_canvas.html?planning_scene=scenes/narrow2.js" will bring up the "narrow2.js" planning world shown above. Other execution parameters, such as start and goal location, can also be specified through the document URL. A description of these parameters is also provided in "search_canvas.html".
+
 </p>
 
 <p>
@@ -1864,7 +1865,7 @@ For effective communication, it is recommended to think of "report.html" like a 
 Optional extensions can be submitted anytime before the final grading is complete.  Concepts for several of these extensions will not be covered until later in the semester.  Any new path planning algorithm must be implemented within its own ".js" file under the "project_pathplan" directory, and invoked through a parameter given through the URL.  For example, the Bug0 algorithm must be invoked by adding the argument "?search_alg="Bug0" to the URL. Thus, a valid invocation of Bug0 for the Narrow2 world could use the URL:
 </p>
 <p>
- "file:///project_pathplan/source_search_canvas.html?planning_scene=narrow2?search_alg="Bug0"
+"file:///project_pathplan/source_search_canvas.html?planning_scene=scenes/narrow2.js?search_alg="Bug0"
 </p>
 <p>
 The same format must be used to invoke any other algorithm (such as Bug1, Bug2, TangentBug, Wavefront, etc.). Note that you will need to update the animate loop in draw.js to include new planning algorithms and update the main HTML file to include your new scripts, along with implementing the algorithms in their own files.
