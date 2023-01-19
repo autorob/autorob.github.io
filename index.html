@@ -61,7 +61,7 @@
             <li><a href="#faq">FAQ</a></li> <br>
             <li>assignments:</li>
             <li><a href="#assignment0">0</a></li>
-            <li><a href="#assignment1" style="color:#444444";>1</a></li>
+            <li><a href="#assignment1">1</a></li>
             <li><a href="#assignment2" style="color:#444444";>2</a></li>
             <li><a href="#assignment3" style="color:#444444";>3</a></li>
             <li><a href="#assignment4" style="color:#444444";>4</a></li>
@@ -70,7 +70,7 @@
             <li><a href="#assignment7" style="color:#444444";>7</a></li>
 <!-- unassigned
             <li><a href="#assignment0" style="color:#444444";>0</a></li>
-            <li><a href="#assignment1">1</a></li>
+            <li><a href="#assignment1" style="color:#444444";>1</a></li>
             <li><a href="#assignment2">2</a></li>
             <li><a href="#assignment3">3</a></li>
             <li><a href="#assignment4">4</a></li>
@@ -982,12 +982,13 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Jan 18</b></td>
-    <td style="color:#000000;background-color:#cccccc">
+    <td>
          <!-- 
+         <td style="color:#000000;background-color:#cccccc">
          -->
          <a href="lectures/autorob_04_dynamics_pendulum.pdf">
          Dynamical Simulation (2022)</a>:  Simple pendulum, Lagrangian equation(s) of motion, Initial value problem, Explicit integrators:  Euler, Verlet, and Velocity Verlet<!-- Runge-Kutta 4 -->, Double pendulum<br>
-         <a href="https://youtu.be/fSIdfprDUYk">[Lecture Video (2022)]</a> 
+         <a href="https://youtu.be/B_yWF6SqZW0">[Lecture Video (2020)]</a> 
          <!-- <br><a href="lectures/autorob_04_dynamics_pendulum_errata.pdf">[errata]</a>  -->
          <!--
          <br><a href="https://leccap.engin.umich.edu/leccap/player/r/668UGb">[Session recording (UM only)]</a> 
@@ -1705,7 +1706,6 @@ This project is described in a <a href="https://docs.google.com/document/d/1M8SD
 </p>
 
 <!-- 
- -->
 <br>
 <br>
 <br>
@@ -1719,7 +1719,9 @@ This project is described in a <a href="https://docs.google.com/document/d/1M8SD
 <br>
 <br>
 <br>
+ -->
 
+<hr>
 
 <h2 id="assignment1">Assignment 1: Path Planning</h2>  
 <p>
@@ -1728,7 +1730,7 @@ This project is described in a <a href="https://docs.google.com/document/d/1M8SD
 
 
 <p>
-The objective of the first assignment is to implement a collision-free path planner in JavaScript/HTML5.  Path planning is used to allow robots to autonomously navigate in environments from previously constructed maps.  A path planner essentially finds a set of waypoints (or setpoints) for the robot to traverse and reach its goal location without collision.  As covered in other courses (EECS 467, ROB 550, or EECS 568), such maps can be estimated through methods for <a href="https://en.wikipedia.org/wiki/Simultaneous_localization_and_mapping">simultaneous localization and mapping</a>.  Below is an example from <a href="https://www.youtube.com/playlist?list=PLDutmfAv2lfZ9M0XyYfY4N8EwLJhy58G6">EECS 467</a> where a <a href="https://youtu.be/c-e12F_QqiM">robot performs autonomous navigation</a> while simultaneously building an occupancy grid map:
+The objective of the first assignment is to implement a collision-free path planner in JavaScript/HTML5.  Path planning is used to allow robots to autonomously navigate in environments from previously constructed maps.  A path planner essentially finds a set of waypoints (or setpoints) for the robot to traverse and reach its goal location without collision.  As covered in other courses (EECS 467, ROB 550, or ROB 530), such maps can be estimated through methods for <a href="https://en.wikipedia.org/wiki/Simultaneous_localization_and_mapping">simultaneous localization and mapping</a>.  Below is an example from <a href="https://www.youtube.com/playlist?list=PLDutmfAv2lfZ9M0XyYfY4N8EwLJhy58G6">EECS 467</a> where a <a href="https://youtu.be/c-e12F_QqiM">robot performs autonomous navigation</a> while simultaneously building an occupancy grid map:
 
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/c-e12F_QqiM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -1772,7 +1774,7 @@ If properly implemented, the A-star algorithm should produce the following path 
 
 
 <p>
-The first step for completing this project (and all projects for AutoRob) is to clone the <a href="https://github.com/lizolson/kineval-stencil">KinEval stencil repository</a>.  The appended git quick start below is provided those unfamiliar with git to perform this clone operation, as well as commiting and pushing updates for project submission.  <b>IMPORTANT</b>: the stencil repository should be cloned and <b>not forked</b>.
+If you have not done so already, the first step for completing this project (and all projects for AutoRob) is to clone the <a href="https://github.com/lizolson/kineval-stencil">KinEval stencil repository</a>.  The appended git quick start below is provided those unfamiliar with git to perform this clone operation, as well as commiting and pushing updates for project submission.  <b>IMPORTANT</b>: the stencil repository should be cloned and <b>not forked</b> -- and we will this single repository for all projects in the course.
 </p>
 
 <p>
@@ -1849,7 +1851,9 @@ This code stencil is implemented to perform graph search iterations interactivel
   The iterateGraphSearch() function should perform a search iteration towards the goal pose of the robot, specified as a 2D vector in parameter "q_goal".  The search must find a goal node that allows for departure from the planning graph without collision.  iterateGraphSearch() makes use of three provided helper functions.  testCollision([x, y]) returns a boolean of whether a given 2D location, as a two-element vector [x, y], is in collision with the planning scene.  draw_2D_configuration([x, y], type) draws a square at a given location in the planning world to indicate that location has been visited by the search (type = "visited") or is currently in the planning queue (type = "queued").  Once the search is complete, drawHighlightedPathGraph(l) will render the path produced by the search algorithm between location l and the start location. The global variable search_iterate should be set to false when the search is complete to end animation loop.
 </p>
 
-<!-- <h3> Graduate Section Requirement</h3>
+<!-- 
+-->
+<h3> Graduate Section Requirement</h3>
 
 <p>
 In addition to the A-star algorithm, students in the graduate section of AutoRob must additionally implement path planning by Depth-first search, Breadth-first search, and Greedy best-first search.  An additional report is required in "report.html" (you will need to create this file) in the "project_pathplan" directory. This report must: 1) show results from executing every search algorithm with every planning world for various start and goal configurations and 2) synthesize these results into coherent findings about these experiments.
@@ -1857,16 +1861,16 @@ In addition to the A-star algorithm, students in the graduate section of AutoRob
 
 <p>
 For effective communication, it is recommended to think of "report.html" like a short research paper: motivate the problem, set the value proposition for solving the problem, describe how your methods can address the problem, and show results that demonstrate how well these methods realize the value proposition. Visuals are highly recommended to complement this description. The best research papers can be read in three ways: once in text, once in figures, and once in equations. It is also incredibly important to remember that writing in research is about generalizable understanding of the problem more than a specific technical accomplishment.
-</p> -->
+</p> 
 
 <h4> Optional Extensions</h4>
 
 <p>
-Optional extensions can be submitted anytime before the final grading is complete.  Concepts for several of these extensions will not be covered until later in the semester.  Any new path planning algorithm must be implemented within its own ".js" file under the "project_pathplan" directory, and invoked through a parameter given through the URL.  For example, the Bug0 algorithm must be invoked by adding the argument "?search_alg="Bug0" to the URL. Thus, a valid invocation of Bug0 for the Narrow2 world could use the URL:
+Optional extensions can be submitted anytime before the final grading is complete.  Concepts for several of these extensions will not be covered until later in the semester.  Any new path planning algorithm must be implemented within its own ".js" file under the "project_pathplan" directory, and invoked through a parameter given through the URL.  For example, the Bug0 algorithm must be invoked by adding the argument "?search_alg="Bug0" to the URL. Thus, a valid invocation of Bug0 for the Narrow2 world could use the URL (for the appropriate location of the file on your computer's filesystem):
 </p>
-<p>
-"file:///project_pathplan/source_search_canvas.html?planning_scene=scenes/narrow2.js?search_alg="Bug0"
-</p>
+<code>
+file:///myfilesystem/kineval-stencil/project_pathplan/search_canvas.html?planning_scene=scenes/narrow2.js?search_alg="Bug0
+</code>
 <p>
 The same format must be used to invoke any other algorithm (such as Bug1, Bug2, TangentBug, Wavefront, etc.). Note that you will need to update the animate loop in draw.js to include new planning algorithms and update the main HTML file to include your new scripts, along with implementing the algorithms in their own files.
 </p>
@@ -1906,7 +1910,7 @@ For turning in your assignment, ensure your completed project code has been comm
 </p>
 
 <p>
-To ensure proper submission of your assignments, please do the following:
+To ensure proper submission of your assignments, please make sure the following have been done from Project 0:
 </p>
 
 <p>
@@ -1967,6 +1971,23 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 <!-- <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr> -->
+
+<!-- 
+ -->
+<br>
+<br>
+<br>
+<hr>
+<hr>
+<hr>
+<h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
+<hr>
+<hr>
+<hr>
+<br>
+<br>
+<br>
+
 
 
 
