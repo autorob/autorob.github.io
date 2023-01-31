@@ -62,7 +62,7 @@
             <li>assignments:</li>
             <li><a href="#assignment0">0</a></li>
             <li><a href="#assignment1">1</a></li>
-            <li><a href="#assignment2" style="color:#444444";>2</a></li>
+            <li><a href="#assignment2">2</a></li>
             <li><a href="#assignment3" style="color:#444444";>3</a></li>
             <li><a href="#assignment4" style="color:#444444";>4</a></li>
             <li><a href="#assignment5" style="color:#444444";>5</a></li>
@@ -71,7 +71,7 @@
 <!-- unassigned
             <li><a href="#assignment0" style="color:#444444";>0</a></li>
             <li><a href="#assignment1" style="color:#444444";>1</a></li>
-            <li><a href="#assignment2">2</a></li>
+            <li><a href="#assignment2" style="color:#444444";>2</a></li>
             <li><a href="#assignment3">3</a></li>
             <li><a href="#assignment4">4</a></li>
             <li><a href="#assignment5">5</a></li>
@@ -1099,7 +1099,10 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Jan 27</b></td>
+    <!--
     <td style="color:#000000;background-color:#cccccc">
+    -->
+    <td>
          Lab Session: 
          <a href="labs/autorob_lab_04_pendularm.pdf">
            Pendularm Support (2022)
@@ -1117,7 +1120,10 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Jan 30</b></td>
+    <!--
     <td style="color:#000000;background-color:#cccccc">
+    -->
+    <td>
        Interactive Session: Quiz 2 and Extended office hours 
     </td>
     <td></td> 
@@ -1905,28 +1911,28 @@ The same format must be used to invoke any other algorithm (such as Bug1, Bug2, 
 </p>
 
 <p>
-Of the 4 possible optional extension points, two additional points for this assignment can be earned by implementing the "Bug0", "Bug1", "Bug2", and "TangentBug" navigation algorithms.  The implementation of these bug algorithms must be contained within the file "bug.js" under the "project_pathplan" directory.
+Of the possible optional extension points, two additional points for this assignment can be earned by implementing the "Bug0", "Bug1", "Bug2", and "TangentBug" navigation algorithms.  The implementation of these bug algorithms must be contained within the file "bug.js" under the "project_pathplan" directory.
 </p>
 
 <p>
-Of the 4 possible optional extension points, two additional points for this assignment can be earned by implementing navigation by "Potential" fields and navigation using the "Wavefront" algorithm.  The implementation of these potential-based navigation algorithms must be contained within the file "field_wave.js" under the "project_pathplan" directory.
+Of the possible optional extension points, two additional points for this assignment can be earned by implementing navigation by "Potential" fields and navigation using the "Wavefront" algorithm.  The implementation of these potential-based navigation algorithms must be contained within the file "field_wave.js" under the "project_pathplan" directory.
 </p>
 
 
 <p>
-Of the 4 possible optional extension points, one additional point for this assignment can be earned by implementing a navigation algorithm using a probabilistic roadmap ("PRM").  This roadmap algorithm implementation must be contained within the file "prm.js" under the "project_pathplan" directory.
+Of the possible optional extension points, one additional point for this assignment can be earned by implementing a navigation algorithm using a probabilistic roadmap ("PRM").  This roadmap algorithm implementation must be contained within the file "prm.js" under the "project_pathplan" directory.
 </p>
 
 <p>
-Of the 4 possible optional extension points, one additional point for this assignment can be earned by implementing costmap functionality using morphological operators.  Based on the computed costmap, the navigation routine would provide path cost in addition path length for a successful search.  The implementation of this costmap must be contained within the file "costmap.js" under the "project_pathplan" directory.
+Of the possible optional extension points, one additional point for this assignment can be earned by implementing costmap functionality using morphological operators.  Based on the computed costmap, the navigation routine would provide path cost in addition path length for a successful search.  The implementation of this costmap must be contained within the file "costmap.js" under the "project_pathplan" directory.
 </p>
 
 <p>
-Of the 4 possible optional extension points, one additional point for this assignment can be earned by implementing a priority queue through an <a href="https://en.wikipedia.org/wiki/AVL_tree">AVL tree</a> or a <a href="https://en.wikipedia.org/wiki/Red%E2%80%93black_tree">red-black tree</a>.  The implementation of this priority queue must be contained within the file "balanced_tree.js" under the "project_pathplan" directory.
+Of the possible optional extension points, one additional point for this assignment can be earned by implementing a priority queue through an <a href="https://en.wikipedia.org/wiki/AVL_tree">AVL tree</a> or a <a href="https://en.wikipedia.org/wiki/Red%E2%80%93black_tree">red-black tree</a>.  The implementation of this priority queue must be contained within the file "balanced_tree.js" under the "project_pathplan" directory.
 </p>
 
 <p>
-Of the 4 possible optional extension points, one additional point for this assignment can be earned by adapting the search canvas to plan betwen any locations in the map "bbb2ndfloormap.png" (provided in the stencil repository) when the "planning_scene" parameter is invoked as "BeysterFloor2".
+Of the possible optional extension points, one additional point for this assignment can be earned by adapting the search canvas to plan betwen any locations in the map "bbb2ndfloormap.png" (provided in the stencil repository) when the "planning_scene" parameter is invoked as "BeysterFloor2".
 </p>
 
 
@@ -2002,7 +2008,6 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 <hr> -->
 
 <!-- 
- -->
 <br>
 <br>
 <br>
@@ -2016,10 +2021,12 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 <br>
 <br>
 <br>
+ -->
 
 
 
 
+<hr>
 
 <h2 id="assignment2">Assignment 2: Pendularm </h2>  
 <p>
@@ -2054,9 +2061,9 @@ As an introduction to building your own robot simulator, your task is to impleme
   <li> <p>Euler integrator in "project_pendularm/update_pendulum_state.js"</p></li>
   <li> <p>Velocity Verlet integrator in "project_pendularm/update_pendulum_state.js"</p></li>
   <li> <p>PID controller in "project_pendularm/update_pendulum_state.js"</p></li>
-  <!-- <li> <p>[Grad section only] Verlet integrator in "project_pendularm/update_pendulum_state.js"</p></li>
-  <li> <p>[Grad section only] Runge-Kutta 4 integrator in "project_pendularm/update_pendulum_state.js"</p></li>
-  <li> <p>[Grad section only] Double pendulum implementation in "project_pendularm/update_pendulum_state2.js"</p></li> -->
+  <li> <p><i>[Grad section only]</i> Verlet integrator in "project_pendularm/update_pendulum_state.js"</p></li>
+  <li> <p><i>[Grad section only]</i> Runge-Kutta 4 integrator in "project_pendularm/update_pendulum_state.js"</p></li>
+  <li> <p><i>[Grad section only]</i> Double pendulum implementation in "project_pendularm/update_pendulum_state2.js"</p></li> 
 </ul>
 
 <p>
@@ -2079,7 +2086,7 @@ For physical simulation, you will implement several numerical integrators for a 
 
 
 <p>
-Students enrolled<!-- in the undergraduate section --> will implement numerical integrators for:
+Students enrolled in the undergraduate section will implement numerical integrators for:
 </p>
 
 <ul>
@@ -2106,7 +2113,7 @@ For user input, you should be able to:
 </ul>
 
 
-<!-- <h3> Graduate Section Requirement</h3>
+<h3> Graduate Section Requirement</h3>
 
 <p>
 Students enrolled in the graduate section will implement numerical integrators for:
@@ -2120,27 +2127,39 @@ Students enrolled in the graduate section will implement numerical integrators f
 </ul>
 
 <p>
-to simulate and control a single pendulum (in "update_pendulum_state.js"). Then, students in the graduate section will implement one of the above integrators for a double pendulum (in "update_pendulum_state2.js"). Any of the integrators may work as your choice for the double pendulum implementation, although the Runge-Kutta integrator is recommended. The double pendulum is allowed to have a smaller timestep than the single pendulum, within reasonable limits. A working visualization for the double pendularm will look similar to the following:
+to simulate and control a single pendulum (in "update_pendulum_state.js"). Then, students in the graduate section will implement <b>one</b> of the above integrators for a double pendulum (in "update_pendulum_state2.js"). Any of the integrators may work as your choice for the double pendulum implementation, although the Runge-Kutta integrator is recommended. The double pendulum is allowed to have a smaller timestep than the single pendulum, within reasonable limits. A working visualization for the double pendularm will look similar to <a href="https://youtu.be/-8YH1JhklBw">this result video</a> by <a href="https://github.com/emgoeddel">mamantov</a>:
 </p>
 
+<!--
 <center>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/-8YH1JhklBw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</center> -->
+<iframe frameborder="1" width="560" height="315" src="www.youtube.com/embed/-8YH1JhklBw" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</center>
+-->
 
 <h4> Optional Extensions </h4>
 
 <p>
-Of the 4 possible optional extension points, one additional point for this assignment can be earned by generating a random desired setpoint state and using PID control to your Pendularm to this setpoint.  This code must randomly generate a new desired setpoint and resume PID control once the current setpoint is achieved.  <b> A setpoint is considered achieved if the current state matches the desired state upto 0.01 radians for 2 seconds.</b> The number of setpoints that can be achieved in 60 seconds must be maintained and reported in the user interface.  The invocation of this setpoint trial must be enabled a user pressing the "t" key in the user interface.
+Of the possible optional extension points, one additional point for this assignment can be earned by generating a random desired setpoint state and using PID control to your Pendularm to this setpoint.  This code must randomly generate a new desired setpoint and resume PID control once the current setpoint is achieved.  <b> A setpoint is considered achieved if the current state matches the desired state up to 0.01 radians for 2 seconds.</b> The number of setpoints that can be achieved in 60 seconds must be maintained and reported in the user interface.  The invocation of this setpoint trial must be enabled a user pressing the "t" key in the user interface.
 </p>
 
 <p>
-Of the 4 possible optional extension points, two additional points for this assignment can be earned by implementing a simulation of a planar <a href="https://en.wikipedia.org/wiki/Inverted_pendulum">cart pole system</a>.  This cartpole system should have joint limits on its prismatic joint and no motor forces applied to the rotational joint.  This cart pole implementation should be contained within the file "cartpole.html" under the "project_pendularm" directory.
+Of the possible optional extension points, two additional points for this assignment can be earned by implementing a simulation of a planar <a href="https://en.wikipedia.org/wiki/Inverted_pendulum">cart pole system</a>.  This cartpole system should have joint limits on its prismatic joint and no motor forces applied to the rotational joint.  This cart pole implementation should be contained within the file "cartpole.html" under the "project_pendularm" directory.
 </p>
 
 
 <p>
-Of the 4 possible optional extension points, two additional points for this assignment can be earned by implementing a single pendulum simulator in maximal coordinates with a spring constraint enforced by <a href="https://en.wikipedia.org/wiki/Verlet_integration#Constraints">Gauss-Seidel optimization</a>.  This maximal coordinate pendulum implementation should be contained within the file "pendularm1_maximal.html" under the "project_pendularm" directory.  An additional point can be earned by extending this implementation to a cloth simulator in the file "cloth_pointmass.html".
+Of the possible optional extension points, two additional points for this assignment can be earned by implementing a single pendulum simulator in maximal coordinates with a spring constraint enforced by <a href="https://en.wikipedia.org/wiki/Verlet_integration#Constraints">Gauss-Seidel optimization</a>.  This maximal coordinate pendulum implementation should be contained within the file "pendularm1_maximal.html" under the "project_pendularm" directory.  An additional point can be earned by extending this implementation to a cloth simulator in the file "cloth_pointmass.html". 
 </p>
+
+<p>
+Of the possible advanced extension points, three additional points for this assignment can be earned by developing and implementing a maximal coordinate dynamical simulation of biped hopper with links as planar 2D rigid bodies capable of locomotion on a flat ground plane.  This maximal coordinate pendulum implementation should be contained within the file "hopper_planar.html" under the "project_pendularm" directory.
+</p>
+
+
+<p>
+Of the possible optional extension points, one additional point for this assignment can be earned by implementing a plot visualization of the state and desired setpoint for the 1 DoF pendulum over a 20 second window (of simulation time) within the pendularm1.html user interface.  The Pendularm user interface must maintain at least the same usability as the provided pendularm1.html implementation.
+</p>
+
 
 
 <h3> Project Submission</h3>
@@ -2159,6 +2178,23 @@ Students in the graduate section are strongly encouraged to extend their pendula
 <!-- <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr> -->
+
+<!-- 
+ -->
+<br>
+<br>
+<br>
+<hr>
+<hr>
+<hr>
+<h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
+<hr>
+<hr>
+<hr>
+<br>
+<br>
+<br>
+
 
 
 <h2 id="assignment3">Assignment 3: Forward Kinematics</h2>  
@@ -2444,15 +2480,15 @@ The following KinEval-compatiable robot descriptions were created by students in
 <h4> Advanced Extensions </h4>
 
 <p>
-Of the 4 possible advanced extension points, two additional points for this assignment can be earned by generate a proper Denavit-Hartenberg table for the kinematics of the Fetch robot.  This table should be placed in the "robots/fetch" directory in the file "fetchDH.txt". 
+Of the possible advanced extension points, two additional points for this assignment can be earned by generate a proper Denavit-Hartenberg table for the kinematics of the Fetch robot.  This table should be placed in the "robots/fetch" directory in the file "fetchDH.txt". 
 </p>
 
 <p>
-Of the 4 possible advanced extension points, three additional points for this assignment can be earned by implementing LU decomposition (with pivoting) routines for matrix inversion and solving linear systems.  These functions should be named "matrix_inverse" and "linear_solve" and placed within the file containing your matrix routines.
+Of the possible advanced extension points, three additional points for this assignment can be earned by implementing LU decomposition (with pivoting) routines for matrix inversion and solving linear systems.  These functions should be named "matrix_inverse" and "linear_solve" and placed within the file containing your matrix routines.
 </p>
 
 <p>
-Of the 4 possible advanced extension points, three additional points for this assignment can be earned by implementing rigid body transformations as dual quaternions (<a href-"http://www.xbdev.net/misc_demos/demos/dual_quaternions_beyond/paper.pdf">Kenwright 2012<a/>), in addition to the products of exponentials method described in class.  Use of dual quaternion transformations must be selectable from the KinEval user interface.
+Of the possible advanced extension points, three additional points for this assignment can be earned by implementing rigid body transformations as dual quaternions (<a href-"http://www.xbdev.net/misc_demos/demos/dual_quaternions_beyond/paper.pdf">Kenwright 2012<a/>), in addition to the products of exponentials method described in class.  Use of dual quaternion transformations must be selectable from the KinEval user interface.
 </p>
 
 
@@ -2641,19 +2677,19 @@ Joints are considered to be continuous as the default.  Joints with undefined mo
 <h4> Advanced Extensions </h4>
 
 <p>
-Of the 4 possible advanced extension points, one additional point for this assignment can be earned by adding the capability of displaying laser scans from a real or simulated Fetch robot.
+Of the possible advanced extension points, one additional point for this assignment can be earned by adding the capability of displaying laser scans from a real or simulated Fetch robot.
 </p>
 
 <p>
-Of the 4 possible advanced extension points, four additional points for this assignment can be earned by adding the capability of displaying 3D point clouds from a real or simulated Fetch robot and computing surface normals about each point.
+Of the possible advanced extension points, four additional points for this assignment can be earned by adding the capability of displaying 3D point clouds from a real or simulated Fetch robot and computing surface normals about each point.
 </p>
 
 <p>
-Of the 4 possible advanced extension points, four additional points for this assignment can be earned by implementing dynamical simulation through the recursive <a href="http://robotics.usc.edu/~aatrash/cs545/CS545_lecture_11_new.pdf">Newton-Euler algorithm</a> (Spong Ch.7).  This dynamical simulation update be implemented as function kineval.updateDynamicsNewtonEuler() in the file "kineval/kineval_controls.js".  In "home.html", the call to kineval.updateDynamicsNewtonEuler() should replace the call purely kinematic update in kineval.applyControls().
+Of the possible advanced extension points, four additional points for this assignment can be earned by implementing dynamical simulation through the recursive <a href="http://robotics.usc.edu/~aatrash/cs545/CS545_lecture_11_new.pdf">Newton-Euler algorithm</a> (Spong Ch.7).  This dynamical simulation update be implemented as function kineval.updateDynamicsNewtonEuler() in the file "kineval/kineval_controls.js".  In "home.html", the call to kineval.updateDynamicsNewtonEuler() should replace the call purely kinematic update in kineval.applyControls().
 </p>
 
 <p>
-Of the 4 possible advanced extension points, four additional points for this assignment can be earned by developing and implementing a dynamical simulation of biped hopper.  Permission by the course staff must be granted first before attempting this advanced extension.
+Of the possible advanced extension points, five additional points for this assignment can be earned by developing and implementing a maximal coordinate dynamical simulation of biped hopper with links as 3D rigid bodies, similar to those in "<a href="http://www.ai.mit.edu/projects/leglab/people/people.html">On The Run"</a> by Raibert and Hodgins at the <a href="http://www.ai.mit.edu/projects/leglab/robots/robots-main.html">MIT Leg Lab</a>. This maximal coordinate pendulum implementation should be contained within the subdirectory "hopper_3d" with an "index.html" file that can be open to execute the simulation.  <!-- Permission by the course staff must be granted first before attempting this advanced extension. -->
 </p>
 
 <h3> Project Submission</h3>
@@ -2795,27 +2831,27 @@ Students enrolled in the graduate section of AutoRob will implement inverse kine
 <h4> Advanced Extensions </h4>
 
 <p>
-Of the 4 possible advanced extension points, one additional point for this assignment can be earned by reaching to 100 targets in a random trial within 60 seconds.  A video of this execution must be provided to demonstrate this achievement.  This video file should be in the repository root directory with the name "IK100in60" and appropriate file extension.
+Of the possible advanced extension points, one additional point for this assignment can be earned by reaching to 100 targets in a random trial within 60 seconds.  A video of this execution must be provided to demonstrate this achievement.  This video file should be in the repository root directory with the name "IK100in60" and appropriate file extension.
 </p>
 
 <p>
-Of the 4 possible advanced extension points, three additional points for this assignment can be earned by implementing the <a href="http://ieeexplore.ieee.org/document/86079/">Cyclic Coordinate Descent (CCD)</a> inverse kinematics algorithm by Wang and Chen (1991).  This function should be implemented in the file "kineval/kineval_inverse_kinematics.js" as another option within the function kineval.iterateIK().
+Of the possible advanced extension points, three additional points for this assignment can be earned by implementing the <a href="http://ieeexplore.ieee.org/document/86079/">Cyclic Coordinate Descent (CCD)</a> inverse kinematics algorithm by Wang and Chen (1991).  This function should be implemented in the file "kineval/kineval_inverse_kinematics.js" as another option within the function kineval.iterateIK().
 </p>
 
 <p>
-Of the 4 possible advanced extension points, three additional points for this assignment can be earned by implementing <a href="https://en.wikipedia.org/wiki/Nelder%E2%80%93Mead_method">downhill simplex optimization</a> to perform inverse kinematics.  This function should be implemented in the file "kineval/kineval_inverse_kinematics.js" as another option within the function kineval.iterateIK().
+Of the possible advanced extension points, three additional points for this assignment can be earned by implementing <a href="https://en.wikipedia.org/wiki/Nelder%E2%80%93Mead_method">downhill simplex optimization</a> to perform inverse kinematics.  This function should be implemented in the file "kineval/kineval_inverse_kinematics.js" as another option within the function kineval.iterateIK().
 </p>
 
 <p>
-Of the 4 possible advanced extension points, four additional points for this assignment can be earned by implementing resolved-rate inverse kinematics with null space constraints to respect joint limits.  This function should be implemented in the file "kineval/kineval_inverse_kinematics.js" as another option within the function kineval.iterateIK().
+Of the possible advanced extension points, four additional points for this assignment can be earned by implementing resolved-rate inverse kinematics with null space constraints to respect joint limits.  This function should be implemented in the file "kineval/kineval_inverse_kinematics.js" as another option within the function kineval.iterateIK().
 </p>
 
 <p>
-Of the 4 possible advanced extension points, four additional points for this assignment can be earned by extending your IK controller to use potential fields to avoid collisions.
+Of the possible advanced extension points, four additional points for this assignment can be earned by extending your IK controller to use potential fields to avoid collisions.
 </p>
 
 <p>
-Of the 4 possible advanced extension points, one additional point for this assignment can be earned by implementing a search mechanism to automatically find appropriate PID gains for the Pendularm.  This implementation should be placed in the file "project_pendularm/pendularm1_gainsearch.html" and allow for arbitrary initial PID gains for the search to be set in the variable "initial_gains".
+Of the possible advanced extension points, one additional point for this assignment can be earned by implementing a search mechanism to automatically find appropriate PID gains for the Pendularm.  This implementation should be placed in the file "project_pendularm/pendularm1_gainsearch.html" and allow for arbitrary initial PID gains for the search to be set in the variable "initial_gains".
 </p>
 
 
@@ -3190,25 +3226,25 @@ In addition to the requirements above, students in the graduate section must als
 <h4> Advanced Extensions</h4>
 
 <p>
-Of the 4 possible advanced extension points, one additional point for this assignment can be earned by adding the capability of motion planning to an arbitrary robot configuration goal. 
+Of the possible advanced extension points, one additional point for this assignment can be earned by adding the capability of motion planning to an arbitrary robot configuration goal. 
 </p>
 <p>
-Of the 4 possible advanced extension points, two additional points for this assignment can be earned by using the A-star algorithm for base path planning in combination with RRT-Connect for arm motion planning. 
+Of the possible advanced extension points, two additional points for this assignment can be earned by using the A-star algorithm for base path planning in combination with RRT-Connect for arm motion planning. 
 </p>
 <p>
-Of the 4 possible advanced extension points, one additional point for this assignment can be earned by writing a collision detection system for two arbitrary triangles in 2D using a JavaScript/HTML5 canvas element. 
+Of the possible advanced extension points, one additional point for this assignment can be earned by writing a collision detection system for two arbitrary triangles in 2D using a JavaScript/HTML5 canvas element. 
 </p>
 <p>
-Of the 4 possible advanced extension points, two additional points for this assignment can be earned by writing a collision detection system for two arbitrary triangles in 3D using JavaScript/HTML5 and threejs or a canvas element. 
+Of the possible advanced extension points, two additional points for this assignment can be earned by writing a collision detection system for two arbitrary triangles in 3D using JavaScript/HTML5 and threejs or a canvas element. 
 </p>
 <p>
-Of the 4 possible advanced extension points, four additional points for this assignment can be earned by implementation of triangle-triangle tests for collision detection between robot and planning scene meshes. 
+Of the possible advanced extension points, four additional points for this assignment can be earned by implementation of triangle-triangle tests for collision detection between robot and planning scene meshes. 
 </p>
 <p>
-Of the 4 possible advanced extension points, three additional points for this assignment can be earned by implementation of cubic or quintic polynomial interpolation (Spong Ch. 5.5.1 and 5.5.2) across configurations returned in a computed motion plan.
+Of the possible advanced extension points, three additional points for this assignment can be earned by implementation of cubic or quintic polynomial interpolation (Spong Ch. 5.5.1 and 5.5.2) across configurations returned in a computed motion plan.
 </p>
 <p>
-Of the 4 possible advanced extension points, four additional points for this assignment can be earned by implementing an approved research paper describing a motion planning algorithm. 
+Of the possible advanced extension points, four additional points for this assignment can be earned by implementing an approved research paper describing a motion planning algorithm. 
 </p>
 
 
