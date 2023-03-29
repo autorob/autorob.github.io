@@ -66,8 +66,8 @@
             <li><a href="#assignment3">3</a></li>
             <li><a href="#assignment4">4</a></li>
             <li><a href="#assignment5">5</a></li>
-            <li><a href="#assignment6" style="color:#444444";>6</a></li>
-            <li><a href="#assignment7" style="color:#444444";>7</a></li>
+            <li><a href="#assignment6">6</a></li>
+            <li><a href="#assignment7">7</a></li>
 <!-- unassigned
             <li><a href="#assignment0" style="color:#444444";>0</a></li>
             <li><a href="#assignment1" style="color:#444444";>1</a></li>
@@ -75,8 +75,8 @@
             <li><a href="#assignment3" style="color:#444444";>3</a></li>
             <li><a href="#assignment4" style="color:#444444";>4</a></li>
             <li><a href="#assignment5" style="color:#444444";>5</a></li>
-            <li><a href="#assignment6">6</a></li>
-            <li><a href="#assignment7">7</a></li>
+            <li><a href="#assignment6" style="color:#444444";>6</a></li>
+            <li><a href="#assignment7" style="color:#444444";>7</a></li>
 -->
         </ul>
     </div>
@@ -1569,7 +1569,10 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Mar 17</b></td>
+    <td>
+    <!-- 
     <td style="color:#000000;background-color:#cccccc">
+    -->
          Lab Session: 
         <a href="labs/autorob_lab_09_rrt.pdf">
          search_canvas.html revisited for 2D RRT (2022)
@@ -1639,7 +1642,10 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Mar 24</b></td>
+    <td>
+    <!-- 
     <td style="color:#000000;background-color:#cccccc">
+    -->
          Lab Session: 
          <a href="labs/autorob_lab_10_aabb.pdf">
            KinEval RRT stencil and AABB collision detection (2022)
@@ -1677,12 +1683,12 @@ Slides from this course borrow from and are indebted to many sources from around
 
 
 <tr>
-    <td><b>Apr 1</b></td>
+    <td><b>Mar 31</b></td>
     <td>
     <!-- 
     <td style="color:#000000;background-color:#cccccc">
     -->
-        Extended Office Hours 
+        <del>Extended Office Hours</del> No meeting
     </td>
     <td></td>
     <td></td>
@@ -1696,7 +1702,10 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Apr 3</b></td>
+    <td>
+    <!-- 
     <td style="color:#000000;background-color:#cccccc">
+    -->
          Interactive Session: <del>Quiz 10</del> and Optional IK Setpoint Showcase
     </td>
     <td></td> 
@@ -1704,7 +1713,10 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Apr 7</b></td>
+    <td>
+    <!-- 
     <td style="color:#000000;background-color:#cccccc">
+    -->
       Extended office hours</td>
     <td></td>
 <tr>
@@ -1714,7 +1726,7 @@ Slides from this course borrow from and are indebted to many sources from around
 <!--
 <tr>
     <td><b>Mar 30</b></td>
-    <td style="color:#000000;background-color:#cccccc">
+    <td>
          Task Planning Overview</a>: Decision making revisited, declarative programming, axiomatic state, planning operators
          Selected topics for further study
     </td>
@@ -1766,8 +1778,11 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Apr 10</b></td>
+    <td>
+    <!-- 
     <td style="color:#000000;background-color:#cccccc">
-         Interactive Session: </del>Quiz 11</del> Optional Extension Evaluation
+    -->
+         Interactive Session: <del>Quiz 11</del> Optional Extension Evaluation
     </td>
     <td></td> 
     <td>Due: Motion Planning</td> 
@@ -1775,7 +1790,10 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Apr 14</b></td>
+    <td>
+    <!-- 
     <td style="color:#000000;background-color:#cccccc">
+    -->
        Extended office hours</td>
     <td></td>
     <td>Due: Best Use of Robotics</td>
@@ -1790,7 +1808,10 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <tr>
     <td><b>Apr 17</b></td>
+    <td>
+    <!-- 
     <td style="color:#000000;background-color:#cccccc">
+    -->
     Interactive Session: Best Use of Robotics</td>
     <td></td>
     <td></td>
@@ -3345,11 +3366,13 @@ Make sure to test all provided robot descriptions from a reasonable set of initi
 The planner should produce a collision-free path in configuration space (over all robot DOFs) and not just the movement of the base on the ground plane.  If your planner does not work in configuration space, it is sure to fail tests used for grading.
 </p>
 
-<!-- <h3> Graduate Section Requirement</h3>
+<!-- 
+-->
+<h3> Graduate Section Requirement</h3>
 
 <p>
-In addition to the requirements above, students in the graduate section must also implement the <a href="http://dspace.mit.edu/openaccess-disseminate/1721.1/63170">RRT-Star</a> motion planning algorithm for the 2D search canvas. You will need to complete the iterateRRTStar() function stencil in project_pathplan/rrt.js for this feature. Part of this assignment is an exercise in how to conceptualize implementation details of an algorithm from a robotics paper. Because of this, you will need to refer to the linked paper for details on how to implement the RRT-Star algorithm. <b>Note:</b> The course staff will not provide assistance with RRT-Star, so we strongly encourage high-level discussion of the algorithm among students on the assignment channel or in pod meetings.
-</p> -->
+In addition to the requirements above, students in the graduate section must also implement the <a href="http://dspace.mit.edu/openaccess-disseminate/1721.1/63170">RRT-Star</a> motion planning algorithm for the 2D search canvas. You will need to complete the iterateRRTStar() function stencil in project_pathplan/rrt.js for this feature. Part of this assignment is an exercise in how to conceptualize implementation details of an algorithm from a robotics paper. Because of this, you will need to refer to the linked paper for details on how to implement the RRT-Star algorithm. <b>Note:</b> The course staff will not provide assistance with RRT-Star, so we strongly encourage high-level discussion of the algorithm among students on the assignment channel and amongst peers.
+</p> 
 
 <!--
 <p>
@@ -3426,13 +3449,13 @@ Scenario: An investor is considering giving you 20 million dollars (cold hard US
 <!-- (uncomment marker begin 10)
 -->
 <p>
-You will get 1.5 minutes to make a pitch to develop something useful with robots.  Consider the instructor and your classmates as the people that need to be convinced.  As a guideline, your pitch should address an opportunity (presented by a need or a problem), your planned result (as a system, technology, product, and/or service), and how you will measure successful return on investment.  Return on investment can be viewed as financial profit (wrt. venture capital), good for society (wrt. a government program), creation of new knowledge or capabilities (wrt. a grant for scientific research).  Remember, the purpose is to convince and inspire about what is possible, rather than dive into specifics.
+You will get 60 seconds to make a pitch to develop something useful with robots.  Consider the instructor and your classmates as the people that need to be convinced.  As a guideline, your pitch should address an opportunity (presented by a need or a problem), your planned result (as a system, technology, product, and/or service), and how you will measure successful return on investment.  Return on investment can be viewed as financial profit (wrt. venture capital), good for society (wrt. a government program), creation of new knowledge or capabilities (wrt. a grant for scientific research).  Remember, the purpose is to convince and inspire about what is possible, rather than dive into specifics.
 <p>
-The last scheduled class period (April 18, 1:30-3:00pm) will be dedicated to student presentations during which each student will have 1.5 minutes to make their pitch to the rest of class.  
+The last scheduled class period (April 17, 4:30-7:30pm) will be dedicated to student presentations during which each student will have 60 seconds to make their pitch to the rest of class.  
 </p>
 
 <p>
-Please post your finalized presentation slides on the "#asgn7-best-use" discussion channel before 11:59pm on Wednesday April 13th.  Your first slide must include the title of your presentation, your name, and your Michigan unique name.
+Please insert your finalized presentation slides in the Best Use of Robotics Google Slides presentation before 11:59pm on Wednesday April 13th.  A link to this Google Slides presentation will be provided via the course Slack workspace on the "#asgn7-best-use" channel.  Your first slide must include the title of your presentation, your name, and your U-M Michigan unique name.
 <!--  The filename of your slides must start with your username in the format "asgn7_username".  Slides will only be accepted in PDF format, although embedding of videos or links to videos will be accepted.  You can post new versions of your slides up to the submission deadline on December 6th, but must delete older versions.
 -->
 </p>
