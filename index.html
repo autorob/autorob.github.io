@@ -61,7 +61,7 @@
             <li><a href="#faq">FAQ</a></li> <br>
             <li>assignments:</li>
             <li><a href="#assignment1">1</a></li>
-            <li><a href="#assignment2" style="color:#444444";>2</a></li>
+            <li><a href="#assignment2">2</a></li>
             <li><a href="#assignment3" style="color:#444444";>3</a></li>
             <li><a href="#assignment4" style="color:#444444";>4</a></li>
             <li><a href="#assignment5" style="color:#444444";>5</a></li>
@@ -921,7 +921,7 @@ This code stencil is implemented to perform graph search iterations interactivel
 </p>
 
 <p>
-  The iterateGraphSearch() function should perform a search iteration towards the goal pose of the robot, specified as a 2D vector in parameter "q_goal".  The search must find a goal node that allows for departure from the planning graph without collision.  iterateGraphSearch() makes use of three provided helper functions.  testCollision([x, y]) returns a boolean of whether a given 2D location, as a two-element vector [x, y], is in collision with the planning scene.  draw_2D_configuration([x, y], type) draws a square at a given location in the planning world to indicate that location has been visited by the search (type = "visited") or is currently in the planning queue (type = "queued").  Once the search is complete, drawHighlightedPathGraph(l) will render the path produced by the search algorithm between location l and the start location. The global variable search_iterate should be set to false when the search is complete to end animation loop.
+  The iterateGraphSearch() function should perform a search iteration towards the goal pose of the robot, specified as a 2D vector in parameter "q_goal".  The search must find a goal node that allows for departure from the planning graph without collision.  iterateGraphSearch() makes use of three provided helper functions.  testCollision([x, y]) returns a boolean of whether a given 2D location, as a two-element vector [x, y], is in collision with the planning scene.  draw_2D_configuration([x, y], type) draws a square at a given location in the planning world to indicate that location has been visited by the search (type = "visited") or is currently in the planning queue (type = "queued").  Incrementing the "search_visited" global variable will update the number of nodes visited displayed on the page.  Once the search is complete, drawHighlightedPathGraph(l) will render the path produced by the search algorithm between location l and the start location. The global variable search_iterate should be set to false when the search is complete to end animation loop.
 </p>
 
 <!-- 
@@ -966,13 +966,16 @@ Of the possible advanced extension points, one additional point for this assignm
 </p>
 
 <p>
-Of the possible advanced extension points, one additional point for this assignment can be earned by implementing a priority queue through an <a href="https://en.wikipedia.org/wiki/AVL_tree">AVL tree</a> or a <a href="https://en.wikipedia.org/wiki/Red%E2%80%93black_tree">red-black tree</a>.  The implementation of this priority queue must be contained within the file "balanced_tree.js" under the "project_pathplan" directory.
+Of the possible advanced extension points, one additional point for this assignment can be earned by implementing a priority queue through an <a href="https://en.wikipedia.org/wiki/Fibonacci_heap">Fibonacci Heap</a>.  The implementation of this priority queue must be contained within the file "fibonacci_heap.js" under the "project_pathplan" directory.
 </p>
 
 <p>
 Of the possible advanced extension points, one additional point for this assignment can be earned by adapting the search canvas to plan betwen any locations in the map "bbb2ndfloormap.png" (provided in the stencil repository) when the "planning_scene" parameter is invoked as "BeysterFloor2".
 </p>
 
+<p>
+<b>NEW --</b> Of the possible advance extensions points, four additional points for this assignment can be earned by implementing valid game logic for a <a href="https://en.wikipedia.org/wiki/Snake_(video_game_genre)">snake game</a> in the code stencil and autonomously controlling the snake using the A-star algorithm.  An example of <a href="https://youtu.be/I0KlGQStJMQ?si=KUIpXHIqMSebgjkW">autonomous snake game pathfinding is described in this video</a>.
+<p>
 
 
 
@@ -1033,6 +1036,7 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr> -->
 
+<!-- 
 <br>
 <br>
 <br>
@@ -1046,7 +1050,6 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 <br>
 <br>
 <br>
-<!-- 
  -->
 
 
@@ -1056,16 +1059,22 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 
 <h2 id="assignment2">Assignment 2: Pendularm </h2>  
 <p>
-<b>Due 11:59pm, Monday, February 13, 2023</b>
+<b>Due 11:59pm, Friday, February 9, 2024</b>
 </p>
 
 <p>
-Physical simulation is widely used across robotics to test robot controllers.  Testing in simulation has many benefits, such as avoiding the risk of damaging a (likely expensive) robot and faster development of controllers.  Simulation also allows for consideration of environments not readily available for testing, such as interplanetary exploration (as in the example below for the NASA Space Robotics Challenge).  We will now model and control our first robot, the Pendularm, to achieve an arbitrary desired setpoint state.
+Physical simulation is widely used across robotics to test robot controllers as well as generate training data for learned controllers.  Testing and training in simulation has many benefits, such as avoiding the risk of damaging a (likely expensive) robot and faster development of controllers.  The video below about the <a href="https://www.youtube.com/embed/VW-dOMBFj7o?si=A1x5PIUG9MlDi7AW">NVIDIA Isaac Sim</a> highlights many of the advantages and advancements towards narrowing the <a href="https://ieeexplore.ieee.org/abstract/document/9398246">sim-to-real</a> gap.  Simulation also allows for consideration of environments not readily available for testing, such as for interplanetary exploration.  We will now model and control our first robot, the Pendularm, to achieve an arbitrary desired setpoint state.
 </p>
 
 <center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VW-dOMBFj7o?si=A1x5PIUG9MlDi7AW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</center>
+
+<!--
+<center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/vOssEL1xqNs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </center>
+-->
 
 <p>
 As an introduction to building your own robot simulator, your task is to implement a physical dynamics and servo controller for a simple 1 degree-of-freedom robot system.  This system is 1 DOF robot arm as a frictionless <a href="http://en.wikipedia.org/wiki/Pendulum">simple pendulum</a> with a rigid massless rod and idealized motor. A visualization of the Pendularm system is shown below.  Students in the graduate section will extend this system into a 2-link 2-DOF robot arm, as an actuated <a href="https://en.wikipedia.org/wiki/Double_pendulum">double pendulum</a>.
@@ -1138,7 +1147,6 @@ For user input, you should be able to:
 <li><p>momentarily disable the servo controller with 's' key (and allowing the arm to swing uncontrolled).</p></li>
 </ul>
 
-
 <h3> Graduate Section Requirement</h3>
 
 <p>
@@ -1162,7 +1170,7 @@ to simulate and control a single pendulum (in "update_pendulum_state.js"). Then,
 </center>
 -->
 
-<h4> Optional Extensions </h4>
+<h4> Advanced Extensions </h4>
 
 <p>
 Of the possible optional extension points, one additional point for this assignment can be earned by generating a random desired setpoint state and using PID control to your Pendularm to this setpoint.  This code must randomly generate a new desired setpoint and resume PID control once the current setpoint is achieved.  <b> A setpoint is considered achieved if the current state matches the desired state up to 0.01 radians for 2 seconds.</b> The number of setpoints that can be achieved in 60 seconds must be maintained and reported in the user interface.  The invocation of this setpoint trial must be enabled a user pressing the "t" key in the user interface.
@@ -1178,6 +1186,11 @@ Of the possible optional extension points, two additional points for this assign
 </p>
 
 <p>
+Of the possible advanced extension points, three additional points for this assignment can be earned by developing a <a href="https://en.wikipedia.org/wiki/Newton%E2%80%93Euler_equations">Newton-Euler simulation</a> for a single rigid body with a cube geometry without consideration of contact with other objects.  This maximal coordinate pendulum implementation should be contained within the file "rigid_body_sim.html" under the "project_pendularm" directory.
+</p>
+
+
+<p>
 Of the possible advanced extension points, three additional points for this assignment can be earned by developing and implementing a maximal coordinate dynamical simulation of biped hopper with links as planar 2D rigid bodies capable of locomotion on a flat ground plane.  This maximal coordinate pendulum implementation should be contained within the file "hopper_planar.html" under the "project_pendularm" directory.
 </p>
 
@@ -1186,12 +1199,21 @@ Of the possible advanced extension points, three additional points for this assi
 Of the possible optional extension points, one additional point for this assignment can be earned by implementing a plot visualization of the state and desired setpoint for the 1 DoF pendulum over a 20 second window (of simulation time) within the pendularm1.html user interface.  The Pendularm user interface must maintain at least the same usability as the provided pendularm1.html implementation.
 </p>
 
-
+<p>
+Of the possible optional extension points, two additional points for this assignment can be earned by implementing a method for <a href="https://en.wikipedia.org/wiki/Model_predictive_control">model predictive control</a> within pendularm1.html for setpoint control.
+</p>
 
 <h3> Project Submission</h3>
 <p>
 For turning in your assignment, push your updated code to the <b>master</b> branch in your repository.  
 </p>
+
+<h3> Optional: Pendularm Setpoint Competition </h3>
+
+<p>
+Details will be provided for participation in the Pendularm Setpoint Competition.  Three additional points towards final grading will be awarded to the top performer in the Pendularm Setpoint Competition in each of the graduate and undergraduate sections.  One additional point will be granted to the second and third place performers in each of the graduate and undergradate sections.
+</p>
+
 
 <!-- 
 <h3> Additional Notes</h3>
@@ -1205,7 +1227,6 @@ Students in the graduate section are strongly encouraged to extend their pendula
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr> -->
 
-<!-- 
 <br>
 <br>
 <br>
@@ -1219,6 +1240,7 @@ Students in the graduate section are strongly encouraged to extend their pendula
 <br>
 <br>
 <br>
+<!-- 
  -->
 
 
