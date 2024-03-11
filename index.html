@@ -64,7 +64,7 @@
             <li><a href="#assignment2">2</a></li>
             <li><a href="#assignment3">3</a></li>
             <li><a href="#assignment4">4</a></li>
-            <li><a href="#assignment5" style="color:#444444";>5</a></li>
+            <li><a href="#assignment5">5</a></li>
             <li><a href="#assignment6" style="color:#444444";>6</a></li>
             <li><a href="#assignment7" style="color:#444444";>7</a></li>
 <!-- unassigned
@@ -1759,11 +1759,11 @@ For turning in your assignment, push your updated code to the <b>master</b> bran
 
 
 <!-- 
--->
 <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr> 
 
+-->
 
 <!-- 
 (uncomment marker end 6) -->
@@ -1789,7 +1789,7 @@ For turning in your assignment, push your updated code to the <b>master</b> bran
 
 <h2 id="assignment5">Assignment 5: Inverse Kinematics </h2>  
 <p>
-<b>Due 11:59pm, Monday, March 27, 2023</b>
+<b>Due 11:59pm, Monday, March 25, 2024</b>
 
 <p>
 Although effective, robot choreography in configuration space is super tedious and inefficient.  This difficulty is primarily due to posing each joint of the robot at each setpoint.  Further, changing one joint often requires updating several other joints due to the nature of kinematic dependencies.  Inverse kinematics (IK) offers a much easier and efficient alternative.  With IK implemented, we only need to pose the endeffector in a common workspace, and the states of the joints in configuration space are automatically inferred.  IK is also important when we care about the "tool tip" of an instrument being used by a robot.  One such example is a robot using marker to draw a picture, such as in the PR2 Portrait Bot Project below:
@@ -1856,7 +1856,7 @@ From these arguments and the current robot configuration, the kineval.iterateIK(
 </p>
 
 <p>
-<b>Important:</b> Students <!-- enrolled in EECS 398 will -->are expected to implement inverse kinematics for <b>only</b> the position, not the orientation, of the endeffector.
+<b>Important:</b> Students in an undergraduate section are expected to implement inverse kinematics for <b>only</b> the position, not the orientation, of the endeffector.
 </p>
 
 <p>
@@ -1898,34 +1898,39 @@ Students enrolled in the graduate section of AutoRob will implement inverse kine
   In order to handle the orientation of the endeffector in your IK implementation, you will need to calculate the orientation part of the error term, which will require you to implement a conversion from a rotation matrix to Euler angles. You may find an online reference to inform your implementation of this conversion (please cite it in a comment in your code) or develop your own approach to the conversion calculation. Completing this conversion is a necessary step for including orientation in your IK implementation, and it also fulfills the "Euler angle conversion" feature.
 </p> 
 
-<h4> Optional Extensions </h4>
+<h4> Advanced Extensions </h4>
 
 <p>
-Of the possible optional extension points, one extension point for this assignment can be earned by reaching to 100 targets in a random trial within 60 seconds.  A video of this execution must be provided to demonstrate this achievement.  This video file should be in the repository root directory with the name "IK100in60" and appropriate file extension.
+Of the possible advanced extension points, one extension point for this assignment can be earned by reaching to 100 targets in a random trial within 60 seconds.  A video of this execution must be provided to demonstrate this achievement.  This video file should be in the repository root directory with the name "IK100in60" and appropriate file extension.
 </p>
 
 <p>
-Of the possible optional extension points, three extension points for this assignment can be earned by implementing the <a href="http://ieeexplore.ieee.org/document/86079/">Cyclic Coordinate Descent (CCD)</a> inverse kinematics algorithm by Wang and Chen (1991).  This function should be implemented in the file "kineval/kineval_inverse_kinematics.js" as another option within the function kineval.iterateIK().
+Of the possible advanced extension points, three extension points for this assignment can be earned by implementing the <a href="http://ieeexplore.ieee.org/document/86079/">Cyclic Coordinate Descent (CCD)</a> inverse kinematics algorithm by Wang and Chen (1991).  This function should be implemented in the file "kineval/kineval_inverse_kinematics.js" as another option within the function kineval.iterateIK().
 </p>
 
 <p>
-Of the possible optional extension points, three extension points for this assignment can be earned by implementing <a href="https://en.wikipedia.org/wiki/Nelder%E2%80%93Mead_method">downhill simplex optimization</a> to perform inverse kinematics.  This function should be implemented in the file "kineval/kineval_inverse_kinematics.js" as another option within the function kineval.iterateIK().
+Of the possible advanced extension points, three extension points for this assignment can be earned by implementing <a href="https://en.wikipedia.org/wiki/Nelder%E2%80%93Mead_method">downhill simplex optimization</a> to perform inverse kinematics.  This function should be implemented in the file "kineval/kineval_inverse_kinematics.js" as another option within the function kineval.iterateIK().
 </p>
 
 <p>
-Of the possible optional extension points, four extension points for this assignment can be earned by implementing resolved-rate inverse kinematics with null space constraints to respect joint limits.  This function should be implemented in the file "kineval/kineval_inverse_kinematics.js" as another option within the function kineval.iterateIK().
+Of the possible advanced extension points, one extension point for this assignment can be earned by implementing stochastic gradient descent to perform inverse kinematics.  This function should be implemented in the file "kineval/kineval_inverse_kinematics.js" as another option within the function kineval.iterateIK().
+</p>
+
+
+<p>
+Of the possible advanced extension points, four extension points for this assignment can be earned by implementing resolved-rate inverse kinematics with null space constraints to respect joint limits.  This function should be implemented in the file "kineval/kineval_inverse_kinematics.js" as another option within the function kineval.iterateIK().
 </p>
 
 <p>
-Of the possible optional extension points, one extension point can be earned by implementing a closed-form inverse kinematics solution for the RexArm 4-DOF robot arm, which can be used later projects in <a href="https://www.youtube.com/playlist?list=PLDutmfAv2lfZ9M0XyYfY4N8EwLJhy58G6">EECS 467 (Autonomous Robotics Laboratory)</a>.  
+Of the possible advanced extension points, one extension point can be earned by implementing a closed-form inverse kinematics solution for the RexArm 4-DOF robot arm, which can be used later projects in <a href="https://www.youtube.com/playlist?list=PLDutmfAv2lfZ9M0XyYfY4N8EwLJhy58G6">EECS 467 (Autonomous Robotics Laboratory)</a>.  
 </p>
 
 <p>
-Of the possible optional extension points, four extension points for this assignment can be earned by extending your IK controller to use potential fields to avoid collisions.
+Of the possible advanced extension points, four extension points for this assignment can be earned by extending your IK controller to use potential fields to avoid collisions.
 </p>
 
 <p>
-Of the possible optional extension points, one extension point for this assignment can be earned by implementing a search mechanism to automatically find appropriate PID gains for the Pendularm.  This implementation should be placed in the file "project_pendularm/pendularm1_gainsearch.html" and allow for arbitrary initial PID gains for the search to be set in the variable "initial_gains".
+Of the possible advanced extension points, one extension point for this assignment can be earned by implementing a search mechanism to automatically find appropriate PID gains for the Pendularm.  This implementation should be placed in the file "project_pendularm/pendularm1_gainsearch.html" and allow for arbitrary initial PID gains for the search to be set in the variable "initial_gains".
 </p>
 
 
@@ -1939,9 +1944,11 @@ For turning in your assignment, ensure your completed project code has been comm
 (comment marker end 7) -->
 
 
-<!-- <hr>
+<!-- 
+-->
+<hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
-<hr> -->
+<hr> 
  
 <!--
 <br>
