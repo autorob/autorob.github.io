@@ -238,7 +238,14 @@ The University of Michigan is committed to advancing the mental health and wellb
 </p>
     -->
 
+    <br>
+    <hr>
+    <br>
+    
+<h2 id="staff">Course Staff and Office Hours</h2>
 
+<h3>Course Instructors</h3>
+    
 <table cellpadding=5 border=0  width="100%">
 <tr>
   <td><img src="images/staff_imgs/profJenkins.jpg" alt="Staff Image" width="277" height="185"></td>
@@ -270,7 +277,7 @@ The University of Michigan is committed to advancing the mental health and wellb
 <tr><td><h3>Graduate Student Instructors</h3></td></tr>
 
 <tr>
-  <td><img src="images/staff_imgs/boyang.jpg" alt="Staff Image" width="185" height="185"></td>
+  <td><img src="https://robotics102.org/um-f24/assets/images/staff/imadhav.jpg" alt="Staff Image" width="185" height="185"></td>
   <td>
     <p>Isaac Madhavaram
       <br>
@@ -308,9 +315,7 @@ The University of Michigan is committed to advancing the mental health and wellb
 <h3><a href="https://calendar.google.com/calendar/embed?src=c_cf0353247a9f0d7e9e105adcc79d40da1ccbce05fcb50f0b8358e180a6386e7d%40group.calendar.google.com&ctz=America%2FNew_York">calendar link</a></h3> //
 <iframe src="https://calendar.google.com/calendar/embed?src=c_cf0353247a9f0d7e9e105adcc79d40da1ccbce05fcb50f0b8358e180a6386e7d%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="1000" height="600" frameborder="0" scrolling="no"></iframe>
 
-<h2 id="staff">Course Staff and Office Hours</h2>
 
-<h3>Course Instructors</h3>
 
 
 <h2 id="meetings">Winter 2025 Course Structure</h2>
@@ -2361,6 +2366,11 @@ The pitch judged to be the most convincing will get first dibs.
 <hr>
 -->
 
+
+
+
+<!-- moved to course missive in google docs
+    
 <p>
 <br>
 <br>
@@ -2516,7 +2526,8 @@ From your current directory, you can use Bash commands to view and modify the co
 </p>
 
 <p>
-Once you have navigated to the directory where you want to create your workspace, you are ready to clone a copy of your remote repository and populate it with files for AutoRob projects.  It assumed that you have already created a repository on your Git hosting service, given the course staff access to this repository, and provided a link of your repository to the course staff.  You will need the repository link in the form of <!-- "https://github.com/user_name/repository_name.git" -->"https://github.com/autorob-WN23/kineval-stencil-&ltusername&gt" if you are using HTTPS (default) or <!-- "git@github.com:user_name/repository_name.git" -->"git@github.com:autorob-WN22/kineval-stencil-&ltusername&gt.git" if you are using SSH (only if you have set up your SSH keys). You'll use this link to clone a copy of your remote repository onto your local machine using the following git command below.  This command will clone the repository contents to a subdirectory labeled with the name of the repository:
+Once you have navigated to the directory where you want to create your workspace, you are ready to clone a copy of your remote repository and populate it with files for AutoRob projects.  It assumed that you have already created a repository on your Git hosting service, given the course staff access to this repository, and provided a link of your repository to the course staff.  You will need the repository link in the form of "https://github.com/autorob-WN23/kineval-stencil-&ltusername&gt" if you are using HTTPS (default) or 
+    "git@github.com:autorob-WN22/kineval-stencil-&ltusername&gt.git" if you are using SSH (only if you have set up your SSH keys). You'll use this link to clone a copy of your remote repository onto your local machine using the following git command below.  This command will clone the repository contents to a subdirectory labeled with the name of the repository:
 </p>
 
 <pre style="color:black"><code data-language="javascript">
@@ -2548,7 +2559,7 @@ After cloning has finished, you can also check for differences between the files
 You should now have a local copy of your repository.  It is critical to note that your local repository is different than your current workspace.  Your workspace is not automatically tracked by the version control system and considered ephemeral.  Any changes made to your workspace must be committed into the local repository to be recognized by the version control system.  Further, any changes committed to your local repository must also be pushed remotely to be recognized by your Git hosting service.  Thus, any changes made to your workspace can be lost if not committed and pushed, which will be discussed more in later sections.
 </p>
 
-<!-- <h3>Populating your repository with project stencil code</h3>
+!-- <h3>Populating your repository with project stencil code</h3>
 
 <p>
 Use the "git remote" command to add a second remote repostiory to your new local repository:
@@ -2576,15 +2587,15 @@ Now pull the files from the autorob remote with the following command:
 </code></pre>
 <p>
   The "reset --hard" command will erase files and history, so be extra careful that you are not overwriting an important repository here!
-</p> -->
+</p> ->
 
 <h3>Testing out the stencil code</h3>
 
 <p>
 Your folder should now be populated with the KinEval files. Open "home.html" in a web browser and ensure you see the starting point page pictured below:
-<!--
+<!-
 for <a href="#assignment1">Assignment 1</a>.
--->
+->
 </p>
 
 <img width=100% src="images/kineval_welcome.png">
@@ -2677,13 +2688,13 @@ Below is a more detailed summary of git commands for pulling and fetching:
 <li>"git fetch [RemoteName]" is used for retrieving commits from a remote repository <i>without</i> merging them into the workspace. This creates a copy of the updates in your local repository but does not apply them to the workspace.
 </ul>
 
-<!--
+<!-
 Some easy options for controlling previous and current versions of files can be done through the following commands.
 git reset -- hard undo everything from last commit
 git reset – hard ORIG_HEAD undo last successful merge and following changes
 git reset –soft HEAD^ undo most recent commit
 git reset HEAD [FileName] remove a file from the next commit
--->
+->
 
 <h3>Branching</h3>
 
@@ -2723,6 +2734,7 @@ as well as clone a specific branch from a repository:
     git clone -b [branch_name] [repository URL link]
 </code></pre>
 
+    -->
 <p>
 Good luck and happy hacking!
 </p>
