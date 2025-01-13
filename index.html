@@ -64,7 +64,7 @@
             <!-- <li><a href="#faq">FAQ</a></li> <br> -->
             <br>
             <li>projects:</li>
-            <li><a href="#assignment1" style="color:#444444";>1</a></li>
+            <li><a href="https://docs.google.com/document/d/1_bWSckopff3AUs9fZLBDUCGaelkRutceC4C1sfSjxoo/edit?usp=sharing" style="color:#444444";>1</a></li>
             <li><a href="#assignment2" style="color:#444444";>2</a></li>
             <li><a href="#assignment3" style="color:#444444";>3</a></li>
             <li><a href="#assignment4" style="color:#444444";>4</a></li>
@@ -268,9 +268,11 @@ The University of Michigan is committed to advancing the mental health and wellb
     <br>
     mamantov@umich
     <br>
-    Office Hours: TBD
+    <i>GitHub:</i> emgoeddel
     <br>
-    Office:TBD
+    Office Hours: Tuesday 9:30 - 11:30 a.m.
+    <br>
+    Location: TBD
     </p> </td> 
 </tr>
 
@@ -284,9 +286,9 @@ The University of Michigan is committed to advancing the mental health and wellb
       <br>
       imadhav@umich
       <br>
-      <i>GitHub:</i>  
+      <i>GitHub:</i> imadhav21
       <br>
-      Office Hours:TBD
+      Office Hours: Wednesday 2:00 - 4:00 p.m.
       <br>
       Location: TBD
       </p>
@@ -300,11 +302,11 @@ The University of Michigan is committed to advancing the mental health and wellb
   <br>
   haoranwh@umich
   <br>
-  <i>GitHub:</i> HaoranZhangumich 
+  <i>GitHub:</i> HaoranZhangumich
   <br>
-  Office Hours: Tuesday 9:00 - 11:00 a.m.
+  Office Hours: Friday 4:30 - 6:30 p.m.
   <br>
-  Location: Robotics 2000 (Undergraduate Lounge)
+  Location: TBD
   </p></td>
 </tr>
 
@@ -313,9 +315,8 @@ The University of Michigan is committed to advancing the mental health and wellb
 </table>
 
 <h3 id="calendar">Office Hours Calendar</h3>
-<h3><a href="https://calendar.google.com/calendar/embed?src=c_cf0353247a9f0d7e9e105adcc79d40da1ccbce05fcb50f0b8358e180a6386e7d%40group.calendar.google.com&ctz=America%2FNew_York">calendar link</a></h3> //
-<iframe src="https://calendar.google.com/calendar/embed?src=c_cf0353247a9f0d7e9e105adcc79d40da1ccbce05fcb50f0b8358e180a6386e7d%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="1000" height="600" frameborder="0" scrolling="no"></iframe>
 
+<iframe src="https://calendar.google.com/calendar/embed?src=c_30d306aa1a946368f87bb587b0ee206de03176dba48bb369f2b9c91efe259ba0%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
 
 
@@ -731,8 +732,8 @@ This project is described in a <a href="https://docs.google.com/document/d/1M8SD
 </p>
  -->
 
-<!-- 
-     -->
+<!--
+
 <br>
 <br>
 <br>
@@ -746,254 +747,23 @@ This project is described in a <a href="https://docs.google.com/document/d/1M8SD
 <br>
 <br>
 <br>
-
-
-<hr>
-
-<h2 id="assignment1">Assignment 1: Path Planning</h2>  
-<p>
-<b>Due 11:59pm, Friday, January 26, 2024</b>
-</p>
-
-
-<p>
-The objective of the first assignment is to implement a collision-free path planner in JavaScript/HTML5.  Path planning is used to allow robots to autonomously navigate in environments from previously constructed maps.  A path planner essentially finds a set of waypoints (or setpoints) for the robot to traverse and reach its goal location without collision.  As covered in other courses (EECS 467, ROB 550, or ROB 530), such maps can be estimated through methods for <a href="https://en.wikipedia.org/wiki/Simultaneous_localization_and_mapping">simultaneous localization and mapping</a>.  Below is an example from <a href="https://www.youtube.com/playlist?list=PLDutmfAv2lfZ9M0XyYfY4N8EwLJhy58G6">EECS 467</a> where a <a href="https://youtu.be/c-e12F_QqiM">robot performs autonomous navigation</a> while simultaneously building an occupancy grid map:
-
-<center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/c-e12F_QqiM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</center>
-
-<p>
-For this assignment, you will implement the planning part of autonomous navigation as an A-star graph search algorithm.  Unlike in the above video, where the map is built as the robot explores, you will be given a complete map of the robot's world to run A-star on. A-star infers the shortest path from a start to a goal location in an arbitrary 2D world with a known map (or collision geometry).  This A-star implementation will consider locations in a uniformly spaced, 4-connected grid. A-star requires an <a href="https://en.wikipedia.org/wiki/Admissible_heuristic">admissible heuristic</a>, which can be the <a href="https://en.wikipedia.org/wiki/Euclidean_distance">Euclidean distance</a> to the goal in your implementation. You will implement a heap data structure as a priority queue for visiting locations in the search grid.
-</p>
-
-<p>
-If properly implemented, the A-star algorithm should produce the following path (or path of similar length) using the provided code stencil:
-</p>
-
-<center>
-<img width=600 src="images/asgn1_narrow2_complete.png">
-</center>
-
-<!--
-<!-- (uncomment marker begin 1)
 -->
 
-<h3>Features Overview</h3>
 
+<h2 id="assignment1">Project 1: Path Planning</h2>  
 <p>
-  This assignment requires the following features to be implemented in the corresponding files in your repository:
+<b>Due 3:00pm, Monday, January 27, 2025</b>
 </p>
 
-<ul>
-  <li> <p>Heap implementation in "tutorial_heapsort/heap.js"</p></li>
-  <li> <p>A-star search in "project_pathplan/graph_search.js"</p></li>
-  <!-- <li> <p>[Optional Extension] Breadth-first search (BFS) in "project_pathplan/graph_search.js"</p></li>
-  <li> <p>[Optional Extension] Depth-first search (DFS) in "project_pathplan/graph_search.js"</p></li>
-  <li> <p>[Optional Extension] Greedy best-first search in "project_pathplan/graph_search.js"</p></li> -->
-</ul>
-
-<p>
-  Points distributions for these features can be found in the <a href="#project_rubric">project rubric section</a></td>. More details about each of these features and the implementation process are given below.
-</p>
-
-<h3>Cloning the Stencil Repository</h3>
-
-
-<p>
-If you have not done so already, the first step for completing this project (and all projects for AutoRob) is to clone the <a href="https://github.com/lizolson/kineval-stencil">KinEval stencil repository</a>.  The appended git quick start below is provided those unfamiliar with git to perform this clone operation, as well as commiting and pushing updates for project submission.  <b>IMPORTANT</b>: the stencil repository should be cloned and <b>not forked</b> -- and we will this single repository for all projects in the course.
-</p>
-
-<!--
-<p>
-Each student in this class is responsible for providing a git repository for submitting their project work and receiving grading feedback.  Use of the GitHub classroom is available as a complementary service that provides repositories free for student use.  If a student is uncomfortable using the GitHub service, the <a href="https://gitlab.umich.edu/">EECS GitLab Server</a> is a service within the University of Michigan and is available for creation of student repositories.
-</p>
-If you choose to use GitHub, 
--->
-
-<p>
-Please join our <a href="https://classroom.github.com/classrooms/155585996-autorob-wn24-classroom">autorob-WN24 GitHub Classroom</a>. By following the preceeding link, your GitHub account will be linked to our 'classroom' and a private clone of the <a href="https://github.com/autorob-WN22/kineval-stencil">KinEval stencil repository</a> will be created for you to use. Your private repository will automatically be named <code>kineval-stencil-&ltusername&gt</code>.
-</p>
-
-<p>
-Throughout the KinEval code stencil, there are markers with the string "STENCIL" for code that needs to be completed for course projects. For this assignment, you will write code where indicated by the "STENCIL" marker in "tutorial_heapsort/heap.js" and "project_pathplan/graph_search.js".
-</p>
-
-<h3>Heap Sort Tutorial</h3>
-
-<p>
-The starting point for this assignment is to complete the heap sort implementation in the "tutorial_heapsort" subdirectory of the stencil repository.  In this directory, a code stencil in JavaScript/HTML5 is provided in two files: "heapsort.html" and "heap.js".  Comments are provided throughout these files to describe the structure of JavaScript/HTML5 and its programmatic features.
-</p>
-
-<p>
-  If you are new to JavaScript/HTML5, there are other tutorial-by-example files in the "tutorial_js" directory.  Any of these files can be run by simply opening them in a web browser. Note that these are examples <i>only</i>, and there are no assignment requirements in the "tutorial_js" files.
-</p>
-
-<p>
-Opening "heapsort.html" will show the result of running the incomplete heap sort implementation provided by the code stencil:
-
-</p>
-
-<center>
-<img width=600 src="images/heapsort_initial.png">
-</center>
-
-<p>
-To complete the heap sort implementation, complete the heap implementation in "heap.js" at the locations marked "STENCIL".  In addition, the inclusion of "heap.js" in the execution of the heap sort will require modification of "heapsort.html".
-</p>
-
-<p>
-A successful heap sort implementation will show the following result for a randomly generated set of numbers:
-</p>
-
-<center>
-<img width=600 src="images/heapsort_complete.png">
-</center>
-
-<h3>Graph Search Stencil</h3>
-
-<p>
-For the path planning implementation, a JavaScript/HTML5 code stencil has been provided in the "project_pathplan" subdirectory. The main HTML file, "search_canvas.html", includes JavaScript code from "draw.js", "infrastructure.js", "graph_search.js", and the "/scenes" directory. Of these files, students must only edit "graph_search.js", although you may want to examine the other files to understand the available helper functions. There will also be an optional activity involving adding new planning scene files under the "/scenes" directory. Opening "search_canvas.html" in a browser should display an empty 2D world displayed in an <a href="http://www.w3schools.com/html/html5_canvas.asp">HTML5 canvas</a> element.
-</p>
-
-<center>
-<img width=600 src="images/asgn1_narrow2_initial.png">
-</center>
-
-<p>
-There are five provided planning scenes under the "/scenes" directory within this code stencil: "empty.js", "misc.js", "narrow1.js", "narrow2.js", and "three_sections.js". The choice of planning_scene can be specified from the URL given to the browser, as described in comments in "search_canvas.html". For example, the URL "search_canvas.html?planning_scene=scenes/narrow2.js" will bring up the "narrow2.js" planning world shown above. Other execution parameters, such as start and goal location, can also be specified through the document URL. A description of these parameters is also provided in "search_canvas.html".
-
-</p>
-
-<p>
-This code stencil is implemented to perform graph search iterations interactively in the browser.  The core of the search implementation is performed by the function iterateGraphSearch().  This function performs a graph search iteration for a single location in the A-star execution.  The browser implementation cannot use a while loop over search iterations, as in the common A-star implementation.  Such a while loop would keep control within the search function, and cause the browser to become non-responsive.    Instead, the iterateGraphSearch() gives control back to the main animate() function, which is responsible for updating the display and user interaction. 
-</p>
-
-<p>
-  Within the code stencil, you will complete the functions initSearchGraph() and iterateGraphSearch() as well as add functions for heap operations.  Locations in "graph_search.js" where code should be added are labeled with the "STENCIL" string.
-</p>
-
-<p>
-  The initSearchGraph() function creates a 2D array over graph cells to be searched.  Each element of this array contains various properties computed by the search algorithm for a particular graph cell.  Remember, a graph cell represents a square region of space in the 2D planning scene. The size of each cell is specified by the "eps" parameter, as the lengths of the square sides.  initSearchGraph() must determine the start node for accessing the planning graph from the start pose of the robot, specified as a 2D vector in parameter "q_init".  The visit queue is initialized as this start node.
-</p>
-
-<p>
-  The iterateGraphSearch() function should perform a search iteration towards the goal pose of the robot, specified as a 2D vector in parameter "q_goal".  The search must find a goal node that allows for departure from the planning graph without collision.  iterateGraphSearch() makes use of three provided helper functions.  testCollision([x, y]) returns a boolean of whether a given 2D location, as a two-element vector [x, y], is in collision with the planning scene.  draw_2D_configuration([x, y], type) draws a square at a given location in the planning world to indicate that location has been visited by the search (type = "visited") or is currently in the planning queue (type = "queued").  Incrementing the "search_visited" global variable will update the number of nodes visited displayed on the page.  Once the search is complete, drawHighlightedPathGraph(l) will render the path produced by the search algorithm between location l and the start location. The global variable search_iterate should be set to false when the search is complete to end animation loop.
-</p>
-
-<!-- 
--->
-<h3> Graduate Section Requirement</h3>
-
-<p>
-In addition to the A-star algorithm, students in the graduate section of AutoRob must additionally implement path planning by Depth-first search, Breadth-first search, and Greedy best-first search.  An additional report is required in "report.html" (you will need to create this file) in the "project_pathplan" directory. This report must: 1) show results from executing every search algorithm with every planning world for various start and goal configurations and 2) synthesize these results into coherent findings about these experiments.
-</p>
-
-<p>
-For effective communication, it is recommended to think of "report.html" like a short research paper: motivate the problem, set the value proposition for solving the problem, describe how your methods can address the problem, and show results that demonstrate how well these methods realize the value proposition. Visuals are highly recommended to complement this description. The best research papers can be read in three ways: once in text, once in figures, and once in equations. It is also incredibly important to remember that writing in research is about generalizable understanding of the problem more than a specific technical accomplishment.
-</p> 
-
-<h4> Advanced Extensions</h4>
-
-<p>
-Advanced extensions can be submitted anytime before the final grading is complete.  Concepts for several of these extensions will not be covered until later in the semester.  Any new path planning algorithm must be implemented within its own ".js" file under the "project_pathplan" directory, and invoked through a parameter given through the URL.  For example, the Bug0 algorithm must be invoked by adding the argument "?search_alg="Bug0" to the URL. Thus, a valid invocation of Bug0 for the Narrow2 world could use the URL (for the appropriate location of the file on your computer's filesystem):
-</p>
-<code>
-file:///myfilesystem/kineval-stencil/project_pathplan/search_canvas.html?planning_scene=scenes/narrow2.js?search_alg="Bug0
-</code>
-<p>
-The same format must be used to invoke any other algorithm (such as Bug1, Bug2, TangentBug, Wavefront, etc.). Note that you will need to update the animate loop in draw.js to include new planning algorithms and update the main HTML file to include your new scripts, along with implementing the algorithms in their own files.
-</p>
-
-<p>
-Of the possible advanced extension points, two additional points for this assignment can be earned by implementing the "Bug0", "Bug1", "Bug2", and "TangentBug" navigation algorithms.  The implementation of these bug algorithms must be contained within the file "bug.js" under the "project_pathplan" directory.
-</p>
-
-<p>
-Of the possible advanced extension points, two additional points for this assignment can be earned by implementing navigation by "Potential" fields and navigation using the "Wavefront" algorithm.  The implementation of these potential-based navigation algorithms must be contained within the file "field_wave.js" under the "project_pathplan" directory.
-</p>
-
-
-<p>
-Of the possible advanced extension points, one additional point for this assignment can be earned by implementing a navigation algorithm using a probabilistic roadmap ("PRM").  This roadmap algorithm implementation must be contained within the file "prm.js" under the "project_pathplan" directory.
-</p>
-
-<p>
-Of the possible advanced extension points, one additional point for this assignment can be earned by implementing costmap functionality using morphological operators.  Based on the computed costmap, the navigation routine would provide path cost in addition path length for a successful search.  The implementation of this costmap must be contained within the file "costmap.js" under the "project_pathplan" directory.
-</p>
-
-<p>
-Of the possible advanced extension points, one additional point for this assignment can be earned by implementing a priority queue through an <a href="https://en.wikipedia.org/wiki/Fibonacci_heap">Fibonacci Heap</a>.  The implementation of this priority queue must be contained within the file "fibonacci_heap.js" under the "project_pathplan" directory.
-</p>
-
-<p>
-Of the possible advanced extension points, one additional point for this assignment can be earned by adapting the search canvas to plan betwen any locations in the map "bbb2ndfloormap.png" (provided in the stencil repository) when the "planning_scene" parameter is invoked as "BeysterFloor2".
-</p>
-
-<p>
-<b>NEW --</b> Of the possible advance extensions points, four additional points for this assignment can be earned by implementing valid game logic for a <a href="https://en.wikipedia.org/wiki/Snake_(video_game_genre)">snake game</a> in the code stencil and autonomously controlling the snake using the A-star algorithm.  An example of <a href="https://youtu.be/I0KlGQStJMQ?si=KUIpXHIqMSebgjkW">autonomous snake game pathfinding is described in this video</a>.
-<p>
-
-
-
-<h3>Project Submission</h3>
-
-<p>
-For turning in your assignment, ensure your completed project code has been committed and pushed to the <i>master</i> branch of your repository.  
-</p>
-
-<h6>
-If you are paying attention, you should also add a directory to your repository called "me".  This "me" directory should include a simple webpage in the file "me.html".  The "me.html" file should have a title with your name, an h1 tag with your name, <!-- an img tag includes a picture of you from the file "me.png", --> body with a brief introduction about you, and a script tag that prints the result of <code>Array(16).join("wat"-1)+" Batman!"</code> to the console. 
-</h6>
-<!--
-(uncomment marker end 1) -->
-
-
-<!--
-<h2 id="assignment1">Assignment 1: Getting Started (Warm up)</h2>  
-<p>
-<b>Due 1pm, Wednesday, January 20, 2016</b>
-</p>
-<p>
-In this assignment, you should clone the <a href="https://github.com/autorob/kineval-stencil">kineval_stencil</a> repository into your working repository for the course.  kineval_stencil contains a code template for this assignment as well as all projects in the course.  If you open "home.html" in this repository, you should see the jittering disconnected pieces of a robot (described in "robots/mr2.js"), similar to the snapshot below.  This initial mode is the "starting point" state of the stencil to help build familiarity with JavaScript/HTML5 and KinEval.
-</p>
-<img width=100% src="images/kineval_welcome.png">
-
-<p>
-Your task is to make these objects in starting point mode responsive to keyboard commands.  Specifically, these objects will move upward, stop/start jittering, move closer together, and further apart (although more is encouraged).  To do this, you will modify "kineval/kineval_startingpoint.js" at the sections marked with "STENCIL".  These sections also include code examples meant to be a quick (and very rough) introduction to JavaScript, assuming programming competency in another language. 
-</p>
-
-<h3>Brief Code Overview</h3>
-<p>
-Within the KinEval stencil, the functions my_animate() and my_init() in "home.html" are the principal access points into animation system.  my_animate() is particularly important as it will direct the invocation of functions we develop throughout the AutoRob course.  my_animate() and my_init() are called by the primary process that maintains the animation loop: kineval.animate() and kineval.init() within "kineval/kineval.js".  <b>IMPORTANT</b>: "kineval/kineval.js", kineval.animate(), and kineval.init() should not be modified.  For starting point mode, my_animate() will call startingPlaceholderAnimate() and startingPlaceholderInit().  startingPlaceholderInit() contains JavaScript tutorial-by-example code that initializes variables for this project. startingPlaceholderAnimate() contains keyboard handlers and code to update the positioning of each body of the robot.  By modifying the proper variables at the locations labed "STENCIL", this code will update the transformation matrix for each geometry of the robot (stored in the ".xform" attribute) as a translation in the robot's world.  The ".xform" transform for each robot geometry is then used by kineval.robotDraw() to have the browser render the robot parts in the appropriate locations.
-</p>
-
-</p>
-
-<h3>Project Submission</h3>
-<p>
-To ensure proper submission of your assignments, please do the following:
-</p>
- 
-<p>
-<ul>
-<li><p>email the course instructor (ocj@umich) with your name, email address, and pointer to your repository,</p> </li>
-<li><p>ensure the course instructor knows what repository you are using, and your branch is created and not modified past project deadlines</p></li>
-<li><p>ensure the instructor (id:ohseejay) has push/admin access to your repository, which can be confirmed/addressed through email or office hours (or by seeing that the instructor has committed the file "grading.txt")</p></li>
-</ul>
-</p>
-
-<p>
-For turning in your assignment, create a branch in your repository labeled "Assignment-1".  <b>NOTE: spelling matters!</b>  The "Assignment-1" branch is essentially a tag and should not be merged back into the master.  You should continue work from the master branch.
-</p>
--->
+<p>Project 1 instructions can be found <a href="https://docs.google.com/document/d/1_bWSckopff3AUs9fZLBDUCGaelkRutceC4C1sfSjxoo/edit?usp=sharing">HERE.</a></p>
 
 
 <!-- <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr> -->
 
-<!-- 
+<!--
+ -->
 <br>
 <br>
 <br>
@@ -1007,7 +777,7 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 <br>
 <br>
 <br>
- -->
+
 
 
 
