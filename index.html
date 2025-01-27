@@ -65,7 +65,7 @@
             <br>
             <li>projects:</li>
             <li><a href="https://docs.google.com/document/d/1_bWSckopff3AUs9fZLBDUCGaelkRutceC4C1sfSjxoo/edit?usp=sharing">1</a></li>
-            <li><a href="#assignment2" style="color:#444444";>2</a></li>
+            <li><a href="https://docs.google.com/document/d/1klviEbOduiZH9t_CczcbChhelgXFE6bd_pi0UQ1pSMk/edit?usp=sharing">2</a></li>
             <li><a href="#assignment3" style="color:#444444";>3</a></li>
             <li><a href="#assignment4" style="color:#444444";>4</a></li>
             <li><a href="#assignment5" style="color:#444444";>5</a></li>
@@ -763,7 +763,6 @@ This project is described in a <a href="https://docs.google.com/document/d/1M8SD
 <br>
 -->
 
-
 <h2 id="assignment1">Project 1: Path Planning</h2>  
 <p>
 <b>Due 3:00pm, Monday, January 27, 2025</b>
@@ -777,7 +776,6 @@ This project is described in a <a href="https://docs.google.com/document/d/1M8SD
 <hr> -->
 
 <!--
- -->
 <br>
 <br>
 <br>
@@ -791,184 +789,26 @@ This project is described in a <a href="https://docs.google.com/document/d/1M8SD
 <br>
 <br>
 <br>
-
-
-
-
+ -->
 
 <hr>
 
-<h2 id="assignment2">Assignment 2: Pendularm </h2>  
+<h2 id="assignment1">Project 2: Pendularm</h2>
 <p>
-<b>Due 11:59pm, Friday, February 9, 2024</b>
+<b>Due 3:00pm, Monday, February 10, 2025</b>
 </p>
 
-<p>
-Physical simulation is widely used across robotics to test robot controllers as well as generate training data for learned controllers.  Testing and training in simulation has many benefits, such as avoiding the risk of damaging a (likely expensive) robot and faster development of controllers.  The video below about the <a href="https://www.youtube.com/embed/VW-dOMBFj7o?si=A1x5PIUG9MlDi7AW">NVIDIA Isaac Sim</a> highlights many of the advantages and advancements towards narrowing the <a href="https://ieeexplore.ieee.org/abstract/document/9398246">sim-to-real</a> gap.  Simulation also allows for consideration of environments not readily available for testing, such as for interplanetary exploration.  We will now model and control our first robot, the Pendularm, to achieve an arbitrary desired setpoint state.
-</p>
-
-<center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VW-dOMBFj7o?si=A1x5PIUG9MlDi7AW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</center>
-
-<!--
-<center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/vOssEL1xqNs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</center>
--->
-
-<p>
-As an introduction to building your own robot simulator, your task is to implement a physical dynamics and servo controller for a simple 1 degree-of-freedom robot system.  This system is 1 DOF robot arm as a frictionless <a href="http://en.wikipedia.org/wiki/Pendulum">simple pendulum</a> with a rigid massless rod and idealized motor. A visualization of the Pendularm system is shown below.  Students in the graduate section will extend this system into a 2-link 2-DOF robot arm, as an actuated <a href="https://en.wikipedia.org/wiki/Double_pendulum">double pendulum</a>.
-</p>
-
-<p>
-<center>
-<a href="https://github.com/autorob/kineval-stencil/blob/master/project_pendularm/pendularm1.html"><img width=80% src="images/pendularm.png"></a>
-</center>
-</p>
-
-<h3>Features Overview</h3>
-
-<p>
-  This assignment requires the following features to be implemented in the corresponding files in your repository:
-</p>
-
-<ul>
-  <li> <p>Euler integrator in "project_pendularm/update_pendulum_state.js"</p></li>
-  <li> <p>Velocity Verlet integrator in "project_pendularm/update_pendulum_state.js"</p></li>
-  <li> <p>PID controller in "project_pendularm/update_pendulum_state.js"</p></li>
-  <li> <p><i>[Grad section only]</i> Verlet integrator in "project_pendularm/update_pendulum_state.js"</p></li>
-  <li> <p><i>[Grad section only]</i> Runge-Kutta 4 integrator in "project_pendularm/update_pendulum_state.js"</p></li>
-  <li> <p><i>[Grad section only]</i> Double pendulum implementation in "project_pendularm/update_pendulum_state2.js"</p></li> 
-</ul>
-
-<p>
-  Points distributions for these features can be found in the <a href="#project_rubric">project rubric section</a></td>. More details about each of these features and the implementation process are given below.
-</p>
-
-<!-- 
-<!-- (uncomment marker begin 2)
--->
-
-<h3>Implementation Instructions </h3>
-
-<p>
-The code stencil for the Pendularm assignment is available within the "project_pendularm" subdirectory of KinEval.
-</p>
-
-<p>
-For physical simulation, you will implement several numerical integrators for a pendulum with parameters specified in the code stencil.  The numerical integrator will advance the state of the pendulum (angle and velocity) in time given the current acceleration, which your pendulum_acceleration function should compute using the pendulum equation of motion. Your code should update the angle and velocity in the pendulum object (pendulum.angle and pendulum.angle_dot) for the visualization to access. If implemented successfully, this ideal pendulum should oscillate about the vertical (where the angle is zero) and with an amplitude that preserves the initial height of the pendulum bob.
-</p>
+<p>Project 2 instructions can be found <a href="https://docs.google.com/document/d/1klviEbOduiZH9t_CczcbChhelgXFE6bd_pi0UQ1pSMk/edit?usp=sharing">HERE.</a></p>
 
 
-<p>
-Students enrolled in the undergraduate section will implement numerical integrators for:
-</p>
-
-<ul>
-<li><p><a href="http://en.wikipedia.org/wiki/Euler%27s_method">Euler's Method</a> </p></li>
-<li><p><a href="http://en.wikipedia.org/wiki/Verlet_integration#Velocity_Verlet">Velocity Verlet</a></p></li> 
-</ul>
-
-
-
-<p>
-For motion control, students in both undergraduate sections will implement a <a href="http://en.wikipedia.org/wiki/PID_controller">proportional-integral-derivative controller</a> to control the system's motor to a desired angle.  This PID controller should output control forces integrated into the system's dynamics.  You will need to tune the gains of the PID controller for stable and timely motion to the desired angle for a pendulum with parameters: length=2.0, mass=2.0, gravity=9.81. These default values are also provided directly in the init() function.
-</p>
-
-<p>
-For user input, you should be able to: 
-</p>
-
-<ul>
-<li><p>select the choice of integrator using the [0-4] keys (with the "none" integrator as a default),</p></li> 
-<li><p>toggle the invocation of the servo controller with the 'c' or 'x' key (which is off by default),</p></li> 
-<li><p>decrement and increment the desired angle of the 1 DOF servoed robot arm using the 'q' and 'e' keys, and</p> </li>
-<li><p>(for the double pendulum) decrement and increment the desired angle of the second joint of the arm using the 'w' and 'r' keys, and</p> </li>
-<li><p>momentarily disable the servo controller with 's' key (and allowing the arm to swing uncontrolled).</p></li>
-</ul>
-
-<h3> Graduate Section Requirement</h3>
-
-<p>
-Students enrolled in the graduate section will implement numerical integrators for:
-</p>
-
-<ul>
-<li><p><a href="http://en.wikipedia.org/wiki/Euler%27s_method">Euler's Method</a> </p></li>
-<li><p><a href="https://en.wikipedia.org/wiki/Verlet_integration#Verlet_integration_.28without_velocities.29">Verlet integration</a></p></li>
-<li><p><a href="http://en.wikipedia.org/wiki/Verlet_integration#Velocity_Verlet">Velocity Verlet</a></p></li>
-<li><p><a href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods#The_Runge.E2.80.93Kutta_method">Runge-Kutta 4</a></p></li>
-</ul>
-
-<p>
-to simulate and control a single pendulum (in "update_pendulum_state.js"). Then, students in the graduate section will implement <b>one</b> of the above integrators for a double pendulum (in "update_pendulum_state2.js"). Any of the integrators may work as your choice for the double pendulum implementation, although the Runge-Kutta integrator is recommended. The double pendulum is allowed to have a smaller timestep than the single pendulum, within reasonable limits. A working visualization for the double pendularm will look similar to <a href="https://youtu.be/-8YH1JhklBw">this result video</a> by <a href="https://github.com/emgoeddel">mamantov</a>:
-</p>
-
-<!--
-<center>
-<iframe frameborder="1" width="560" height="315" src="www.youtube.com/embed/-8YH1JhklBw" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</center>
--->
-
-<h4> Advanced Extensions </h4>
-
-<p>
-Of the possible advanced extension points, one additional point for this assignment can be earned by generating a random desired setpoint state and using PID control to your Pendularm to this setpoint.  This code must randomly generate a new desired setpoint and resume PID control once the current setpoint is achieved.  <b> A setpoint is considered achieved if the current state matches the desired state up to 0.01 radians for 2 seconds.</b> The number of setpoints that can be achieved in 60 seconds must be maintained and reported in the user interface.  The invocation of this setpoint trial must be enabled a user pressing the "t" key in the user interface.
-</p>
-
-<p>
-Of the possible advanced extension points, two additional points for this assignment can be earned by implementing a simulation of a planar <a href="https://en.wikipedia.org/wiki/Inverted_pendulum">cart pole system</a>.  This cartpole system should have joint limits on its prismatic joint and no motor forces applied to the rotational joint.  This cart pole implementation should be contained within the file "cartpole.html" under the "project_pendularm" directory.
-</p>
-
-
-<p>
-Of the possible optional extension points, two additional points for this assignment can be earned by implementing a single pendulum simulator in maximal coordinates with a spring constraint enforced by <a href="https://en.wikipedia.org/wiki/Verlet_integration#Constraints">Gauss-Seidel optimization</a>.  This maximal coordinate pendulum implementation should be contained within the file "pendularm1_maximal.html" under the "project_pendularm" directory.  An additional point can be earned by extending this implementation to a cloth simulator in the file "cloth_pointmass.html". 
-</p>
-
-<p>
-Of the possible advanced extension points, three additional points for this assignment can be earned by developing a <a href="https://en.wikipedia.org/wiki/Newton%E2%80%93Euler_equations">Newton-Euler simulation</a> for a single rigid body with a cube geometry without consideration of contact with other objects.  This maximal coordinate pendulum implementation should be contained within the file "rigid_body_sim.html" under the "project_pendularm" directory.
-</p>
-
-
-<p>
-Of the possible advanced extension points, three additional points for this assignment can be earned by developing and implementing a maximal coordinate dynamical simulation of biped hopper with links as planar 2D rigid bodies capable of locomotion on a flat ground plane.  This maximal coordinate pendulum implementation should be contained within the file "hopper_planar.html" under the "project_pendularm" directory.
-</p>
-
-
-<p>
-Of the possible optional extension points, one additional point for this assignment can be earned by implementing a plot visualization of the state and desired setpoint for the 1 DoF pendulum over a 20 second window (of simulation time) within the pendularm1.html user interface.  The Pendularm user interface must maintain at least the same usability as the provided pendularm1.html implementation.
-</p>
-
-<p>
-Of the possible optional extension points, two additional points for this assignment can be earned by implementing a method for <a href="https://en.wikipedia.org/wiki/Model_predictive_control">model predictive control</a> within pendularm1.html for setpoint control.
-</p>
-
-<h3> Project Submission</h3>
-<p>
-For turning in your assignment, push your updated code to the <b>master</b> branch in your repository.  
-</p>
-
-<h3> Optional: Pendularm Setpoint Competition </h3>
-
-<p>
-Details will be provided for participation in the Pendularm Setpoint Competition.  Three additional points towards final grading will be awarded to the top performer in the Pendularm Setpoint Competition in each of the graduate and undergraduate sections.  One additional point will be granted to the second and third place performers in each of the graduate and undergradate sections.
-</p>
-
-
-<!-- 
-<h3> Additional Notes</h3>
-<p>
-Students in the graduate section are strongly encouraged to extend their pendularm to a double pendulum.
-</p>
-(uncomment end 2) -->
-
+<hr>
 
 <!-- <hr>
 <h1> Material beyond this point has not been assigned.  The descriptions below are unofficial and tentative.</h1>
 <hr> -->
 
-<!-- 
+<!--
+ -->
 <br>
 <br>
 <br>
@@ -982,7 +822,7 @@ Students in the graduate section are strongly encouraged to extend their pendula
 <br>
 <br>
 <br>
- -->
+
 
 
 
