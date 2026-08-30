@@ -1,0 +1,84 @@
+site_name: "AutoRob — Agentic Edition"
+site_url: https://autorob.org/
+site_description: >-
+  AutoRob — Michigan ROB 380/511, EECS 367 — Introduction to Autonomous Robotics.
+  The "Agentic Edition": an experimental offering where students build a
+  publish-subscribe robot middleware system and implement course concepts as
+  interconnected nodes, with agentic AI tools encouraged for both the
+  infrastructure and the nodes themselves.
+repo_url: https://github.com/autorob/autorob.github.io
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - content.code.copy
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - tables
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+
+nav:
+  - Home: index.md
+  - Schedule: schedule.md
+  - Staff & Office Hours: staff.md
+  - Course Policies:
+      - Grading & Rubric: policies/grading.md
+      - Collaboration Policy: policies/collaboration.md
+      - Learning Objectives: policies/learning-objectives.md
+      - Syllabus Statements: policies/syllabus-statements.md
+  - Projects:
+      - "Project 1: A* Search": projects/project1/index.md
+      - Rosbridge Protocol: projects/project1/ROSBRIDGE_PROTOCOL.md
+      - Starter Layouts:
+          - C: projects/project1/layouts/c.md
+          - C++: projects/project1/layouts/cpp.md
+          - Python: projects/project1/layouts/python.md
+          - Rust: projects/project1/layouts/rust.md
+  - Lectures & Slides: lectures/index.md
+  - Git Tutorial: git-tutorial.md
+  - FAQ: faq.md
+  - Archive:
+      - Overview: archive/index.md
+      - "Assignment 0: ROS Pub/Sub": archive/assignment-0-ros-pubsub.md
+      - "Assignment 1: Path Planning": archive/assignment-1-path-planning.md
+      - "Assignment 2: Pendularm": archive/assignment-2-pendularm.md
+      - "Assignment 3: Forward Kinematics": archive/assignment-3-forward-kinematics.md
+      - "Assignment 4: FSM Dance Contest": archive/assignment-4-fsm-dance.md
+      - "Assignment 5: Inverse Kinematics": archive/assignment-5-inverse-kinematics.md
+      - "Assignment 6: Motion Planning": archive/assignment-6-motion-planning.md
+      - "Assignment 7: Best Use of Robotics": archive/assignment-7-best-use.md
+      - Lecture/Lab PDF Archive: archive/lecture-lab-pdfs.md
+      - Robot Description Assets: archive/robot-descriptions.md

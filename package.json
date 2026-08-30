@@ -1,0 +1,11 @@
+{
+  "name": "autorob-slides",
+  "private": true,
+  "scripts": {
+    "slides:dev": "reveal-md slides/_template/slides.md",
+    "slides:build": "node scripts/build-slides.mjs"
+  },
+  "devDependencies": {
+    "reveal-md": "^6.1.1"
+  }
+}
