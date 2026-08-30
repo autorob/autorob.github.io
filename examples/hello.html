@@ -1,0 +1,88 @@
+<!--|\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/|
+|\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/|
+||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/
+/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\
+
+    hello.html
+
+    JavaScript/HTML5 hello world-style example for displaying text and shapes
+
+    @author ohseejay / https://github.com/ohseejay
+                     / https://bitbucket.org/ohseejay
+
+    Chad Jenkins
+    Laboratory for Perception RObotics and Grounded REasoning Systems
+    University of Michigan
+
+    License: Michigan Honor License 
+
+|\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/|
+||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/
+/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\
+\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\-->
+
+
+<html>  <!-- html tag marking the start of the HTML document -->
+<body>  <!-- body tag marking the start of the body of the document -->
+
+<!-- 
+
+    this is a comment in HTML.  text within comment markers is ignored.
+
+    this HTML document (web page) displays an animation of a falling circle  
+
+    this document is comprised of various text and HTML elements for:
+      "draw_canvas" for drawing
+      an unnamed script element containing JavaScript code to be executed
+
+    if you run into problems, do not forget to open the browser console.
+
+-->
+
+<!-- say your name big as a section header -->
+<h1>Chad</h1>
+
+<!-- say something smaller as paragraph text -->
+says hello 
+
+<!-- start a new paragraph -->
+<p>
+and points to the <a href="http://progress.eecs.umich.edu">Laboratory for Progress</a>
+</p>
+    
+<!-- canvas HTML element named "myCanvas" used for drawing shapes
+       note: the origin of the canvas in the top left corner
+-->
+<canvas id="myCanvas" width="400" height="400"></canvas>
+
+<!-- script element contains JavaScript code to draw shapes -->
+<script>
+
+// this is a comment in JavaScript.  text on this line is ignored
+
+/*
+    this is also a comment in JavaScript.
+    text between the comment delimiters is ignored
+*/
+
+// get a reference to the canvas element "myCanvas" in the document
+//   note: document is a global object for current document in browser
+var canvas = document.getElementById("myCanvas");
+
+// get a reference to a 2D drawing context for the "myCanvas" canvas
+var ctx = canvas.getContext("2d");
+
+// draw a square on the canvas
+ctx.fillRect(50,50,100,100);
+
+// draw a border on the canvas
+ctx.fillRect(0,0,20,400);
+ctx.fillRect(0,0,400,20);
+ctx.fillRect(0,380,400,20);
+ctx.fillRect(380,0,20,400);
+
+</script>
+
+</body>
+</html>
+
