@@ -1,10 +1,18 @@
 /* AutoRob brand colors, carried over from the pre-rebuild site's inline
    header styling (navy background, periwinkle accent). Neither value maps
    cleanly onto a built-in Material palette name, so they're applied here as
-   direct overrides of Material's CSS custom properties instead. */
+   direct overrides of Material's CSS custom properties instead.
+
+   The original periwinkle accent, rgb(116,130,230), only reaches ~3.45:1
+   contrast against a white background -- below the WCAG 2.1 AA 4.5:1
+   minimum for normal text (SPG 601.20 / accessibility.umich.edu requires
+   WCAG 2.1 AA). --md-accent-fg-color is used by Material for link/hover
+   text on light backgrounds, not just large headings, so it needs to meet
+   the normal-text threshold. Darkened to rgb(74,90,200) (~5.85:1 on white)
+   to stay in the same hue family while passing AA. */
 :root {
   --md-primary-fg-color: rgb(0, 39, 76);
   --md-primary-fg-color--light: rgb(48, 74, 110);
   --md-primary-fg-color--dark: rgb(0, 26, 51);
-  --md-accent-fg-color: rgb(116, 130, 230);
+  --md-accent-fg-color: rgb(74, 90, 200);
 }

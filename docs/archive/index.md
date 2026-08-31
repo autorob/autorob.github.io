@@ -18,6 +18,13 @@ active project is [Project 1](../projects/project1/index.md).
 - [Lecture/Lab PDF Archive](lecture-lab-pdfs.md)
 - [Robot Description Assets](robot-descriptions.md)
 
+!!! tip "2025 (Winter 2025) project archive"
+    The most recent prior offering, Winter 2025, used updated "Project 1"–"Project 7" naming
+    (still KinEval-based) rather than "Assignment 0"–"7." Winter 2025 versions aren't mirrored
+    as pages here — instead, each current Fall 2026 project page links directly to its 2025
+    counterpart, pinned to the Winter 2025 commit on GitHub, e.g. from
+    [Project 1](../projects/project1/index.md#previous-edition-for-reference).
+
 !!! note "A note on 'Assignment 1: Getting Started'"
     An earlier "Assignment 1: Getting Started (Warm up)" write-up (dated 2016) was found in the
     pre-rebuild site's source as HTML that was commented out — it was never actually live on

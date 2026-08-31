@@ -24,11 +24,11 @@ For Mac OSX, Git can be installed on its own using the [Git-OSX-Installer](https
 
 If you open the "Git Bash" program on Windows or the "Terminal" program on Mac OSX or Linux, you should see a shell environment that looks something like this (screenshot from an older version of Windows Git Bash):
 
-![](assets/images/diagrams/gitbash.png)
+![Screenshot of the Git Bash terminal application on Windows](assets/images/diagrams/gitbash.png)
 
 If you have Git installed, you should should be able to enter the "git" command and see the following usage information printed (screenshot from OSX):
 
-![](assets/images/diagrams/git_terminal_osx.png)
+![Screenshot of the git command's usage output in a macOS terminal](assets/images/diagrams/git_terminal_osx.png)
 
 ### GitHub Classroom
 
@@ -36,11 +36,11 @@ If you choose to use GitHub for hosting your repository, the course staff has cr
 
 Once you have configured Git with your local development environment, you should then be able to join the autorob-WN22 GitHub classroom by following the instructions at this [invitation link](https://classroom.github.com/a/0ieHZNvR). This link should take you to the following page:
 
-![](assets/images/diagrams/github_classroom_invite.png)
+![Screenshot of the GitHub Classroom assignment invitation page](assets/images/diagrams/github_classroom_invite.png)
 
 By clicking on 'Skip to the next step', shown above, you will be able to accept the invitation. After accepting, you will be enrolled in the autorob-WN23 classroom and a private clone of the [KinEval stencil repository](https://github.com/lizolson/kineval-stencil) will be created for you to use. Your private repository will automatically be named `kineval-stencil-<username>`. After accepting, you should see a page similar to the one below:
 
-![](assets/images/diagrams/github_classroom_result.png)
+![Screenshot of the GitHub Classroom page after accepting an assignment invitation](assets/images/diagrams/github_classroom_result.png)
 
 **If you have any issues or questions about setting up your repository, contact the course staff through slack or email for help.**
 
@@ -95,7 +95,7 @@ You should now have a local copy of your repository. It is critical to note that
 
 Your folder should now be populated with the KinEval files. Open "home.html" in a web browser and ensure you see the starting point page pictured below:
 
-![](assets/images/diagrams/kineval_welcome.png)
+![KinEval starting-point mode showing the disconnected robot pieces before initialization code is completed](assets/images/diagrams/kineval_welcome.png)
 
 If your browser throws an error when loading "home.html", one potential cause is that this browser disallows loading of local files. In such cases, the browser will typically report a security error in the console. This security issue is avoided by serving the KinEval files from an HTTP server. Such a HTTP server is commonly available within distributions for modern operating systems. Assuming Python is installed on your computer, you can start a HTTP with the following command from your workspace directory, and then view the page at [localhost:8000](http://localhost:8000/home.html):
 

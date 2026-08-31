@@ -260,3 +260,10 @@ not your private implementation structure. The project is worth 100 points:
 Tests may use different valid inputs from your own tests. Implement the
 public behavior rather than relying on a particular map, path shape, heap
 layout, or execution topology.
+
+## Previous edition, for reference
+
+For reference, see the archived
+[2025 version of this project](https://github.com/autorob/autorob.github.io/blob/ebf12dbe733c9aa6621735f1933810e9e4696b76/index.html#L766)
+(KinEval/JavaScript-based "Project 1: Path Planning," pinned to the Winter 2025 commit for
+archival purposes).

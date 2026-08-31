@@ -15,11 +15,11 @@ For this assignment, you will build your own robot choreography system. This cho
 
 This controller for the "mr2" example robot was a poor attempt at [robot Saturday Night Fever](https://www.youtube.com/watch?v=YxvBPH4sArQ&feature=youtu.be&t=107) (please do better):
 
-[![](../assets/images/diagrams/asgn4_joint_rotation_small.png)](../assets/images/diagrams/asgn4_joint_rotation.png)
+[![Robot arm mid-pose during a scripted joint-rotation dance sequence](../assets/images/diagrams/asgn4_joint_rotation_small.png)](../assets/images/diagrams/asgn4_joint_rotation.png)
 
 This [updated dance](https://www.youtube.com/embed/WyQ9aoB3bpI) controller for the Fetch robot is a bit better, but still very far from optimal:
 
-### Features Overview
+## Features Overview
 
 This assignment requires the following features to be implemented in the corresponding files in your repository:
 
@@ -38,21 +38,21 @@ This assignment requires the following features to be implemented in the corresp
 -   \[Grad section only\] Fetch rosbridge interface
     
 
-Points distributions for these features can be found in the [project rubric section](../policies/grading.md#project-rubrics-tentative-and-subject-to-change). More details about each of these features and the implementation process are given below.
+Points distributions for these features can be found in the [project rubric section](../policies/grading.md#grading-breakdown). More details about each of these features and the implementation process are given below.
 
-### Joint Axis Rotation and Interactive Joint Control
+## Joint Axis Rotation and Interactive Joint Control
 
 Going beyond the joint properties you worked with in Assignment 3, each joint of the robot now needs several additional properties for joint rotation and control. These joint properties for the current angle rotation (".angle"), applied control (".control"), and servo parameters (".servo") have already been created within the function kineval.initRobotJoints(). The joint's angle will be used to calculate a rotation about the joint's (normal) axis of rotation vector, specified in the ".axis" field. To complete an implementation of 3D rotation due to joint movement, you will need to first implement basic quaternion functions in "kineval/kineval\_quaternion.js" then extend your FK implementation in "kineval/kineval\_forward\_kinematics.js" to account for the additional rotations.
 
 If joint axis rotation is implemented correctly, you should be able to use the 'u' and 'i' keys to move the currently active joint. These keys respectively decrement and increment the ".control" field of the active joint. Through the function kineval.applyControls(), this control value effectively adds an angular displacement to the joint angle.
 
-### Interactive Base Movement Controls
+## Interactive Base Movement Controls
 
 The user interface also enables controlling the global position and orientation of the robot base. In addition to joint updates, the system update function kineval.applyControls() also updates the base state (in robot.origin) with respect to its controls (specified in robot.controls). With the support function kineval.handleUserInput(), the 'wasd' keys are purposed to move the robot on the ground plane, with 'q' and 'e' keys for lateral base movement. In order for these keys to behave properly, you will need to add code to update variables that store the heading and lateral directions of the robot base: robot\_heading and robot\_lateral. These vectors need to be computed within your FK implementation in "kineval/kineval\_forward\_kinematics.js" and stored as global variables. They express the directions of the robot base's z-axis and x-axis in the global frame, respectively. Each of these variables should be a homogeneous 3D vector stored as a 2D array.
 
 If robot\_heading and robot\_lateral are implemented properly, the robot should now be interactively controllable in the ground plane using the keys described in the previous paragraph.
 
-### Pose Setpoint Controller
+## Pose Setpoint Controller
 
 Once joint axis rotation is implemented, you will implement a proportional setpoint controller for the robot joints in function kineval.robotArmControllerSetpoint() within "kineval/kineval\_servo\_control.js". The desired angle for a joint 'JointX' is stored in kineval.params.setpoint\_target\['JointX'\] as a scalar by the FSM controller or keyboard input. The setpoint controller should take this desired angle, the joint's current angle (".angle"), and servo gains (specified in the ".servo" object) to set the control (".control") for each joint. All of these joint object properties are initialized in the function kineval.initRobotJoints() in "kineval/kineval\_robot\_init\_joints.js". Note that the "servo.d\_gain" is not used in this assignment; it is for advanced extensions.
 
@@ -62,7 +62,7 @@ Besides the zero setpoint, up to 9 other arbitrary pose setpoints can be stored 
 
 Since you will need to implement your setpoint controller before your FSM controller, for additional testing of your setpoint controller, a "clock movement" FSM controller has been provided as the function setpointClockMovement() in "kineval/kineval\_servo\_control.js". This function can be invoked by holding down the 'c' key or from the UI. This controller goes well with [this song](https://www.youtube.com/watch?v=_JPa3BNi6l4).
 
-### FSM Controller
+## FSM Controller
 
 Once your pose setpoint controller is working, an FSM controller should be implemented in the function kineval.setpointDanceSequence() in "kineval/kineval\_servo\_control.js". The reference implementation switches between the pose setpoints in kineval.setpoints based on two additional pieces of data: an array of indices (kineval.params.dance\_sequence\_index) and the current pose index (kineval.params.dance\_pose\_index). kineval.params.dance\_sequence\_index will tell your FSM the order in which the setpoints in kineval.setpoints should be selected to be the control target. Note that using this convention allows you to easily select the same setpoint multiple times to produce repetition in your dance. kineval.params.dance\_pose\_index is used to keep track of the current index within the dance pose sequence.
 
@@ -76,7 +76,7 @@ if (kineval.params.update_pd_dance)
 
 To complete your dance controller, choreograph a dance by initializing kineval.setpoints with the poses for your dance and kineval.params.dance\_sequence\_index with the pose ordering. You should initialize these data structures within the my\_init() function in "home.html". Once you have the poses and sequence for your dance initialized, when you select both "persist\_pd" and "update\_pd\_dance" in the UI, you should see the robot move through the setpoints of your dance.
 
-### Graduate Section Requirements
+## Graduate Section Requirements
 
 Students in the graduate section of AutoRob must implement the assignment as described above for the Fetch and Baxter robots with two additional requirements: 1) proper implementation of all joint types in the robot descriptions and 2) proper enforcement of joint limits for the robot descriptions. and 3) integration (via [rosbridge](http://wiki.ros.org/rosbridge_suite)) of their code with ROS or a [Gazebo simulation of the Fetch](http://docs.fetchrobotics.com/gazebo.html).
 
@@ -97,7 +97,7 @@ Joints are considered to be continuous as the default. Joints with undefined mot
 
 Machines running rosbridge, ROS, and Gazebo for the Fetch will be available during special sessions of the class. Students are encouraged to install and run the Fetch simulator on their own machines based on [this tutorial](http://docs.fetchrobotics.com/gazebo.html).
 
-#### Advanced Extensions
+## Advanced Extensions
 
 Of the possible advanced extension points, one additional point for this assignment can be earned by adding the capability of displaying laser scans from a real or simulated Fetch robot.
 
@@ -107,6 +107,6 @@ Of the possible advanced extension points, four additional points for this assig
 
 Of the possible advanced extension points, five additional points for this assignment can be earned by developing and implementing a maximal coordinate dynamical simulation of biped hopper with links as 3D rigid bodies, similar to those in "[On The Run"](http://www.ai.mit.edu/projects/leglab/people/people.html) by Raibert and Hodgins at the [MIT Leg Lab](http://www.ai.mit.edu/projects/leglab/robots/robots-main.html). This maximal coordinate pendulum implementation should be contained within the subdirectory "hopper\_3d" with an "index.html" file that can be open to execute the simulation.
 
-### Project Submission
+## Project Submission
 
 For turning in your assignment, push your updated code to the **master** branch in your repository.

@@ -15,11 +15,11 @@ and such planning is also used in simple tabletop scenarios:
 
 For this assignment, you will now implement a collision-free motion planner to enable your robot to navigate from a random configuration in the world to its home configuration (or "zero configuration"). This home configuration is where every robot DOF has a zero value. For your planning implementation, the configuration space includes the state of each joint and the global orientation and position of the robot base. Thus, the robot must move to its original state at the origin of the world. A visual explanation of this desired behavior is below:
 
-![](../assets/images/diagrams/asgn6_motionplan.png)
+![Robot arm at its randomized start configuration next to its home configuration goal for motion planning](../assets/images/diagrams/asgn6_motionplan.png)
 
 For both the undergraduate and graduate sections, motion planning will be implemented through the [RRT-Connect algorithm](http://www.cs.cmu.edu/afs/cs/academic/class/15494-s12/readings/kuffner_icra2000.pdf) (described by Kuffner and LaValle). The graduate section will additionally implement the [RRT-Star](http://dspace.mit.edu/openaccess-disseminate/1721.1/63170) (alternate paper [link](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5980479) via IEEE) motion planner of Karaman et al. (ICRA 2011).
 
-### Features Overview
+## Features Overview
 
 This assignment requires the following features to be implemented in the corresponding files in your repository:
 
@@ -30,9 +30,9 @@ This assignment requires the following features to be implemented in the corresp
 -   Configuration space RRT-Connect in "kineval/kineval\_rrt\_connect.js"
     
 
-Points distributions for these features can be found in the [project rubric section](../policies/grading.md#project-rubrics-tentative-and-subject-to-change). More details about each of these features and the implementation process are given below.
+Points distributions for these features can be found in the [project rubric section](../policies/grading.md#grading-breakdown). More details about each of these features and the implementation process are given below.
 
-### 2D RRT-Connect
+## 2D RRT-Connect
 
 To gain familiarity with the RRT-Connect algorithm, you can start this assignment by returning to the 2D world from Assignment 1. If needed, refer back to the Assignment 1 description for a description of the search canvas environment and its parameters. You can enable RRT-Connect as the search algorithm through the URL parameter search\_alg: "search\_canvas.html?search\_alg=RRT-connect".
 
@@ -53,9 +53,9 @@ A few other details to be aware of when implementing 2D RRT-Connect:
 
 If properly implemented, your RRT-Connect implementation should produce results similar to the image below, although the inherent randomness of the algorithm will mean that the sampled states and final path will be slightly different:
 
-![](../assets/images/diagrams/rrt_connect.png)
+![RRT-Connect path planning result connecting two search trees between start and goal](../assets/images/diagrams/rrt_connect.png)
 
-### Getting Started in Configuration Space
+## Getting Started in Configuration Space
 
 The core of this assignment is to complete the robot\_rrt\_planner\_init() and robot\_rrt\_planner\_iterate() in kineval/kineval\_rrt\_connect.js. This file and the collision detection file kineval/kineval\_collision.js have already been included in home.html for you:
 
@@ -67,7 +67,7 @@ The core of this assignment is to complete the robot\_rrt\_planner\_init() and r
 
 The code stencil will automatically load a default world. A different world can be specified as an appended parameter within the URL: "home.html?world=worlds/world\_name.js". The world file specifies the global objects "robot\_boundary", which describes the min and max values of the world along the X, Y, and Z axes, and "robot\_obstacles", which contains the locations and radii of sphere obstacles. To ensure the world is rendered in the display and available for collision detection, the geometries of the world are included through the provided call to kineval.initWorldPlanningScene() in kineval/kineval.js.
 
-### Collision Detection Setup
+## Collision Detection Setup
 
 In the search canvas world, a collision detection function was provided for you. For RRT-Connect in robot configuration space, you will need to start by completing the collision detection feature yourself. The main collision detection function used by configuration-space RRT-Connect is kineval.robotIsCollision() (in kineval/kineval\_collision.js), which detects robot-world collisions with respect to a specified world geometry.
 
@@ -95,7 +95,7 @@ Even before your planner is implemented, you can use the collision system intera
     kineval.robotIsCollision();
 ```
 
-### Completing Collision Detection
+## Completing Collision Detection
 
 To complete the collision system, you will need to modify the forward kinematics calls in kineval/kineval\_collision.js. Specifically, you will need to perform a traversal of the forward kinematics of the robot for an arbitrary robot configuration within the function kineval.poseIsCollision(). kineval.poseIsCollision() takes in a vector in the robot's configuration space and returns either a boolean false for no detected collision or a string with the name of a link that is in collision. As a default, this function performs base collision detection against the extents of the world. For collision detection of each link, this function will make a call to function that you create called robot\_collision\_forward\_kinematics() to recursively test for collisions along each link. Your collision FK recursion should use the link collision function, traverse\_collision\_forward\_kinematics\_link(), which is provided in kineval/kineval\_collision.js, along with a joint traversal function that properly positions the link and joint frames for the given configuration.
 
@@ -108,9 +108,9 @@ Some pointers about your collision FK traversal:
 
 If successful to this point, you should be able to move the robot around the world and see the colliding link display a red wireframe when a collision occurs. There could be many links in collision, but only one will be highlighted, as shown in the following examples:
 
-![](../assets/images/diagrams/rrt_collision_boundary.png) ![](../assets/images/diagrams/rrt_collision_link.png)
+![Robot base rendered with a red wireframe indicating a collision with the world boundary](../assets/images/diagrams/rrt_collision_boundary.png) ![Robot link rendered with a red wireframe indicating a detected collision](../assets/images/diagrams/rrt_collision_link.png)
 
-### Implementing and Invoking the Planner
+## Implementing and Invoking the Planner
 
 Your motion planner will be implemented in the file kineval/kineval\_rrt\_connect.js through the functions kineval.robotRRTPlannerInit() and robot\_rrt\_planner\_iterate(). This implementation can be a port of your 2D RRT-Connect, but it will require some updates to work with in the configuration space of KinEval robots. The kineval.robotRRTPlannerInit() function should be modified to initialize the RRT trees and other necessary variables. The robot\_rrt\_planner\_iterate() function should be modified to perform a **single** RRT-Connect iteration based on the current RRT trees.
 
@@ -120,7 +120,7 @@ Basic RRT tree support functions are provided for initialization, adding configu
 
 Once implemented, your planner will be invoked interactively by first moving the robot to an arbitrary non-colliding configuration in the world and then pressing the "m" key. The "m" key will request the generation of a motion plan. The goal of a motion plan will always be the home configuration, as defined in the introduction to this assignment. While the planner is working, it will not accept new planning requests. Thus, you can move the robot around while the planner is executing.
 
-### Planner Output
+## Planner Output
 
 The output of your planner will be a motion path in a sequentially ordered array (named kineval.motion\_plan\[\]) of RRT vertices. Each element of this array contains a reference to an RRT vertex with a robot configuration (.vertex), an array of edges (.edges), and a threejs indicator geometry (.geom). Once a viable motion plan is found, this path can be highlighted by changing the color of the RRT vertex "breadcrumb" geom indicators. The color of any configuration breadcrumb indicator in a tree can be modified, such as in the following example for red:
 
@@ -140,9 +140,9 @@ The user should should be able to interactively move the robot through the found
 
 The result of your RRT-Connect implementation in configuration space should look similar to this path found in the worlds/world\_s.js world:
 
-![](../assets/images/diagrams/asgn6_scurve_2016.png)
+![RRT-Connect motion plan result showing an S-curve path found through the world_s planning scene](../assets/images/diagrams/asgn6_scurve_2016.png)
 
-### Testing
+## Testing
 
 Make sure to test all provided robot descriptions from a reasonable set of initial configurations within all of the provided worlds, ensuring that:
 
@@ -153,15 +153,15 @@ Make sure to test all provided robot descriptions from a reasonable set of initi
 -   the robot base does not move outside the X-Z plane. Specifically, the base should not translate along the Y axis, and should not rotate about the X and Z axes.
     
 
-### Warning: Respect Configuration Space
+## Warning: Respect Configuration Space
 
 The planner should produce a collision-free path in configuration space (over all robot DOFs) and not just the movement of the base on the ground plane. If your planner does not work in configuration space, it is sure to fail tests used for grading.
 
-### Graduate Section Requirement
+## Graduate Section Requirement
 
 In addition to the requirements above, students in the graduate section must also implement the [RRT-Star](http://dspace.mit.edu/openaccess-disseminate/1721.1/63170) motion planning algorithm for the 2D search canvas. You will need to complete the iterateRRTStar() function stencil in project\_pathplan/rrt.js for this feature. Part of this assignment is an exercise in how to conceptualize implementation details of an algorithm from a robotics paper. Because of this, you will need to refer to the linked paper for details on how to implement the RRT-Star algorithm. **Note:** The course staff will not provide assistance with RRT-Star, so we strongly encourage high-level discussion of the algorithm among students on the assignment channel and amongst peers.
 
-#### Advanced Extensions
+## Advanced Extensions
 
 Of the possible advanced extension points, one additional point for this assignment can be earned by adding the capability of motion planning to an arbitrary robot configuration goal.
 
@@ -177,6 +177,6 @@ Of the possible advanced extension points, three additional points for this assi
 
 Of the possible advanced extension points, four additional points for this assignment can be earned by implementing an approved research paper describing a motion planning algorithm.
 
-### Project Submission
+## Project Submission
 
 For turning in your assignment, ensure your completed project code has been committed and pushed to the _master_ branch of your repository.

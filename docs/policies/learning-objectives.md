@@ -1,44 +1,52 @@
 # AutoRob Course Learning Objectives
 
-## Agentic Edition (current semester)
+## Fall 2026: Agentic Edition (current semester)
 
-AutoRob — Agentic Edition is an experimental offering that is a revision and evolution of the
-previous version of the AutoRob course and its use of the
-[kineval-stencil](https://github.com/autorob/kineval-stencil). In this edition, students build a
-publish-subscribe messaging system as the course's own robot middleware infrastructure, and
-implement course concepts as nodes interconnected through topic messages over that
-infrastructure, rather than working within the earlier JavaScript/HTML5 KinEval stencil.
+AutoRob focuses on the computational foundations for kinematic modeling and planning for
+autonomous robots with an emphasis on manipulation and mobility. Successful completion of AutoRob
+will result in the student having implemented a full software stack for "mobile pick-and-place" —
+given a robot and perception (or "full observation") of the robot's environment, the resulting
+code modules can enable the robot to pick up an object at an arbitrary grasping location and
+place the object in a new location.
 
-A student who successfully completes AutoRob — Agentic Edition should have a clear computational
-understanding of, and be able to implement:
+At a finer level of resolution, a student who has successfully completed the AutoRob course is
+capable of the following:
 
-1. **A-star pathfinding** for collision-free 2D path planning
-2. **Numerical integration** over equations of motion for physical simulation
-3. **Forward kinematics** for arbitrary open-chain robots
-4. **URDF** (Universal Robot Description Format) definitions of robot kinematic structure
-5. **Inverse kinematics** for reaching arbitrary goal configurations
-6. **Motion planning**, primarily the **RRT-Connect** algorithm
+1. Implement collision-free 2D path planning using the A-Star algorithm in a procedural computer programming language
+2. Formulate a graph and a search procedure to find an optimal route to a given goal location
+3. Implement dynamical simulation for a robot through numerical integration of given equations of motion
+4. Create a kinematic description of an arbitrary open-chain robot in a common convention, such as the Universal Robot Description Format (URDF)
+5. Compute solutions for the gripper on an arbitrary robot arm to reach an arbitrary goal location in a 3D workspace through forward and inverse kinematics
+6. Define mathematically how multiple 3D homogeneous transforms can be composed into a common frame of reference
+7. Express mathematically the effect of the movement of a robot's joint on the pose of the robot's endeffector through a Jacobian matrix
+8. Compose a gradient descent optimization algorithm to search for parameters that minimize error expressed as a function
+9. Implement collision-free high-dimensional motion planning using the RRT-Connect algorithm in configuration space
+10. Implement coding-intensive projects through fluency with generative and agentic AI
 
-Students are encouraged to use agentic AI tools to implement the publish-subscribe system itself,
-which serves as infrastructure for course projects. Students are also permitted to use agentic AI
-tools to implement the nodes for course concepts (A*, kinematics, planning, etc.) themselves —
-but remain fully responsible for being able to clearly explain any code they have generated, and
-for fixing any bugs that arise or are deliberately inserted through mutation testing.
+*Source: AutoRob Fall 2026 Course Missive, "Learning objectives."*
 
-*Source: [`autorob_agentic/pubsub_testbed_rs/CLAUDE.md`](https://github.com/odestcj/autorob_agentic/blob/main/pubsub_testbed_rs/CLAUDE.md), "Course learning objectives and code commenting."*
+### Agentic Edition infrastructure
 
-## Previous edition's objectives (KinEval / Winter 2023 and earlier)
+In this edition, students direct AI tools to build a publish-subscribe messaging system as the
+course's own robot middleware infrastructure (supporting the `rosbridge` protocol), then use AI
+tools to implement course concepts as nodes interconnected through topic messages over that
+infrastructure — see [Project 1](../projects/project1/index.md). Students remain fully
+responsible for being able to clearly explain any code they have generated, and for fixing any
+bugs that arise or are deliberately inserted through mutation testing (the course's "Agenticate,
+Mutate, Test" structure — see the [Home page](../index.md)).
+
+*Source: [`autorob_agentic/pubsub_testbed_rs/CLAUDE.md`](https://github.com/odestcj/autorob_agentic/blob/main/pubsub_testbed_rs/CLAUDE.md), "Course learning objectives and code commenting," and the Fall 2026 Course Missive.*
+
+## Previous editions' objectives (KinEval, 2025 and earlier)
 
 Kept here for continuity with the [Archive](../archive/index.md) of past-semester projects, which
 were built against these objectives rather than the Agentic Edition's objectives above.
 
 AutoRob focused on the computational foundations for kinematic modeling and planning for
-autonomous robots with an emphasis on manipulation and mobility. Successful completion of AutoRob
-resulted in the student having implemented a full software stack for "mobile pick-and-place" —
-given a robot and perception (or "full observation") of its environment, the resulting code
-modules enable the robot to pick up an object at an arbitrary location and place it in a new
-location. A student who successfully completed this earlier edition of AutoRob was capable of the
-following:
+autonomous robots with an emphasis on manipulation and mobility, implemented via the
+JavaScript/HTML5 [KinEval stencil](https://github.com/autorob/kineval-stencil) rather than a
+student-built pubsub system. A student who successfully completed an earlier edition of AutoRob
+was capable of the following:
 
 1. Explain how a publish-subscribe messaging model works for robot middleware systems
 2. Implement collision-free 2D path planning using the A-Star algorithm in a procedural computer programming language

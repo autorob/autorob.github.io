@@ -15,9 +15,9 @@ For this assignment, you will implement the planning part of autonomous navigati
 
 If properly implemented, the A-star algorithm should produce the following path (or path of similar length) using the provided code stencil:
 
-![](../assets/images/diagrams/asgn1_narrow2_complete.png)
+![Completed A-star path through the narrow2 planning scene, shown as a highlighted route between start and goal](../assets/images/diagrams/asgn1_narrow2_complete.png)
 
-### Features Overview
+## Features Overview
 
 This assignment requires the following features to be implemented in the corresponding files in your repository:
 
@@ -26,9 +26,9 @@ This assignment requires the following features to be implemented in the corresp
 -   A-star search in "project\_pathplan/graph\_search.js"
     
 
-Points distributions for these features can be found in the [project rubric section](../policies/grading.md#project-rubrics-tentative-and-subject-to-change). More details about each of these features and the implementation process are given below.
+Points distributions for these features can be found in the [project rubric section](../policies/grading.md#grading-breakdown). More details about each of these features and the implementation process are given below.
 
-### Cloning the Stencil Repository
+## Cloning the Stencil Repository
 
 If you have not done so already, the first step for completing this project (and all projects for AutoRob) is to clone the [KinEval stencil repository](https://github.com/lizolson/kineval-stencil). The appended git quick start below is provided those unfamiliar with git to perform this clone operation, as well as commiting and pushing updates for project submission. **IMPORTANT**: the stencil repository should be cloned and **not forked** -- and we will this single repository for all projects in the course.
 
@@ -38,7 +38,7 @@ If you choose to use GitHub, you can join our [autorob-WN23 GitHub Classroom](ht
 
 Throughout the KinEval code stencil, there are markers with the string "STENCIL" for code that needs to be completed for course projects. For this assignment, you will write code where indicated by the "STENCIL" marker in "tutorial\_heapsort/heap.js" and "project\_pathplan/graph\_search.js".
 
-### Heap Sort Tutorial
+## Heap Sort Tutorial
 
 The starting point for this assignment is to complete the heap sort implementation in the "tutorial\_heapsort" subdirectory of the stencil repository. In this directory, a code stencil in JavaScript/HTML5 is provided in two files: "heapsort.html" and "heap.js". Comments are provided throughout these files to describe the structure of JavaScript/HTML5 and its programmatic features.
 
@@ -46,19 +46,19 @@ If you are new to JavaScript/HTML5, there are other tutorial-by-example files in
 
 Opening "heapsort.html" will show the result of running the incomplete heap sort implementation provided by the code stencil:
 
-![](../assets/images/diagrams/heapsort_initial.png)
+![Heap sort visualization showing the incomplete stencil's initial, unsorted state](../assets/images/diagrams/heapsort_initial.png)
 
 To complete the heap sort implementation, complete the heap implementation in "heap.js" at the locations marked "STENCIL". In addition, the inclusion of "heap.js" in the execution of the heap sort will require modification of "heapsort.html".
 
 A successful heap sort implementation will show the following result for a randomly generated set of numbers:
 
-![](../assets/images/diagrams/heapsort_complete.png)
+![Heap sort visualization showing a correctly sorted sequence of randomly generated numbers](../assets/images/diagrams/heapsort_complete.png)
 
-### Graph Search Stencil
+## Graph Search Stencil
 
 For the path planning implementation, a JavaScript/HTML5 code stencil has been provided in the "project\_pathplan" subdirectory. The main HTML file, "search\_canvas.html", includes JavaScript code from "draw.js", "infrastructure.js", "graph\_search.js", and the "/scenes" directory. Of these files, students must only edit "graph\_search.js", although you may want to examine the other files to understand the available helper functions. There will also be an optional activity involving adding new planning scene files under the "/scenes" directory. Opening "search\_canvas.html" in a browser should display an empty 2D world displayed in an [HTML5 canvas](http://www.w3schools.com/html/html5_canvas.asp) element.
 
-![](../assets/images/diagrams/asgn1_narrow2_initial.png)
+![Initial narrow2 planning scene displayed in the HTML5 canvas before path search begins](../assets/images/diagrams/asgn1_narrow2_initial.png)
 
 There are five provided planning scenes under the "/scenes" directory within this code stencil: "empty.js", "misc.js", "narrow1.js", "narrow2.js", and "three\_sections.js". The choice of planning\_scene can be specified from the URL given to the browser, as described in comments in "search\_canvas.html". For example, the URL "search\_canvas.html?planning\_scene=scenes/narrow2.js" will bring up the "narrow2.js" planning world shown above. Other execution parameters, such as start and goal location, can also be specified through the document URL. A description of these parameters is also provided in "search\_canvas.html".
 
@@ -70,13 +70,13 @@ The initSearchGraph() function creates a 2D array over graph cells to be searche
 
 The iterateGraphSearch() function should perform a search iteration towards the goal pose of the robot, specified as a 2D vector in parameter "q\_goal". The search must find a goal node that allows for departure from the planning graph without collision. iterateGraphSearch() makes use of three provided helper functions. testCollision(\[x, y\]) returns a boolean of whether a given 2D location, as a two-element vector \[x, y\], is in collision with the planning scene. draw\_2D\_configuration(\[x, y\], type) draws a square at a given location in the planning world to indicate that location has been visited by the search (type = "visited") or is currently in the planning queue (type = "queued"). Once the search is complete, drawHighlightedPathGraph(l) will render the path produced by the search algorithm between location l and the start location. The global variable search\_iterate should be set to false when the search is complete to end animation loop.
 
-### Graduate Section Requirement
+## Graduate Section Requirement
 
 In addition to the A-star algorithm, students in the graduate section of AutoRob must additionally implement path planning by Depth-first search, Breadth-first search, and Greedy best-first search. An additional report is required in "report.html" (you will need to create this file) in the "project\_pathplan" directory. This report must: 1) show results from executing every search algorithm with every planning world for various start and goal configurations and 2) synthesize these results into coherent findings about these experiments.
 
 For effective communication, it is recommended to think of "report.html" like a short research paper: motivate the problem, set the value proposition for solving the problem, describe how your methods can address the problem, and show results that demonstrate how well these methods realize the value proposition. Visuals are highly recommended to complement this description. The best research papers can be read in three ways: once in text, once in figures, and once in equations. It is also incredibly important to remember that writing in research is about generalizable understanding of the problem more than a specific technical accomplishment.
 
-#### Optional Extensions
+## Optional Extensions
 
 Optional extensions can be submitted anytime before the final grading is complete. Concepts for several of these extensions will not be covered until later in the semester. Any new path planning algorithm must be implemented within its own ".js" file under the "project\_pathplan" directory, and invoked through a parameter given through the URL. For example, the Bug0 algorithm must be invoked by adding the argument "?search\_alg="Bug0" to the URL. Thus, a valid invocation of Bug0 for the Narrow2 world could use the URL (for the appropriate location of the file on your computer's filesystem):
 
@@ -96,7 +96,7 @@ Of the possible optional extension points, one additional point for this assignm
 
 Of the possible optional extension points, one additional point for this assignment can be earned by adapting the search canvas to plan betwen any locations in the map "bbb2ndfloormap.png" (provided in the stencil repository) when the "planning\_scene" parameter is invoked as "BeysterFloor2".
 
-### Project Submission
+## Project Submission
 
 For turning in your assignment, ensure your completed project code has been committed and pushed to the _master_ branch of your repository.
 

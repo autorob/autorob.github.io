@@ -13,9 +13,9 @@ Physical simulation is widely used across robotics to test robot controllers. Te
 
 As an introduction to building your own robot simulator, your task is to implement a physical dynamics and servo controller for a simple 1 degree-of-freedom robot system. This system is 1 DOF robot arm as a frictionless [simple pendulum](http://en.wikipedia.org/wiki/Pendulum) with a rigid massless rod and idealized motor. A visualization of the Pendularm system is shown below. Students in the graduate section will extend this system into a 2-link 2-DOF robot arm, as an actuated [double pendulum](https://en.wikipedia.org/wiki/Double_pendulum).
 
-[![](../assets/images/diagrams/pendularm.png)](https://github.com/autorob/kineval-stencil/blob/master/project_pendularm/pendularm1.html)
+[![Pendularm one-degree-of-freedom pendulum robot simulation](../assets/images/diagrams/pendularm.png)](https://github.com/autorob/kineval-stencil/blob/master/project_pendularm/pendularm1.html)
 
-### Features Overview
+## Features Overview
 
 This assignment requires the following features to be implemented in the corresponding files in your repository:
 
@@ -32,9 +32,9 @@ This assignment requires the following features to be implemented in the corresp
 -   _\[Grad section only\]_ Double pendulum implementation in "project\_pendularm/update\_pendulum\_state2.js"
     
 
-Points distributions for these features can be found in the [project rubric section](../policies/grading.md#project-rubrics-tentative-and-subject-to-change). More details about each of these features and the implementation process are given below.
+Points distributions for these features can be found in the [project rubric section](../policies/grading.md#grading-breakdown). More details about each of these features and the implementation process are given below.
 
-### Implementation Instructions
+## Implementation Instructions
 
 The code stencil for the Pendularm assignment is available within the "project\_pendularm" subdirectory of KinEval.
 
@@ -62,7 +62,7 @@ For user input, you should be able to:
 -   momentarily disable the servo controller with 's' key (and allowing the arm to swing uncontrolled).
     
 
-### Graduate Section Requirement
+## Graduate Section Requirement
 
 Students enrolled in the graduate section will implement numerical integrators for:
 
@@ -77,7 +77,7 @@ Students enrolled in the graduate section will implement numerical integrators f
 
 to simulate and control a single pendulum (in "update\_pendulum\_state.js"). Then, students in the graduate section will implement **one** of the above integrators for a double pendulum (in "update\_pendulum\_state2.js"). Any of the integrators may work as your choice for the double pendulum implementation, although the Runge-Kutta integrator is recommended. The double pendulum is allowed to have a smaller timestep than the single pendulum, within reasonable limits. A working visualization for the double pendularm will look similar to [this result video](https://youtu.be/-8YH1JhklBw) by [mamantov](https://github.com/emgoeddel):
 
-#### Optional Extensions
+## Optional Extensions
 
 Of the possible optional extension points, one additional point for this assignment can be earned by generating a random desired setpoint state and using PID control to your Pendularm to this setpoint. This code must randomly generate a new desired setpoint and resume PID control once the current setpoint is achieved. **A setpoint is considered achieved if the current state matches the desired state up to 0.01 radians for 2 seconds.** The number of setpoints that can be achieved in 60 seconds must be maintained and reported in the user interface. The invocation of this setpoint trial must be enabled a user pressing the "t" key in the user interface.
 
@@ -89,6 +89,6 @@ Of the possible advanced extension points, three additional points for this assi
 
 Of the possible optional extension points, one additional point for this assignment can be earned by implementing a plot visualization of the state and desired setpoint for the 1 DoF pendulum over a 20 second window (of simulation time) within the pendularm1.html user interface. The Pendularm user interface must maintain at least the same usability as the provided pendularm1.html implementation.
 
-### Project Submission
+## Project Submission
 
 For turning in your assignment, push your updated code to the **master** branch in your repository.

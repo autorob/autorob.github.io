@@ -13,11 +13,11 @@ Although effective, robot choreography in configuration space is super tedious a
 
 For this assignment, you will now control your robot to reach to a given point in space through inverse kinematics for position control of the robot endeffector. Inverse kinematics will be implemented through gradient descent optimization with both the Jacobian Transpose and Jacobian Pseudoinverse methods, although only one will be invoked at run-time.
 
-![](../assets/images/diagrams/kineval_fetch.png)
+![KinEval rendering of the Fetch mobile manipulator robot in a browser](../assets/images/diagrams/kineval_fetch.png)
 
 As shown in the video below, if successful, your robot will be able to continually place its endeffector (indicated by the blue cube) exactly on the reachable target location (indicated by the green cube), regardless of the robot's specific configuration:
 
-### Features Overview
+## Features Overview
 
 This assignment requires the following features to be implemented in the corresponding files in your repository:
 
@@ -28,13 +28,13 @@ This assignment requires the following features to be implemented in the corresp
 -   Jacobian pseudoinverse in "kineval/kineval\_matrix.js" (pseudoinverse function) and "kineval/kineval\_inverse\_kinematics.js" (use in gradient descent)
     
 
-Points distributions for these features can be found in the [project rubric section](../policies/grading.md#project-rubrics-tentative-and-subject-to-change). More details about each of these features and the implementation process are given below.
+Points distributions for these features can be found in the [project rubric section](../policies/grading.md#grading-breakdown). More details about each of these features and the implementation process are given below.
 
-### Matrix Pseudoinverse Function
+## Matrix Pseudoinverse Function
 
 You will need to implement one additional matrix helper function in "kineval/kineval\_matrix.js" for this assignment: matrix\_pseudoinverse. This method will be necessary for the pseudoinverse version of gradient descent (see below). For this helper function, you are allowed to use a library function for matrix inversion, which can be invoked by using the provided routine numeric.inv(mat), available through [numericjs](https://github.com/sloisel/numeric).
 
-### Core IK Function
+## Core IK Function
 
 The core of this assignment is to complete the kineval.iterateIK() function in the file kineval/kineval\_inverse\_kinematics.js. This function is invoked within the function kineval.inverseKinematics() with three arguments:
 
@@ -64,17 +64,17 @@ In implementing this IK routine, please also remember the following:
 -   The computed velocity in configuration space should be applied to the robot through the .control field of each joint
     
 
-### IK Random Trial
+## IK Random Trial
 
 All students in the AutoRob course are expected to run their IK controller with the random trial feature in the KinEval stencil. The IK random trial is executed through the function kineval.randomizeIKtrial() in the file "kineval/kineval\_inverse\_kinematics.js". This function is incomplete in the provided stencil. Code for this function to properly run the random trial will be made available in the assignment 5 discussion channel. Once you have copied the necessary code into this function, you will be able to test your code on random trials by first selecting persist\_ik (under Inverse Kinematics) then selecting execute (under Inverse Kinematics->IK Random Trial) from the user interface.
 
-### Graduate Section Requirement
+## Graduate Section Requirement
 
 Students enrolled in the graduate section of AutoRob will implement inverse kinematics for both the position and orientation of the endeffector, namely for the Fetch robot. The default IK behavior will be position-only endeffector control. Both endeffector position and orientation should be controlled when the boolean parameter kineval.params.ik\_orientation\_included is set to true, which can be done through the user interface (Inverse Kinematics->ik\_orientation\_included).
 
 In order to handle the orientation of the endeffector in your IK implementation, you will need to calculate the orientation part of the error term, which will require you to implement a conversion from a rotation matrix to Euler angles. You may find an online reference to inform your implementation of this conversion (please cite it in a comment in your code) or develop your own approach to the conversion calculation. Completing this conversion is a necessary step for including orientation in your IK implementation, and it also fulfills the "Euler angle conversion" feature.
 
-#### Optional Extensions
+## Optional Extensions
 
 Of the possible optional extension points, one extension point for this assignment can be earned by reaching to 100 targets in a random trial within 60 seconds. A video of this execution must be provided to demonstrate this achievement. This video file should be in the repository root directory with the name "IK100in60" and appropriate file extension.
 
@@ -90,6 +90,6 @@ Of the possible optional extension points, four extension points for this assign
 
 Of the possible optional extension points, one extension point for this assignment can be earned by implementing a search mechanism to automatically find appropriate PID gains for the Pendularm. This implementation should be placed in the file "project\_pendularm/pendularm1\_gainsearch.html" and allow for arbitrary initial PID gains for the search to be set in the variable "initial\_gains".
 
-### Project Submission
+## Project Submission
 
 For turning in your assignment, ensure your completed project code has been committed and pushed to the _master_ branch of your repository.
