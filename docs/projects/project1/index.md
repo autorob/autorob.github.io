@@ -36,7 +36,7 @@ At the external layer, independent clients use the fixed TCP/[JSON](https://www.
 ## Starter projects
 
 Minimal build/run skeletons: [Python](layouts/python.md), [C](layouts/c.md), [C++](layouts/cpp.md), and [Rust](layouts/rust.md). They are not partial publish/subscribe, heap, or A* solutions; another layout is allowed.
-Download the [Project 1 starter kit](https://drive.google.com/file/d/1xGc59lBeeuhkyGF0HURJTTmku4TojkBI/view?usp=drive_link).
+Download the [Project 1 starter kit](https://drive.google.com/drive/folders/1HJJsLOeAuVukzgShXAvSY6i6PamU6Plw?usp=drive_link).
 
 
 ## Submission, building, and running
@@ -89,7 +89,7 @@ Arguments: `{"values":[3.0,1.0,2.0]}`. On success, `values` is `{"heap":[...]}`.
 
 ### `/heap_sort`
 
-Arguments: `{"numbers":[3.0,1.0,2.0]}`. On success, `values` is `{"sorted":[1.0,2.0,3.0]}`. The output is ascending numeric order with the full input multiset. Empty input, duplicates, and finite negative and fractional values are supported. A* need not call either heap service.
+Arguments: `{"numbers":[3.0,1.0,2.0]}`. On success, `values` is `{"sorted":[1.0,2.0,3.0]}`. The output is ascending numeric order with the full input multiset. Empty input, duplicates, and finite negative and fractional values are supported. `/heap_sort` is both a public service and a required A* dependency: the planner must call it to order frontier priorities before choosing work to expand. The planner may apply a deterministic tie-break after using the returned minimum priority. `/heapify` remains independently callable and is not a planner dependency.
 
 ## Map creation and map handling
 
