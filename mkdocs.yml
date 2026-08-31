@@ -77,6 +77,7 @@ nav:
       - "Project 6: Best Use of Robotics": projects/project6/index.md
   - Lectures & Slides: lectures/index.md
   - Git Tutorial: git-tutorial.md
+  - Codex Setup: autorob-codex-student-setup.md
   - Archive:
       - Overview: archive/index.md
       - "Assignment 0: ROS Pub/Sub": archive/assignment-0-ros-pubsub.md
