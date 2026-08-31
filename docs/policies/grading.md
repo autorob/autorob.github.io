@@ -20,7 +20,7 @@ coursework deliverables:
 | Component | Points | Detail |
 | --- | --- | --- |
 | Projects | 30 | 6 projects, 5 points each |
-| Project checkpoints | 5 | 5 projects — see inconsistency note below |
+| Project checkpoints | 5 | 5 projects, 1 point each |
 | Quizzes | 6 | 2 quizzes, 3 points each |
 | Code Mutation Challenge | 20 | 2 challenges, 10 points each |
 | Midterm exam | 15 | |
@@ -51,29 +51,20 @@ enrollment. Grades can go up, but not down, based on grading adjustments. Thresh
 minus grade modifiers will be determined during final grading. There is no guaranteed threshold
 for an A+ — it is only awarded for exceptional work at the discretion of the instructors.
 
-!!! danger "Inconsistencies found in the source course missive"
-    Two issues in the missive's grading breakdown don't add up and should be resolved by course
-    staff before publishing:
+!!! success "Previously flagged issues, now resolved"
+    Two grading inconsistencies flagged in an earlier review of this site have been fixed in the
+    updated missive: the project-checkpoints line now correctly reads "5 projects, 1 point for
+    each project" (5 points total, matching the breakdown's sum to 100), and the
+    [course schedule](../schedule.md) now includes a Project 5 checkpoint (Fri Nov 20: "2D RRT
+    Service and Follow Trajectory Action"), bringing the checkpoint count to 5 of 6 projects as
+    the grading text states.
 
-    1. **Project checkpoints arithmetic.** The missive states "Project checkpoints (5 points: 5
-       projects, 5 points for each project)." Five projects at 5 points each is 25 points, not
-       5 — but the missive's own component list only totals to 100 (30+5+6+20+15+20+4) if
-       checkpoints are 5 points **total** (i.e. 1 point per project), not 5 points **each**. The
-       table above uses the 5-points-total reading so the overall breakdown sums to 100; course
-       staff should confirm whether checkpoints are meant to be worth 1 point or 5 points each
-       and correct the missive's wording accordingly.
-    2. **Checkpoint count vs. schedule.** The missive says checkpoints apply to "5 projects," but
-       the [course schedule](../schedule.md) only lists checkpoint events for **4** of the 6
-       projects (Project 1: Heapsort; Project 2: Numerical Integration Step Service; Project 3:
-       Zero Configuration FK Transforms; Project 4: Function Minimization Service) — there is no
-       scheduled checkpoint for Project 5 (Motion Planning) or Project 6 (Best Use of Robotics).
-       Either a checkpoint is missing from the schedule, or the grading breakdown should say 4
-       projects, not 5.
-
-    Also note the Code Mutation Challenge line item is worded "(20 points: 2 challenges, 10
-    points for each **quiz**)" in the source — "quiz" appears to be a copy/paste artifact from
+!!! warning "Still unresolved: wording nit"
+    The Code Mutation Challenge line item is still worded "(20 points: 2 challenges, 10 points
+    for each **quiz**)" in the source missive — "quiz" appears to be a copy/paste artifact from
     the adjacent Quizzes line and should read "for each challenge," to avoid confusion with the
-    separate Quizzes grading component.
+    separate Quizzes grading component. Low-stakes (the point values are unambiguous either way)
+    but still worth a copyedit pass by course staff.
 
 ## Late and Regraded Work Policies
 

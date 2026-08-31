@@ -12,9 +12,6 @@
 Lecture: Monday 4:30–7:30pm Eastern, EECS 1500
 Lab: Friday 2:30–4:20pm Eastern, Chrysler 151
 
-*(See [Course Meetings](index.md#course-structure) for a flagged inconsistency between this
-location and the location given elsewhere in the course missive.)*
-
 ## Week 1
 
 | Date | Session | Topic | Notes |
@@ -24,10 +21,10 @@ location and the location given elsewhere in the course missive.)*
 | Mon Aug 31 | Lecture | [Path Planning](assets/lectures/autorob_02_graph_search.pdf) (PDF) | Navigation as graph search; DFS, BFS, Dijkstra, A-star, priority queues, binary heaps |
 | Mon Aug 31 | Lecture | [Robot Middleware](assets/lectures/autorob_10_pointclouds_middleware.pdf) (PDF) | Hardware abstraction, ROS, LCM, publish-subscribe messaging, rosbridge, client-server messaging. Quigley+ 2009, Huang+ 2010, Toris+ 2015 |
 | Mon Aug 31 | Release | [Project 1: Pathfinding (A\*)](projects/project1/index.md) | |
-| *(optional)* | Optional | What is a robot? | Robotics history and definitions |
+| Mon Aug 31 | Optional | What is a robot? | Robotics history and definitions |
 | Fri Sep 4 | Lab | Course Workflow / Help Session | In person |
 | Fri Sep 4 | Checkpoint | Project 1: Heapsort | |
-| *(optional)* | Optional | Intro and git overview | See [Git Tutorial](git-tutorial.md) |
+| Fri Sep 4 | Optional | Intro and git overview | See [Git Tutorial](git-tutorial.md) |
 
 ## Week 2
 
@@ -35,7 +32,7 @@ location and the location given elsewhere in the course missive.)*
 | --- | --- | --- | --- |
 | Mon Sep 7 | — | **No meeting — Labor Day** | |
 | Fri Sep 11 | Lab | KinEval: A-Star Manual Coding | In person |
-| *(optional)* | Optional | KinEval A-Star Walkthrough | |
+| Fri Sep 11 | Optional | KinEval A-Star Walkthrough | |
 | *(optional)* | Optional | [JavaScript and AutoRob Workflow](assets/lectures/autorob_03_jsh5_git.pdf) (PDF) | Project workflow with git; JS/HTML5 tutorial; DOM; version control; Michigan Honor License |
 
 ## Week 3
@@ -57,7 +54,7 @@ location and the location given elsewhere in the course missive.)*
 | Mon Sep 21 | Lecture | [Inverse Kinematics 1: Closed-Form](assets/lectures/autorob_11_ik_closedform.pdf) (PDF) | Joint vs. endeffector control; planar 2-link arm; closed-form solutions. Spong 3.3; Corke 7.3 |
 | Mon Sep 21 | Quiz | Quiz 1 | |
 | Fri Sep 25 | Lab | KinEval: Pendularm Manual Coding | In person |
-| *(optional)* | Optional | pendularm1.html code overview | |
+| Fri Sep 25 | Optional | pendularm1.html code overview | |
 | Fri Sep 25 | Checkpoint | Project 2: Numerical Integration Step Service | |
 
 ## Week 5
@@ -69,10 +66,10 @@ location and the location given elsewhere in the course missive.)*
 | Mon Sep 28 | Tentative | Pendularm Setpoint Competition | |
 | Mon Sep 28 | Due | Project 2: Pendularm | |
 | Mon Sep 28 | Release | [Project 3: Forward Kinematics](projects/project3/index.md) | |
-| *(optional)* | Optional | [Linear Algebra Refresher](assets/lectures/autorob_06_linear_refresh.pdf) (PDF) | Systems of linear equations; vector spaces; least squares. Spong A-B; Corke D |
+| Mon Sep 28 | Optional | [Linear Algebra Refresher](assets/lectures/autorob_06_linear_refresh.pdf) (PDF) | Systems of linear equations; vector spaces; least squares. Spong A-B; Corke D |
 | Fri Oct 2 | Lab | URDF/JS Definition Programming | In person |
-| *(optional)* | Optional | KinEval and urdf.js code overview | |
-| *(optional)* | Optional | KinEval pose control and HTML5 audio | |
+| Fri Oct 2 | Optional | KinEval and urdf.js code overview | |
+| Fri Oct 2 | Optional | KinEval pose control and HTML5 audio | |
 
 ## Week 6
 
@@ -80,7 +77,7 @@ location and the location given elsewhere in the course missive.)*
 | --- | --- | --- | --- |
 | Mon Oct 5 | Lecture | [Axis-Angle Rotation and Quaternions](assets/lectures/autorob_08_fk_quaternions.pdf) (PDF) | Motors; Euler angles and gimbal lock; Rodrigues rotation. Corke 2.2-3 |
 | Mon Oct 5 | Lecture | [Reactive Controllers](assets/lectures/autorob_09_fsm_subsumption.pdf) (PDF) | Reaction vs. deliberation; finite state machines; subsumption architecture; behavior trees. Brooks 1986; Mataric 1992 |
-| *(optional)* | Optional | [Bug Algorithms](assets/lectures/autorob_13_bugs.pdf) (PDF) | Reaction vs. deliberation pt. 2; Bug[0-2]; Tangent Bug. Corke 5 |
+| Mon Oct 5 | Optional | [Bug Algorithms](assets/lectures/autorob_13_bugs.pdf) (PDF) | Reaction vs. deliberation pt. 2; Bug[0-2]; Tangent Bug. Corke 5 |
 | Fri Oct 9 | Lab | Transform Trees and Joint State Publishers | In person |
 | Fri Oct 9 | Checkpoint | Project 3: Zero Configuration FK Transforms | |
 
@@ -90,7 +87,7 @@ location and the location given elsewhere in the course missive.)*
 | --- | --- | --- | --- |
 | Mon Oct 12 | Lecture | [Inverse Kinematics 2: Optimization](assets/lectures/autorob_12_ik_jacobian.pdf) (PDF) | Gradient descent; manipulator Jacobian; Jacobian transpose/pseudoinverse; Cyclic Coordinate Descent |
 | Mon Oct 12 | Review | Exam Review | |
-| *(optional)* | Optional | [Potential Fields](assets/lectures/autorob_16_potentials_wavefront.pdf) (PDF) | Gradient descent revisited; local search; downhill simplex; wavefront planning |
+| Mon Oct 12 | Optional | [Potential Fields](assets/lectures/autorob_16_potentials_wavefront.pdf) (PDF) | Gradient descent revisited; local search; downhill simplex; wavefront planning |
 | Fri Oct 16 | Lab | Robot Choreography Showcase | In person |
 | Fri Oct 16 | Due | Project 3: Forward Kinematics | |
 
@@ -137,13 +134,14 @@ location and the location given elsewhere in the course missive.)*
 | Mon Nov 16 | Lecture | 3D Rigid Body Simulation and Maximal Coordinates | New for Fall 2026 — link not yet available |
 | Mon Nov 16 | Quiz | Quiz 2 | |
 | Fri Nov 20 | Lab | Model Predictive Path Integral (MPPI) Control | New for Fall 2026 — link not yet available |
+| Fri Nov 20 | Checkpoint | Project 5: 2D RRT Service and Follow Trajectory Action | |
 
 ## Week 13
 
 | Date | Session | Topic | Notes |
 | --- | --- | --- | --- |
 | Mon Nov 23 | Lecture | ROS2 Tutorial | New for Fall 2026 — link not yet available |
-| *(optional)* | Optional | ROS Simple Publisher and Subscriber | Starter code — link not yet available |
+| Mon Nov 23 | Optional | ROS Simple Publisher and Subscriber | Starter code — link not yet available |
 | Fri Nov 27 | — | **No meeting — Thanksgiving Break** | |
 
 ## Week 14

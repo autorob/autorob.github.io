@@ -105,20 +105,12 @@ When possible, AutoRob suggests videos from the [2021 RoboJackets Training playl
 
 This semester, AutoRob is offered in a **synchronous, in-person** format across two undergraduate sections (Robotics 380 and EECS 367) and one graduate section (Robotics 511). All course meetings are in person, and student attendance is **mandatory and synchronous**.
 
-!!! danger "Inconsistency found: meeting location"
-    The source course missive gives **two different locations** for lecture, and this doesn't
-    match the schedule spreadsheet either:
+**Lecture**: Monday 4:30pm–7:30pm Eastern, EECS 1500
+**Lab**: Friday 2:30pm–4:20pm Eastern, Chrysler 151
 
-    - The missive's own quick-reference header states: Lecture in **Chrysler Building 133**,
-      Lab in **Chrysler Building 133**.
-    - The missive's "Course Meetings" section states: Lecture in **EECS Building 15000**, Lab
-      in **Chrysler Building 151**.
-    - The course schedule spreadsheet states: Lecture in **EECS 1500**, Lab in **Chrysler
-      151**.
-
-    This site follows the schedule spreadsheet's room numbers (**EECS 1500** / **Chrysler
-    151**) as the most specific/consistent-with-itself source, but **course staff should
-    confirm the actual room** and correct whichever source is wrong before publishing.
+*(The missive's own table of contents preview still says "EECS Building 15000" — a stray extra
+zero — while its "Course Meetings" section and the course schedule both agree on EECS 1500; the
+location conflict flagged in an earlier review of this site is otherwise resolved.)*
 
 **Office Hours**: the AutoRob office hours queue hosted by EECS is used to manage queueing for course office hours *(queue link to be provided by course staff)*.
 
