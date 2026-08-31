@@ -38,7 +38,7 @@
 
 ### Course Autograder
 
-*(link to be provided by course staff)*
+[autograder.io/web/course/404](https://autograder.io/web/course/404)
 
 ### Course Google Drive
 

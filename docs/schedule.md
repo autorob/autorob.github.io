@@ -13,7 +13,7 @@
 
 [Course Schedule (Google Sheet)](https://docs.google.com/spreadsheets/d/175IDKFZSJLymJ2ZCRzDd2OYY6ukzRo4DM9KIuaQrtJ0/edit?usp=sharing)
 
-Lecture: Monday 4:30–7:30pm Eastern, EECS 1500
+Lecture: Monday 4:30–7:30pm Eastern, EECS 1500<br>
 Lab: Friday 2:30–4:20pm Eastern, Chrysler 151
 
 ## Week 1
