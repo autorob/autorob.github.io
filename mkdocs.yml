@@ -56,13 +56,14 @@ nav:
   - Schedule: schedule.md
   - Staff & Office Hours: staff.md
   - Course Policies:
+      - Course Missive (Google Doc): https://docs.google.com/document/d/1fCXTPp7eN2-lJC9CPQFw6BScGBrJ7MihgANYnXIzZjU/edit?usp=sharing
       - Grading & Rubric: policies/grading.md
       - Collaboration Policy: policies/collaboration.md
       - Learning Objectives: policies/learning-objectives.md
       - Syllabus Statements: policies/syllabus-statements.md
   - Projects:
       - "Project 1: Pathfinding (A*)": projects/project1/index.md
-      - Rosbridge Protocol: projects/project1/ROSBRIDGE_PROTOCOL.md
+      - rosbridge Protocol: projects/project1/ROSBRIDGE_PROTOCOL.md
       - Starter Layouts:
           - C: projects/project1/layouts/c.md
           - C++: projects/project1/layouts/cpp.md

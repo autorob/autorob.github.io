@@ -1,6 +1,6 @@
 # AutoRob — Agentic Edition
 
-**Robotics 380 · EECS 367 — Introduction to Autonomous Robotics**
+**Robotics 380 · EECS 367 — Introduction to Autonomous Robotics**<br>
 **Robotics 511 — Mobile Manipulation Systems**
 **Fall 2026 · University of Michigan**
 
@@ -10,7 +10,7 @@
     AutoRob this semester uses an experimental new format suited to AI-enabled code
     development and its application to autonomous robotics. With allowed use of AI tools,
     students direct AI tools to build their own robot operating system (a publish-subscribe
-    messaging system supporting the `rosbridge` protocol), then use AI tools to implement
+    messaging system supporting the *rosbridge* protocol), then use AI tools to implement
     course concepts — A* search, physical simulation, forward/inverse kinematics, motion
     planning — as nodes on that system. The course follows an **"Agenticate, Mutate, Test"**
     structure: students may use AI tools for coding projects (**Agenticate**), must be able to
@@ -20,11 +20,29 @@
 
 ## Quick Links
 
-- Course Website — [autorob.org](https://autorob.org)
-- [Course Schedule](schedule.md)
-- Course Discussion Board (Piazza) *(link to be provided by course staff)*
-- Course Autograder *(link to be provided by course staff)*
-- Course Google Drive *(link to be provided by course staff)*
+### Course Website
+
+[autorob.org](https://autorob.org)
+
+### Course Missive
+
+[Course Missive (Google Doc)](https://docs.google.com/document/d/1fCXTPp7eN2-lJC9CPQFw6BScGBrJ7MihgANYnXIzZjU/edit?usp=sharing)
+
+### Course Schedule
+
+[Course Schedule (Google Sheet)](https://docs.google.com/spreadsheets/d/175IDKFZSJLymJ2ZCRzDd2OYY6ukzRo4DM9KIuaQrtJ0/edit?usp=sharing) · [on this site](schedule.md)
+
+### Course Discussion Board (Piazza)
+
+[piazza.com/class/mtdbrfvg77k78l](https://piazza.com/class/mtdbrfvg77k78l)
+
+### Course Autograder
+
+*(link to be provided by course staff)*
+
+### Course Google Drive
+
+[Course Google Drive](https://drive.google.com/drive/folders/1r27BzMQNN_h4YBWMJ6AmJpnE1iJZg1WQ?usp=drive_link)
 
 ## Introduction
 
@@ -34,9 +52,9 @@ The AutoRob course can be thought of as an exploration into the foundation for r
 
 In AutoRob, coding is believing. AutoRob is a computing-friendly pathway into robotics, providing broad exposure to the foundations of autonomous robotics without addressing the whole of robotics. The scope of AutoRob is introductory kinematic modeling and planning-based reasoning, as well as dynamics and control.
 
-With allowed use of AI tools (available to U-M students via [genai.umich.edu](https://genai.umich.edu)), AutoRob projects ground course concepts through student implementation of kinematics and planning algorithms in the student's own robot operating system. Students direct AI tools to build a publish-subscribe messaging system supporting the `rosbridge` protocol, then use AI tools for project implementations covering: graph search path planning ([A\* algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm)), basic physical simulation ([Lagrangian dynamics](https://en.wikipedia.org/wiki/Classical_mechanics), [numerical integrators](https://en.wikipedia.org/wiki/Numerical_integration)), PID control, forward kinematics (3D geometric [matrix transforms](https://en.wikipedia.org/wiki/Transformation_matrix), quaternion axis-angle rotation), JSON and URDF parsing, inverse kinematics ([gradient descent](https://en.wikipedia.org/wiki/Gradient_descent) optimization, geometric [Jacobian](https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant)), and motion planning ([RRT-Connect](https://en.wikipedia.org/wiki/Rapidly-exploring_random_tree), collision detection), as well as 3D rigid body simulation in maximal coordinates. See [Project 1](projects/project1/index.md) for how this is scaffolded.
+With allowed use of AI tools (available to U-M students via [genai.umich.edu](https://genai.umich.edu)), AutoRob projects ground course concepts through student implementation of kinematics and planning algorithms in the student's own robot operating system. Students direct AI tools to build a publish-subscribe messaging system supporting the *rosbridge* protocol, then use AI tools for project implementations covering: graph search path planning ([A\* algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm)), basic physical simulation ([Lagrangian dynamics](https://en.wikipedia.org/wiki/Classical_mechanics), [numerical integrators](https://en.wikipedia.org/wiki/Numerical_integration)), PID control, forward kinematics (3D geometric [matrix transforms](https://en.wikipedia.org/wiki/Transformation_matrix), quaternion axis-angle rotation), JSON and URDF parsing, inverse kinematics ([gradient descent](https://en.wikipedia.org/wiki/Gradient_descent) optimization, geometric [Jacobian](https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant)), and motion planning ([RRT-Connect](https://en.wikipedia.org/wiki/Rapidly-exploring_random_tree), collision detection), as well as 3D rigid body simulation in maximal coordinates. See [Project 1](projects/project1/index.md) for how this is scaffolded.
 
-The [KinEval code stencil](https://github.com/autorob/kineval-stencil) in JavaScript/HTML5, used for previous offerings of AutoRob since 2014, continues to support manual coding demonstrations of course-related topics. Whether built with KinEval or the Agentic Edition's own pubsub stack, your code is designed to work with any robot that supports the `rosbridge` protocol, including any robot running ROS.
+The KinEval code stencil in JavaScript/HTML5, used for previous offerings of AutoRob since 2014, continues to support manual coding demonstrations of course-related topics. Whether built with KinEval or the Agentic Edition's own pubsub stack, your code is designed to work with any robot that supports the *rosbridge* protocol, including any robot running ROS.
 
 ### Concepts to build your own robot operating system
 

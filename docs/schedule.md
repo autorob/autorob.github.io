@@ -1,5 +1,6 @@
 # Course Schedule
 
+<!--
 !!! warning "Link availability note"
     This schedule was rebuilt from the Fall 2026 course schedule spreadsheet. Where a topic
     clearly reuses a lecture PDF or video already archived on this site, that link is carried
@@ -8,6 +9,9 @@
     CSV export does not preserve embedded hyperlinks, only cell text) — those are listed as
     plain text below and need real links supplied by course staff. Rows marked *Optional* are
     supplementary/preview material, not required coursework.
+-->
+
+[Course Schedule (Google Sheet)](https://docs.google.com/spreadsheets/d/175IDKFZSJLymJ2ZCRzDd2OYY6ukzRo4DM9KIuaQrtJ0/edit?usp=sharing)
 
 Lecture: Monday 4:30–7:30pm Eastern, EECS 1500
 Lab: Friday 2:30–4:20pm Eastern, Chrysler 151
@@ -19,7 +23,7 @@ Lab: Friday 2:30–4:20pm Eastern, Chrysler 151
 | Mon Aug 31 | Email | Welcome message and overview | Asynchronous |
 | Mon Aug 31 | Lecture | [Course Initialization](assets/lectures/autorob_01_initialization.pdf) (PDF) | "So, where is my robot?" Course admin and logistics. Spong Ch.1; Corke Ch.1 |
 | Mon Aug 31 | Lecture | [Path Planning](assets/lectures/autorob_02_graph_search.pdf) (PDF) | Navigation as graph search; DFS, BFS, Dijkstra, A-star, priority queues, binary heaps |
-| Mon Aug 31 | Lecture | [Robot Middleware](assets/lectures/autorob_10_pointclouds_middleware.pdf) (PDF) | Hardware abstraction, ROS, LCM, publish-subscribe messaging, rosbridge, client-server messaging. Quigley+ 2009, Huang+ 2010, Toris+ 2015 |
+| Mon Aug 31 | Lecture | [Robot Middleware](assets/lectures/autorob_10_pointclouds_middleware.pdf) (PDF) | Hardware abstraction, ROS, LCM, publish-subscribe messaging, *rosbridge*, client-server messaging. Quigley+ 2009, Huang+ 2010, Toris+ 2015 |
 | Mon Aug 31 | Release | [Project 1: Pathfinding (A\*)](projects/project1/index.md) | |
 | Mon Aug 31 | Optional | What is a robot? | Robotics history and definitions |
 | Fri Sep 4 | Lab | Course Workflow / Help Session | In person |

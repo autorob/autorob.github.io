@@ -15,9 +15,11 @@ If you believe an accommodation is needed for a disability, please let the cours
 
 The University of Michigan is committed to advancing the mental health and wellbeing of its students. If you or someone you know is feeling overwhelmed, depressed, and/or in need of support, services are available. For help, please contact one of the many resources offered by the University that are committed to helping students through challenging situations, including: University Health & Counseling (UHC) and its units, [UHC Medical Services](https://www.uhs.umich.edu/mentalhealthsvcs) (UHS, 734-764-8320) and [Counseling and Psychological Services](https://caps.umich.edu/) (CAPS, 734-764-8312), [U-M Psychiatric Emergency](https://medicine.umich.edu/dept/psychiatry/patient-care/psychiatric-emergency-service) (734-936-5900, 24-hour), and the [C.A.R.E. Center](https://care.engin.umich.edu/) on North Campus. The vast majority of UHC services are free for students and are not billed to insurance. There is also a more comprehensive listing of well-being and mental health resources available on and off campus.
 
+<!--
 !!! success "Previously flagged issue, now resolved"
     An earlier review of this site flagged that the course missive listed the same phone number
     for both CAPS and UHS. The updated missive now gives CAPS and UHS distinct numbers (CAPS
     734-764-8312, UHS 734-764-8320) under a shared "University Health & Counseling" umbrella,
     consistent with the previously-published Winter 2023 CAPS number — resolving the
     inconsistency.
+-->

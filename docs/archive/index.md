@@ -18,6 +18,7 @@ active project is [Project 1](../projects/project1/index.md).
 - [Lecture/Lab PDF Archive](lecture-lab-pdfs.md)
 - [Robot Description Assets](robot-descriptions.md)
 
+<!--
 !!! tip "2025 (Winter 2025) project archive"
     The most recent prior offering, Winter 2025, used updated "Project 1"–"Project 7" naming
     (still KinEval-based) rather than "Assignment 0"–"7." Winter 2025 versions aren't mirrored
@@ -30,3 +31,4 @@ active project is [Project 1](../projects/project1/index.md).
     pre-rebuild site's source as HTML that was commented out — it was never actually live on
     the Winter 2023 site this rebuild is based on. It has intentionally not been recreated here
     as a live archive page, since it was dead markup, not published content.
+-->

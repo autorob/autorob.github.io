@@ -1,4 +1,4 @@
-# Autorob TCP/JSON Rosbridge Protocol
+# Autorob TCP/JSON *rosbridge* Protocol
 
 ## Overview
 

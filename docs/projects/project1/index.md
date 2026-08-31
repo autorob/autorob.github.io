@@ -61,7 +61,7 @@ available in the course image or bundled with your submission.
 
 ## Middleware protocol
 
-Your runtime must implement the course TCP/JSON rosbridge-style protocol in
+Your runtime must implement the course TCP/JSON *rosbridge*-style protocol in
 [`ROSBRIDGE_PROTOCOL.md`](ROSBRIDGE_PROTOCOL.md). It defines the transport,
 topic and service operations, status messages, connection ownership, request
 correlation, and cleanup behavior.

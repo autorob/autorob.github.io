@@ -51,6 +51,7 @@ enrollment. Grades can go up, but not down, based on grading adjustments. Thresh
 minus grade modifiers will be determined during final grading. There is no guaranteed threshold
 for an A+ — it is only awarded for exceptional work at the discretion of the instructors.
 
+<!--
 !!! success "Previously flagged issues, now resolved"
     Two grading inconsistencies flagged in an earlier review of this site have been fixed in the
     updated missive: the project-checkpoints line now correctly reads "5 projects, 1 point for
@@ -65,6 +66,7 @@ for an A+ — it is only awarded for exceptional work at the discretion of the i
     the adjacent Quizzes line and should read "for each challenge," to avoid confusion with the
     separate Quizzes grading component. Low-stakes (the point values are unambiguous either way)
     but still worth a copyedit pass by course staff.
+-->
 
 ## Late and Regraded Work Policies
 

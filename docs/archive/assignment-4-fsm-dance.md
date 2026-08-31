@@ -35,7 +35,7 @@ This assignment requires the following features to be implemented in the corresp
     
 -   \[Grad section only\] Prismatic joint implementation in "kineval/kineval\_forward\_kinematics.js"
     
--   \[Grad section only\] Fetch rosbridge interface
+-   \[Grad section only\] Fetch *rosbridge* interface
     
 
 Points distributions for these features can be found in the [project rubric section](../policies/grading.md#grading-breakdown). More details about each of these features and the implementation process are given below.
@@ -78,7 +78,7 @@ To complete your dance controller, choreograph a dance by initializing kineval.s
 
 ## Graduate Section Requirements
 
-Students in the graduate section of AutoRob must implement the assignment as described above for the Fetch and Baxter robots with two additional requirements: 1) proper implementation of all joint types in the robot descriptions and 2) proper enforcement of joint limits for the robot descriptions. and 3) integration (via [rosbridge](http://wiki.ros.org/rosbridge_suite)) of their code with ROS or a [Gazebo simulation of the Fetch](http://docs.fetchrobotics.com/gazebo.html).
+Students in the graduate section of AutoRob must implement the assignment as described above for the Fetch and Baxter robots with two additional requirements: 1) proper implementation of all joint types in the robot descriptions and 2) proper enforcement of joint limits for the robot descriptions. and 3) integration (via [*rosbridge*](http://wiki.ros.org/rosbridge_suite)) of their code with ROS or a [Gazebo simulation of the Fetch](http://docs.fetchrobotics.com/gazebo.html).
 
 The urdf.js files for these robots, included in the provided code stencil, contain joints with with various types that correspond to different types of motion:
 
@@ -93,9 +93,9 @@ The urdf.js files for these robots, included in the provided code stencil, conta
 
 Joints are considered to be continuous as the default. Joints with undefined motion types must be treated as continuous joints. The graduate section features for this assignment will be complete when your implementation correctly handles the direction of motion (rotation or translation) and limits of all of the above types of joints.
 
-**_rosbridge_** allows your code can interface with any robot (or simulated robot) running rosbridge/ROS using the function kineval.rosbridge() in "kineval/kineval\_rosbridge.js". This code requires that the rosbridge\_server package is running in a ROS run-time environment and listening on a websocket port, such as for ws://fetch7:9090. If your FK implementation is working properly, the model of your robot in the browser will update along with the motion of the robot based on the topic subscription and callback. This functionality works seamlessly between real and simulated robots. Although this will not be done for this class, to control the robot arm, a rosbridge publisher must be written to update the ROS topic "/arm\_controller/follow\_joint\_trajectory/goal" with a message of type "control\_msgs/FollowJointTrajectoryActionGoal".
+**_rosbridge_** allows your code can interface with any robot (or simulated robot) running *rosbridge*/ROS using the function kineval.rosbridge() in "kineval/kineval\_rosbridge.js". This code requires that the rosbridge\_server package is running in a ROS run-time environment and listening on a websocket port, such as for ws://fetch7:9090. If your FK implementation is working properly, the model of your robot in the browser will update along with the motion of the robot based on the topic subscription and callback. This functionality works seamlessly between real and simulated robots. Although this will not be done for this class, to control the robot arm, a *rosbridge* publisher must be written to update the ROS topic "/arm\_controller/follow\_joint\_trajectory/goal" with a message of type "control\_msgs/FollowJointTrajectoryActionGoal".
 
-Machines running rosbridge, ROS, and Gazebo for the Fetch will be available during special sessions of the class. Students are encouraged to install and run the Fetch simulator on their own machines based on [this tutorial](http://docs.fetchrobotics.com/gazebo.html).
+Machines running *rosbridge*, ROS, and Gazebo for the Fetch will be available during special sessions of the class. Students are encouraged to install and run the Fetch simulator on their own machines based on [this tutorial](http://docs.fetchrobotics.com/gazebo.html).
 
 ## Advanced Extensions
 

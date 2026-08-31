@@ -28,7 +28,7 @@ capable of the following:
 ### Agentic Edition infrastructure
 
 In this edition, students direct AI tools to build a publish-subscribe messaging system as the
-course's own robot middleware infrastructure (supporting the `rosbridge` protocol), then use AI
+course's own robot middleware infrastructure (supporting the *rosbridge* protocol), then use AI
 tools to implement course concepts as nodes interconnected through topic messages over that
 infrastructure — see [Project 1](../projects/project1/index.md). Students remain fully
 responsible for being able to clearly explain any code they have generated, and for fixing any
