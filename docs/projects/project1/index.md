@@ -91,7 +91,7 @@ Arguments: `{"numbers":[3.0,1.0,2.0]}`. On success, `values` is `{"sorted":[1.0,
 
 ## Map creation and map handling
 
-Create or generate at least one valid Project 1 occupancy-grid map. While your runtime is running, `make map` must publish it on `/map` through the external TCP/JSON interface and then exit. You may construct it in code, generate it, read a student-defined representation, use the public [`tools/map_to_rosbridge.py`](../tools/map_to_rosbridge.py) helper, or choose another reasonable method. The helper is only an external-client example; you still implement the runtime that receives and routes that publication.
+Create or generate at least one valid Project 1 occupancy-grid map. While your runtime is running, `make map` must publish it on `/map` through the external TCP/JSON interface and then exit. You may construct it in code, generate it, read a student-defined representation, use the public `tools/map_to_rosbridge.py` helper, or choose another reasonable method. The helper is only an external-client example; you still implement the runtime that receives and routes that publication.
 
 This is **not** a persistent ROS map-server requirement. Do not implement `/get_map`, ROS `map_server`, YAML/PGM compatibility, or any particular map-server process or file format.
 
