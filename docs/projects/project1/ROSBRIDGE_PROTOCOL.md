@@ -1,10 +1,8 @@
-# Autorob TCP/JSON *rosbridge* Protocol
+# Autorob TCP/JSON Rosbridge Protocol
 
 ## Overview
 
-This document defines the reusable course protocol for topic and service
-communication. Individual projects define the names and payloads carried by
-this protocol.
+This document defines the external [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)/[JSON](https://www.json.org/json-en.html) client/server protocol into the course ROS-like publish/subscribe system. It does not prescribe how nodes communicate internally. Individual projects define the names and payloads carried by this protocol.
 
 ## Transport and common conventions
 
