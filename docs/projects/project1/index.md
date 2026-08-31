@@ -36,6 +36,8 @@ At the external layer, independent clients use the fixed TCP/[JSON](https://www.
 ## Starter projects
 
 Minimal build/run skeletons: [Python](layouts/python.md), [C](layouts/c.md), [C++](layouts/cpp.md), and [Rust](layouts/rust.md). They are not partial publish/subscribe, heap, or A* solutions; another layout is allowed.
+Download the [Project 1 starter kit](https://drive.google.com/file/d/1xGc59lBeeuhkyGF0HURJTTmku4TojkBI/view?usp=drive_link).
+
 
 ## Submission, building, and running
 
