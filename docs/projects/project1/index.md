@@ -31,11 +31,11 @@ You may use Python, C, C++, or Rust. Your source, process, data-structure, and i
 
 At the internal layer, nodes communicate through topics, publishers, subscribers, services, service clients, and service providers. You create these semantics. The internal design is entirely yours: one or many processes; queues, threads, TCP, Unix sockets, shared memory, direct dispatch, or another reasonable design. There is no required internal wire protocol.
 
-At the external layer, independent clients use the fixed TCP/[JSON](https://www.json.org/json-en.html) protocol in [`ROSBRIDGE_PROTOCOL.md`](ROSBRIDGE_PROTOCOL.md). The rosbridge-style gateway represents your publish/subscribe system to outside clients; it need not be separate from your nodes.
+At the external layer, independent clients use the fixed TCP/[JSON](https://www.json.org/json-en.html) protocol in [`ROSBRIDGE_PROTOCOL.md`](ROSBRIDGE_PROTOCOL.md). The *rosbridge*-style gateway represents your publish/subscribe system to outside clients; it need not be separate from your nodes.
 
 ## Starter projects
 
-Minimal build/run skeletons: [Python](../starter/python/), [C](../starter/c/), [C++](../starter/cpp/), and [Rust](../starter/rust/). They are not partial publish/subscribe, heap, or A* solutions; another layout is allowed.
+Minimal build/run skeletons: [Python](layouts/python.md), [C](layouts/c.md), [C++](layouts/cpp.md), and [Rust](layouts/rust.md). They are not partial publish/subscribe, heap, or A* solutions; another layout is allowed.
 
 ## Submission, building, and running
 
@@ -91,7 +91,7 @@ Arguments: `{"numbers":[3.0,1.0,2.0]}`. On success, `values` is `{"sorted":[1.0,
 
 ## Map creation and map handling
 
-Create or generate at least one valid Project 1 occupancy-grid map. While your runtime is running, `make map` must publish it on `/map` through the external TCP/JSON interface and then exit. You may construct it in code, generate it, read a student-defined representation, use the public [`tools/map_to_rosbridge.py`](../tools/map_to_rosbridge.py) helper, or choose another reasonable method. The helper is only an external-client example; you still implement the runtime that receives and routes that publication.
+Create or generate at least one valid Project 1 occupancy-grid map. While your runtime is running, `make map` must publish it on `/map` through the external TCP/JSON interface and then exit. You may construct it in code, generate it, read a student-defined representation, use the public `tools/map_to_rosbridge.py` helper, or choose another reasonable method. The helper is only an external-client example; you still implement the runtime that receives and routes that publication.
 
 This is **not** a persistent ROS map-server requirement. Do not implement `/get_map`, ROS `map_server`, YAML/PGM compatibility, or any particular map-server process or file format.
 

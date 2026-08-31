@@ -47,7 +47,7 @@ That's fine — nothing here touches or requires it.
     `nvm install --lts`.
   - You can skip Node entirely if you use the standalone installer in step 3.
 - **Your Toolkit API key** — your course staff will give this to you. It starts
-  with `sk-`. Treat it exactly like a password (see [§10](#10-safety--hygiene)).
+  with `sk-`. Treat it exactly like a password (see [§10](#10-safety-hygiene)).
 - **Your AUTOROB project directory** — wherever your `Makefile` and source live,
   for example `~/autorob/my-project`. This guide uses that as the example path;
   substitute your own everywhere it appears.
