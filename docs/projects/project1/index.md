@@ -12,7 +12,7 @@ You may use Python, C, C++, or Rust. Your source, process, data-structure, and i
 
 - Build a reusable publish/subscribe system for topic and service communication among course robot programs.
 - Expose a small [client/server](https://en.wikipedia.org/wiki/Client%E2%80%93server_model) interface for independent clients, including Autograder.io.
-- Implement numeric [binary min-heap](https://en.wikipedia.org/wiki/Binary_heap) operations and A* search.
+- Implement numeric [binary min-heap](https://en.wikipedia.org/wiki/Binary_heap) operations from scratch and A* search.
 - Build and run reproducibly in an offline environment.
 
 ## System architecture
@@ -82,6 +82,8 @@ Your submission therefore needs a top-level Makefile, no build-time downloads, a
 ## Project checkpoint — Heap services
 
 **Project checkpoint:** Complete `/heapify` and `/heap_sort` by the first Project A* lab. They are ordinary services using the protocol's `call_service` and `service_response` envelopes.
+
+For the heap portion of Project 1, implement the heap logic yourself from scratch. Do not use built-in or library heap / priority-queue utilities such as Python `heapq`, C++ `std::priority_queue`, Rust `BinaryHeap`, or equivalent helpers to satisfy `/heapify`, `/heap_sort`, or your planner's heap behavior.
 
 ### `/heapify`
 
