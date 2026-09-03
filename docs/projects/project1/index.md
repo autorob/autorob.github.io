@@ -12,7 +12,7 @@ You may use Python, C, C++, or Rust. Your source, process, data-structure, and i
 
 - Build a reusable publish/subscribe system for topic and service communication among course robot programs.
 - Expose a small [client/server](https://en.wikipedia.org/wiki/Client%E2%80%93server_model) interface for independent clients, including Autograder.io.
-- Implement numeric [binary min-heap](https://en.wikipedia.org/wiki/Binary_heap) operations and A* search.
+- Implement numeric [binary min-heap](https://en.wikipedia.org/wiki/Binary_heap) operations from scratch and A* search.
 - Build and run reproducibly in an offline environment.
 
 ## System architecture
@@ -36,6 +36,8 @@ At the external layer, independent clients use the fixed TCP/[JSON](https://www.
 ## Starter projects
 
 Minimal build/run skeletons: [Python](layouts/python.md), [C](layouts/c.md), [C++](layouts/cpp.md), and [Rust](layouts/rust.md). They are not partial publish/subscribe, heap, or A* solutions; another layout is allowed.
+Download the [Project 1 starter kit](https://drive.google.com/drive/folders/1HJJsLOeAuVukzgShXAvSY6i6PamU6Plw?usp=drive_link).
+
 
 ## Submission, building, and running
 
@@ -81,13 +83,15 @@ Your submission therefore needs a top-level Makefile, no build-time downloads, a
 
 **Project checkpoint:** Complete `/heapify` and `/heap_sort` by the first Project A* lab. They are ordinary services using the protocol's `call_service` and `service_response` envelopes.
 
+For the heap portion of Project 1, implement the heap logic yourself from scratch. Do not use built-in or library heap / priority-queue utilities such as Python `heapq`, C++ `std::priority_queue`, Rust `BinaryHeap`, or equivalent helpers to satisfy `/heapify`, `/heap_sort`, or your planner's heap behavior.
+
 ### `/heapify`
 
 Arguments: `{"values":[3.0,1.0,2.0]}`. On success, `values` is `{"heap":[...]}`. The result preserves the complete input multiset and is a valid binary min-heap: index `i` is no greater than either present child `2i + 1` or `2i + 2`. Empty input succeeds, duplicates remain, and any valid heap layout is accepted.
 
 ### `/heap_sort`
 
-Arguments: `{"numbers":[3.0,1.0,2.0]}`. On success, `values` is `{"sorted":[1.0,2.0,3.0]}`. The output is ascending numeric order with the full input multiset. Empty input, duplicates, and finite negative and fractional values are supported. A* need not call either heap service.
+Arguments: `{"numbers":[3.0,1.0,2.0]}`. On success, `values` is `{"sorted":[1.0,2.0,3.0]}`. The output is ascending numeric order with the full input multiset. Empty input, duplicates, and finite negative and fractional values are supported. `/heap_sort` is both a public service and a required A* dependency: the planner must call it to order frontier priorities before choosing work to expand. The planner may apply a deterministic tie-break after using the returned minimum priority. `/heapify` remains independently callable and is not a planner dependency.
 
 ## Map creation and map handling
 
