@@ -2,7 +2,8 @@
 
 **Robotics 380 · EECS 367 — Introduction to Autonomous Robotics**<br>
 **Robotics 511 — Mobile Manipulation Systems**
-**Fall 2026 · University of Michigan**
+**Fall 2026**<br>
+**University of Michigan**
 
 ![Fetch mobile manipulator](assets/images/diagrams/um_fetch.jpg)
 
