@@ -2,12 +2,22 @@
    navy), used for both the primary (header/nav) and accent (link/hover)
    roles. Both values are direct overrides of Material's CSS custom
    properties, since #00274C doesn't map onto a built-in Material palette
-   name. Contrast on white is ~15:1, comfortably above the WCAG 2.1 AA
-   4.5:1 minimum for normal text (SPG 601.20 / accessibility.umich.edu
-   requires WCAG 2.1 AA). */
+   name -- mkdocs.yml sets theme.palette.primary/accent to "custom" so
+   Material doesn't also emit its own named-palette color (it previously
+   used "blue", whose built-in hex, #2094f3, is a bright aqua that was
+   winning out over this override in some cases). Contrast on white is
+   ~15:1, comfortably above the WCAG 2.1 AA 4.5:1 minimum for normal text
+   (SPG 601.20 / accessibility.umich.edu requires WCAG 2.1 AA). */
 :root {
   --md-primary-fg-color: #00274c;
   --md-primary-fg-color--light: #304a6e;
   --md-primary-fg-color--dark: #001a33;
   --md-accent-fg-color: #00274c;
+}
+
+/* Belt-and-suspenders: force the header and tabs bar navy directly,
+   independent of CSS custom property resolution. */
+.md-header,
+.md-tabs {
+  background-color: #00274c !important;
 }
