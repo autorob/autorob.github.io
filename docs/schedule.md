@@ -26,7 +26,7 @@ Lab: Friday 2:30–4:20pm Eastern, Chrysler 151
 | Mon Aug 31 | Lecture | [Robot Middleware and Publish-Subscribe (2026)](assets/lectures/autorob_10_pointclouds_middleware.pdf) (PDF) | Hardware abstraction, ROS, LCM, publish-subscribe messaging, *rosbridge*, client-server messaging. Quigley+ 2009, Huang+ 2010, Toris+ 2015 |
 | Mon Aug 31 | Release | [Project 1: Pathfinding (A\*)](projects/project1/index.md) | |
 | Mon Aug 31 | Optional | [What is a Robot?](https://drive.google.com/file/d/1sM9UdAWT39V4I2QjMiB8pxRwDikXkPUf/view?usp=sharing) (PDF) | Robotics history and definitions |
-| Fri Sep 4 | Lab | Course Workflow / Help Session | In person |
+| Fri Sep 4 | Lab | [Course Workflow / Help Session](https://docs.google.com/presentation/d/1fHbxhvusdXzo3nEMl6SVY70yokhSleB6ZhdiGN6IB7E/edit?usp=drive_link) (Slides) | In person |
 | Fri Sep 4 | Checkpoint | Project 1: Heapsort | |
 | Fri Sep 4 | Optional | Intro and git overview | See [Git Tutorial](git-tutorial.md) |
 

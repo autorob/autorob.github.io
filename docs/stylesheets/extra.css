@@ -21,3 +21,24 @@
 .md-tabs {
   background-color: #00274c !important;
 }
+
+/* Classic browser-default link colors for in-page content links (prose,
+   tables, admonitions, etc. -- anything inside .md-typeset). Scoped to
+   .md-typeset rather than all `a` elements so the navy header/tabs/side
+   navigation above are unaffected.
+
+   Note: :active red (#FF0000) measures ~4.0:1 contrast on white, just
+   under the WCAG 2.1 AA 4.5:1 minimum for normal text -- flagging since
+   this site otherwise targets AA, but :active only applies for the
+   instant a link is being clicked, not as a resting state. */
+.md-typeset a:link {
+  color: #0000ff !important;
+}
+
+.md-typeset a:visited {
+  color: #800080 !important;
+}
+
+.md-typeset a:active {
+  color: #ff0000 !important;
+}
