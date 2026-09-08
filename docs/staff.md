@@ -4,7 +4,8 @@
 !!! note "Office hours pending"
     Office hours times and locations were not included in the Fall 2026 course missive.
     Course staff should add them here once scheduled; until then, use the AutoRob office hours
-    queue (see [Course Structure](index.md#course-structure)) or email.
+    queue (see [Course Structure](index.md#course-structure)), the
+    [Office Hours Calendar](office-hours-calendar.md), or email.
 -->
 
 ## Course Instructor
