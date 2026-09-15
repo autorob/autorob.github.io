@@ -71,7 +71,13 @@ nav:
               - C++: projects/project1/layouts/cpp.md
               - Python: projects/project1/layouts/python.md
               - Rust: projects/project1/layouts/rust.md
-      - "Project 2: Pendularm": projects/project2/index.md
+      - "Project 2: Pendularm":
+          - Overview: projects/project2/index.md
+          - Starter Layouts:
+              - C: projects/project2/layouts/c.md
+              - C++: projects/project2/layouts/cpp.md
+              - Python: projects/project2/layouts/python.md
+              - Rust: projects/project2/layouts/rust.md
       - "Project 3: Forward Kinematics": projects/project3/index.md
       - "Project 4: Inverse Kinematics": projects/project4/index.md
       - "Project 5: Motion Planning": projects/project5/index.md
