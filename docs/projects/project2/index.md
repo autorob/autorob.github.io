@@ -350,31 +350,79 @@ Given a desired end-effector position (and, for a 3-link arm, orientation), solv
 angles that reach it — the classic "given where I want the hand, what should the joints be"
 problem. This project's arm is planar and only 2 or 3 links, so the solution is closed-form (Law
 of Cosines for position, then kinematic decoupling for orientation), not the iterative/Jacobian
-approach a later, unrelated project covers for a different kind of arm.
+approach a later, unrelated project covers for a different kind of arm. Using the same
+joint-angle convention as the dynamics section above, the end effector's world position is
+`x = sum(l_i * cos(phi_i))`, `y = sum(l_i * sin(phi_i))`, and its absolute orientation is `phi_n`
+(the last link's own heading).
 
-- **`/ik/solve`** — `{"x": <m>, "y": <m>, "phi": <rad, optional>}` → `{"positions": [...]}`.
+- **`/ik/solve`** — `{"x": <m>, "y": <m>, "phi": <rad, optional>}` → `{"positions": [n values]}`.
   `phi` is the desired end-effector orientation; only meaningful for a 3-link arm (a 2-link arm's
-  2 degrees of freedom are already fully consumed by position alone, so `phi` is ignored for
-  it). Reject an unreachable target — farther than the arm's full extension, or, for a 2-link
-  arm, closer than `|l1-l2|` — the same way every other service in this project rejects a bad
-  request (`result:false`, nonempty `status`). Fetch the arm's *current* link lengths fresh on
-  every call (e.g. via `/arm_sim/set_params`'s own empty-request query convention) rather than
-  caching them — a solve issued after link lengths changed at runtime should reflect the change.
+  2 degrees of freedom are already fully consumed by position alone, so `phi` is ignored for it).
+  Fetch the arm's *current* link lengths fresh on every call (e.g. via `/arm_sim/set_params`'s own
+  empty-request query convention) rather than caching them — a solve issued after link lengths
+  changed at runtime should reflect the change. Reject the request (`result:false`, nonempty
+  `status`) rather than crashing or hanging, for: a request missing a numeric `x` or `y`; a target
+  farther than the arm's full extension (`sum(lengths)`), or, for a 2-link arm, closer than
+  `|l1-l2|`; or, for a 3-link arm, a position that's reachable on its own but whose requested
+  `phi` pushes the resulting wrist point (the end effector's position minus link 3's own
+  contribution) outside the first two links' reach. Treat the exact boundary of reach
+  (a fully-extended or, for a 2-link arm, fully-folded target) as reachable, not rejected by
+  floating-point error accumulated getting there. A reachable 2-link (sub)problem generally has
+  two elbow configurations ("elbow-up"/"elbow-down"); either is an acceptable answer — grading
+  checks the round-trip property (feeding the result back through forward kinematics reproduces
+  the requested target and orientation), not a specific configuration choice.
 - **`/ik_action/send_goal`** / **`/ik_action/cancel_goal`** — drives the arm toward a solved
   target rather than just computing it: solves via `/ik/solve`, then commands the result on
-  `/joint_trajectory` and tracks convergence. At most one goal is active at a time; a new
-  reachable goal preempts whichever one was already running. Publishes `/ik_action/feedback`
-  (distance remaining, etc.) while a goal is in flight and `/ik_action/result` exactly once when
-  it concludes (`"reached"` or `"preempted"`). "Reached" requires the end effector to stay within
-  a small tolerance continuously for a short dwell time, not just pass through the target once.
-- **`/ik_trial/start`** / **`/ik_trial/skip`** / **`/ik_trial/stop`** — a timed trial harness
-  layered on top of `/ik_action/*`: repeatedly samples reachable random targets and counts how
-  many get reached within a time window, publishing live progress on `/ik_trial/status`. Useful
-  for judging how well a given integrator/PID/geometry combination actually reaches IK-solved
-  targets in practice.
+  `/joint_trajectory` and tracks convergence, at most one goal active at a time. `send_goal`
+  request: `{"x": <m>, "y": <m>, "phi": <rad, optional>, "epsilon": <m, optional>,
+  "success_hold": <s, optional>}`; on success, `{"goal_id": <string>}`. `epsilon`/`success_hold`
+  fall back to your own implementation-defined defaults when omitted (exact values are up to you,
+  but `epsilon` must be positive and `success_hold` non-negative). Reject an unreachable target
+  using `/ik/solve`'s own rules, leaving whatever goal was already active completely undisturbed;
+  a *reachable* new goal, by contrast, preempts any goal currently active — publishing that old
+  goal's `/ik_action/result` as `"preempted"` before starting the new one. `cancel_goal` request:
+  `{}` or `{"goal_id": <string>}`; with no active goal, or a `goal_id` that doesn't match the
+  currently active one, reject (`result:false`) without side effects — otherwise preempt the
+  active goal (publishing its result as `"preempted"`) and succeed.
+- **`/ik_action/feedback`** (publish) — once per control tick while a goal is active:
+  `{"goal_id", "target": {"x": .., "y": .. ["phi": ..]}, "positions": [the commanded joint-space
+  setpoint], "distance_remaining": <m>, "elapsed": <s>}`.
+- **`/ik_action/result`** (publish) — exactly once per goal, when it concludes: `{"goal_id",
+  "outcome": "reached"|"preempted", "target": {...}, "final_distance": <m>}`. Don't report
+  `"reached"` on the first tick the end effector merely passes through the `epsilon` ball — it
+  must stay within `epsilon` continuously for at least `success_hold` seconds of **simulation**
+  time before concluding `"reached"`; any excursion outside `epsilon`, even briefly, resets that
+  dwell requirement back to zero (read simulation time from the same clock `/joint_states`'s
+  `header.stamp` already carries, so this doesn't depend on real-time factor). A `success_hold`
+  of `0` is satisfied immediately on first entry — a one-shot epsilon check, not a case to
+  special-case away.
+- **`/ik_trial/start`** / **`/ik_trial/skip`** / **`/ik_trial/stop`** — a timed trial harness,
+  orchestrating `/ik_action/*` as a client (it should never read `/joint_states` or publish
+  `/joint_trajectory` directly itself): repeatedly samples reachable random targets and counts
+  how many get reached within a time window. `start` request: `{}` or `{"duration": <s>,
+  "epsilon": <m>, "success_hold": <s>}`, all optional (the same partial-override convention
+  `/arm_sim/set_params` uses); always (re)starts a fresh trial — cancels any goal left over from a
+  previous trial, resets the reached-count and elapsed clock, and submits a first sampled target.
+  Response is `result:true` on success, or `result:false` (with a `status` reason) if no reachable
+  target could be sampled at all. `skip` request: `{}`; abandons whatever target is currently in
+  flight *without* counting it as reached, and immediately submits a new one — reject
+  (`result:false`) if no trial is currently running. `stop` request: `{}`; ends the trial early,
+  abandoning the in-flight target and stopping advancement without submitting a replacement —
+  reject (`result:false`) if no trial is currently running.
+- **`/ik_trial/status`** (publish) — published periodically while a trial exists:
+  `{"running": <bool>, "elapsed": <s>, "duration": <s>, "targets_reached": <count>, "target":
+  {"x": .., "y": .. ["phi": ..]} | null, "error": <m> | null, "desired_positions": [<rad>, ...] |
+  null, "action_status": "idle"|"active"|"reached"|"preempted"}`. `error`/`desired_positions`/
+  `action_status` reflect this node's own most recent view of the goal it's tracking — clear them
+  back to their "nothing in flight" values (`null`/`"idle"`) whenever a goal is abandoned without
+  an immediate replacement (`/ik_trial/stop`, or the trial's `duration` elapsing), rather than
+  leaving a stale value from a goal nobody is pursuing anymore.
 
-Full request/response shapes, defaults, and edge-case rejection rules: `spec/IK_API.md`, in the
-starter kit.
+What's explicitly up to you: exact default `epsilon`/`success_hold`/trial `duration` values, the
+exact target-sampling distribution the trial harness uses (any distribution that reliably
+produces reachable targets is acceptable — sampling a bounding box and rejecting unreachable
+draws is one valid approach, not a mandated one), and internal process topology (one node per
+service group, folded into `arm_sim_node`, or split further).
 
 ## Testing
 
