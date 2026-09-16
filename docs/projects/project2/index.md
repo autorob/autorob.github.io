@@ -13,8 +13,9 @@ integrator/timestep choice matter for a real closed-loop control system," taught
 system that demonstrates it.
 
 **Do not use a physics engine or ODE-solver library.** Implement the dynamics, integrators, and
-control law yourself. You may use Python, C, C++, or Rust; internal process/thread topology is
-your choice, same as Project 1.
+control law yourself, and use those same integrator implementations to step the live simulation.
+You may use Python, C, C++, or Rust; internal process/thread topology is your choice, same as
+Project 1.
 
 ## Learning goals
 
@@ -334,6 +335,10 @@ arm (`/arm_sim/set_integrator`'s `method`) or the standalone 1-DOF checkpoint se
 - **`rk4`** — classical 4th-order Runge-Kutta: four acceleration evaluations per step (at the
   start, twice near the midpoint from two different trial states, and at the end), blended with
   `1:2:2:1` weights. The most accurate of the four per step, at the highest cost per step.
+
+`/arm_sim/set_integrator`'s `method` selects among these same four implementations, and the
+arm's simulation node(s) must actually call into them to advance the live arm's `(q, qdot)`
+every physics tick.
 
 One detail that's easy to get wrong and hard to notice if you do: each method's sub-stages need
 to evaluate the acceleration at the *correct fractional time* — `t`, `t+dt/2`, `t+dt`, whichever
