@@ -49,6 +49,10 @@
 
 [oh.eecs.umich.edu/courses/rob380](https://oh.eecs.umich.edu/courses/rob380)
 
+### Lecture Recordings (UM)
+
+[Lecture Recordings (UM)](https://leccap.engin.umich.edu/leccap/site/elgr8ec69od2pxzlg56)
+
 ## Introduction
 
 AutoRob is an introduction to the computational foundations of autonomous robotics for programming modern mobile manipulation systems. AutoRob covers fundamental concepts in autonomous robotics for the kinematic modeling of arbitrary open-chain articulated robots and algorithmic reasoning for autonomous path and motion planning, with brief coverage of dynamics and motion control. These core concepts are contextualized through their instantiation in modern robot operating systems, such as ROS and LCM. The AutoRob [learning objectives](policies/learning-objectives.md) are geared to ensure students completing the course are fluent programmers capable of computational thought and can develop full-stack mobile manipulation software systems.
