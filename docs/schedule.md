@@ -35,7 +35,7 @@ Lab: Friday 2:30–4:30pm Eastern, Chrysler 151
 | Date | Session | Topic | Notes |
 | --- | --- | --- | --- |
 | Mon Sep 7 | — | **No meeting — Labor Day** | |
-| Fri Sep 11 | Lab | [KinEval: A-Star Manual Coding](https://ocj-dev.github.io/kineval/pathfinding/) | In person |
+| Fri Sep 11 | Lab | [KinEval: A-Star Manual Coding](https://ocj-dev.github.io/kineval/pathfinding/) · [Lecture Video](https://leccap.engin.umich.edu/leccap/player/r/36KykN) | In person |
 | Fri Sep 11 | Optional | KinEval A-Star Walkthrough | |
 | *(optional)* | Optional | [JavaScript and AutoRob Workflow](assets/lectures/autorob_03_jsh5_git.pdf) (PDF) | Project workflow with git; JS/HTML5 tutorial; DOM; version control; Michigan Honor License |
 
@@ -43,22 +43,22 @@ Lab: Friday 2:30–4:30pm Eastern, Chrysler 151
 
 | Date | Session | Topic | Notes |
 | --- | --- | --- | --- |
-| Mon Sep 14 | Lecture | [Dynamical Simulation](assets/lectures/autorob_04_dynamics_pendulum.pdf) (PDF) | Simple pendulum; Lagrangian equations of motion; initial value problem; Euler, Verlet, Velocity Verlet integrators; double pendulum. Spong Ch.7; Corke Ch.9 |
+| Mon Sep 14 | Lecture | [Dynamical Simulation](assets/lectures/autorob_04_dynamics_pendulum.pdf) (PDF) · [Lecture Video](https://leccap.engin.umich.edu/leccap/player/r/eKVhCX) | Simple pendulum; Lagrangian equations of motion; initial value problem; Euler, Verlet, Velocity Verlet integrators; double pendulum. Spong Ch.7; Corke Ch.9 |
 | Mon Sep 14 | Office Hours | Extended office hours — Project 1 support | |
 | Mon Sep 14 | Due | Project 1: Pathfinding (A\*) | |
 | Mon Sep 14 | Release | [Project 2: Pendularm](projects/project2/index.md) | |
-| Fri Sep 18 | Lab | Mutation Code Repair: A-Star | In person |
+| Fri Sep 18 | Lab | Mutation Code Repair: A-Star · [Lecture Video](https://leccap.engin.umich.edu/leccap/player/r/nk6PbJ) | In person |
 | Fri Sep 18 | Checkpoint | Mutation Repair: 1 released mutation solved | |
 
 ## Week 4
 
 | Date | Session | Topic | Notes |
 | --- | --- | --- | --- |
-| Mon Sep 21 | Lecture | [Motion Control](assets/lectures/autorob_05_control_pid.pdf) (PDF) | Cartesian vs. generalized coordinates; open-loop vs. closed-loop control; PID control; rigid body dynamics. Spong 6.3 |
+| Mon Sep 21 | Lecture | [Motion Control](assets/lectures/autorob_05_control_pid.pdf) (PDF) · [Lecture Video](https://leccap.engin.umich.edu/leccap/player/r/P6MCsI) | Cartesian vs. generalized coordinates; open-loop vs. closed-loop control; PID control; rigid body dynamics. Spong 6.3 |
 | Mon Sep 21 | Slides | Cloth Simulation (2026) | |
-| Mon Sep 21 | Lecture | [Inverse Kinematics 1: Closed-Form](assets/lectures/autorob_11_ik_closedform.pdf) (PDF) | Joint vs. endeffector control; planar 2-link arm; closed-form solutions. Spong 3.3; Corke 7.3 |
+| Mon Sep 21 | Lecture | [Inverse Kinematics 1: Closed-Form](https://drive.google.com/file/d/1HzvX_ZnOD0NSrF7_FiRDpK-1szvWPX0V/view?usp=drive_link) (Slides) | Joint vs. endeffector control; planar 2-link arm; closed-form solutions. Spong 3.3; Corke 7.3 |
 | Mon Sep 21 | Quiz | Quiz 1 | |
-| Fri Sep 25 | Lecture | Inverse Kinematics 1 (continued) | |
+| Fri Sep 25 | Lecture | Inverse Kinematics 1 (continued) · [Lecture Video](https://leccap.engin.umich.edu/leccap/player/r/JUofGa) | |
 | Fri Sep 25 | Lab | KinEval: Pendularm Manual Coding | In person |
 | Fri Sep 25 | Optional | pendularm1.html code overview | |
 | Fri Sep 25 | Checkpoint | Project 2: Numerical Integration Step Service | |
