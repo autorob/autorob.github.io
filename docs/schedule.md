@@ -14,7 +14,7 @@
 [Course Schedule (Google Sheet)](https://docs.google.com/spreadsheets/d/175IDKFZSJLymJ2ZCRzDd2OYY6ukzRo4DM9KIuaQrtJ0/edit?usp=sharing)
 
 Lecture: Monday 4:30–7:30pm Eastern, EECS 1500<br>
-Lab: Friday 2:30–4:20pm Eastern, Chrysler 151
+Lab: Friday 2:30–4:30pm Eastern, Chrysler 151
 
 ## Week 1
 
@@ -55,8 +55,10 @@ Lab: Friday 2:30–4:20pm Eastern, Chrysler 151
 | Date | Session | Topic | Notes |
 | --- | --- | --- | --- |
 | Mon Sep 21 | Lecture | [Motion Control](assets/lectures/autorob_05_control_pid.pdf) (PDF) | Cartesian vs. generalized coordinates; open-loop vs. closed-loop control; PID control; rigid body dynamics. Spong 6.3 |
+| Mon Sep 21 | Slides | Cloth Simulation (2026) | |
 | Mon Sep 21 | Lecture | [Inverse Kinematics 1: Closed-Form](assets/lectures/autorob_11_ik_closedform.pdf) (PDF) | Joint vs. endeffector control; planar 2-link arm; closed-form solutions. Spong 3.3; Corke 7.3 |
 | Mon Sep 21 | Quiz | Quiz 1 | |
+| Fri Sep 25 | Lecture | Inverse Kinematics 1 (continued) | |
 | Fri Sep 25 | Lab | KinEval: Pendularm Manual Coding | In person |
 | Fri Sep 25 | Optional | pendularm1.html code overview | |
 | Fri Sep 25 | Checkpoint | Project 2: Numerical Integration Step Service | |
@@ -92,7 +94,7 @@ Lab: Friday 2:30–4:20pm Eastern, Chrysler 151
 | Mon Oct 12 | Lecture | [Inverse Kinematics 2: Optimization](assets/lectures/autorob_12_ik_jacobian.pdf) (PDF) | Gradient descent; manipulator Jacobian; Jacobian transpose/pseudoinverse; Cyclic Coordinate Descent |
 | Mon Oct 12 | Review | Exam Review | |
 | Mon Oct 12 | Optional | [Potential Fields](assets/lectures/autorob_16_potentials_wavefront.pdf) (PDF) | Gradient descent revisited; local search; downhill simplex; wavefront planning |
-| Fri Oct 16 | Lab | Robot Choreography Showcase | In person |
+| Fri Oct 16 | Lab | Project Portfolio Showcase | In person |
 | Fri Oct 16 | Due | Project 3: Forward Kinematics | |
 
 ## Week 8
