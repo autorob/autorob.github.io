@@ -1,7 +1,7 @@
 # AutoRob — Agentic Edition
 
 **Robotics 380 · EECS 367 — Introduction to Autonomous Robotics**<br>
-**Robotics 511 — Mobile Manipulation Systems**
+**Robotics 511 — Mobile Manipulation Systems**<br>
 **Fall 2026**<br>
 **University of Michigan**
 
