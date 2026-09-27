@@ -55,11 +55,11 @@ Lab: Friday 2:30–4:30pm Eastern, Chrysler 151
 | Date | Session | Topic | Notes |
 | --- | --- | --- | --- |
 | Mon Sep 21 | Lecture | [Motion Control](assets/lectures/autorob_05_control_pid.pdf) (PDF) · [Lecture Video](https://leccap.engin.umich.edu/leccap/player/r/P6MCsI) | Cartesian vs. generalized coordinates; open-loop vs. closed-loop control; PID control; rigid body dynamics. Spong 6.3 |
-| Mon Sep 21 | Slides | Cloth Simulation (2026) | |
+| Mon Sep 21 | Slides | [Cloth Simulation (2026)](https://ocj-dev.github.io/kineval/cloth_simulation/) | |
 | Mon Sep 21 | Lecture | [Inverse Kinematics 1: Closed-Form](https://drive.google.com/file/d/1HzvX_ZnOD0NSrF7_FiRDpK-1szvWPX0V/view?usp=drive_link) (Slides) | Joint vs. endeffector control; planar 2-link arm; closed-form solutions. Spong 3.3; Corke 7.3 |
 | Mon Sep 21 | Quiz | Quiz 1 | |
 | Fri Sep 25 | Lecture | Inverse Kinematics 1 (continued) · [Lecture Video](https://leccap.engin.umich.edu/leccap/player/r/JUofGa) | |
-| Fri Sep 25 | Lab | KinEval: Pendularm Manual Coding | In person |
+| Fri Sep 25 | Lab | [KinEval: Pendularm Manual Coding](https://ocj-dev.github.io/kineval/simulation/) | In person |
 | Fri Sep 25 | Optional | pendularm1.html code overview | |
 | Fri Sep 25 | Checkpoint | Project 2: Numerical Integration Step Service | |
 
