@@ -80,7 +80,6 @@ nav:
               - Rust: projects/project2/layouts/rust.md
       - "Project 3: Forward Kinematics":
           - Overview: projects/project3/index.md
-          - Handout: projects/project3/PROJECT3_FK.md
           - FK API: projects/project3/FK_API.md
           - Robot Description: projects/project3/ROBOT_DESCRIPTION.md
       - "Project 4: Inverse Kinematics": projects/project4/index.md
