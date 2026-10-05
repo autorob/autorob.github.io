@@ -85,7 +85,6 @@ Lab: Friday 2:30–4:30pm Eastern, Chrysler 151
 | Mon Oct 5 | Lecture | [Reactive Controllers](assets/lectures/autorob_09_fsm_subsumption.pdf) (PDF) | Reaction vs. deliberation; finite state machines; subsumption architecture; behavior trees. Brooks 1986; Mataric 1992 |
 | Mon Oct 5 | Optional | [Bug Algorithms](assets/lectures/autorob_13_bugs.pdf) (PDF) | Reaction vs. deliberation pt. 2; Bug[0-2]; Tangent Bug. Corke 5 |
 | Fri Oct 9 | Lab | Transform Trees and Joint State Publishers | In person |
-| Fri Oct 9 | Checkpoint | Project 3: Zero Configuration FK Transforms | |
 
 ## Week 7
 
@@ -94,6 +93,7 @@ Lab: Friday 2:30–4:30pm Eastern, Chrysler 151
 | Mon Oct 12 | Lecture | [Inverse Kinematics 2: Optimization](assets/lectures/autorob_12_ik_jacobian.pdf) (PDF) | Gradient descent; manipulator Jacobian; Jacobian transpose/pseudoinverse; Cyclic Coordinate Descent |
 | Mon Oct 12 | Review | Exam Review | |
 | Mon Oct 12 | Optional | [Potential Fields](assets/lectures/autorob_16_potentials_wavefront.pdf) (PDF) | Gradient descent revisited; local search; downhill simplex; wavefront planning |
+| Mon Oct 12 | Checkpoint | Project 3: Zero Configuration FK Transforms | |
 | Fri Oct 16 | Lab | Project Portfolio Showcase | In person |
 | Fri Oct 16 | Due | Project 3: Forward Kinematics | |
 
