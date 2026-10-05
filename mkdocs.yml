@@ -78,7 +78,11 @@ nav:
               - C++: projects/project2/layouts/cpp.md
               - Python: projects/project2/layouts/python.md
               - Rust: projects/project2/layouts/rust.md
-      - "Project 3: Forward Kinematics": projects/project3/index.md
+      - "Project 3: Forward Kinematics":
+          - Overview: projects/project3/index.md
+          - Handout: projects/project3/PROJECT3_FK.md
+          - FK API: projects/project3/FK_API.md
+          - Robot Description: projects/project3/ROBOT_DESCRIPTION.md
       - "Project 4: Inverse Kinematics": projects/project4/index.md
       - "Project 5: Motion Planning": projects/project5/index.md
       - "Project 6: Best Use of Robotics": projects/project6/index.md
