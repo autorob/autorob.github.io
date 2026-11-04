@@ -82,7 +82,10 @@ nav:
           - Overview: projects/project3/index.md
           - FK API: projects/project3/FK_API.md
           - Robot Description: projects/project3/ROBOT_DESCRIPTION.md
-      - "Project 4: Inverse Kinematics": projects/project4/index.md
+      - "Project 4: Inverse Kinematics":
+          - Overview: projects/project4/index.md
+          - IK API: projects/project4/IK_API.md
+          - Robot Description: projects/project4/ROBOT_DESCRIPTION.md
       - "Project 5: Motion Planning": projects/project5/index.md
       - "Project 6: Best Use of Robotics": projects/project6/index.md
   - Lectures & Slides: lectures/index.md
