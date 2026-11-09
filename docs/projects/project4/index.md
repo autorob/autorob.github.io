@@ -97,7 +97,7 @@ The starters contain **no middleware and no nodes**. The natural route is to cop
 Project 3 runtime into your chosen starter directory, keep its gateway, middleware,
 `param_server` and URDF reader, and add the IK services. Extend the `Makefile` so `make build`
 compiles everything and `make run` starts what "Submission, building, and running" lists. See
-`starter/README.md` in the student kit <!-- TODO(staff): link the P4 kit's Drive folder here, as the P3 page does. -->.
+[`starter/README.md`](https://drive.google.com/drive/folders/11NkLSU6C0OWCEbXPLLoirMxPKSUqMSa0?usp=drive_link).
 
 ### The student kit
 
