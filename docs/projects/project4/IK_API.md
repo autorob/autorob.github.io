@@ -18,9 +18,9 @@ control gains.
 
 | Service | What it answers |
 |---|---|
-| `/param_server/set_param`, `/param_server/get_param` | The Project 3 parameter server, unchanged. The robot arrives as the `robot_description` parameter. |
+| `/param_server/set_param`, `/param_server/get_param` | The parameter server, the same as Project 3's (restated below). The robot arrives as the `robot_description` parameter. |
 | `/ik/robot_jacobian` | The manipulator Jacobian of the chain from the robot's root link to an end-effector link, at a given configuration. **This is the checkpoint.** |
-| `/ik/solve_robot_step` | One gradient-descent step toward an end-effector target: Jacobian transpose or damped-least-squares pseudoinverse. |
+| `/ik/solve_robot_step` | One gradient-descent step toward an end-effector target: Jacobian transpose, or the Jacobian pseudoinverse, plain or damped (damped least squares). |
 | `/ik/solve_robot` | Inverse kinematics: iterate that step until the end effector reaches the target, or give up. |
 
 Internal topology is up to you: one node offering all three IK services, three nodes, or IK
@@ -28,8 +28,8 @@ folded into another process. Only the wire is graded.
 
 ## Runtime and Make ABI
 
-`make build`, `make run` and `make clean` work as in Projects 1–3 (see the handout's
-"Submission, building, and running" section).
+`make build`, `make run` and `make clean` are defined in the handout's "Submission, building,
+and running" section (the same rules as Projects 1–3).
 
 - **`make run`** MUST launch the gateway, the parameter server, and whatever answers the IK
   services, and each service you implement MUST be answering within **10 seconds** of `make run`
@@ -58,7 +58,7 @@ only relative to the version `set_param` returns.
 
 ## `param_server`
 
-Unchanged from Project 3. Both services use the standard
+The same as Project 3's, restated here in full. Both services use the standard
 `{"values": {...}, "result": <bool>, "status": <string>}` envelope.
 
 ### `/param_server/set_param`
@@ -114,7 +114,7 @@ Each IK service answers for the robot described by `robot_description`. Read it 
   child (`spec/ROBOT_DESCRIPTION.md`). The Jacobian's rows, a step's or solve's target pose, and
   every reported error are expressed in the frame of the loaded robot's root link. There is
   no world frame or global pose in Project 4.
-- **Forward kinematics is Project 3's:** `T_joint(q) = T_origin · T_motion(q)`, with `rpy`
+- **Forward kinematics (the same as Project 3's):** `T_joint(q) = T_origin · T_motion(q)`, with `rpy`
   fixed-axis (`R = Rz(yaw)·Ry(pitch)·Rx(roll)`), revolute and continuous joints rotating about
   their axis **normalized**, and prismatic joints translating by `q · axis` with the axis **as
   written** (not normalized). See `spec/ROBOT_DESCRIPTION.md`, "Kinematic semantics".
@@ -124,6 +124,26 @@ Each IK service answers for the robot described by `robot_description`. Read it 
   their origin to forward kinematics but have no degree of freedom. Joints on other branches of
   the tree are not part of the chain.
 - **The end-effector point** is the origin of link `e`'s frame, `p_e`.
+
+### Rotations
+
+- A target `orientation` is a unit quaternion `(x, y, z, w)`, with `w` the scalar part (the
+  `geometry_msgs/Pose` convention). `R_target` is its rotation matrix:
+
+  ```text
+  R_target = | 1−2(y²+z²)   2(xy−wz)     2(xz+wy)   |
+             | 2(xy+wz)     1−2(x²+z²)   2(yz−wx)   |
+             | 2(xz−wy)     2(yz+wx)     1−2(x²+y²) |
+  ```
+
+- `R_e(q)` is the rotation of link `e`'s frame in the root-link frame at configuration `q`: the
+  rotation part of link `e`'s forward-kinematics transform.
+- The **angle** of a rotation matrix `R` is `θ = atan2(‖v‖/2, (trace(R) − 1)/2)`, in `[0, π]`,
+  where `v = (R₃₂ − R₂₃, R₁₃ − R₃₁, R₂₁ − R₁₂)`. `R_target · R_eᵀ` and `R_targetᵀ · R_e` have
+  the same angle (their traces are equal).
+- The **rotation vector** of `R` is `θ·u`, with `u` its unit axis: `u = v/‖v‖` when
+  `0 < θ < π`; the zero vector when `θ = 0`; when `θ = π`, a unit `u` with `R = 2uuᵀ − I`
+  (either sign).
 
 ### `joint_state` (request field, all three IK services)
 
@@ -241,9 +261,16 @@ Request:
 | `endeffector_frame` | The end-effector link `e`. |
 | `endeffector_pose` | The target, a `geometry_msgs/Pose` in the root-link frame. `orientation` is a unit quaternion `(x, y, z, w)`; it MUST be ignored when `ik_position_only` is `true`. |
 | `ik_position_only` | `true`: reach the target position only. `false`: position and orientation. |
-| `method` | `"JacobianTranspose"` or `"JacobianPseudoinverse"` (exact strings). |
+| `method` | `"JacobianTranspose"` or `"JacobianPseudoinverse"` (exact strings). `"JacobianPseudoinverse"` is the plain pseudoinverse when λ = 0 and damped least squares when λ > 0. |
 | `step_length` | α > 0. |
 | `damping` | λ ≥ 0, used only by `"JacobianPseudoinverse"`. |
+
+**Defaults.** Every request your runtime is graded on carries all of these fields. The course's
+expected defaults, for a client that leaves one out, are `method` `"JacobianTranspose"`,
+`step_length` 0.1, `ik_position_only` `true`, and `damping` 0 (which makes
+`"JacobianPseudoinverse"` the plain, undamped pseudoinverse). Your runtime MAY reject a request
+that omits one of these four fields or MAY fill the field in; if it fills one in, it SHOULD use
+these defaults. Every other field is required.
 
 **The step (position only).** Let `p_e(q)` be the end-effector point at `q`, `e = p_target −
 p_e(q)` the position error, and `J_v` the 3×n linear part of the Jacobian at `q` (columns in the
@@ -255,8 +282,9 @@ order of the chain's movable joints). Then `q_next = q + Δq` with:
 | `JacobianPseudoinverse` | `Δq = α · J_vᵀ (J_v J_vᵀ + λ² I)⁻¹ e`, or the identical `α · (J_vᵀ J_v + λ² I)⁻¹ J_vᵀ e` |
 
 Each joint's `q_next` MUST be within `1e-4` of the exact value. Solve the small linear system
-(at most 6×6) yourself, for example by Gaussian elimination with partial pivoting; the course
-image has no linear-algebra library.
+yourself, for example by Gaussian elimination with partial pivoting (in the `J_v J_vᵀ` form it is
+3×3 whatever the number of joints, 6×6 for a full-pose step; the `J_vᵀ J_v` form is n×n); the
+course image has no linear-algebra library.
 
 **The step (position and orientation).** With `ik_position_only: false`, use the 6-vector error
 `[e ; e_ω]` and the full 6×n Jacobian. `e_ω` SHOULD be the rotation vector (axis × angle, angle
@@ -279,7 +307,7 @@ Reply (`result: true` for every valid request):
   receive a step that would cross a limit.
 - Errors (`result: false`, non-empty `status`): as for `/ik/robot_jacobian`.
 - UNSPECIFIED: any other `method` string; `step_length <= 0`; `λ = 0` when `J_v J_vᵀ` is
-  singular; a missing field; a non-unit target quaternion.
+  singular; a missing field (see "Defaults" above); a non-unit target quaternion.
 
 ## `/ik/solve_robot` (final)
 
@@ -328,8 +356,9 @@ Reply:
   orientation this is stated for the recommended rotation-vector error. You MAY use a different
   or faster iteration as long as it meets this.
 - **Time (SHOULD).** For a chain of at most 10 movable joints and `max_iterations <= 2000`, the
-  reply SHOULD arrive within **5 seconds**. Make sure your gateway's service-call timeout is longer
-  than your slowest solve.
+  reply SHOULD arrive within **5 seconds**. A test makes several calls within its time limit, so
+  faster is safer. Make sure your gateway's service-call timeout is longer than your slowest
+  solve.
 - Errors (`result: false`, non-empty `status`, no `configuration_solution` required): as for the
   step.
 - UNSPECIFIED: a starting configuration outside the joint limits; any input the step leaves
@@ -340,9 +369,10 @@ Reply:
 These are OUT OF SCOPE for the graded runtime. A runtime MAY offer them; none is graded:
 
 - dynamics of any kind: mass, inertia, gravity, simulation, PID or gain tuning;
-- the IK action and trial nodes (`/ik_action_robot/*`, `/ik_trial_robot/*`,
-  `/joint_trajectory`), and the IK setpoint competition;
-- world-frame targets, `/global_pose` and `/xform_world`;
+- the nodes and topics of the course's later IK setpoint competition (a separate activity), such
+  as IK action and trial nodes and joint-trajectory topics;
+- targets in a world frame (a robot placed somewhere in a world) and world-frame poses: every pose
+  in Project 4 is in the root-link frame;
 - defaults taken from live state: the latest `/joint_states`, an `endeffector_frame` parameter, or
   a list of preferred link names;
 - progress or "ghost" topics published during a solve, and pausing between iterations;

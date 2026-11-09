@@ -6,7 +6,7 @@ root element is `<robot>`. It reaches student code as one JSON string, the value
 with `/param_server/get_param` (`spec/IK_API.md`). This is the same format as Project 3: your
 Project 3 parser can be reused unchanged. Students parse the
 XML themselves. Each starter ships a course-supplied XML parser as vendored source, which a
-student MAY use or replace (see the starter READMEs). XML plumbing is not the learning objective;
+student MAY use or replace (see `starter/README.md`). XML plumbing is not the learning objective;
 interpreting URDF is.
 
 A description is the URDF exactly as a robot ships it, unmodified. Real robot URDFs, such as
@@ -60,7 +60,7 @@ Only these parts of the document have meaning. Everything else MUST be ignored.
 | `<joint>` → `<parent link="..."/>`, `<child link="..."/>` | MUST | Direct children of the joint. `link` MUST name a link of the robot. |
 | `<joint>` → `<origin xyz="x y z" rpy="r p y"/>` | MAY be absent | A missing `<origin>`, `xyz`, or `rpy` means all zeros, as in URDF. |
 | `<joint>` → `<axis xyz="x y z"/>` | MAY be absent | Defaults to `1 0 0`, as in URDF, and so does an `<axis>` with no `xyz`. Ignored for `fixed` joints, but a malformed `xyz` is still rejected. |
-| `<joint>` → `<limit lower="..." upper="..."/>` | MUST for `revolute` and `prismatic` | A `revolute` or `prismatic` joint with no `<limit>` element MUST be rejected. A missing `lower` or `upper` means `0`; a present one MUST be a number. FK and the Jacobian MUST NOT clamp a requested configuration to it; only `/ik/solve_robot` results must lie within it (`spec/IK_API.md`). For `continuous` and `fixed` joints `<limit>` is ignored entirely, even if malformed. |
+| `<joint>` → `<limit lower="..." upper="..."/>` | MUST for `revolute` and `prismatic` | A `revolute` or `prismatic` joint with no `<limit>` element MUST be rejected. A missing `lower` or `upper` means `0`; a present one MUST be a number. FK and the Jacobian MUST NOT clamp a requested configuration to it; only `/ik/solve_robot` results must lie within it (`spec/IK_API.md`). For `continuous` and `fixed` joints `<limit>` is ignored entirely, even if malformed. A `lower` greater than `upper` is UNSPECIFIED. |
 
 "Direct child" is exact. `<link>` and `<joint>` elements nested anywhere else are not links
 or joints of the robot, and MUST be ignored. Real URDFs contain such nested elements: PR2 has
@@ -135,9 +135,8 @@ OUT OF SCOPE.
 
 A description MAY be large. Real robots ship URDFs of 100 KB and more (PR2 is 103,573
 bytes). A runtime MUST accept a description whose `set_param` request line, and the
-`get_param` reply that carries it back, are up to 1 MiB each, which is well inside the 4 MiB
-line limit of `spec/ROSBRIDGE_PROTOCOL.md`. This includes the student's own gateway and every
-node-to-node connection.
+`get_param` reply that carries it back, are up to 1 MiB each. This includes the student's own
+gateway and every node-to-node connection.
 
 ## Kinematic semantics (URDF conventions, restated)
 

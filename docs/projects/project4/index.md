@@ -13,21 +13,24 @@ on top of your Project 3 runtime:
 1. **`/ik/robot_jacobian`** — the manipulator Jacobian of any chain of a loaded URDF robot, at
    any configuration. This is the checkpoint.
 2. **`/ik/solve_robot_step`** — one gradient-descent step toward an end-effector target, using
-   either the **Jacobian transpose** or the **damped-least-squares (Jacobian pseudoinverse)**
-   method.
+   either the **Jacobian transpose** or the **Jacobian pseudoinverse**, plain or damped (damped
+   least squares).
 3. **`/ik/solve_robot`** — the full solve: iterate that step until the end effector reaches the
    target position (and, optionally, orientation), or report honestly that it did not.
 
 Project 4 is **kinematics only**: no mass, inertia, gravity, simulation or control gains.
 
+**Dates.** Released Mon Nov 9, 2026. The checkpoint is due **Fri Nov 13, 2026** and the project
+is due **Wed Nov 18, 2026**.
+
 The robot arrives exactly as in Project 3: as the URDF text of `robot_description`, set on your
-**parameter server**. Everything speaks the same ROS-like protocol on the same
+**parameter server**. Everything speaks the same ROS-like [protocol](../project1/ROSBRIDGE_PROTOCOL.md) on the same
 `127.0.0.1:9095` TCP/JSON gateway as Projects 1–3: newline-delimited JSON over a plain TCP
 socket, not HTTP and not WebSocket. **Bring your own Project 1 middleware and gateway and your
 Project 3 parameter server, URDF reader and forward kinematics.** The starters do not include
 them.
 
-**Do not use a kinematics, linear-algebra or URDF-model library.** Implement the Jacobian, the
+**Do not use an external kinematics, linear-algebra or URDF-model library.** Implement the Jacobian, the
 small linear solve and the iteration yourself. The course image has no numeric library anyway
 (no Eigen, BLAS, LAPACK or numpy). The one piece of plumbing the course supplies is the same
 **XML parser** as Project 3. You may use Python, C, C++, or Rust, and internal process/thread
@@ -41,9 +44,12 @@ handout and the spec differ, the spec wins.
 
 - Build the **manipulator Jacobian** from a robot's kinematic tree: which joints move a given
   link, and how each one moves it (rotation about an axis, or translation along it).
-- Turn an end-effector error into joint motion with the **Jacobian transpose**
-  (`Δq = α·Jᵀ·e`) and the **damped-least-squares pseudoinverse**
-  (`Δq = α·Jᵀ(JJᵀ + λ²I)⁻¹e`), and see why damping keeps the step bounded near a singularity.
+- Turn an end-effector error into joint motion with three methods: the **Jacobian transpose**
+  (`Δq = α·Jᵀ·e`), the **Jacobian pseudoinverse** (`Δq = α·Jᵀ(JJᵀ)⁻¹e`), and its damped form,
+  **damped least squares** (`Δq = α·Jᵀ(JJᵀ + λ²I)⁻¹e`). See why the plain pseudoinverse blows up
+  near a singularity and how damping keeps the step bounded. The services offer the last two as
+  one method, `"JacobianPseudoinverse"` with a damping λ: λ = 0 is the plain pseudoinverse, the
+  special case of damped least squares.
 - Iterate to a solution, respect **joint limits**, and report **honestly** when a target is out
   of reach.
 - Extend position IK to a **full pose** with an orientation error that does not depend on how
@@ -90,17 +96,21 @@ in Project 3:
 The starters contain **no middleware and no nodes**. The natural route is to copy your
 Project 3 runtime into your chosen starter directory, keep its gateway, middleware,
 `param_server` and URDF reader, and add the IK services. Extend the `Makefile` so `make build`
-compiles everything and `make run` starts what "Submission, building, and running" lists. See `starter/README.md` in the student kit.
-<!-- TODO(staff): link the P4 kit's Drive folder here, as the P3 page does. -->
+compiles everything and `make run` starts what "Submission, building, and running" lists. See
+`starter/README.md` in the student kit <!-- TODO(staff): link the P4 kit's Drive folder here, as the P3 page does. -->.
 
 ### The student kit
 
 This handout, the specs it links to, the four starters, and a submission script are available
 pre-packaged as the **student kit**: a bundle with no other course-repo material, distributed by
-course staff. Its `README.md` lists what is inside. For a real robot to try your runtime on, use
-the Fetch description from the Project 3 kit (`robots/fetch/fetch.urdf`, licensed CC BY-NC-SA
-4.0): its chain from `base_link` to `gripper_link` has 8 movable joints, a prismatic torso lift
-and 7 arm joints, three of them continuous.
+course staff. Its `README.md` lists what is inside.
+
+The kit ships no robot description. Start from the two-link arm in
+`spec/ROBOT_DESCRIPTION.md` (its Jacobian is worked in full in `spec/IK_API.md`), then write
+small URDFs of your own that cover what that one does not: a prismatic joint with a non-unit
+axis, a fixed joint inside the chain, a branch off the chain, and a chain of more than six
+movable joints. Real robots' published URDF files are valid descriptions too, under the rules of
+`spec/ROBOT_DESCRIPTION.md`.
 
 ## Submission, building, and running
 
@@ -119,8 +129,8 @@ kit, `./make_submission.sh <c|cpp|python|rust>` at its root builds a correctly s
 
 - `make build` is noninteractive, repeatable, and offline: the grading environment has no
   network. It must finish within the setup time limit (**180 s**, including extraction). Use
-  only the course image's toolchain and libraries (the same ones as Projects 1–3) plus source
-  you include in your submission, such as the vendored XML parser.
+  only what the course environment provides (listed below) plus source you include in your
+  submission, such as the vendored XML parser.
 - `make run` launches your runtime in the foreground, exposing `127.0.0.1:9095`: your gateway,
   `param_server`, and whatever answers the three IK services. It needs **no** files, environment
   variables, or command-line arguments, and it starts with **no robot loaded**: every robot
@@ -132,11 +142,28 @@ kit, `./make_submission.sh <c|cpp|python|rust>` at its root builds a correctly s
   a viewer.
 - `make clean` removes generated artifacts.
 
+**What the course environment provides** (the same for every project; nothing else is installed,
+and nothing can be downloaded):
+
+| | Available |
+|---|---|
+| All languages | Ubuntu 24.04; GNU Make, Bash, standard Unix process tools; CMake if you want it |
+| Python | Python 3.12 and its standard library only: no pip packages (no numpy) |
+| C | GCC 13 with C17, libc/POSIX, sockets and pthreads; cJSON (`#include <cjson/cJSON.h>`, link `-lcjson`) |
+| C++ | G++ 13 with C++20, libc/POSIX, sockets and `std::thread`; nlohmann JSON (`#include <nlohmann/json.hpp>`, header-only) |
+| Rust | Rust 1.85.1 and its standard library; one crate, `serde_json` 1.0.151 (with the crates it depends on), resolved offline: declare it as `serde_json = { version = "=1.0.151", features = ["float_roundtrip"] }`. Any other crate fails to resolve, unless you include its source in your submission as a path dependency, as the starter does with `roxmltree`. `starter/README.md` lists the exact crate versions for your `Cargo.lock` |
+
+As the overview says, do not add an external kinematics, linear-algebra or URDF-model library to your
+submission either.
+
 **Your own tests (optional, not graded).** You may also submit up to 25 pass/fail tests of your
 own in a `tests/` folder, run with `make test` while `make run` is running in another terminal.
-They come with your project into the mutation challenge as a debugging aid. The README in your
-starter's `tests/` folder gives the rules and an example (the Jacobian of the spec's worked
-two-link arm).
+They come with your project into the course's mutation challenge, a separate activity that course
+staff describe when it starts; the README's notes about it (your container, `autograde`, comments
+removed) apply only there. The README in your starter's `tests/` folder gives the rules. It is
+the same in every project, so its examples call earlier projects' services (such as
+`/heap_sort`); `test_jacobian_example.py` next to it is the Project 4 example (the Jacobian of
+the spec's worked two-link arm).
 
 ## Autograder.io
 
@@ -146,8 +173,11 @@ connects externally to `127.0.0.1:9095` using the documented TCP/JSON protocol. 
 through `/param_server/set_param` and calls your three IK services. It never reads your files,
 logs, or output. No frontend or visualization is part of grading.
 
-There are two hosted projects: the **checkpoint** and the **final project**. Each test is
-all-or-nothing and has a time limit, so keep startup fast.
+There are two hosted projects: the **checkpoint** (38 points: categories A and B, except B's
+near-1 MiB description) and the **final project** (100 points; see "Grading"). Each test is
+all-or-nothing and has a time limit that covers starting your runtime and several calls, so keep
+startup fast, and treat the 5-second solve guidance below as a ceiling for one solve, not a
+target.
 
 **Do not hard-code version numbers.** Other robots may already have been loaded into your
 runtime before the one you care about. A `version` means something only relative to the version
@@ -155,8 +185,8 @@ runtime before the one you care about. A `version` means something only relative
 
 **Raise your gateway's service-call timeout.** Your Project 1 gateway gives up on a service call
 after a few seconds. A solve on a long chain can take a while in Python, so make your gateway
-wait longer than your slowest solve (the spec recommends a solve reply within 5 s for chains of
-up to 10 movable joints and 2000 iterations, and a gateway wait well above that).
+wait longer than your slowest solve (the spec recommends that a solve reply arrive within 5 s
+for chains of up to 10 movable joints and 2000 iterations).
 
 ## Request line size
 
@@ -166,9 +196,9 @@ up to 10 movable joints and 2000 iterations, and a gateway wait well above that)
 > a description can come close to 1 MiB. **A fixed 64 KiB line buffer will fail; read until the
 > newline**, in the gateway and in every node-to-node connection.
 
-## Project checkpoint — Jacobian given URDF
+## Project checkpoint — Robot Jacobian Service
 
-**Project checkpoint:** due **TBD** (the date is announced with the release).
+**Project checkpoint:** due **Fri Nov 13, 2026**.
 
 Given a robot description, a configuration and an end-effector link, your runtime returns the
 **manipulator Jacobian**. The checkpoint uses your parameter server (`/param_server/set_param`
@@ -260,10 +290,20 @@ row (as a 3×n matrix):
 | `"JacobianTranspose"` | `α · J_vᵀ · e` |
 | `"JacobianPseudoinverse"` | `α · J_vᵀ (J_v J_vᵀ + λ² I)⁻¹ e` (or the identical `α · (J_vᵀ J_v + λ² I)⁻¹ J_vᵀ e`) |
 
-Solve the small (at most 6×6) linear system yourself, for example by Gaussian elimination with
-partial pivoting. Every joint's `q + Δq` must be within `1e-4` of the exact value. Note that
-λ appears **squared**, and that with fewer than three movable joints `J_v J_vᵀ` is singular
-without damping.
+`"JacobianPseudoinverse"` with λ = 0 is the plain pseudoinverse, `α · J_vᵀ (J_v J_vᵀ)⁻¹ e`; any
+λ > 0 makes it damped least squares.
+
+**Expected default values.** Every graded request carries all of `method`, `step_length`,
+`ik_position_only` and `damping`. If your runtime fills in one that a client left out, use the
+course's defaults: `method` `"JacobianTranspose"`, `step_length` 0.1, `ik_position_only` `true`,
+and `damping` 0 (the plain pseudoinverse). Rejecting such a request is also fine.
+
+Solve the small linear system yourself, for example by Gaussian elimination with partial
+pivoting: in the `J_v J_vᵀ` form it is 3×3 whatever the number of joints (6×6 for a full-pose
+step), while the `J_vᵀ J_v` form is n×n. Every joint's `q + Δq` must be within `1e-4` of the
+exact value. Note that λ appears **squared**, and that without damping `J_v J_vᵀ` is singular
+whenever the chain cannot move the end effector in all three directions: with fewer than three
+movable joints, and for any planar arm, the worked two-link example included.
 
 With `ik_position_only: false` the step uses the 6-vector error `[e ; e_ω]` and the whole 6×n
 Jacobian. The spec recommends `e_ω` = the rotation vector (axis × angle) of `R_target · R_eᵀ`.
@@ -285,7 +325,7 @@ rotation vector is the one that does not suffer from gimbal lock.
 
 Reply with the final `configuration_solution`, `converged`, `final_error` (the position error
 and the orientation error, or `null` for a position-only solve) **of the configuration you
-return**, `iterations`, and `description_version`; `result` equals `converged`. A target the
+return**, and `description_version`, and optionally `iterations`; `result` equals `converged`. A target the
 robot cannot reach is a normal `converged: false` reply, not an error.
 
 What is graded:
@@ -347,8 +387,11 @@ Things worth testing yourself:
   Jacobian bug.
 - **Chains in trees.** A robot with two arms: the left gripper's chain must not include right-arm
   joints. Fixed joints in the middle of a chain.
-- **Real robots.** Fetch's `gripper_link` (8 movable joints, a prismatic torso). For your line
-  size, any flat URDF over 64 KiB, or a robot of your own with a few thousand fixed links.
+- **Real robots.** The real robots used in grading are not in the kit, but everything their URDFs
+  contain is covered by `spec/ROBOT_DESCRIPTION.md`: give your own test URDFs those features (a
+  long arm chain with a prismatic joint in it, hollow `<joint>` elements inside `<gazebo>`
+  blocks, comments, namespace declarations). For your line size, a robot of your own with a few
+  thousand fixed links, well over 64 KiB.
 - **Steps by hand.** A two-link arm at `q = 0` toward a nearby target: compute `α·J_vᵀ·e` on paper
   and compare. Then the damped step with two values of λ.
 - **Solves.** A reachable target (pick a configuration, compute its FK, and solve for it from a
